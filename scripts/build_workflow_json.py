@@ -53,7 +53,7 @@ def wf_drafts(adv_cat: int, brief_cat: int, staff_group: str) -> dict:
         node("pm", "action:send_personal_message", "Notify staff", 1200, 0, {
             "recipient_group_names": [staff_group], "sender_username": "system",
             "title": "={{ \"Draft ready for review: \" + $(\"Webhook\").item.json.body.title }}",
-            "raw": "=A new draft was created from the {{ $(\"Webhook\").item.json.body.kind }} automation (external id {{ $(\"Webhook\").item.json.body.external_id }}).\n\nTopic: /t/{{ $json.topic_id }}\n\nReview it, edit if needed, then move it to the News category (86) to publish."}),
+            "raw": "=A new draft was created from the {{ $(\"Webhook\").item.json.body.kind }} automation (external id {{ $(\"Webhook\").item.json.body.external_id }}).\n\nTopic: /t/{{ $json.topic_id }}\n\nReview it, edit if needed, then publish it: weekly advisories go to Security Advisory (86), daily briefings are published from the blog editor."}),
     ]
     conns = {
         "Webhook": link(["Is weekly advisory"]),

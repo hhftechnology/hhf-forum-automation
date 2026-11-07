@@ -33,7 +33,7 @@
       "name": "Latest weekly-advisory run",
       "parameters": {
         "method": "GET",
-        "url": "https://api.github.com/repos/OWNER/hhf-forum-automation/actions/workflows/weekly-advisory.yml/runs?per_page=1",
+        "url": "https://api.github.com/repos/hhftechnology/hhf-forum-automation/actions/workflows/weekly-advisory.yml/runs?per_page=1",
         "authentication": "none",
         "headers": {
           "values": [
@@ -63,7 +63,7 @@
       "name": "Latest daily-briefing run",
       "parameters": {
         "method": "GET",
-        "url": "https://api.github.com/repos/OWNER/hhf-forum-automation/actions/workflows/daily-briefing.yml/runs?per_page=1",
+        "url": "https://api.github.com/repos/hhftechnology/hhf-forum-automation/actions/workflows/daily-briefing.yml/runs?per_page=1",
         "authentication": "none",
         "headers": {
           "values": [

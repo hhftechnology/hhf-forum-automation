@@ -84,7 +84,7 @@
         "operation": "create",
         "title": "={{ $json.body.title }}",
         "raw": "={{ $json.body.raw }}",
-        "category_id": 0,
+        "category_id": 114,
         "actor_username": "system"
       },
       "credentials": {},
@@ -103,7 +103,7 @@
         "operation": "create",
         "title": "={{ $json.body.title }}",
         "raw": "={{ $json.body.raw }}",
-        "category_id": 0,
+        "category_id": 113,
         "actor_username": "system"
       },
       "credentials": {},
@@ -142,7 +142,7 @@
         ],
         "sender_username": "system",
         "title": "={{ \"Draft ready for review: \" + $(\"Webhook\").item.json.body.title }}",
-        "raw": "=A new draft was created from the {{ $(\"Webhook\").item.json.body.kind }} automation (external id {{ $(\"Webhook\").item.json.body.external_id }}).\n\nTopic: /t/{{ $json.topic_id }}\n\nReview it, edit if needed, then move it to the News category (86) to publish."
+        "raw": "=A new draft was created from the {{ $(\"Webhook\").item.json.body.kind }} automation (external id {{ $(\"Webhook\").item.json.body.external_id }}).\n\nTopic: /t/{{ $json.topic_id }}\n\nReview it, edit if needed, then publish it: weekly advisories go to Security Advisory (86), daily briefings are published from the blog editor."
       },
       "credentials": {},
       "webhookId": null,
