@@ -227,10 +227,10 @@ def test_pseudo_resolved_from_release_after_commit(tmp_path):
 def test_pseudo_without_tag_falls_back_to_commit(tmp_path):
     a = _pseudo_adv()
     weekly.resolve_pseudo(a, _fx(tmp_path, {}))
-    assert a.fixed == "Fixed in commit abcdef1 (no tagged release yet)" and a.fixed_version is None
+    assert a.fixed == "Fixed upstream in commit abcdef1. Check the latest release." and a.fixed_version is None and a.fix_commit == "abcdef1"
     g = weekly.Group("Gitea", [a])
     v = weekly.view(g, "p")
-    assert "0.0.0-2026" not in json.dumps(v) and "Fixed in commit abcdef1" in json.dumps(v, ensure_ascii=False)
+    assert "0.0.0-2026" not in json.dumps(v) and "Fixed upstream in commit abcdef1" in json.dumps(v, ensure_ascii=False)
 
 
 def test_markdown_templates_do_not_autoescape():
@@ -476,7 +476,7 @@ def test_commit_fix_without_containing_tag_keeps_commit_text(tmp_path):
     fx = _commit_fx(tmp_path, set(), releases_json=[{"tag_name": "v1", "html_url": "u", "published_at": "2026-11-04T00:00:00Z", "body": ""}])
     a = _commit_adv()
     weekly.resolve_pseudo(a, fx)
-    assert a.fixed == "Fixed in commit abc1234 (no tagged release yet)"
+    assert a.fixed == "Fixed upstream in commit abc1234. Check the latest release." and a.fix_commit == "abc1234"
 
 
 def test_disclosed_line_extras():
@@ -532,7 +532,8 @@ def test_nvd_matching_uses_only_vulnerable_cpes_of_the_project():
 
 KEV_WP = {"cveID": "CVE-2026-119977", "vendorProject": "WordPress", "product": "WordPress Core", "vulnerabilityName": "WordPress Core RCE",
           "dateAdded": "2026-11-03", "shortDescription": "WordPress core upgrade-window RCE.",
-          "requiredAction": "Apply mitigations per vendor instructions or discontinue use.", "dueDate": "2026-11-24"}
+          "requiredAction": "Apply mitigations in accordance with vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2026-11-24"}
 
 
 def _kev_fx(tmp_path, entries):
@@ -543,12 +544,14 @@ def _kev_fx(tmp_path, entries):
         if req.url.params.get("cveId") == "CVE-2026-119977":
             return httpx.Response(200, json={"vulnerabilities": [{"cve": {
                 "id": "CVE-2026-119977", "published": "2026-10-28T09:00:00.000",
-                "descriptions": [{"lang": "en", "value": "WordPress core can be made to execute attacker PHP while an upgrade runs."}],
+                "descriptions": [{"lang": "en", "value": "WordPress Core is vulnerable to Remote Code Execution in versions 4.7 through 7.1.3 during upgrades."}],
                 "metrics": {"cvssMetricV31": [{"type": "Primary", "cvssData": {"baseScore": 8.1, "baseSeverity": "HIGH"}}]},
                 "references": []}}]})
         return httpx.Response(200, json={"resultsPerPage": 0, "totalResults": 0, "vulnerabilities": []})
 
-    h = make_router({"www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json": kev,
+    wp = {"offers": [{"version": v} for v in ("7.1.4", "7.0.8", "6.9.11", "6.8.12", "7.2.0", "7.1.3")]}
+    h = make_router({"api.wordpress.org/core/version-check/1.7/": lambda r: httpx.Response(200, json=wp),
+                     "www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json": kev,
                      "services.nvd.nist.gov/rest/json/cves/2.0": nvd, "api.github.com/advisories": lambda r: httpx.Response(200, json=[])})
     return Fetcher(cache_dir=tmp_path, client=httpx.Client(transport=httpx.MockTransport(h)), sleep=lambda s: None, max_retries=0)
 
@@ -560,7 +563,10 @@ def test_kev_entry_in_window_becomes_the_first_item(tmp_path):
     assert re.search(r"^### \*\*1\. WordPress: ", raw, re.M)
     assert "**CVE-2026-119977** | Disclosed: October 28, 2026 (added to CISA KEV November 3)" in raw
     assert "* **Severity** : High (CVSS 8.1), on CISA KEV" in raw
-    assert "* **Workaround** : Apply mitigations per vendor instructions or discontinue use." in raw  # no comma in this text
+    assert "* **Workaround** : None published. Upgrade." in raw and "vendor instructions" not in raw  # CISA boilerplate is never shown
+    assert "* **Affected** : 4.7 – 7.1.3" in raw
+    assert "* **Fixed** : 7.1.4, 7.0.8, 6.9.11, 6.8.12 (and backports)" in raw
+    assert "No fix yet" not in raw and "no tagged" not in raw.lower()
     assert "| CVE-2026-119977 | 8.1 | Known exploited (CISA KEV) | N/A | Patch now |" in raw
     assert "**Exploited first**: WordPress CVE-2026-119977 is on CISA’s KEV list" in raw
     assert "ClickHouse" not in raw and "CVE-2026-111497" not in raw  # the Brotli entry belongs to nobody on the watchlist
@@ -645,3 +651,87 @@ def test_action_follows_severity_when_unscored():
     a = Advisory(key="GHSA-1", ghsa="GHSA-1", title="t", project="p", severity="critical")
     r = a.rows()[0]
     assert r["cvss"] == "Critical (no score)" and r["action"] == "Patch within 72h"
+
+
+def test_parse_affected_phrases():
+    from hhf.textfmt import parse_affected
+    cases = {
+        "WordPress Core is vulnerable in versions 4.7 through 7.1.3.": "4.7 – 7.1.3",
+        "Affects versions 2.0.1 to 2.4.9 of the server": "2.0.1 – 2.4.9",
+        "All releases 5.0 before 5.2.3 are affected": "5.0 – before 5.2.3",
+        "This issue affects Foo up to and including 3.4.5": "≤ 3.4.5",
+        "In ssh in OpenSSH before 10.6, a bug": "before 10.6",
+        "prior to 1.9.2 an attacker can": "before 1.9.2",
+        "affects builds < 4.1.0": "before 4.1.0",
+        "affected through 12.4": "≤ 12.4",
+    }
+    for text, want in cases.items():
+        assert parse_affected(text)["text"] == want, text
+    assert parse_affected("a generic flaw, no versions") is None
+    assert parse_affected("versions 4.7 through 7.1.3")["lo"] == "4.7"
+
+
+def test_wordpress_fixes_per_branch():
+    fx = type("F", (), {"get_json": lambda self, url, **k: {"offers": [{"version": v} for v in ("7.1.4", "7.0.8", "6.9.11", "7.2.0", "5.0")]}})()
+    assert weekly.wordpress_fixes("6.9", "7.1.3", fx) == ["7.1.4", "7.0.8", "6.9.11"]  # 7.2.0 is a newer branch, 5.0 predates the range
+
+
+def test_tag_search_lists_pages_filters_old_tags_and_caps_compares(tmp_path):
+    tags = [{"name": f"{i // 10}.{i % 10}.0"} for i in range(250, 0, -1)] + [{"name": "nightly"}, {"name": "9.9.0-rc1"}]
+    calls = {"compare": 0, "pages": []}
+
+    def handler(req):
+        path = req.url.path
+        if path.endswith("/commits/" + SHA):
+            return httpx.Response(200, json={"commit": {"committer": {"date": "2026-10-30T00:00:00Z"}}})
+        if path.endswith("/releases"):
+            return httpx.Response(200, json=[])
+        if path.endswith("/tags"):
+            page = int(req.url.params.get("page", 1))
+            calls["pages"].append(page)
+            return httpx.Response(200, json=tags[(page - 1) * 100: page * 100])
+        if "/compare/" in path:
+            calls["compare"] += 1
+            t = path.split("/compare/")[1].split("...")[0]
+            major, minor, _ = (int(x) for x in t.split("."))
+            return httpx.Response(200, json={"status": "behind" if major * 10 + minor >= 120 else "ahead"})
+        return httpx.Response(404, json={})
+    fx = Fetcher(cache_dir=tmp_path, client=httpx.Client(transport=httpx.MockTransport(handler)), sleep=lambda s: None, max_retries=0)
+    got = weekly.tag_containing("o/r", SHA, fx, [weekly.MAX_COMPARE], hi=("5.0.0", True))
+    assert got == "12.0.0" and calls["compare"] <= 8 and calls["pages"] == [1, 2, 3]
+
+
+def test_no_fix_claims_need_explicit_evidence():
+    a = Advisory(key="CVE-1", title="t", project="P", group="P", cves=["CVE-1"], severity="high", cvss=8.0,
+                 description="The product is affected. There is no fix available.", osv_checked=True)
+    weekly.resolve_fixed(a, None)
+    assert a.unpatched is True
+    g = weekly.Group("P", [a])
+    assert any(b.startswith("**No fix yet**") for b in weekly.takeaways([g], [], []))
+    # OSV unknown, or a fix commit found: never "no fix"
+    b = Advisory(key="CVE-2", title="t", project="P", group="P", cves=["CVE-2"], severity="high",
+                 description="There is no fix available.", osv_checked=False)
+    weekly.resolve_fixed(b, None)
+    assert b.unpatched is False
+    c = Advisory(key="CVE-3", title="t", project="P", group="P", cves=["CVE-3"], severity="high", fix_commit="abc1234",
+                 fixed="Fixed upstream in commit abc1234. Check the latest release.", description="no fix available", osv_checked=True)
+    weekly.resolve_fixed(c, None)
+    gs = [weekly.Group("P", [b]), weekly.Group("Q", [c])]
+    assert not [x for x in weekly.takeaways(gs, [], []) if x.startswith("**No fix yet**")]
+    v = weekly.view(weekly.Group("P", [c]), "p")
+    assert "* **Fixed**" not in v["fixed"] and v["fixed"] == "Fixed upstream in commit abc1234. Check the latest release."
+    assert "1. Upgrade to the latest release (the fix is in commit abc1234)." in v["steps_line"]
+    vb = weekly.view(weekly.Group("P", [b]), "p")
+    assert "no fix yet" not in (vb["fixed"] + vb["steps_line"]).lower() and "ships" not in vb["steps_line"]
+
+
+def test_kev_boilerplate_is_never_a_workaround():
+    a = Advisory(key="CVE-1", title="t", project="WordPress", cves=["CVE-1"], kev_aliases=[{"product": "WordPress"}])
+    e = {"cveID": "CVE-1", "vendorProject": "WordPress", "product": "WordPress", "dateAdded": "2026-11-03",
+         "requiredAction": "Apply mitigations in accordance with vendor instructions, ensuring compliance with BOD 26-04."}
+    weekly.finalize(a, {}, None, {"CVE-1": e}, {}, {})
+    assert a.is_kev and a.workaround == ""
+    assert weekly.view(weekly.Group("WordPress", [a]), "p")["workaround"] == "None published. Upgrade."
+    b = Advisory(key="CVE-2", title="t", project="WordPress", cves=["CVE-2"], kev_aliases=[{"product": "WordPress"}])
+    weekly.finalize(b, {}, None, {"CVE-2": {**e, "cveID": "CVE-2", "requiredAction": "Disable the plugin until a patch ships."}}, {}, {})
+    assert b.workaround == "Disable the plugin until a patch ships."

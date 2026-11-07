@@ -22,7 +22,7 @@ from . import ai as ai_mod
 from .facts import Advisory, fmt_date, fmt_range, has_public_poc, kev_matches, md_text, severity_from_cvss
 from .sources import epss, ghsa, kev, nvd, osv, releases, ubuntu
 from .sources.base import Fetcher, SourceError, default_fetcher
-from .textfmt import (COMMIT_RE, clause_phrase, clip_phrase, norm_tag, nvd_short_title, fit_title, is_commit, humanize_ranges, is_pseudo, join_list, join_names, lower_phrase, pseudo_parts, scrub_pseudo,
+from .textfmt import (COMMIT_RE, parse_affected, vkey, clause_phrase, clip_phrase, norm_tag, nvd_short_title, fit_title, is_commit, humanize_ranges, is_pseudo, join_list, join_names, lower_phrase, pseudo_parts, scrub_pseudo,
                       short_title, strip_project, title_case)
 
 log = logging.getLogger("hhf.weekly")
@@ -169,7 +169,7 @@ def _names(project: dict) -> list[str]:
 
 
 def _project_fields(project: dict) -> dict:
-    return {"kev_aliases": project.get("kev", []), "vendor": project.get("vendor", ""), "ubuntu_packages": project.get("ubuntu_packages", []),
+    return {"releases_type": (project.get("releases") or {}).get("type", ""), "kev_aliases": project.get("kev", []), "vendor": project.get("vendor", ""), "ubuntu_packages": project.get("ubuntu_packages", []),
             "ubuntu_service": project.get("ubuntu_service", "")}
 
 
@@ -216,10 +216,11 @@ def advisory_from_nvd(n: dict, project: dict) -> Advisory:
 MAX_COMPARE = 8
 
 
-def tag_containing(repo: str, sha: str, fx: Fetcher, budget: list[int]) -> str | None:
+def tag_containing(repo: str, sha: str, fx: Fetcher, budget: list[int], hi: tuple[str, bool] | None = None) -> str | None:
     """The first release/tag that contains commit `sha`, using GET /compare/{tag}...{sha} (status behind/identical).
 
-    `budget` is a one-element list counting the compare calls still allowed for this item.
+    `budget` is a one-element list counting the compare calls still allowed for this item. `hi` is the highest affected
+    version (version, inclusive): older tags cannot be the fix, so they are never compared.
     """
     base = f"{ghsa.API}/repos/{repo}"
     try:
@@ -239,27 +240,100 @@ def tag_containing(repo: str, sha: str, fx: Fetcher, budget: list[int]) -> str |
         return d.get("status") in ("behind", "identical")
 
     rels = [r for r in releases.latest(repo, fx, per_page=30) if not r["prerelease"] and r["tag"]]
-    if rels:  # published on/after the commit, oldest first
-        later = sorted((_dt(r["published"]), r["tag"]) for r in rels if _dt(r["published"]) and _dt(r["published"]) >= cdate)
-        return next((norm_tag(t) for _, t in later if contains(t)), None)
-    try:  # no GitHub releases: walk the tag list (newest first) with a binary search for the first tag containing it
-        tags = [t["name"] for t in fx.get_json(f"{base}/tags", params={"per_page": 30}, headers=ghsa._headers(), ttl=6 * 3600)
-                if re.search(r"\d", t.get("name", "")) and not re.search(r"(?i)rc|beta|alpha|dev", t.get("name", ""))]
-    except SourceError:
+    later = sorted((_dt(r["published"]), r["tag"]) for r in rels if _dt(r["published"]) and _dt(r["published"]) >= cdate)
+    for _, t in later:  # releases published on/after the commit, oldest first
+        if contains(t):
+            return norm_tag(t)
+    if rels and later:
         return None
-    tags.reverse()  # oldest first
-    lo, hi, found = 0, len(tags) - 1, None
-    while lo <= hi and budget[0] > 0:
-        mid = (lo + hi) // 2
+    # few or no GitHub releases (git mirrors): list the tags, keep semver-like ones newer than the affected maximum,
+    # sort ascending and binary-search with compare calls
+    names: list[str] = []
+    for page in range(1, 4):
+        try:
+            rows = fx.get_json(f"{base}/tags", params={"per_page": 100, "page": page}, headers=ghsa._headers(), ttl=6 * 3600)
+        except SourceError:
+            break
+        names += [t.get("name", "") for t in rows]
+        if len(rows) < 100:
+            break
+    tags = []
+    for n in dict.fromkeys(names):
+        nv = norm_tag(n)
+        if not re.fullmatch(r"\d+(?:\.\d+)+(?:p\d+)?", nv) or re.search(r"(?i)rc|beta|alpha|dev", n):
+            continue
+        if hi and (vkey(nv) <= vkey(hi[0]) if hi[1] else vkey(nv) < vkey(hi[0])):
+            continue
+        tags.append((vkey(nv), n))
+    tags = [n for _, n in sorted(tags)]
+    lo_i, hi_i, found = 0, len(tags) - 1, None
+    while lo_i <= hi_i and budget[0] > 0:
+        mid = (lo_i + hi_i) // 2
         if contains(tags[mid]):
-            found, hi = tags[mid], mid - 1
+            found, hi_i = tags[mid], mid - 1
         else:
-            lo = mid + 1
+            lo_i = mid + 1
     return norm_tag(found) if found else None
 
 
-def resolve_pseudo(a: Advisory, fx: Fetcher) -> None:
-    """Never show a Go pseudo-version: use a tagged release, else 'Fixed in commit <sha7>'."""
+WP_API = "https://api.wordpress.org/core/version-check/1.7/"
+
+
+def wordpress_fixes(lo: str | None, hi: str, fx: Fetcher) -> list[str]:
+    """Fixed WordPress releases per maintained branch: the lowest offered version above the affected maximum in the
+    maximum's branch, and the offered release of each older branch inside the affected range (backports)."""
+    try:
+        d = fx.get_json(WP_API, ttl=6 * 3600)
+    except SourceError:
+        return []
+    vers = {o.get("version") for o in d.get("offers", []) if re.fullmatch(r"\d+\.\d+(?:\.\d+)?", o.get("version") or "")}
+    top = vkey(hi)[:2]
+    best: dict[tuple, str] = {}
+    for v in vers:
+        b = vkey(v)[:2]
+        if b > top or (lo and b < vkey(lo)[:2]) or (b == top and vkey(v) <= vkey(hi)):
+            continue
+        if b not in best or vkey(v) < vkey(best[b]):
+            best[b] = v
+    return sorted(best.values(), key=vkey, reverse=True)
+
+
+def affected_bounds(a: Advisory) -> tuple[str | None, str | None, bool]:
+    """(lowest, highest, highest-is-inclusive) affected version from structured ranges, else from the description."""
+    his, incl = [], True
+    for v in a.vulns:
+        for op, ver in re.findall(r"(<=|<)\s*v?([\d][^\s,;]*)", v.get("range") or ""):
+            his.append((vkey(ver), ver, op == "<="))
+    if his:
+        _, ver, incl = max(his)
+        return None, ver, incl
+    pa = parse_affected(a.description)
+    return (pa["lo"], pa["hi"], pa["hi_incl"]) if pa else (None, None, True)
+
+
+NO_FIX_RE = re.compile(r"no (?:known |official )?(?:fix|patch|fixed version|update|workaround or fix)|unpatched|not (?:yet )?(?:been )?(?:fixed|patched)|"
+                       r"remains? (?:unfixed|unpatched)|no fixed release", re.I)
+
+
+def resolve_fixed(a: Advisory, fx: Fetcher) -> None:
+    """Affected text, per-project release lookups, pseudo-versions/commits -> tags; never claim 'no fix' without proof."""
+    lo, hi, incl = affected_bounds(a)
+    if not a.affected and (pa := parse_affected(a.description)):
+        a.affected = pa["text"]
+    if a.releases_type == "wordpress_api" and not a.fixed_version and hi:
+        vs = wordpress_fixes(lo, hi, fx)
+        if vs:
+            a.fixed, a.fixed_version, a.backports = ", ".join(vs[:5]), vs[0], len(vs) > 1
+    resolve_pseudo(a, fx, (hi, incl) if hi else None)
+    if not a.affected and a.fixed_version:
+        a.affected = f"before {a.fixed_version}"
+    if not a.fixed_version and not a.fix_commit and not a.pseudo and a.osv_checked:
+        text = " ".join([a.description, *[(e.get("requiredAction") or "") + " " + (e.get("notes") or "") for e in a.kev.values()]])
+        a.unpatched = bool(NO_FIX_RE.search(text))
+
+
+def resolve_pseudo(a: Advisory, fx: Fetcher, hi: tuple[str, bool] | None = None) -> None:
+    """Never show a Go pseudo-version or raw commit id: use a tagged release, else record the fix commit."""
     if not a.pseudo or a.fixed_version:
         return
     tags: list[str] = []
@@ -283,7 +357,7 @@ def resolve_pseudo(a: Advisory, fx: Fetcher) -> None:
     if not tags and a.repo:  # a bare commit id: find the first release that contains it
         budget = [MAX_COMPARE]
         for sha in [p for p in a.pseudo if is_commit(p)][:2]:
-            t = tag_containing(a.repo, sha, fx, budget)
+            t = tag_containing(a.repo, sha, fx, budget, hi)
             if t:
                 tags.append(t)
     tags = list(dict.fromkeys(tags))
@@ -292,7 +366,11 @@ def resolve_pseudo(a: Advisory, fx: Fetcher) -> None:
     else:
         parts = pseudo_parts(a.pseudo[0])
         sha = parts[1][:7] if parts else a.pseudo[0][:7].lower()
-        a.fixed, a.fixed_version = f"Fixed in commit {sha} (no tagged release yet)", None
+        a.fix_commit = sha
+        a.fixed, a.fixed_version = f"Fixed upstream in commit {sha}. Check the latest release.", None
+
+
+KEV_BOILERPLATE_RE = re.compile(r"vendor instructions|discontinue use|BOD \d\d-\d\d|mitigations are unavailable", re.I)
 
 
 def finalize(a: Advisory, nvd_by_id: dict[str, dict], osv_info: dict | None, kev_idx: dict, epss_map: dict,
@@ -310,7 +388,7 @@ def finalize(a: Advisory, nvd_by_id: dict[str, dict], osv_info: dict | None, kev
         if cve in kev_idx and kev_matches(kev_idx[cve], a.kev_aliases):  # never claim KEV for another vendor's CVE
             a.kev[cve] = kev_idx[cve]
             a.sources.add("KEV")
-            if not a.workaround and kev_idx[cve].get("requiredAction"):
+            if not a.workaround and kev_idx[cve].get("requiredAction") and not KEV_BOILERPLATE_RE.search(kev_idx[cve]["requiredAction"]):
                 # CISA's text is long boilerplate: keep the first clause ("Apply mitigations in accordance with vendor instructions")
                 a.workaround = re.split(r",\s|;\s|\.\s", kev_idx[cve]["requiredAction"].strip())[0].rstrip(".") + "."
         if cve in epss_map:
@@ -322,6 +400,7 @@ def finalize(a: Advisory, nvd_by_id: dict[str, dict], osv_info: dict | None, kev
         a.nvd_published = min(nvd_pub)
     if nvd_pub:  # the earliest public date wins (a CVE can predate its GitHub advisory)
         a.disclosed = min([d for d in [a.disclosed, *nvd_pub] if d])
+    a.osv_checked = osv_info is not None
     if osv_info:
         a.sources.add("OSV")
         a.poc = a.poc or has_public_poc(osv_refs=osv_info.get("ref_items"))
@@ -492,10 +571,12 @@ def remediation_steps(g: Group) -> list[str]:
         cmd = upgrade_command(a)
         cmd = "" if len({x.project for x in g.advs}) > 1 else cmd  # a grouped item spans projects: no single command
         steps.append(f"Upgrade {g.label} to {a.fixed_version}" + (f" (`{cmd}`)." if cmd else "."))
-    elif a.fixed.startswith("Fixed in commit"):
-        steps.append(f"Upgrade {g.label} as soon as a tagged release ships; until then build from the fix commit ({a.fixed.split(' (')[0].replace('Fixed in ', '')}).")
+    elif a.fix_commit:
+        steps.append(f"Upgrade to the latest release (the fix is in commit {a.fix_commit}).")
+    elif a.unpatched:
+        steps.append(f"The advisory lists no fix yet, so watch the vendor advisory for {g.label} and upgrade as soon as one ships.")
     else:
-        steps.append(f"No fixed release is listed yet, so watch the vendor advisory for {g.label} and upgrade when one ships.")
+        steps.append(f"Upgrade {g.label} to the latest release and check the vendor release notes for the fixed version.")
     if a.workaround:
         steps.append(f"Until you can upgrade: {_sentence(a.workaround)}")
     else:
@@ -694,9 +775,7 @@ def collect(since: date, until: date, *, fx: Fetcher, projects: list[dict], post
     items = [a for a in items if keep(a) and a.published]
     stats["kept"] = len(items)
     for a in items:
-        resolve_pseudo(a, fx)
-        if not a.affected and a.fixed_version:
-            a.affected = f"before {a.fixed_version}"
+        resolve_fixed(a, fx)
 
     def in_window(a: Advisory) -> bool:  # disclosed in the window, or added to CISA KEV in the window
         if (a.disclosed or a.published) >= since_dt:
@@ -771,9 +850,9 @@ def takeaways(main: list[Group], left: list[Group], missed: list[Group]) -> list
     if usns:
         bullets.append(f"**Patch the OS too**: Ubuntu published {join_names(usns[:4])} for CVEs in this list. Run "
                        "`sudo apt update && sudo apt upgrade`, and reboot after kernel updates.")
-    unpatched = [g for g in main if not g.primary.fixed_version]
+    unpatched = [g for g in main if g.primary.unpatched]
     if unpatched:
-        bullets.append(f"**No fix yet**: {_names_of(unpatched[:4])} {'has' if len(unpatched) == 1 else 'have'} no tagged fixed release. "
+        bullets.append(f"**No fix yet**: {_names_of(unpatched[:4])} {'has' if len(unpatched) == 1 else 'have'}, per the advisory, no fix yet. "
                        "Limit exposure until one ships.")
     edge = [g for g in main if g.primary.category == "edge"]
     if edge:
@@ -785,7 +864,9 @@ def takeaways(main: list[Group], left: list[Group], missed: list[Group]) -> list
         for g in left[:10]:
             a = g.primary
             cv = f"CVSS {a.cvss:.1f}" if a.cvss is not None else (a.severity or "unrated")
-            fx = f", fixed {', '.join(a.fixed.split(', ')[:2])}" if a.fixed_version else (f", {a.fixed.split(' (')[0][0].lower() + a.fixed.split(' (')[0][1:]}" if a.fixed else ", no fix yet")
+            fx = (f", fixed {', '.join(a.fixed.split(', ')[:2])}" if a.fixed_version else
+                  f", fixed upstream in commit {a.fix_commit}" if a.fix_commit else
+                  ", no fix yet" if a.unpatched else ", fixed version not listed")
             parts.append(f"{g.label} {adv_id(a)} ({cv}{fx})")
         extra = f" Plus {len(left) - 10} more projects." if len(left) > 10 else ""
         also = f"**Also this week**: {'. '.join(parts)}.{extra}"
@@ -900,8 +981,9 @@ def view(g: Group, prose: str, short: str | None = None, missed: bool = False) -
         "title": title, "head": head, "prose": full_prose,
         "severity_line": severity_line(a, kev=g.is_kev),
         "affected": combined(g, "affected") or "See the vendor advisory for affected versions.",
-        "fixed": combined(g, "fixed") or "No fixed release listed yet.",
-        "workaround": a.workaround or "None documented.",
+        "fixed": (combined(g, "fixed") + (" (and backports)" if a.backports and not g.ubuntu else ""))
+                 or ("No fixed release yet, per the advisory." if a.unpatched else "No fixed version listed in the sources. Check the vendor release notes."),
+        "workaround": a.workaround or "None published. Upgrade.",
         "rows": table_rows(g),
         "steps_line": " ".join(f"{i}. {s}" for i, s in enumerate(steps, 1)),
         "reference_line": reference_line(g),
