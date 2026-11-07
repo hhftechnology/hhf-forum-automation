@@ -169,37 +169,64 @@ def short_title(summary: str, names: list[str], fallback: str = "Security Adviso
     return title_case(s) if s else fallback
 
 
-def fit_title(label: str, short: str, more: int = 0, limit: int = 90) -> str:
-    """'<Project>: <Short Title>' (plus ', N More'), at most ~`limit` characters."""
+DANGLING = SMALL_WORDS | {"leading", "resulting", "allowing", "causing", "enabling", "via", "from", "to", "for", "with", "in", "of", "on",
+                          "and", "or", "the", "a", "an", "by", "through", "that", "which", "when", "after", "before", "where",
+                          "while", "because", "using", "into", "than", "as", "at", "but", "if", "is", "are"}
+_LEADING_TO = re.compile(r"\s+(?:leading to|resulting in|which leads to|that leads to|allowing)\s+", re.I)
+
+
+def trim_dangling(s: str) -> str:
+    """Drop trailing connector words, punctuation and unbalanced parentheses/backticks so a title ends on a complete phrase."""
+    s = (s or "").strip()
+    while True:
+        before = s
+        while s.count("(") > s.count(")"):
+            s = s[: s.rfind("(")].rstrip()
+        if s.count("`") % 2:
+            s = s[: s.rfind("`")].rstrip()
+        s = s.rstrip(" ,;:-–—(")
+        words = s.split(" ")
+        if len(words) > 1 and words[-1].lower().strip(",;:.") in DANGLING:
+            s = " ".join(words[:-1])
+        if s == before:
+            return s
+
+
+def fit_title(label: str, short: str, more: int = 0, limit: int = 90, fallback: str = "") -> str:
+    """'<Project>: <Short Title>' (plus ', N More'), about `limit` characters, always ending on a complete phrase.
+
+    A 'Leading to X' tail is kept when the whole title stays within ~limit+5 characters, else dropped.
+    `fallback` (an impact label such as 'Authentication Bypass') replaces a title that clips down to a single word.
+    """
     suffix = f", {more} More" if more > 0 else ""
     head = f"{label}: "
+    short = trim_dangling(short)
+    m = _LEADING_TO.search(short)
+    if m and len(head + short + suffix) > limit + 5:
+        short = trim_dangling(short[: m.start()])
     room = max(limit - len(head) - len(suffix), 20)
-    if len(short) > room:
-        cut = short[:room]
+    if len(short) > room and not (m and len(head + short + suffix) <= limit + 5):
         short = clip_phrase(short, room)
+    short = trim_dangling(short)
+    if fallback and len(short.split()) < 2:
+        short = fallback
     return f"{head}{short}{suffix}"
 
 
 def clip_phrase(s: str, room: int) -> str:
-    """Shorten `s` to at most `room` characters at a natural break, never inside parentheses or code."""
+    """Shorten `s` to at most `room` characters at the last natural break, never inside parentheses or code."""
     if len(s) <= room:
-        return s
+        return trim_dangling(s)
     cut = s[:room]
     low = cut.lower()
     best = -1
-    for sep in (": ", " - ", " – ", ", ", " via ", " in ", " when ", " through ", " from ", " by ", " and ", " after ", " with "):
+    for sep in (": ", " - ", " – ", ", ", " via ", " in ", " when ", " through ", " from ", " by ", " and ", " after ", " with ",
+                " for ", " on ", " to ", " that ", " which ", " leading "):
         i = low.rfind(sep)
-        if i >= room * 0.45:
+        if i >= room * 0.4:
             best = max(best, i)
     cut = cut[:best] if best > 0 else (cut.rsplit(" ", 1)[0] if " " in cut else cut)
-    while cut.count("(") > cut.count(")"):
-        cut = cut[: cut.rfind("(")]
-    if cut.count("`") % 2:
-        cut = cut[: cut.rfind("`")]
-    words = cut.rstrip(" ,;:-–(").split(" ")
-    while len(words) > 1 and words[-1].lower().strip(",;:") in SMALL_WORDS:
-        words.pop()
-    return " ".join(words).rstrip(" ,;:-–(")
+    return trim_dangling(cut)
 
 
 def join_list(items: list[str]) -> str:

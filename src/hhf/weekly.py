@@ -22,7 +22,7 @@ from . import ai as ai_mod
 from .facts import Advisory, fmt_date, fmt_range, has_public_poc, kev_matches, md_text, severity_from_cvss
 from .sources import epss, ghsa, kev, nvd, osv, releases, ubuntu
 from .sources.base import Fetcher, SourceError, default_fetcher
-from .textfmt import (COMMIT_RE, parse_affected, vkey, clause_phrase, clip_phrase, norm_tag, nvd_short_title, fit_title, is_commit, humanize_ranges, is_pseudo, join_list, join_names, lower_phrase, pseudo_parts, scrub_pseudo,
+from .textfmt import (COMMIT_RE, impact_labels, _LEADING_TO, trim_dangling, parse_affected, vkey, clause_phrase, clip_phrase, norm_tag, nvd_short_title, fit_title, is_commit, humanize_ranges, is_pseudo, join_list, join_names, lower_phrase, pseudo_parts, scrub_pseudo,
                       short_title, strip_project, title_case)
 
 log = logging.getLogger("hhf.weekly")
@@ -972,7 +972,8 @@ def combined(g: Group, attr: str) -> str:
 
 def view(g: Group, prose: str, short: str | None = None, missed: bool = False) -> dict:
     a = g.primary
-    title = fit_title("Ubuntu" if g.ubuntu else g.label, short or short_title(a.title, g.names()), len(g.others))
+    fb = (impact_labels(a.description, load_impacts()) or [""])[0]
+    title = fit_title("Ubuntu" if g.ubuntu else g.label, short or short_title(a.title, g.names()), len(g.others), fallback=fb)
     steps = remediation_steps(g)
     other = others_sentence(g)
     full_prose = " ".join(x for x in (prose.strip(), other) if x)
@@ -1006,7 +1007,14 @@ def ai_short_title(writer: ai_mod.AIWriter, g: Group, dates: dict) -> str | None
     src = (a.title + " " + a.description).lower()
     if not any(w in src for w in re.findall(r"[a-z]{4,}", t.lower())):
         return None  # shares no word with the advisory: not trustworthy
-    return title_case(strip_project(t, g.names()) or t)
+    ai = trim_dangling(title_case(strip_project(t, g.names()) or t))
+    det = short_title(a.title, g.names())
+    if len(ai.split()) < 2 or len(ai) > 80 or _LEADING_TO.search(ai) and len(ai) > 70:
+        return None
+    if (", " in det and ", " not in ai and len(ai.split()) >= len(det.split()) - 1
+            and len(set(ai.lower().split()) & set(det.lower().split())) >= 0.8 * len(ai.split())):
+        return None  # same title minus the list commas: keep the deterministic one
+    return ai
 
 
 def ai_clauses(writer: ai_mod.AIWriter, groups: list[Group], shorts: dict[str, str], dates: dict) -> dict[str, str]:
