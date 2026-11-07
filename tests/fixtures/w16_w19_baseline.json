@@ -1,0 +1,61 @@
+{
+  "_note": "Read-only capture from forum.hhf.technology on 2026-11-07 via GET /admin/plugins/discourse-workflows/workflows.json. Workflow objects carry version_id, active_version_id, has_unpublished_changes.",
+  "w16": {
+    "workflow_id": 38,
+    "name": "HHF · W16 Onboarding questionnaire",
+    "form_node_id": "f937fcc5-980b-4b44-a5f5-912a60c76540",
+    "form_uuid": "2d340c3d-9d99-407b-82a3-2e5e33167844",
+    "form_parameters": {
+      "form_title": "Welcome to HHF: tell us about your setup",
+      "form_description": "Takes about 2 minutes. Only staff see your answers unless you choose to copy them to your profile.",
+      "response_mode": "on_received",
+      "authentication": "login_required",
+      "form_fields": {"values": [
+        {"html": "<p><strong>About 2 minutes.</strong> First and last questions are required; everything else is optional. Answers are staff-only unless you tick “copy to profile”. Tick at most 3 items per group. Never paste passwords, API keys, tokens, private keys, IPs or private domains.</p>", "field_name": "intro", "field_type": "html", "field_label": "intro"},
+        {"options": {"values": [{"value": "Help with a problem in my setup"}, {"value": "Learn self-hosting / homelab"}, {"value": "Share guides or use HHF tools"}, {"value": "Just browsing for now"}]}, "required": true, "field_name": "looking_for", "field_type": "radio", "field_label": "What brings you to HHF?"},
+        {"html": "<h3>What are you interested in?</h3><p>Tick up to 3.</p>", "field_name": "h_interests", "field_type": "html", "field_label": "h_interests"},
+        {"field_name": "i_proxy_tunnels", "field_type": "checkbox", "field_label": "Proxies, tunnels & remote access", "default_value": "false"},
+        {"field_name": "i_security", "field_type": "checkbox", "field_label": "Security, SSO & hardening", "default_value": "false"},
+        {"field_name": "i_containers_virt", "field_type": "checkbox", "field_label": "Docker, VMs & home servers", "default_value": "false"},
+        {"field_name": "i_apps_web", "field_type": "checkbox", "field_label": "Apps, monitoring & web hosting", "default_value": "false"},
+        {"html": "<h3>Your stack</h3><p>What do you run today? Tick up to 3. Other tools go in the text box below.</p>", "field_name": "h_stack", "field_type": "html", "field_label": "h_stack"},
+        {"field_name": "s_pangolin", "field_type": "checkbox", "field_label": "Pangolin / Newt", "default_value": "false"},
+        {"field_name": "s_traefik", "field_type": "checkbox", "field_label": "Traefik", "default_value": "false"},
+        {"field_name": "s_crowdsec", "field_type": "checkbox", "field_label": "CrowdSec", "default_value": "false"},
+        {"field_name": "s_docker", "field_type": "checkbox", "field_label": "Docker / Compose", "default_value": "false"},
+        {"html": "<h3>AI tools</h3><p>Tick up to 3.</p>", "field_name": "h_ai", "field_type": "html", "field_label": "h_ai"},
+        {"field_name": "s_claude_code", "field_type": "checkbox", "field_label": "Claude Code", "default_value": "false"},
+        {"field_name": "s_agent_skills", "field_type": "checkbox", "field_label": "AI agents & agent skills", "default_value": "false"},
+        {"field_name": "s_mcp", "field_type": "checkbox", "field_label": "MCP servers", "default_value": "false"},
+        {"field_name": "s_local_llm", "field_type": "checkbox", "field_label": "Local LLMs (Ollama, llama.cpp …)", "default_value": "false"},
+        {"field_name": "stack_other", "field_type": "text", "description": "Max 80 characters. No URLs, emails, keys or IPs.", "field_label": "Anything else in your stack?", "placeholder": "Max 80 chars. e.g. Authentik, Portainer, Proxmox (no secrets)"},
+        {"html": "<h3>Tunnels & reverse proxies</h3><p>Tick up to 3. Others go in the text box.</p>", "field_name": "h_tunnels", "field_type": "html", "field_label": "h_tunnels"},
+        {"field_name": "t_cloudflare", "field_type": "checkbox", "field_label": "Cloudflare Tunnel", "default_value": "false"},
+        {"field_name": "t_tailscale", "field_type": "checkbox", "field_label": "Tailscale / Headscale", "default_value": "false"},
+        {"field_name": "t_wireguard", "field_type": "checkbox", "field_label": "WireGuard / NetBird", "default_value": "false"},
+        {"field_name": "p_caddy", "field_type": "checkbox", "field_label": "Caddy / NPM / NGINX", "default_value": "false"},
+        {"field_name": "tunnel_other", "field_type": "text", "description": "Max 80 characters. No URLs, emails, keys or IPs.", "field_label": "Other tunnel / proxy?", "placeholder": "Max 80 chars. e.g. ZeroTier, HAProxy, frp"},
+        {"html": "<h3>About your setup</h3>", "field_name": "h_about", "field_type": "html", "field_label": "h_about"},
+        {"options": {"values": [{"value": "Home server / homelab"}, {"value": "VPS"}, {"value": "Home server + VPS"}, {"value": "Cloud or not hosting yet"}]}, "field_name": "hosting", "field_type": "dropdown", "field_label": "Where do you host?"},
+        {"options": {"values": [{"value": "Debian / Ubuntu"}, {"value": "Proxmox VE"}, {"value": "Unraid / TrueNAS"}, {"value": "Other (Linux / Windows / macOS)"}]}, "field_name": "os", "field_type": "dropdown", "field_label": "Main OS / platform"},
+        {"options": {"values": [{"value": "New to self-hosting"}, {"value": "Comfortable (I run a few services)"}, {"value": "Advanced (I run a lot / do this for work)"}]}, "field_name": "experience", "field_type": "radio", "field_label": "Experience level"},
+        {"field_name": "problems", "field_type": "textarea", "description": "Staff-only. Max 500 characters. Don't paste secrets, keys, tokens, private domains or IPs.", "field_label": "What problem are you facing (or want to solve)?", "placeholder": "Max 500 chars. e.g. Pangolin resource returns 404 behind CGNAT"},
+        {"html": "<h3>Optional extras</h3><p>Nothing below happens unless you tick it.</p>", "field_name": "h_opt", "field_type": "html", "field_label": "h_opt"},
+        {"field_name": "watch_tags", "field_type": "checkbox", "field_label": "Notify me about new topics for the tools I ticked (Watching First Post)", "default_value": "false"},
+        {"field_name": "save_profile", "field_type": "checkbox", "field_label": "Copy my answers to my profile (stack, tunnels, interests, experience, hosting, OS). You can edit or clear them any time.", "default_value": "false"},
+        {"field_name": "flair", "field_type": "checkbox", "field_label": "Show a flair badge on my avatar for the tools I ticked (you can leave the group any time)", "default_value": "false"},
+        {"options": {"values": [{"value": "Yes, send me one follow-up in 3 days"}, {"value": "No thanks, don't message me again"}]}, "required": true, "field_name": "followup", "field_type": "radio", "field_label": "Follow-up"}
+      ]}
+    }
+  },
+  "w19": {
+    "workflow_id": 41,
+    "name": "HHF · W19 Existing-member PM as hhf.technoloy",
+    "status_note": "Sticky note says DISABLED / UNPUBLISHED, TEST_MODE=true; do not publish without the owner's written OK.",
+    "candidates_node_name": "Candidates",
+    "pm_title": "Help us tailor HHF to your setup (2-minute questionnaire)",
+    "pm_body": "Hi @{{USERNAME}}, quick note from the HHF Technology team, and thanks for being part of the forum.\n\nWe've added a short questionnaire so we can point you to the guides and tools that fit your setup: what you run, the tunnels and proxies you use, and anything you're stuck on. Only staff see your answers, and nothing goes on your profile unless you tick that box.\n\nYou can also show your stack (Pangolin, Traefik, CrowdSec, the AI tools you use and more) on your profile and user card: [add it here]({{BASE_URL}}/my/preferences/profile).\n\nThis is a one-time message. If you'd rather not get onboarding messages, [opt out here]({{BASE_URL}}/workflows/form/eb2de0bc-2150-4a92-ab4d-43b8685cb97a) and we won't message you about it again.\n\n**Your next step:** [open the questionnaire]({{BASE_URL}}/workflows/form/2d340c3d-9d99-407b-82a3-2e5e33167844). It takes about 2 minutes.\n\nThanks,\nHHF Technology",
+    "pm_code_shape": "Candidates node parameters.code contains lines `var TITLE = \"...\";` and `var BODY = \"...\";` (JSON-escaped JS string literals)."
+  },
+  "w16_code_dependency": "W16 code nodes downstream read these field_name values (e.g. s_pangolin, t_cloudflare, watch_tags, save_profile, flair, followup). Renaming or removing a field_name can break W16 logic; options/labels/descriptions are safe to edit."
+}

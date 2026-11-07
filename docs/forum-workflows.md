@@ -111,6 +111,28 @@ as a test on staging.
   GHSA, version, URL or number that is not in the source facts, but the facts come from third-party feeds.
 - Move the topic into category 86 to publish (workflow 2 then announces it).
 
+## Onboarding questionnaire and PM text from GitHub
+
+`forms/onboarding.yml` is the source of truth for the W16 form (workflow 38) and the title/body of the W19
+existing-member PM (workflow 41, `Candidates` node). Change questions, labels, options, section text or the PM
+through a pull request; CI (`form-sync`) validates the file and runs the round-trip tests.
+
+- **Safe to edit:** title, description, labels, options, descriptions, placeholders, section text, item order,
+  `pm.title`, `pm.body` (keep `{{USERNAME}}` and the `/workflows/form/<uuid>` link).
+- **Do not rename or remove a `name`** (the `field_name`): W16 code nodes read `s_*`, `t_*`, `p_caddy`, `watch_tags`,
+  `save_profile`, `flair`, `followup` and others. Validation and apply refuse a live `field_name` that is missing
+  from the YAML; use `--allow-removed` only after the code nodes are updated. Never put secrets, URLs, emails or IPs
+  in the file.
+- **Apply:** run the `form-sync` workflow manually (Actions > form-sync > Run workflow). With `apply` off it prints a
+  diff against the live workflows. With `apply` on, after a reviewer approves the `forum-production` environment, it
+  saves **drafts** (`PUT /admin/plugins/discourse-workflows/workflows/:id` with nodes + connections, which only
+  creates a new version). It never publishes: open the workflow in the admin UI, check the form, and Publish. W19
+  stays unpublished until the owner approves in writing. Locally: `python -m hhf.form_sync` (diff) or
+  `FORM_SYNC_CONFIRM=yes python -m hhf.form_sync --apply`, with `DISCOURSE_URL` and `DISCOURSE_API_KEY` set.
+- Publish semantics were read from the plugin source (`workflows_controller#update`, `Workflow::Update`,
+  `Workflow::Publish`); they have not been exercised against the live forum from this repository, so do the first
+  apply on staging.
+
 ## Release feed (GitHub releases -> forum)
 
 `python -m hhf.release_feed` (workflow `release-feed.yml`, every 6 h) posts new releases of the repos in
