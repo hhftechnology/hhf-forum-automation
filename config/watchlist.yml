@@ -3,7 +3,8 @@
 # image     -> container image used in the generated upgrade command (optional)
 # packages  -> GHSA ecosystem + package name (ecosystem names as used by GitHub: go, npm, pip, ...)
 # nvd       -> CPE vendors and description keywords (case-insensitive, word boundary)
-# category  -> edge | identity | apps | dev | infra (edge items are listed first in the intro)
+# category  -> edge | identity | platform | app | data (edge items are listed first in the intro)
+# group     -> optional; projects sharing a group are merged into one numbered item (e.g. Incus & LXD)
 projects:
 - name: Traefik
   category: edge
@@ -120,7 +121,7 @@ projects:
     keywords:
     - vaultwarden
 - name: Nextcloud
-  category: apps
+  category: app
   repo: nextcloud/server
   image: nextcloud
   packages:
@@ -132,7 +133,7 @@ projects:
     keywords:
     - nextcloud
 - name: Immich
-  category: apps
+  category: app
   repo: immich-app/immich
   image: ghcr.io/immich-app/immich-server
   packages:
@@ -145,7 +146,7 @@ projects:
     keywords:
     - immich
 - name: Jellyfin
-  category: apps
+  category: app
   repo: jellyfin/jellyfin
   image: jellyfin/jellyfin
   packages:
@@ -157,7 +158,7 @@ projects:
     keywords:
     - jellyfin
 - name: Plex
-  category: apps
+  category: app
   repo: plexinc/pms-docker
   image: plexinc/pms-docker
   nvd:
@@ -167,7 +168,7 @@ projects:
     - plex media server
     - plex
 - name: Gitea
-  category: dev
+  category: platform
   repo: go-gitea/gitea
   image: gitea/gitea
   packages:
@@ -179,7 +180,7 @@ projects:
     keywords:
     - gitea
 - name: Forgejo
-  category: dev
+  category: platform
   image: codeberg.org/forgejo/forgejo
   packages:
   - ecosystem: go
@@ -191,7 +192,7 @@ projects:
     keywords:
     - forgejo
 - name: Home Assistant
-  category: apps
+  category: app
   repo: home-assistant/core
   image: ghcr.io/home-assistant/home-assistant
   packages:
@@ -204,7 +205,7 @@ projects:
     keywords:
     - home assistant
 - name: Portainer
-  category: infra
+  category: platform
   repo: portainer/portainer
   image: portainer/portainer-ce
   packages:
@@ -216,14 +217,14 @@ projects:
     keywords:
     - portainer
 - name: Proxmox
-  category: infra
+  category: platform
   nvd:
     vendors:
     - proxmox
     keywords:
     - proxmox
 - name: WordPress
-  category: apps
+  category: app
   repo: WordPress/WordPress
   image: wordpress
   packages:
@@ -239,7 +240,7 @@ projects:
     - \bthemes?\b
     - \bwoocommerce\b
 - name: pgAdmin
-  category: infra
+  category: data
   repo: pgadmin-org/pgadmin4
   image: dpage/pgadmin4
   packages:
@@ -252,7 +253,7 @@ projects:
     keywords:
     - pgadmin
 - name: Grafana
-  category: infra
+  category: platform
   repo: grafana/grafana
   image: grafana/grafana
   packages:
@@ -265,7 +266,7 @@ projects:
     keywords:
     - grafana
 - name: Uptime Kuma
-  category: infra
+  category: platform
   repo: louislam/uptime-kuma
   image: louislam/uptime-kuma
   packages:
@@ -278,7 +279,8 @@ projects:
     keywords:
     - uptime kuma
 - name: Incus
-  category: infra
+  category: platform
+  group: Incus & LXD
   repo: lxc/incus
   packages:
   - ecosystem: go
@@ -290,7 +292,8 @@ projects:
     keywords:
     - incus
 - name: LXD
-  category: infra
+  category: platform
+  group: Incus & LXD
   repo: canonical/lxd
   packages:
   - ecosystem: go
@@ -302,7 +305,7 @@ projects:
     keywords:
     - lxd
 - name: Docker
-  category: infra
+  category: platform
   repo: moby/moby
   image: docker
   packages:
@@ -317,7 +320,7 @@ projects:
     keywords:
     - docker
 - name: Synapse
-  category: apps
+  category: app
   repo: element-hq/synapse
   image: matrixdotorg/synapse
   packages:
@@ -330,7 +333,7 @@ projects:
     keywords:
     - synapse
 - name: Mastodon
-  category: apps
+  category: app
   repo: mastodon/mastodon
   image: ghcr.io/mastodon/mastodon
   packages:
@@ -343,7 +346,7 @@ projects:
     keywords:
     - mastodon
 - name: Paperless-ngx
-  category: apps
+  category: app
   repo: paperless-ngx/paperless-ngx
   image: ghcr.io/paperless-ngx/paperless-ngx
   packages:
@@ -356,7 +359,7 @@ projects:
     - paperless-ngx
     - paperless
 - name: n8n
-  category: apps
+  category: app
   repo: n8n-io/n8n
   image: n8nio/n8n
   packages:
@@ -433,7 +436,7 @@ projects:
     keywords:
     - hashicorp vault
 - name: Sonarr
-  category: apps
+  category: app
   repo: Sonarr/Sonarr
   nvd:
     vendors:
@@ -441,7 +444,7 @@ projects:
     keywords:
     - sonarr
 - name: Radarr
-  category: apps
+  category: app
   repo: Radarr/Radarr
   nvd:
     vendors:
@@ -449,7 +452,7 @@ projects:
     keywords:
     - radarr
 - name: Ollama
-  category: apps
+  category: app
   repo: ollama/ollama
   image: ollama/ollama
   packages:
@@ -461,7 +464,7 @@ projects:
     keywords:
     - ollama
 - name: Open WebUI
-  category: apps
+  category: app
   repo: open-webui/open-webui
   image: ghcr.io/open-webui/open-webui
   packages:
@@ -474,7 +477,7 @@ projects:
     keywords:
     - open webui
 - name: GitLab
-  category: dev
+  category: platform
   repo: gitlabhq/gitlabhq
   image: gitlab/gitlab-ce
   nvd:
@@ -483,7 +486,7 @@ projects:
     keywords:
     - gitlab
 - name: Jenkins
-  category: dev
+  category: platform
   repo: jenkinsci/jenkins
   image: jenkins/jenkins
   packages:
@@ -496,7 +499,7 @@ projects:
     keywords:
     - jenkins
 - name: Node-RED
-  category: apps
+  category: app
   repo: node-red/node-red
   image: nodered/node-red
   packages:
@@ -509,7 +512,7 @@ projects:
     keywords:
     - node-red
 - name: Discourse
-  category: apps
+  category: app
   repo: discourse/discourse
   image: discourse/discourse
   packages:

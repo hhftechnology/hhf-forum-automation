@@ -23,13 +23,13 @@ def _headers() -> dict:
 
 
 def global_advisories(since: date, fx: Fetcher | None = None, severities=("critical", "high"),
-                      max_pages: int = 5) -> list[dict]:
-    """Reviewed advisories published on/after `since`."""
+                      max_pages: int = 5, by: str = "published") -> list[dict]:
+    """Reviewed advisories published (by="published") or updated (by="updated") on/after `since`."""
     fx = fx or default_fetcher()
     out: dict[str, dict] = {}
     for sev in severities:
         for page in range(1, max_pages + 1):
-            params = {"type": "reviewed", "severity": sev, "published": f">={since.isoformat()}",
+            params = {"type": "reviewed", "severity": sev, by: f">={since.isoformat()}",
                       "per_page": 100, "page": page, "sort": "published", "direction": "desc"}
             rows = fx.get_json(f"{API}/advisories", params=params, headers=_headers(), ttl=1800)
             for r in rows:
@@ -62,9 +62,14 @@ def normalize(r: dict, repo: str | None = None) -> dict:
         })
     cvss = r.get("cvss") or {}
     score = cvss.get("score")
+    vector = cvss.get("vector_string") or ""
     if score is None:
-        v3 = (r.get("cvss_severities") or {}).get("cvss_v3") or {}
-        score = v3.get("score")
+        sev = r.get("cvss_severities") or {}
+        for key in ("cvss_v3", "cvss_v4"):
+            blk = sev.get(key) or {}
+            if blk.get("score"):
+                score, vector = blk["score"], blk.get("vector_string") or ""
+                break
     return {
         "ghsa": r["ghsa_id"],
         "cve": r.get("cve_id"),
@@ -72,7 +77,9 @@ def normalize(r: dict, repo: str | None = None) -> dict:
         "description": r.get("description") or "",
         "severity": (r.get("severity") or "").lower() or None,
         "cvss": float(score) if score else None,
+        "cvss_version": "4.0" if vector.startswith("CVSS:4.0") else None,
         "published": r.get("published_at"),
+        "reviewed": r.get("github_reviewed_at"),
         "url": r.get("html_url"),
         "repo_url": r.get("source_code_location") or (f"https://github.com/{repo}" if repo else ""),
         "vulns": vulns,

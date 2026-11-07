@@ -2,7 +2,7 @@ name: Weekly advisory
 
 on:
   schedule:
-    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+    - cron: "0 6 * * 3" # Wednesdays 06:00 UTC (window: the 7 days ending today, Thursday to Wednesday)
   workflow_dispatch:
     inputs:
       dry_run:
@@ -10,7 +10,7 @@ on:
         type: boolean
         default: true
       since:
-        description: "Window start (YYYY-MM-DD). Empty = 7 days before today"
+        description: "Window start (YYYY-MM-DD). Empty = the 7 days ending today (today minus 6)"
         type: string
         default: ""
 

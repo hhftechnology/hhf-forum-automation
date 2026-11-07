@@ -38,13 +38,54 @@ def exploitation_label(kev: bool, poc: bool) -> str:
     return "None known"
 
 
+def ordinal(n: int | float) -> str:
+    """1st, 2nd, 3rd, 4th ... 11th, 12th, 13th ... 21st, 22nd, 23rd."""
+    n = int(n)
+    suffix = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suffix}"
+
+
 def fmt_epss(epss: float | None, pct: float | None) -> str:
+    """0.004, 0.61 -> '0.4% (61st percentile)'. The percentile is rounded to an integer."""
     if epss is None:
         return "N/A"
-    out = f"{epss:.3f}"
+    p = epss * 100
+    out = f"{p:.2f}%" if 0 < p < 0.1 else f"{p:.1f}%"
     if pct is not None:
-        out += f" ({pct * 100:.1f}th percentile)"
+        out += f" ({ordinal(int(pct * 100 + 0.5))} percentile)"
     return out
+
+
+# ---- public exploit / PoC detection ---------------------------------------
+_EXPLOIT_HOST_RE = re.compile(r"^(?:www\.)?(?:exploit-db\.com|packetstormsecurity\.(?:com|org|net))$", re.I)
+_POC_PATH_RE = re.compile(r"(?<![a-z])poc(?![a-z])|exploit", re.I)
+
+
+def is_exploit_reference(url: str, osv_type: str | None = None, nvd_tags: list[str] | tuple = ()) -> bool:
+    """True only when a reference is explicitly an exploit or PoC.
+
+    NVD: a reference tag containing "Exploit". OSV/GHSA: reference type exactly EXPLOIT or ARTICLE
+    pointing at exploit-db, packetstormsecurity, or a GitHub URL whose path names a PoC/exploit.
+    """
+    if any("exploit" in str(t).lower() for t in nvd_tags or ()):
+        return True
+    if osv_type not in ("EXPLOIT", "ARTICLE"):
+        return False
+    u = urlsplit(url or "")
+    host = u.netloc.lower().split(":")[0]
+    if _EXPLOIT_HOST_RE.match(host):
+        return True
+    return host in ("github.com", "www.github.com") and bool(_POC_PATH_RE.search(u.path))
+
+
+def has_public_poc(osv_refs: list[dict] | None = None, nvd_refs: list[dict] | None = None) -> bool:
+    for r in osv_refs or []:
+        if is_exploit_reference(r.get("url", ""), osv_type=r.get("type")):
+            return True
+    for r in nvd_refs or []:
+        if is_exploit_reference(r.get("url", ""), nvd_tags=r.get("tags") or []):
+            return True
+    return False
 
 
 def fmt_cvss(score: float | None) -> str:
@@ -89,9 +130,14 @@ def md_cell(s: object) -> str:
 def md_text(s: object) -> str:
     """Neutralise untrusted text for the forum: no HTML, no accidental @mentions."""
     t = str(s if s is not None else "")
-    t = t.replace("<", "&lt;").replace(">", "&gt;")
-    t = re.sub(r"@(?=\w)", "@\u200b", t)
-    return t
+    out = []
+    for i, chunk in enumerate(re.split(r"(`[^`\n]*`)", t)):
+        if i % 2:  # inside a code span: leave untouched
+            out.append(chunk)
+            continue
+        chunk = re.sub(r"<(?=[A-Za-z/!?])", "&lt;", chunk)  # only real HTML tags; "< 3.6.2" and "<=" stay readable
+        out.append(re.sub(r"@(?=\w)", "@\u200b", chunk))
+    return "".join(out)
 
 
 # ---- advisory model ---------------------------------------------------------
@@ -113,6 +159,13 @@ class Advisory:
     package: str | None = None
     image: str | None = None
     category: str = ""
+    group: str = ""  # watchlist `group` (several projects merged into one item), else the project name
+    repo: str | None = None  # owner/repo of the watchlist project
+    cvss_version: str | None = None  # "4.0" when the score is CVSS v4, else None
+    added: datetime | None = None  # when the GHSA reached the GitHub Advisory Database
+    disclosed: datetime | None = None  # earliest known public date
+    vulns: list[dict] = field(default_factory=list)  # raw GHSA vulnerability entries
+    pseudo: list[str] = field(default_factory=list)  # Go pseudo-versions seen as "fixed" (never shown raw)
     workaround: str = ""
     poc: bool = False
     kev: dict[str, dict] = field(default_factory=dict)  # cve -> kev entry
@@ -142,7 +195,7 @@ class Advisory:
             kev = cve in self.kev if cve else False
             out.append(
                 {
-                    "cve": cve or "— (no CVE yet)",
+                    "cve": cve or self.ghsa or "— (no CVE yet)",
                     "cvss": fmt_cvss(self.cvss),
                     "exploitation": exploitation_label(kev, self.poc),
                     "epss": fmt_epss(*(e or (None, None))),

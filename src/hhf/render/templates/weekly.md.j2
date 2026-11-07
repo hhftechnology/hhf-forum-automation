@@ -7,52 +7,29 @@
 {% include "_item.md.j2" %}
 {% endwith %}
 {% endfor %}
-{% if extra %}
-### Also disclosed this week
+## **Key Takeaways This Week**
 
-{% for e in extra %}
-- {{ e.title | md }} ({{ e.ids }}; {{ e.cvss }}{{ "; CISA KEV" if e.kev else "" }}) {{ e.url }}
+{% for b in takeaways %}
+* {{ b | md }}
 {% endfor %}
 
+**Recommendation** : Review your self-hosted stack this weekend and prioritize upgrades for any of the above projects you’re running.
+
+Stay secure!
+
+*Questions or need config help? Post in [Help](https://forum.hhf.technology/c/help/85).*
+
 ---
-
-{% endif %}
-{% if not items and not extra %}
-No new critical/high advisories matched the watchlist this week.
-
----
-
-{% endif %}
-## Missed Earlier
 
 {% if missed %}
-These advisories were published 8 to 30 days ago and were not covered in an earlier summary.
+## **Missed Earlier**
+
+These came out before this week and weren’t in an earlier summary. They only reached the GitHub global advisory database this week.
 
 {% for it in missed %}
 {% with n = items | length + loop.index %}
 {% include "_item.md.j2" %}
 {% endwith %}
 {% endfor %}
-{% else %}
-No earlier advisories needed to be added this week.
-
----
-
 {% endif %}
-{% if releases %}
-## Security-related releases
-
-{% for r in releases %}
-- **{{ r.project | md }}** [{{ r.tag | cell }}]({{ r.url }}) ({{ r.published }})
-{% endfor %}
-
----
-
-{% endif %}
-## Sources
-
-{% for s in sources %}
-- {{ s }}
-{% endfor %}
-
-*Facts come from the sources above; the prose is {{ prose_note }} Always check the official advisory before acting.*
+{{ data_line }}

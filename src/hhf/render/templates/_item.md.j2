@@ -1,8 +1,6 @@
 ### **{{ n }}. {{ it.title | md }}**
 
-{{ it.id_line }} | Disclosed: {{ it.disclosed }}
-
-**Project** : {{ it.project | md }}
+{{ it.head }}
 
 **Technical Details** : {{ it.prose | md }}
 
@@ -17,19 +15,9 @@
 | {{ r.cve }} | {{ r.cvss }} | {{ r.exploitation }} | {{ r.epss }} | {{ r.action }} |
 {% endfor %}
 
-**Remediation Steps**
+**Remediation Steps** : {{ it.steps_line | md }}
 
-{% for step in it.steps %}
-{{ loop.index }}. {{ step }}
-{% endfor %}
-
-**Official References**
-
-{% for label, url in it.references %}
-- {{ label | cell }}: {{ url }}
-{% endfor %}
-
-**Reference** : [{{ it.ref_label }}]({{ it.ref_url }})
+**Reference** : {{ it.reference_line }}
 
 ---
 

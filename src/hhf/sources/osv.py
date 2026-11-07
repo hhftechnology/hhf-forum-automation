@@ -30,7 +30,7 @@ def summarize(d: dict) -> dict:
                 if "fixed" in ev:
                     fixed.append(ev["fixed"])
                     last = ev["fixed"]
-                    ranges.append(f">= {intro} < {last}" if intro not in (None, "0") else f"< {last}")
+                    ranges.append(f">= {intro}, < {last}" if intro not in (None, "0") else f"< {last}")
                     intro = None
     return {
         "id": d.get("id"),
@@ -39,4 +39,5 @@ def summarize(d: dict) -> dict:
         "ranges": ranges,
         "packages": pkgs,
         "refs": [r.get("url") for r in d.get("references", []) if r.get("url")],
+        "ref_items": [{"type": r.get("type"), "url": r["url"]} for r in d.get("references", []) if r.get("url")],
     }
