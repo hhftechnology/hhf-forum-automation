@@ -164,6 +164,11 @@ class Advisory:
     cvss_version: str | None = None  # "4.0" when the score is CVSS v4, else None
     added: datetime | None = None  # when the GHSA reached the GitHub Advisory Database
     disclosed: datetime | None = None  # earliest known public date
+    nvd_published: datetime | None = None
+    vendor: str = ""
+    ubuntu_packages: list[str] = field(default_factory=list)  # Ubuntu source packages that ship this project
+    ubuntu_service: str = ""
+    usn_info: dict[str, dict] = field(default_factory=dict)  # USN id -> {"published", "packages": {release: [(name, version)]}}
     vulns: list[dict] = field(default_factory=list)  # raw GHSA vulnerability entries
     pseudo: list[str] = field(default_factory=list)  # Go pseudo-versions seen as "fixed" (never shown raw)
     workaround: str = ""

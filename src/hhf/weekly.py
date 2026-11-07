@@ -13,6 +13,7 @@ import time
 from dataclasses import dataclass, field
 from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import quote
 
 import yaml
 
@@ -20,7 +21,7 @@ from . import ai as ai_mod
 from .facts import Advisory, fmt_date, fmt_range, has_public_poc, md_text, severity_from_cvss
 from .sources import epss, ghsa, kev, nvd, osv, releases, ubuntu
 from .sources.base import Fetcher, SourceError, default_fetcher
-from .textfmt import (COMMIT_RE, clip_phrase, fit_title, is_commit, humanize_ranges, is_pseudo, join_list, join_names, lower_phrase, pseudo_parts, scrub_pseudo,
+from .textfmt import (COMMIT_RE, clause_phrase, clip_phrase, norm_tag, nvd_short_title, fit_title, is_commit, humanize_ranges, is_pseudo, join_list, join_names, lower_phrase, pseudo_parts, scrub_pseudo,
                       short_title, strip_project, title_case)
 
 log = logging.getLogger("hhf.weekly")
@@ -131,9 +132,27 @@ def clean_versions(raw: list[str]) -> list[str]:
     return split_versions(raw)[0]
 
 
+_IMPACTS: list[dict] | None = None
+
+
+def load_impacts() -> list[dict]:
+    global _IMPACTS
+    if _IMPACTS is None:
+        try:
+            _IMPACTS = yaml.safe_load((ROOT / "config" / "impacts.yml").read_text(encoding="utf-8"))["impacts"]
+        except (OSError, KeyError, yaml.YAMLError):
+            _IMPACTS = []
+    return _IMPACTS
+
+
 def _names(project: dict) -> list[str]:
     repo = (project.get("repo") or "").split("/")[-1]
-    return [project["name"], project.get("group") or "", repo]
+    return [project["name"], project["name"].split()[0], project.get("group") or "", repo]
+
+
+def _project_fields(project: dict) -> dict:
+    return {"vendor": project.get("vendor", ""), "ubuntu_packages": project.get("ubuntu_packages", []),
+            "ubuntu_service": project.get("ubuntu_service", "")}
 
 
 def advisory_from_ghsa(g: dict, project: dict) -> Advisory:
@@ -150,7 +169,7 @@ def advisory_from_ghsa(g: dict, project: dict) -> Advisory:
         ecosystem=(g["vulns"][0].get("ecosystem") if g["vulns"] else None),
         package=(g["vulns"][0].get("package") if g["vulns"] else None),
         image=project.get("image"), category=project.get("category", ""),
-        workaround=find_workaround(g["description"]), sources={"GHSA"},
+        workaround=find_workaround(g["description"]), sources={"GHSA"}, **_project_fields(project),
     )
     repo = project.get("repo")
     vendor_url = f"https://github.com/{repo}/security/advisories/{g['ghsa']}" if repo else g["url"]
@@ -159,15 +178,13 @@ def advisory_from_ghsa(g: dict, project: dict) -> Advisory:
 
 
 def advisory_from_nvd(n: dict, project: dict) -> Advisory:
-    first = plain_summary(n["description"], 160)
-    first = (re.split(r"(?<=[a-z0-9\)`])\.\s", first, maxsplit=1)[0]).rstrip("….")
     a = Advisory(
-        key=n["id"], title=strip_project(first, _names(project)) or first or n["id"], project=project["name"],
+        key=n["id"], title=nvd_short_title(n["description"], _names(project), load_impacts()), project=project["name"],
         group=project.get("group") or project["name"], repo=project.get("repo"), cves=[n["id"]],
         published=_dt(n["published"]), disclosed=_dt(n["published"]),
         severity=n["severity"] or severity_from_cvss(n["cvss"]), cvss=n["cvss"],
         description=n["description"], image=project.get("image"), category=project.get("category", ""),
-        sources={"NVD"},
+        sources={"NVD"}, **_project_fields(project),
     )
     a.poc = has_public_poc(nvd_refs=n["references"])
     for r in n["references"][:3]:
@@ -176,6 +193,51 @@ def advisory_from_nvd(n: dict, project: dict) -> Advisory:
             a.references.append((f"Fix commit {cm.group(1)[:7]}" if cm else
                                  "Vendor advisory" if "Vendor Advisory" in r["tags"] else "Patch", r["url"]))
     return a
+
+
+MAX_COMPARE = 8
+
+
+def tag_containing(repo: str, sha: str, fx: Fetcher, budget: list[int]) -> str | None:
+    """The first release/tag that contains commit `sha`, using GET /compare/{tag}...{sha} (status behind/identical).
+
+    `budget` is a one-element list counting the compare calls still allowed for this item.
+    """
+    base = f"{ghsa.API}/repos/{repo}"
+    try:
+        c = fx.get_json(f"{base}/commits/{sha}", headers=ghsa._headers(), ttl=24 * 3600)
+        cdate = _dt(c["commit"]["committer"]["date"])
+    except (SourceError, KeyError, TypeError):
+        return None
+
+    def contains(tag: str) -> bool:
+        if budget[0] <= 0:
+            return False
+        budget[0] -= 1
+        try:
+            d = fx.get_json(f"{base}/compare/{quote(tag, safe='')}...{sha}", headers=ghsa._headers(), ttl=24 * 3600)
+        except SourceError:
+            return False
+        return d.get("status") in ("behind", "identical")
+
+    rels = [r for r in releases.latest(repo, fx, per_page=30) if not r["prerelease"] and r["tag"]]
+    if rels:  # published on/after the commit, oldest first
+        later = sorted((_dt(r["published"]), r["tag"]) for r in rels if _dt(r["published"]) and _dt(r["published"]) >= cdate)
+        return next((norm_tag(t) for _, t in later if contains(t)), None)
+    try:  # no GitHub releases: walk the tag list (newest first) with a binary search for the first tag containing it
+        tags = [t["name"] for t in fx.get_json(f"{base}/tags", params={"per_page": 30}, headers=ghsa._headers(), ttl=6 * 3600)
+                if re.search(r"\d", t.get("name", "")) and not re.search(r"(?i)rc|beta|alpha|dev", t.get("name", ""))]
+    except SourceError:
+        return None
+    tags.reverse()  # oldest first
+    lo, hi, found = 0, len(tags) - 1, None
+    while lo <= hi and budget[0] > 0:
+        mid = (lo + hi) // 2
+        if contains(tags[mid]):
+            found, hi = tags[mid], mid - 1
+        else:
+            lo = mid + 1
+    return norm_tag(found) if found else None
 
 
 def resolve_pseudo(a: Advisory, fx: Fetcher) -> None:
@@ -200,6 +262,12 @@ def resolve_pseudo(a: Advisory, fx: Fetcher) -> None:
                     later.append((dt, r["tag"]))
             if later:
                 tags = [min(later)[1]]
+    if not tags and a.repo:  # a bare commit id: find the first release that contains it
+        budget = [MAX_COMPARE]
+        for sha in [p for p in a.pseudo if is_commit(p)][:2]:
+            t = tag_containing(a.repo, sha, fx, budget)
+            if t:
+                tags.append(t)
     tags = list(dict.fromkeys(tags))
     if tags:
         a.fixed, a.fixed_version = ", ".join(tags), tags[0]
@@ -229,6 +297,8 @@ def finalize(a: Advisory, nvd_by_id: dict[str, dict], osv_info: dict | None, kev
         for u in usn_map.get(cve, []):
             if (u["id"], u["url"]) not in a.usn:
                 a.usn.append((u["id"], u["url"]))
+    if nvd_pub:
+        a.nvd_published = min(nvd_pub)
     if nvd_pub:  # the earliest public date wins (a CVE can predate its GitHub advisory)
         a.disclosed = min([d for d in [a.disclosed, *nvd_pub] if d])
     if osv_info:
@@ -290,6 +360,7 @@ class Group:
     label: str
     advs: list[Advisory] = field(default_factory=list)
 
+    ubuntu: dict | None = None  # set when a USN ships a watched package: rendered as "Ubuntu (`pkg`)"
     n_main: int = 0  # advisories before this index are from the window; later ones were folded in from "Missed Earlier"
 
     def __post_init__(self):
@@ -322,6 +393,10 @@ class Group:
         self.advs.append(a)
         self.advs[self.n_main:] = sorted(self.advs[self.n_main:], key=sort_key)
 
+    @property
+    def display(self) -> str:
+        return f"Ubuntu (`{self.ubuntu['pkg']}`)" if self.ubuntu else self.label
+
     def names(self) -> list[str]:
         return [self.label, *[a.project for a in self.advs]]
 
@@ -335,6 +410,26 @@ def group_advisories(items: list[Advisory]) -> list[Group]:
         else:
             groups[label] = Group(label, [a])
     return sorted(groups.values(), key=lambda g: sort_key(g.primary))
+
+
+def ubuntu_info(g: Group) -> dict | None:
+    """Per-release fixed package versions when a USN ships a package of a watched project (else None: keep the project form)."""
+    for a in g.advs:
+        for usn_id, info in a.usn_info.items():
+            fixed, pkg = {}, None
+            for rel, pkgs in (info.get("packages") or {}).items():
+                for name, ver in pkgs:
+                    if name in a.ubuntu_packages:
+                        fixed[rel], pkg = ver, name
+            if fixed and pkg:
+                return {"pkg": pkg, "usn": usn_id, "fixed": fixed, "published": _dt(info.get("published")),
+                        "service": a.ubuntu_service, "upstream": a.affected}
+    return None
+
+
+def _lts(rel: str) -> str:
+    m = re.fullmatch(r"(\d+)\.04", rel)
+    return f"{rel} LTS" if m and int(m.group(1)) % 2 == 0 else rel
 
 
 def adv_id(a: Advisory) -> str:
@@ -366,7 +461,11 @@ def remediation_steps(g: Group) -> list[str]:
     """2 to 3 specific steps for the item's primary advisory."""
     a = g.primary
     steps = []
-    if a.fixed_version and "," in a.fixed:
+    if g.ubuntu:
+        svc = g.ubuntu["service"]
+        steps.append("Update the package with `sudo apt update && sudo apt upgrade`" +
+                     (f", then restart the service (`sudo systemctl restart {svc}`)." if svc else " and restart the affected service."))
+    elif a.fixed_version and "," in a.fixed:
         steps.append(f"Upgrade {g.label} to the fixed release for your branch ({a.fixed}).")
     elif a.fixed_version:
         cmd = upgrade_command(a)
@@ -379,7 +478,7 @@ def remediation_steps(g: Group) -> list[str]:
     if a.workaround:
         steps.append(f"Until you can upgrade: {_sentence(a.workaround)}")
     else:
-        steps.append(f"Until you can upgrade, limit network access to {g.label} to trusted hosts (VPN or allow-list).")
+        steps.append(f"Until you can upgrade, limit network access to {g.display} to trusted hosts (VPN or allow-list).")
     if g.is_kev:
         steps.append("This is exploited in the wild: patch today and check for signs of compromise.")
     return steps[:3]
@@ -435,9 +534,9 @@ def others_sentence(g: Group) -> str:
     if not g.others:
         return ""
     bits = []
-    for o in g.others[:3]:
+    for o in g.others[:4]:
         score = f", CVSS {o.cvss:.1f}" if o.cvss is not None else ""
-        bits.append(f"{adv_id(o)} ({lower_phrase(clip_phrase(short_title(o.title, g.names()), 80))}{score})")
+        bits.append(f"{adv_id(o)} ({lower_phrase(clip_phrase(short_title(o.title, g.names()), 60))}{score})")
     rest = len(g.others) - len(bits)
     tail = f", and {rest} more" if rest > 0 else ""
     lead = "Also in this batch: " if len(g.advs) > 1 else ""
@@ -472,6 +571,7 @@ def attach_usn(advs: list[Advisory], fx: Fetcher) -> int:
                 if (u["id"], u["url"]) not in a.usn:
                     a.usn.append((u["id"], u["url"]))
                     a.references.append((u["id"], u["url"]))
+                a.usn_info[u["id"]] = {"published": u.get("published"), "packages": u.get("packages") or {}}
     return len(usn)
 
 
@@ -557,6 +657,8 @@ def collect(since: date, until: date, *, fx: Fetcher, projects: list[dict], post
     stats["kept"] = len(items)
     for a in items:
         resolve_pseudo(a, fx)
+        if not a.affected and a.fixed_version:
+            a.affected = f"before {a.fixed_version}"
 
     already = set(posted)
     main = sorted([a for a in items if (a.disclosed or a.published) >= since_dt and a.key not in already], key=sort_key)
@@ -569,7 +671,10 @@ def collect(since: date, until: date, *, fx: Fetcher, projects: list[dict], post
 
 # ---- intro, clauses, takeaways ---------------------------------------------------------------
 def clause_for(g: Group, short: str) -> str:
-    return f"{g.label} ({lower_phrase(clip_phrase(short, 80))})"
+    short = clip_phrase(short, 110)
+    if g.ubuntu:
+        return f"Ubuntu’s {g.label} update fixes {lower_phrase(short)}"
+    return clause_phrase(g.label, short)
 
 
 def intro_groups(groups: list[Group]) -> tuple[list[Group], list[Group]]:
@@ -578,14 +683,14 @@ def intro_groups(groups: list[Group]) -> tuple[list[Group], list[Group]]:
     return edge, fast
 
 
-def build_intro(n_adv: int, m_adv: int, missed_labels: list[str], edge_clauses: list[str], fast_clauses: list[str],
-                has_edge: bool = True) -> str:
-    if n_adv == 0:
+def build_intro(n_items: int, m_items: int, missed_labels: list[str], edge_clauses: list[str], fast_clauses: list[str]) -> str:
+    """N and M count numbered items (not advisories); at most 3 missed projects are named."""
+    if n_items == 0:
         return "No new critical/high security issues matched the watchlist this week."
-    lead = (f"Here’s a roundup of **{n_adv} critical/high security {'issue' if n_adv == 1 else 'issues'}** "
+    lead = (f"Here’s a roundup of **{n_items} critical/high security {'issue' if n_items == 1 else 'issues'}** "
             "disclosed this week affecting popular open-source self-hosted projects")
-    if m_adv:
-        lead += (f", plus **{m_adv} earlier {'advisory' if m_adv == 1 else 'advisories'} for {join_names(missed_labels)}** "
+    if m_items:
+        lead += (f", plus **{m_items} earlier {'advisory' if m_items == 1 else 'advisories'} for {join_names(missed_labels[:3])}** "
                  "we hadn’t covered yet (see *Missed Earlier*).")
     else:
         lead += "."
@@ -703,15 +808,38 @@ def table_rows(g: Group, cap: int = 4) -> list[dict]:
     return rows[:cap]
 
 
-def disclosed_text(a: Advisory, missed: bool) -> str:
-    d = fmt_date(a.disclosed or a.published)
-    if missed and a.added and a.added.date() != (a.disclosed or a.published).date():
-        d += f" (added to GitHub Advisory Database {a.added.strftime('%B')} {a.added.day})"
-    return d
+def _md(d: datetime) -> str:
+    return f"{d.strftime('%B')} {d.day}"
+
+
+def disclosed_text(g: Group, missed: bool) -> str:
+    a = g.primary
+    shown = a.published
+    bits = []
+    base = (a.added or a.published) if a.ghsa else None
+    if g.ubuntu:
+        shown, base = g.ubuntu["published"] or shown, g.ubuntu["published"] or base
+        bits.append(g.ubuntu["usn"])
+    if a.nvd_published and base and abs((a.nvd_published - base).days) > 3:
+        bits.append(f"{a.vendor or a.project} published the CVEs {_md(a.nvd_published)}")
+    kev_days = sorted(e["dateAdded"] for e in a.kev.values() if e.get("dateAdded"))
+    if kev_days:
+        bits.append(f"added to CISA KEV {_md(datetime.fromisoformat(kev_days[0]))}")
+    if missed and a.added and a.added.date() != shown.date():
+        bits.append(f"added to GitHub Advisory Database {_md(a.added)}")
+    return fmt_date(shown) + (f" ({'; '.join(bits)})" if bits else "")
 
 
 def combined(g: Group, attr: str) -> str:
     """Affected/fixed text; an item that merges several projects (Incus & LXD) lists each project's own value."""
+    if g.ubuntu:
+        u = g.ubuntu
+        if attr == "fixed":
+            svc = u["service"]
+            return (". ".join(f"{rel}: `{ver}`" for rel, ver in u["fixed"].items()) + ". Run `sudo apt update && sudo apt upgrade`" +
+                    (f" and restart `{svc}`." if svc else "."))
+        rels = ", ".join(_lts(r) for r in u["fixed"])
+        return f"`{u['pkg']}` on Ubuntu {rels}" + (f" (upstream {u['upstream']})" if u["upstream"] else "")
     projects = list(dict.fromkeys(a.project for a in g.advs))
     if len(projects) <= 1:
         return getattr(g.primary, attr)
@@ -725,11 +853,11 @@ def combined(g: Group, attr: str) -> str:
 
 def view(g: Group, prose: str, short: str | None = None, missed: bool = False) -> dict:
     a = g.primary
-    title = fit_title(g.label, short or short_title(a.title, g.names()), len(g.others))
+    title = fit_title("Ubuntu" if g.ubuntu else g.label, short or short_title(a.title, g.names()), len(g.others))
     steps = remediation_steps(g)
     other = others_sentence(g)
     full_prose = " ".join(x for x in (prose.strip(), other) if x)
-    head = f"{id_line(g)} | Disclosed: {disclosed_text(a, missed)}  \n**Project** : {md_text(g.label)}"
+    head = f"{id_line(g)} | Disclosed: {disclosed_text(g, missed)}  \n**Project** : {md_text(g.display)}"
     return {
         "title": title, "head": head, "prose": full_prose,
         "severity_line": severity_line(a, kev=g.is_kev),
@@ -802,6 +930,8 @@ def build(since: date, until: date, *, fx: Fetcher, writer: ai_mod.AIWriter, pro
     missed = missed_groups[:MAX_MISSED]
     left_missed = missed_groups[MAX_MISSED:]
     stats["usn_matches"] = attach_usn([a for g in shown + missed for a in g.advs], fx)
+    for g in shown + missed:
+        g.ubuntu = ubuntu_info(g)
     stats["main"], stats["missed"] = len(shown), len(missed)
 
     prose = {g.label: det_prose(g.primary) for g in shown + missed}
@@ -812,7 +942,7 @@ def build(since: date, until: date, *, fx: Fetcher, writer: ai_mod.AIWriter, pro
     def render_all() -> str:
         edge_g, fast_g = intro_groups(shown)
         intro = build_intro(
-            n_adv, sum(len(g.advs) for g in missed), [g.label for g in missed],
+            len(shown), len(missed), [g.label for g in missed],
             [clauses.get(g.label) or clause_for(g, shorts[g.label]) for g in edge_g],
             [clauses.get(g.label) or clause_for(g, shorts[g.label]) for g in fast_g])
         bullets = takeaways(shown, left + left_missed, missed)

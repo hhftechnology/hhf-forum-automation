@@ -84,7 +84,7 @@ def humanize_ranges(raws: list[str]) -> str:
 
 # ---- titles -----------------------------------------------------------------
 SMALL_WORDS = {"a", "an", "and", "as", "at", "but", "by", "for", "in", "of", "on", "or", "the", "to", "via", "vs", "with",
-               "from", "into", "than", "per", "is", "are", "can", "no"}
+               "from", "into", "than", "per"}
 
 
 ACRONYMS = {w.lower(): w for w in (
@@ -139,10 +139,11 @@ def title_case(s: str) -> str:
 
 def lower_phrase(s: str) -> str:
     """Lower-case a Title Case phrase for use inside a sentence, keeping acronyms and code."""
-    out = []
-    for word in re.split(r"(\s+)", s.strip()):
-        out.append(word if (not word or word.isspace() or _keep(word)) else word.lower())
-    return "".join(out)
+    def low(word: str) -> str:
+        if not word or word.isspace() or ("-" in word and "`" not in word and "{" not in word):
+            return "-".join(low(p) for p in word.split("-")) if "-" in word and not word.isspace() else word
+        return word if _keep(word) or word.lower() in ACRONYMS else word.lower()
+    return "".join(low(w) for w in re.split(r"(\s+)", s.strip()))
 
 
 def strip_project(summary: str, names: list[str]) -> str:
@@ -216,3 +217,90 @@ def join_names(items: list[str]) -> str:
     if len(items) <= 2:
         return " and ".join(items)
     return ", ".join(items[:-1]) + f" and {items[-1]}"
+
+
+# ---- release tag names ------------------------------------------------------
+def norm_tag(tag: str) -> str:
+    """REL-9_19 / v9.19 / release-9.19 -> 9.19; V_10_6_P1 -> 10.6p1."""
+    t = (tag or "").strip()
+    m = re.fullmatch(r"[Vv]_(\d+)_(\d+)(?:_[Pp](\d+))?", t)
+    if m:
+        return f"{m.group(1)}.{m.group(2)}" + (f"p{m.group(3)}" if m.group(3) else "")
+    t = re.sub(r"^(?:rel(?:ease)?|version|ver|v)[-_ ]?(?=\d)", "", t, flags=re.I)
+    if "_" in t and "." not in t and re.fullmatch(r"\d+(?:_\d+)+", t):
+        t = t.replace("_", ".")
+    return t
+
+
+# ---- NVD-only titles ----------------------------------------------------------
+_VER = r"v?\d[\w.\-]*"
+_BOILER = [
+    # "In ssh in OpenSSH before 10.6, ..." / "In pgAdmin 4 through 9.18, ..."
+    re.compile(rf"^(?:In|Within|On)\s+.{{0,90}}?\s+(?:before|prior to|through|up to|from|versions?)\s+{_VER}(?:\s+(?:through|to|and earlier)\s+{_VER})?,\s*", re.I),
+    # "An issue was discovered in X before 1.2. " / "An issue was discovered in X 1.2 through 1.4, where "
+    re.compile(rf"^An? (?:issue|vulnerability|flaw|bug|problem) (?:was |has been )?(?:discovered|found|identified|exists?) in\s+.{{0,90}}?(?:before|prior to|through|up to)\s+{_VER}[.,]\s*(?:where\s+)?", re.I),
+    re.compile(r"^An? (?:issue|vulnerability|flaw|bug|problem) (?:was |has been )?(?:discovered|found|identified|exists?)? ?in\s+.{0,60}?\s+(?=allows?|lets|could|can|may|enables?|where|that)", re.I),
+    re.compile(rf"^.{{0,60}}?\b\d[\d.]*\s+(?:through|before|prior to|up to)\s+{_VER}\s+(?:could |may |can |would )?(?:allow|permit|enable)s?\s+(?:an?\s+|the\s+)?", re.I),
+    re.compile(r"^(?:Prior to|Before)\s+(?:version\s+)?" + _VER + r",\s*", re.I),
+    re.compile(rf"^(?:.{{0,40}}?\s)?versions?\s+(?:before|prior to|through|up to|from)\s+{_VER}(?:\s+(?:through|to)\s+{_VER})?\s+(?:are |is )?(?:vulnerable to |affected by |contains? |allows? |has )?", re.I),
+    re.compile(r"^(?:Under certain conditions|In some cases|When [^,]{0,60}),\s*", re.I),
+]
+_LEAD_VERB = re.compile(r"^(?:It\s+)?(?:allows?|permits?|enables?|lets?|could allow|may allow|can allow|is vulnerable to|contains?|has)\s+(?:an?\s+|the\s+|remote\s+|local\s+)?", re.I)
+
+
+def clean_nvd_sentence(desc: str, names: list[str]) -> str:
+    s = re.sub(r"\s+", " ", desc or "").strip()
+    for _ in range(3):
+        before = s
+        for rx in _BOILER:
+            s = rx.sub("", s, count=1).strip()
+        s = re.split(r"(?<=[a-z0-9\)`])\.\s", s, maxsplit=1)[0].rstrip(".")
+        s = strip_project(s, names)
+        s = _LEAD_VERB.sub("", s).strip()
+        if s == before:
+            break
+    s = re.sub(r",?\s+(?:leading|resulting|which (?:leads|results)) (?:in|to)\s+.*$", "", s, flags=re.I) if len(s.split()) > 9 else s
+    return s
+
+
+def impact_labels(desc: str, impacts: list[dict], limit: int = 2) -> list[str]:
+    out: list[str] = []
+    for imp in impacts:
+        if re.search(imp["pattern"], desc or "", re.I) and imp["label"] not in out:
+            out.append(imp["label"])
+            if len(out) >= limit:
+                break
+    return out
+
+
+def nvd_short_title(desc: str, names: list[str], impacts: list[dict], max_words: int = 9) -> str:
+    """A concise Title Case consequence phrase for an NVD-only advisory (never the raw first sentence)."""
+    s = clean_nvd_sentence(desc, names)
+    words = s.split()
+    if s and len(words) <= max_words and not re.match(r"(?i)^(?:a|an|the)\s+[$\\]", s):
+        return title_case(s)
+    labels = impact_labels(desc, impacts)
+    if labels:
+        return " and ".join(labels[:2]) if len(labels) > 1 and "Remote Code Execution" in labels else labels[0]
+    parts = words[:max_words]
+    while len(parts) > 1 and parts[-1].lower().strip(",;:") in SMALL_WORDS:
+        parts.pop()  # never end on a dangling "in", "of", "the"...
+    cut = clip_phrase(" ".join(parts), 60) if parts else ""
+    return title_case(cut) if cut else "Security Advisory"
+
+
+# ---- sentences --------------------------------------------------------------------
+_VERBISH = re.compile(r"\b(?:lets|allows|exhausts|leaks|wraps|escape[sd]?|enables|causes|runs|crashes|panics|are|is|can|may|"
+                      r"bypasses|exposes|overwrites|reads|revived|disabled|ignores|skips|fails|accepts|returns|uses|"
+                      r"treats|grants|permits|persist|persists|shares|steals?|injects?)\b", re.I)
+
+
+def clause_phrase(label: str, short: str) -> str:
+    """'<Project> has <short consequence>' built from a Title Case short title."""
+    low = re.split(r"\s+(?:that|which|where)\s+", lower_phrase(short))[0]
+    if _VERBISH.search(low):
+        return f"{label} has a bug where {low}"
+    if re.match(r"(?i)^(?:an?|the|multiple|several|\d)\b", low):
+        return f"{label} has {low}"
+    article = "an" if re.match(r"(?i)^(?:[aeiou]|rce\b|ssrf\b|xss\b|xxe\b|sql\b|ntlm\b|ldap\b|os\b|api\b)", low) else "a"
+    return f"{label} has {article} {low}"

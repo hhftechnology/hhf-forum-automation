@@ -62,7 +62,11 @@ NVD = {"resultsPerPage": 3, "startIndex": 0, "totalResults": 3, "vulnerabilities
     _nvd("CVE-2026-19630", "BIND 9 unlimited compression pointer processing burns CPU.", 7.5),
     _nvd("CVE-2026-96888", "BIND 9 crashes with redirect zones and qname-minimization strict.", 7.5)]}
 USN = {"notices": [{"id": "USN-8969-1", "title": "bind9", "published": "2026-11-03T10:00:00",
-                    "cves_ids": ["CVE-2026-94300"]}]}
+                    "cves_ids": ["CVE-2026-94300"],
+                    "release_packages": {
+                        "jammy": [{"name": "bind9", "version": "1:9.18.39-0ubuntu0.22.04.8", "is_source": True},
+                                  {"name": "bind9-utils", "version": "1:9.18.39-0ubuntu0.22.04.8", "is_source": False}],
+                        "noble": [{"name": "bind9", "version": "1:9.18.39-0ubuntu0.24.04.9", "is_source": True}]}}]}
 
 
 @pytest.fixture
@@ -102,14 +106,14 @@ def test_golden_structure(golden_fx):
                  r"open-source self-hosted projects, plus \*\*1 earlier advisory for Keycloak\*\* we hadn’t covered yet "
                  r"\(see \*Missed Earlier\*\)\. Start with your edge: (.+)\.( Then patch fast: .+\.)?$", lines[0])
     assert m, lines[0]
-    assert int(m.group(1)) == 7  # 1 Traefik + 3 BIND + 3 Caddy advisories (not items)
+    assert int(m.group(1)) == 3  # numbered items (Traefik, BIND, Caddy), not the 7 advisories behind them
     assert "Start with your edge: Start with your edge" not in raw
     assert "Traefik" in m.group(2) and "Caddy" in m.group(2) and "BIND" in m.group(2)
 
     heads = [ln for ln in lines if ln.startswith("### ")]
     assert [h.split(".")[0] for h in heads] == ["### **1", "### **2", "### **3", "### **4"]
     assert all(re.fullmatch(r"### \*\*\d+\. [^:]+: .+\*\*", h) for h in heads)
-    assert heads[0].startswith("### **1. BIND: ") or heads[0].startswith("### **1. Traefik: ") or heads[0].startswith("### **1. Caddy: ")
+    assert heads[0].startswith("### **1. BIND: ") or heads[0].startswith("### **1. Traefik: ") or heads[0].startswith("### **1. Caddy: ") or heads[0].startswith("### **1. Ubuntu: ")
 
     # Traefik item: GHSA only, two Go modules, exact bullets
     t = raw[raw.index("### **", raw.index("Traefik: ") - 10):]
@@ -130,7 +134,12 @@ def test_golden_structure(golden_fx):
 
     # BIND item: three CVEs folded into one, USN link, "and N more"
     b = raw[raw.index("**CVE-2026-94300**"):].split("\n---\n")[0]
-    assert b.startswith("**CVE-2026-94300** (and 2 more, incl. CVE-2026-19630, CVE-2026-96888) | Disclosed: November 3, 2026  \n**Project** : BIND")
+    assert b.startswith("**CVE-2026-94300** (and 2 more, incl. CVE-2026-19630, CVE-2026-96888) | Disclosed: November 3, 2026 "
+                        "(USN-8969-1)  \n**Project** : Ubuntu (`bind9`)")
+    assert "* **Fixed** : 22.04: `1:9.18.39-0ubuntu0.22.04.8`. 24.04: `1:9.18.39-0ubuntu0.24.04.9`. Run `sudo apt update && sudo apt upgrade` and restart `named`." in b
+    assert "* **Affected** : `bind9` on Ubuntu 22.04 LTS, 24.04 LTS" in b
+    assert "1. Update the package with `sudo apt update && sudo apt upgrade`, then restart the service (`sudo systemctl restart named`)." in b
+    assert re.search(r"^### \*\*\d\. Ubuntu: .*, 2 More\*\*$", raw, re.M)
     assert b.count("\n| CVE-2026-") == 3
     assert "[USN-8969-1](https://ubuntu.com/security/notices/USN-8969-1)" in b
 
@@ -371,3 +380,117 @@ def test_clip_phrase_does_not_leave_dangling_parts():
     assert clip_phrase("Authentication and Authorization Bypass Through Unverified Client Certificate Chains", 68) == \
         "Authentication and Authorization Bypass"
     assert "(" not in clip_phrase("Authenticated RCE via Apprise CLI Argument Injection (Missing Separator Allows It)", 62)
+
+
+def test_ubuntu_form_needs_release_packages(golden_fx, monkeypatch):
+    usn = {"notices": [{"id": "USN-8969-1", "title": "bind9", "published": "2026-11-03T10:00:00", "cves_ids": ["CVE-2026-94300"]}]}
+    monkeypatch.setitem(USN, "notices", usn["notices"])
+    raw = build(golden_fx)["raw"]
+    assert "**Project** : BIND" in raw and "Ubuntu (`bind9`)" not in raw
+
+
+def test_intro_counts_items_and_names_at_most_three_projects():
+    intro = weekly.build_intro(11, 2, ["imgproxy", "Keycloak", "Gitea", "X"], ["Traefik has an unauthenticated bug"], ["WordPress has an RCE"])
+    assert intro.startswith("Here’s a roundup of **11 critical/high security issues** disclosed this week affecting popular "
+                            "open-source self-hosted projects, plus **2 earlier advisories for imgproxy, Keycloak and Gitea** we hadn’t covered yet "
+                            "(see *Missed Earlier*). Start with your edge: Traefik has an unauthenticated bug. Then patch fast: WordPress has an RCE.")
+    assert "plus" not in weekly.build_intro(1, 0, [], ["a"], []) and "**1 critical/high security issue**" in weekly.build_intro(1, 0, [], ["a"], [])
+
+
+def test_clause_phrases():
+    from hhf.textfmt import clause_phrase
+    assert clause_phrase("Incus & LXD", "Authentication Bypass Through Unverified Client Certificate Chains") == \
+        "Incus & LXD has an authentication bypass through unverified client certificate chains"
+    assert clause_phrase("Traefik", "Unauthenticated NTLM/Negotiate Header Exhausts Memory and FDs") == \
+        "Traefik has a bug where unauthenticated NTLM/Negotiate header exhausts memory and FDs"
+    assert clause_phrase("pgAdmin 4", "Stored XSS in Notes") == "pgAdmin 4 has a stored XSS in notes"
+
+
+def test_norm_tag():
+    from hhf.textfmt import norm_tag
+    assert [norm_tag(t) for t in ("REL-9_19", "v9.19", "release-9.19", "V_10_6_P1", "9.19")] == ["9.19", "9.19", "9.19", "10.6p1", "9.19"]
+
+
+def test_nvd_titles_are_short_consequence_phrases():
+    from hhf.textfmt import nvd_short_title
+    imp = weekly.load_impacts()
+    t = nvd_short_title("In ssh in OpenSSH before 10.6, a $ or \\ character can occur in a command-line username, leading to injection.",
+                        ["OpenSSH"], imp)
+    assert len(t.split()) <= 9 and "Before" not in t and not t.startswith("In ")
+    assert nvd_short_title("A vulnerability in Foo 1.0 through 1.4 allows unauthenticated attackers to execute arbitrary code on the server via a crafted request.",
+                           ["Foo"], imp) == "Remote Code Execution"
+    assert nvd_short_title("An issue was discovered in Foo before 1.2.3. It allows XSS via the name field.", ["Foo"], imp) == "XSS via the Name Field"
+
+
+def _commit_fx(tmp_path, contained, releases_json=None, tags_json=None):
+    calls = []
+
+    def handler(req):
+        path = req.url.path
+        calls.append(path)
+        if path.endswith("/commits/abc1234567890abc1234567890abc1234567890a"):
+            return httpx.Response(200, json={"commit": {"committer": {"date": "2026-10-30T00:00:00Z"}}})
+        if path.endswith("/releases"):
+            return httpx.Response(200, json=releases_json or [])
+        if path.endswith("/tags"):
+            return httpx.Response(200, json=tags_json or [])
+        if "/compare/" in path:
+            tag = path.split("/compare/")[1].split("...")[0]
+            return httpx.Response(200, json={"status": "behind" if tag in contained else "ahead"})
+        return httpx.Response(404, json={})
+    fx = Fetcher(cache_dir=tmp_path, client=httpx.Client(transport=httpx.MockTransport(handler)), sleep=lambda s: None, max_retries=0)
+    fx.calls_seen = calls
+    return fx
+
+
+SHA = "abc1234567890abc1234567890abc1234567890a"
+
+
+def _commit_adv():
+    a = Advisory(key="CVE-1", title="t", project="pgAdmin 4", repo="pgadmin-org/pgadmin4", cves=["CVE-1"], pseudo=[SHA], fixed="")
+    return a
+
+
+def test_commit_fix_resolves_to_first_release_containing_it(tmp_path):
+    rels = [{"tag_name": "REL-9_19", "html_url": "u", "published_at": "2026-11-04T00:00:00Z", "body": ""},
+            {"tag_name": "REL-9_18", "html_url": "u", "published_at": "2026-10-20T00:00:00Z", "body": ""},
+            {"tag_name": "REL-9_20", "html_url": "u", "published_at": "2026-11-20T00:00:00Z", "body": ""}]
+    fx = _commit_fx(tmp_path, {"REL-9_19", "REL-9_20"}, releases_json=rels)
+    a = _commit_adv()
+    weekly.resolve_pseudo(a, fx)
+    assert a.fixed == "9.19" and a.fixed_version == "9.19"
+    compares = [c for c in fx.calls_seen if "/compare/" in c]
+    assert len(compares) == 1 and "REL-9_19" in compares[0]  # REL-9_18 predates the commit and is never compared
+
+
+def test_commit_fix_falls_back_to_tags_with_compare_cap(tmp_path):
+    tags = [{"name": f"V_10_{i}_P1"} for i in range(20, 0, -1)]  # newest first
+    fx = _commit_fx(tmp_path, {f"V_10_{i}_P1" for i in range(6, 21)}, tags_json=tags)
+    a = _commit_adv()
+    weekly.resolve_pseudo(a, fx)
+    assert a.fixed == "10.6p1"
+    assert len([c for c in fx.calls_seen if "/compare/" in c]) <= weekly.MAX_COMPARE
+
+
+def test_commit_fix_without_containing_tag_keeps_commit_text(tmp_path):
+    fx = _commit_fx(tmp_path, set(), releases_json=[{"tag_name": "v1", "html_url": "u", "published_at": "2026-11-04T00:00:00Z", "body": ""}])
+    a = _commit_adv()
+    weekly.resolve_pseudo(a, fx)
+    assert a.fixed == "Fixed in commit abc1234 (no tagged release yet)"
+
+
+def test_disclosed_line_extras():
+    a = Advisory(key="GHSA-1", title="t", project="BIND", ghsa="GHSA-1", cves=["CVE-1"], vendor="ISC",
+                 published=datetime(2026, 11, 3, tzinfo=timezone.utc), added=datetime(2026, 11, 3, tzinfo=timezone.utc),
+                 nvd_published=datetime(2026, 10, 21, tzinfo=timezone.utc), kev={"CVE-1": {"dateAdded": "2026-11-03"}})
+    g = weekly.Group("BIND", [a])
+    assert weekly.disclosed_text(g, False) == "November 3, 2026 (ISC published the CVEs October 21; added to CISA KEV November 3)"
+    a.nvd_published = datetime(2026, 11, 1, tzinfo=timezone.utc)  # within 3 days: no extra
+    assert "published the CVEs" not in weekly.disclosed_text(g, False)
+
+
+def test_also_in_this_batch_has_phrase_and_cvss_max_four():
+    advs = [Advisory(key=f"CVE-2026-{i}", title="Path Traversal in Uploads", project="P", group="P", cves=[f"CVE-2026-{i}"],
+                     severity="high", cvss=9.0 - i / 10, published=datetime(2026, 11, 1, tzinfo=timezone.utc)) for i in range(7)]
+    sentence = weekly.others_sentence(weekly.group_advisories(advs)[0])
+    assert sentence.count("CVSS") == 4 and "path traversal in uploads, CVSS 8.9" in sentence and sentence.endswith("and 2 more.")
