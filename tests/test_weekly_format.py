@@ -735,3 +735,51 @@ def test_kev_boilerplate_is_never_a_workaround():
     b = Advisory(key="CVE-2", title="t", project="WordPress", cves=["CVE-2"], kev_aliases=[{"product": "WordPress"}])
     weekly.finalize(b, {}, None, {"CVE-2": {**e, "cveID": "CVE-2", "requiredAction": "Disable the plugin until a patch ships."}}, {}, {})
     assert b.workaround == "Disable the plugin until a patch ships."
+
+
+# ---- round 5: titles never end mid-phrase ---------------------------------------------------------------
+def test_titles_never_end_on_dangling_words():
+    from hhf.textfmt import fit_title, trim_dangling
+    # exact cut-off strings from the AI run
+    assert fit_title("Mastodon", "Insufficient ActivityPub Identifier Verification Leading", 1) == \
+        "Mastodon: Insufficient ActivityPub Identifier Verification, 1 More"
+    assert fit_title("Portainer", "Non-Administrator Inherits Host Bind Mounts via Compose Volumes from", 3) == \
+        "Portainer: Non-Administrator Inherits Host Bind Mounts via Compose Volumes, 3 More"
+    gitea = "Archived Repository Write Protection Bypass for Releases, Milestones and Labels"
+    assert fit_title("Gitea", gitea) == f"Gitea: {gitea}"  # list commas kept
+    # long sources are clipped back to a complete phrase
+    t = fit_title("Portainer", "Non-Administrator Inherits Host Bind Mounts via Compose Volumes from Top-Level Declarations in Stacks", 3)
+    assert len(t) <= 90 and not t.split(", 3 More")[0].split()[-1].lower() in ("from", "via", "in", "to", "of", "the", "leading")
+    for bad in ("Foo Bar Leading", "Foo Bar for the", "Foo Bar (Missing", "Foo Bar, and"):
+        assert trim_dangling(bad) == "Foo Bar"
+
+
+def test_leading_to_tail_kept_only_when_it_fits():
+    from hhf.textfmt import fit_title
+    kept = fit_title("Mastodon", "Insufficient ActivityPub Identifier Verification Leading to Account Spoofing", 1)
+    assert kept == "Mastodon: Insufficient ActivityPub Identifier Verification Leading to Account Spoofing, 1 More" and len(kept) <= 95
+    dropped = fit_title("Mastodon", "Insufficient ActivityPub Identifier Verification Leading to Impersonation of Remote Actors", 1)
+    assert dropped == "Mastodon: Insufficient ActivityPub Identifier Verification, 1 More"
+
+
+def test_fit_title_falls_back_to_impact_label():
+    from hhf.textfmt import fit_title
+    assert fit_title("Mastodon", "Leading", 1, fallback="Authentication Bypass") == "Mastodon: Authentication Bypass, 1 More"
+
+
+def test_ai_short_title_is_validated(tmp_path):
+    class P(ai.Provider):
+        name = "p"
+        def __init__(self, text): self.text = text
+        def available(self): return True
+        def complete(self, system, user, client, max_tokens=1200): return self.text
+    a = Advisory(key="GHSA-1", ghsa="GHSA-1", cves=["CVE-1"], project="Gitea", group="Gitea", severity="high",
+                 title="archived repository write protection bypass for releases, milestones and labels",
+                 description="Archived repository write protection can be bypassed for releases, milestones and labels.")
+    g = weekly.Group("Gitea", [a])
+    def run(text):
+        return weekly.ai_short_title(ai.AIWriter([P(text)]), g, {})
+    assert run("Archived Repository Write Protection Bypass for Releases Milestones and Labels") is None  # list commas lost
+    assert run("Archived Repository Write Protection Bypass Leading") == "Archived Repository Write Protection Bypass"
+    assert run("Archived Repository Write Protection Bypass for Releases, Milestones and Labels") == \
+        "Archived Repository Write Protection Bypass for Releases, Milestones and Labels"
