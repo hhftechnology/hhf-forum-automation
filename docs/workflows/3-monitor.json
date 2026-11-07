@@ -1,0 +1,288 @@
+{
+  "name": "HHF: monitor automation runs",
+  "description": "Checks the last GitHub Actions runs daily and PMs staff on failure.",
+  "nodes": [
+    {
+      "id": "schedule",
+      "type": "trigger:schedule",
+      "typeVersion": "1.0",
+      "name": "Daily 07:00",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "daysInterval": 1,
+              "triggerAtHour": 7,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 0,
+        "y": 60
+      }
+    },
+    {
+      "id": "http-weekly",
+      "type": "action:http_request",
+      "typeVersion": "1.0",
+      "name": "Latest weekly-advisory run",
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/OWNER/hhf-forum-automation/actions/workflows/weekly-advisory.yml/runs?per_page=1",
+        "authentication": "none",
+        "headers": {
+          "values": [
+            {
+              "key": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "key": "X-GitHub-Api-Version",
+              "value": "2022-11-28"
+            }
+          ]
+        },
+        "never_error": true
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 260,
+        "y": 0
+      }
+    },
+    {
+      "id": "http-daily",
+      "type": "action:http_request",
+      "typeVersion": "1.0",
+      "name": "Latest daily-briefing run",
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/OWNER/hhf-forum-automation/actions/workflows/daily-briefing.yml/runs?per_page=1",
+        "authentication": "none",
+        "headers": {
+          "values": [
+            {
+              "key": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "key": "X-GitHub-Api-Version",
+              "value": "2022-11-28"
+            }
+          ]
+        },
+        "never_error": true
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "id": "if-weekly",
+      "type": "condition:if",
+      "typeVersion": "1.0",
+      "name": "Weekly failed?",
+      "parameters": {
+        "combinator": "or",
+        "conditions": [
+          {
+            "id": "cond-004",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $json.workflow_runs[0].conclusion }}",
+            "rightValue": "failure"
+          },
+          {
+            "id": "cond-005",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $json.workflow_runs[0].conclusion }}",
+            "rightValue": "timed_out"
+          },
+          {
+            "id": "cond-006",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $json.workflow_runs[0].conclusion }}",
+            "rightValue": "cancelled"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 520,
+        "y": 0
+      }
+    },
+    {
+      "id": "if-daily",
+      "type": "condition:if",
+      "typeVersion": "1.0",
+      "name": "Daily failed?",
+      "parameters": {
+        "combinator": "or",
+        "conditions": [
+          {
+            "id": "cond-007",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $json.workflow_runs[0].conclusion }}",
+            "rightValue": "failure"
+          },
+          {
+            "id": "cond-008",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $json.workflow_runs[0].conclusion }}",
+            "rightValue": "timed_out"
+          },
+          {
+            "id": "cond-009",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $json.workflow_runs[0].conclusion }}",
+            "rightValue": "cancelled"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 520,
+        "y": 120
+      }
+    },
+    {
+      "id": "pm-weekly",
+      "type": "action:send_personal_message",
+      "typeVersion": "1.0",
+      "name": "PM staff: weekly",
+      "parameters": {
+        "recipient_group_names": [
+          "staff"
+        ],
+        "sender_username": "system",
+        "title": "Automation failed: weekly-advisory",
+        "raw": "=The latest run of the weekly-advisory workflow ended with `{{ $json.workflow_runs[0].conclusion }}`.\n\nRun: {{ $json.workflow_runs[0].html_url }}"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 780,
+        "y": 0
+      }
+    },
+    {
+      "id": "pm-daily",
+      "type": "action:send_personal_message",
+      "typeVersion": "1.0",
+      "name": "PM staff: daily",
+      "parameters": {
+        "recipient_group_names": [
+          "staff"
+        ],
+        "sender_username": "system",
+        "title": "Automation failed: daily-briefing",
+        "raw": "=The latest run of the daily-briefing workflow ended with `{{ $json.workflow_runs[0].conclusion }}`.\n\nRun: {{ $json.workflow_runs[0].html_url }}"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 780,
+        "y": 120
+      }
+    }
+  ],
+  "connections": {
+    "Daily 07:00": {
+      "main": [
+        [
+          {
+            "node": "Latest weekly-advisory run",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Latest daily-briefing run",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Latest weekly-advisory run": {
+      "main": [
+        [
+          {
+            "node": "Weekly failed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Latest daily-briefing run": {
+      "main": [
+        [
+          {
+            "node": "Daily failed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Weekly failed?": {
+      "main": [
+        [
+          {
+            "node": "PM staff: weekly",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Daily failed?": {
+      "main": [
+        [
+          {
+            "node": "PM staff: daily",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  }
+}

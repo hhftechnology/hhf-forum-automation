@@ -1,0 +1,231 @@
+{
+  "name": "HHF: automation drafts to review queue",
+  "description": "Receives weekly advisory / daily briefing JSON, creates a draft topic, tags it and PMs staff.",
+  "nodes": [
+    {
+      "id": "webhook",
+      "type": "trigger:webhook",
+      "typeVersion": "1.0",
+      "name": "Webhook",
+      "parameters": {
+        "path": "hhf-drafts",
+        "http_method": "POST",
+        "authentication": "bearer_auth",
+        "response_mode": "on_received",
+        "response_code": "200"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "if-weekly",
+      "type": "condition:if",
+      "typeVersion": "1.0",
+      "name": "Is weekly advisory",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "cond-001",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $json.body.kind }}",
+            "rightValue": "weekly_advisory"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 240,
+        "y": 0
+      }
+    },
+    {
+      "id": "if-daily",
+      "type": "condition:if",
+      "typeVersion": "1.0",
+      "name": "Is daily briefing",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "cond-002",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $json.body.kind }}",
+            "rightValue": "daily_briefing"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 480,
+        "y": 120
+      }
+    },
+    {
+      "id": "create-advisory",
+      "type": "action:topic",
+      "typeVersion": "2.0",
+      "name": "Create advisory draft",
+      "parameters": {
+        "operation": "create",
+        "title": "={{ $json.body.title }}",
+        "raw": "={{ $json.body.raw }}",
+        "category_id": 0,
+        "actor_username": "system"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 480,
+        "y": -120
+      }
+    },
+    {
+      "id": "create-briefing",
+      "type": "action:topic",
+      "typeVersion": "2.0",
+      "name": "Create briefing draft",
+      "parameters": {
+        "operation": "create",
+        "title": "={{ $json.body.title }}",
+        "raw": "={{ $json.body.raw }}",
+        "category_id": 0,
+        "actor_username": "system"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 720,
+        "y": 120
+      }
+    },
+    {
+      "id": "tags",
+      "type": "action:topic_tags",
+      "typeVersion": "2.0",
+      "name": "Topic tags",
+      "parameters": {
+        "mode": "modify",
+        "topic_id": "={{ $json.topic.id }}",
+        "add_tag_names": "={{ $(\"Webhook\").item.json.body.tags }}",
+        "actor_username": "system"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 960,
+        "y": 0
+      }
+    },
+    {
+      "id": "pm",
+      "type": "action:send_personal_message",
+      "typeVersion": "1.0",
+      "name": "Notify staff",
+      "parameters": {
+        "recipient_group_names": [
+          "staff"
+        ],
+        "sender_username": "system",
+        "title": "={{ \"Draft ready for review: \" + $(\"Webhook\").item.json.body.title }}",
+        "raw": "=A new draft was created from the {{ $(\"Webhook\").item.json.body.kind }} automation (external id {{ $(\"Webhook\").item.json.body.external_id }}).\n\nTopic: /t/{{ $json.topic_id }}\n\nReview it, edit if needed, then move it to the News category (86) to publish."
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 1200,
+        "y": 0
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Is weekly advisory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is weekly advisory": {
+      "main": [
+        [
+          {
+            "node": "Create advisory draft",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Is daily briefing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is daily briefing": {
+      "main": [
+        [
+          {
+            "node": "Create briefing draft",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Create advisory draft": {
+      "main": [
+        [
+          {
+            "node": "Topic tags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create briefing draft": {
+      "main": [
+        [
+          {
+            "node": "Topic tags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Topic tags": {
+      "main": [
+        [
+          {
+            "node": "Notify staff",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

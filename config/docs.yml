@@ -1,0 +1,19 @@
+# Docs sources imported into Discourse (Docs parent category, one subcategory per repo).
+# Fill in category_id once the subcategories exist; null is fine for --dry-run.
+tags: [docs]
+repos:
+  - repo: hhftechnology/traefik-log-dashboard
+    path: docs/content/docs
+    branch: main
+    label: Traefik Log Dashboard
+    category_id: 109
+  - repo: hhftechnology/crowdsec_manager
+    path: docs/content/docs
+    branch: main
+    label: CrowdSec Manager
+    category_id: 110
+  - repo: hhftechnology/middleware-manager
+    path: docs/docs/content/docs
+    branch: main
+    label: Middleware Manager
+    category_id: 111

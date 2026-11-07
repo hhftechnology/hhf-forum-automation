@@ -1,0 +1,522 @@
+# Watchlist of popular self-hosted projects for the weekly advisory.
+# repo      -> GitHub owner/repo (GHSA source_code_location match, releases, repo advisories)
+# image     -> container image used in the generated upgrade command (optional)
+# packages  -> GHSA ecosystem + package name (ecosystem names as used by GitHub: go, npm, pip, ...)
+# nvd       -> CPE vendors and description keywords (case-insensitive, word boundary)
+# category  -> edge | identity | apps | dev | infra (edge items are listed first in the intro)
+projects:
+- name: Traefik
+  category: edge
+  repo: traefik/traefik
+  image: traefik
+  packages:
+  - ecosystem: go
+    name: github.com/traefik/traefik/v3
+  - ecosystem: go
+    name: github.com/traefik/traefik/v2
+  nvd:
+    vendors:
+    - traefik
+    - traefik_labs
+    keywords:
+    - traefik
+- name: Caddy
+  category: edge
+  repo: caddyserver/caddy
+  image: caddy
+  packages:
+  - ecosystem: go
+    name: github.com/caddyserver/caddy/v2
+  nvd:
+    vendors:
+    - caddyserver
+    - caddy
+    keywords:
+    - caddy
+- name: nginx
+  category: edge
+  repo: nginx/nginx
+  image: nginx
+  nvd:
+    vendors:
+    - nginx
+    - f5
+    keywords:
+    - nginx
+- name: Pangolin
+  category: edge
+  repo: fosrl/pangolin
+  image: fosrl/pangolin
+  nvd:
+    vendors:
+    - fossorial
+    - fosrl
+    keywords:
+    - pangolin
+- name: CrowdSec
+  category: edge
+  repo: crowdsecurity/crowdsec
+  image: crowdsecurity/crowdsec
+  packages:
+  - ecosystem: go
+    name: github.com/crowdsecurity/crowdsec
+  nvd:
+    vendors:
+    - crowdsec
+    - crowdsecurity
+    keywords:
+    - crowdsec
+- name: OpenSSH
+  category: edge
+  repo: openssh/openssh-portable
+  nvd:
+    vendors:
+    - openssh
+    keywords:
+    - openssh
+- name: BIND
+  category: edge
+  repo: isc-projects/bind9
+  image: internetsystemsconsortium/bind9
+  nvd:
+    vendors:
+    - isc
+    keywords:
+    - bind
+- name: Keycloak
+  category: identity
+  repo: keycloak/keycloak
+  image: keycloak/keycloak
+  packages:
+  - ecosystem: maven
+    name: org.keycloak:keycloak-services
+  nvd:
+    vendors:
+    - redhat
+    - keycloak
+    keywords:
+    - keycloak
+- name: Authentik
+  category: identity
+  repo: goauthentik/authentik
+  image: ghcr.io/goauthentik/server
+  packages:
+  - ecosystem: pip
+    name: authentik
+  nvd:
+    vendors:
+    - goauthentik
+    - authentik
+    keywords:
+    - authentik
+- name: Vaultwarden
+  category: identity
+  repo: dani-garcia/vaultwarden
+  image: vaultwarden/server
+  nvd:
+    vendors:
+    - vaultwarden
+    - bitwarden
+    keywords:
+    - vaultwarden
+- name: Nextcloud
+  category: apps
+  repo: nextcloud/server
+  image: nextcloud
+  packages:
+  - ecosystem: composer
+    name: nextcloud/server
+  nvd:
+    vendors:
+    - nextcloud
+    keywords:
+    - nextcloud
+- name: Immich
+  category: apps
+  repo: immich-app/immich
+  image: ghcr.io/immich-app/immich-server
+  packages:
+  - ecosystem: npm
+    name: immich
+  nvd:
+    vendors:
+    - immich-app
+    - immich
+    keywords:
+    - immich
+- name: Jellyfin
+  category: apps
+  repo: jellyfin/jellyfin
+  image: jellyfin/jellyfin
+  packages:
+  - ecosystem: nuget
+    name: Jellyfin.Server
+  nvd:
+    vendors:
+    - jellyfin
+    keywords:
+    - jellyfin
+- name: Plex
+  category: apps
+  repo: plexinc/pms-docker
+  image: plexinc/pms-docker
+  nvd:
+    vendors:
+    - plex
+    keywords:
+    - plex media server
+    - plex
+- name: Gitea
+  category: dev
+  repo: go-gitea/gitea
+  image: gitea/gitea
+  packages:
+  - ecosystem: go
+    name: code.gitea.io/gitea
+  nvd:
+    vendors:
+    - gitea
+    keywords:
+    - gitea
+- name: Forgejo
+  category: dev
+  image: codeberg.org/forgejo/forgejo
+  packages:
+  - ecosystem: go
+    name: code.forgejo.org/forgejo/forgejo
+  nvd:
+    vendors:
+    - forgejo
+    - codeberg
+    keywords:
+    - forgejo
+- name: Home Assistant
+  category: apps
+  repo: home-assistant/core
+  image: ghcr.io/home-assistant/home-assistant
+  packages:
+  - ecosystem: pip
+    name: homeassistant
+  nvd:
+    vendors:
+    - home-assistant
+    - homeassistant
+    keywords:
+    - home assistant
+- name: Portainer
+  category: infra
+  repo: portainer/portainer
+  image: portainer/portainer-ce
+  packages:
+  - ecosystem: go
+    name: github.com/portainer/portainer
+  nvd:
+    vendors:
+    - portainer
+    keywords:
+    - portainer
+- name: Proxmox
+  category: infra
+  nvd:
+    vendors:
+    - proxmox
+    keywords:
+    - proxmox
+- name: WordPress
+  category: apps
+  repo: WordPress/WordPress
+  image: wordpress
+  packages:
+  - ecosystem: composer
+    name: johnpbloch/wordpress-core
+  nvd:
+    vendors:
+    - wordpress
+    keywords:
+    - wordpress
+    exclude:
+    - \bplugins?\b
+    - \bthemes?\b
+    - \bwoocommerce\b
+- name: pgAdmin
+  category: infra
+  repo: pgadmin-org/pgadmin4
+  image: dpage/pgadmin4
+  packages:
+  - ecosystem: pip
+    name: pgadmin4
+  nvd:
+    vendors:
+    - postgresql
+    - pgadmin
+    keywords:
+    - pgadmin
+- name: Grafana
+  category: infra
+  repo: grafana/grafana
+  image: grafana/grafana
+  packages:
+  - ecosystem: go
+    name: github.com/grafana/grafana
+  nvd:
+    vendors:
+    - grafana
+    - grafana_labs
+    keywords:
+    - grafana
+- name: Uptime Kuma
+  category: infra
+  repo: louislam/uptime-kuma
+  image: louislam/uptime-kuma
+  packages:
+  - ecosystem: npm
+    name: uptime-kuma
+  nvd:
+    vendors:
+    - louislam
+    - uptime_kuma
+    keywords:
+    - uptime kuma
+- name: Incus
+  category: infra
+  repo: lxc/incus
+  packages:
+  - ecosystem: go
+    name: github.com/lxc/incus
+  nvd:
+    vendors:
+    - linuxcontainers
+    - incus
+    keywords:
+    - incus
+- name: LXD
+  category: infra
+  repo: canonical/lxd
+  packages:
+  - ecosystem: go
+    name: github.com/canonical/lxd
+  nvd:
+    vendors:
+    - canonical
+    - linuxcontainers
+    keywords:
+    - lxd
+- name: Docker
+  category: infra
+  repo: moby/moby
+  image: docker
+  packages:
+  - ecosystem: go
+    name: github.com/docker/docker
+  - ecosystem: go
+    name: github.com/moby/moby
+  nvd:
+    vendors:
+    - docker
+    - mobyproject
+    keywords:
+    - docker
+- name: Synapse
+  category: apps
+  repo: element-hq/synapse
+  image: matrixdotorg/synapse
+  packages:
+  - ecosystem: pip
+    name: matrix-synapse
+  nvd:
+    vendors:
+    - matrix
+    - element
+    keywords:
+    - synapse
+- name: Mastodon
+  category: apps
+  repo: mastodon/mastodon
+  image: ghcr.io/mastodon/mastodon
+  packages:
+  - ecosystem: rubygems
+    name: mastodon
+  nvd:
+    vendors:
+    - joinmastodon
+    - mastodon
+    keywords:
+    - mastodon
+- name: Paperless-ngx
+  category: apps
+  repo: paperless-ngx/paperless-ngx
+  image: ghcr.io/paperless-ngx/paperless-ngx
+  packages:
+  - ecosystem: pip
+    name: paperless-ngx
+  nvd:
+    vendors:
+    - paperless-ngx
+    keywords:
+    - paperless-ngx
+    - paperless
+- name: n8n
+  category: apps
+  repo: n8n-io/n8n
+  image: n8nio/n8n
+  packages:
+  - ecosystem: npm
+    name: n8n
+  nvd:
+    vendors:
+    - n8n
+    keywords:
+    - n8n
+- name: Pi-hole
+  category: edge
+  repo: pi-hole/pi-hole
+  image: pihole/pihole
+  nvd:
+    vendors:
+    - pi-hole
+    keywords:
+    - pi-hole
+- name: AdGuard Home
+  category: edge
+  repo: AdguardTeam/AdGuardHome
+  image: adguard/adguardhome
+  packages:
+  - ecosystem: go
+    name: github.com/AdguardTeam/AdGuardHome
+  nvd:
+    vendors:
+    - adguard
+    keywords:
+    - adguard home
+- name: Nginx Proxy Manager
+  category: edge
+  repo: NginxProxyManager/nginx-proxy-manager
+  image: jc21/nginx-proxy-manager
+  packages:
+  - ecosystem: npm
+    name: nginx-proxy-manager
+  nvd:
+    vendors:
+    - nginxproxymanager
+    keywords:
+    - nginx proxy manager
+- name: WireGuard
+  category: edge
+  repo: WireGuard/wireguard-tools
+  nvd:
+    vendors:
+    - wireguard
+    keywords:
+    - wireguard
+- name: Tailscale
+  category: edge
+  repo: tailscale/tailscale
+  image: tailscale/tailscale
+  packages:
+  - ecosystem: go
+    name: tailscale.com
+  nvd:
+    vendors:
+    - tailscale
+    keywords:
+    - tailscale
+- name: Vault
+  category: identity
+  repo: hashicorp/vault
+  image: hashicorp/vault
+  packages:
+  - ecosystem: go
+    name: github.com/hashicorp/vault
+  nvd:
+    vendors:
+    - hashicorp
+    keywords:
+    - hashicorp vault
+- name: Sonarr
+  category: apps
+  repo: Sonarr/Sonarr
+  nvd:
+    vendors:
+    - sonarr
+    keywords:
+    - sonarr
+- name: Radarr
+  category: apps
+  repo: Radarr/Radarr
+  nvd:
+    vendors:
+    - radarr
+    keywords:
+    - radarr
+- name: Ollama
+  category: apps
+  repo: ollama/ollama
+  image: ollama/ollama
+  packages:
+  - ecosystem: go
+    name: github.com/ollama/ollama
+  nvd:
+    vendors:
+    - ollama
+    keywords:
+    - ollama
+- name: Open WebUI
+  category: apps
+  repo: open-webui/open-webui
+  image: ghcr.io/open-webui/open-webui
+  packages:
+  - ecosystem: pip
+    name: open-webui
+  nvd:
+    vendors:
+    - openwebui
+    - open-webui
+    keywords:
+    - open webui
+- name: GitLab
+  category: dev
+  repo: gitlabhq/gitlabhq
+  image: gitlab/gitlab-ce
+  nvd:
+    vendors:
+    - gitlab
+    keywords:
+    - gitlab
+- name: Jenkins
+  category: dev
+  repo: jenkinsci/jenkins
+  image: jenkins/jenkins
+  packages:
+  - ecosystem: maven
+    name: org.jenkins-ci.main:jenkins-core
+  nvd:
+    vendors:
+    - jenkins
+    - jenkins_ci
+    keywords:
+    - jenkins
+- name: Node-RED
+  category: apps
+  repo: node-red/node-red
+  image: nodered/node-red
+  packages:
+  - ecosystem: npm
+    name: node-red
+  nvd:
+    vendors:
+    - nodered
+    - node-red
+    keywords:
+    - node-red
+- name: Discourse
+  category: apps
+  repo: discourse/discourse
+  image: discourse/discourse
+  packages:
+  - ecosystem: rubygems
+    name: discourse
+  nvd:
+    vendors:
+    - discourse
+    keywords:
+    - discourse
