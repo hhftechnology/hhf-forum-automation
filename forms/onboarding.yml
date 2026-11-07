@@ -1,0 +1,172 @@
+# HHF onboarding questionnaire (W16 form, workflow 38) and existing-member PM (W19, workflow 41).
+# Source of truth: a merged PR here is applied to the forum as a DRAFT by the `form-sync` workflow;
+# a human then publishes it in the admin UI.
+#
+# Safe to edit freely: title, description, labels, options, descriptions, placeholders, section
+# text, and the pm: title/body. Reorder items as you like.
+# NEVER rename or remove a `name` (it is the field_name) without updating the W16 code nodes
+# that read it (e.g. s_pangolin, t_cloudflare, watch_tags, save_profile, flair, followup);
+# validation fails and apply refuses if a live field_name is missing.
+# NEVER paste secrets, keys, tokens, IPs, private domains or URLs into this file.
+#
+# Item kinds: `section` (+ optional `note`) renders <h3>/<p>; `html` is a raw intro block; anything
+# with `type` is a question (radio|checkbox|dropdown|text|textarea|...). Text is inserted verbatim
+# (no HTML escaping). Checkboxes default to unticked.
+# pm.body is Markdown; keep {{USERNAME}} and the /workflows/form/<uuid> link; {{BASE_URL}} is filled in by W19.
+
+title: 'Welcome to HHF: tell us about your setup'
+description: Takes about 2 minutes. Only staff see your answers unless you choose to copy them to your profile.
+workflow:
+  id: 38
+  node_id: f937fcc5-980b-4b44-a5f5-912a60c76540
+  uuid: 2d340c3d-9d99-407b-82a3-2e5e33167844
+  response_mode: on_received
+  authentication: login_required
+items:
+- name: intro
+  html: <p><strong>About 2 minutes.</strong> First and last questions are required; everything else is optional. Answers are staff-only unless you tick “copy to profile”. Tick at most 3 items per group. Never paste passwords, API keys, tokens, private keys, IPs or private domains.</p>
+- name: looking_for
+  type: radio
+  label: What brings you to HHF?
+  required: true
+  options:
+  - Help with a problem in my setup
+  - Learn self-hosting / homelab
+  - Share guides or use HHF tools
+  - Just browsing for now
+- name: h_interests
+  section: What are you interested in?
+  note: Tick up to 3.
+- name: i_proxy_tunnels
+  type: checkbox
+  label: Proxies, tunnels & remote access
+- name: i_security
+  type: checkbox
+  label: Security, SSO & hardening
+- name: i_containers_virt
+  type: checkbox
+  label: Docker, VMs & home servers
+- name: i_apps_web
+  type: checkbox
+  label: Apps, monitoring & web hosting
+- name: h_stack
+  section: Your stack
+  note: What do you run today? Tick up to 3. Other tools go in the text box below.
+- name: s_pangolin
+  type: checkbox
+  label: Pangolin / Newt
+- name: s_traefik
+  type: checkbox
+  label: Traefik
+- name: s_crowdsec
+  type: checkbox
+  label: CrowdSec
+- name: s_docker
+  type: checkbox
+  label: Docker / Compose
+- name: h_ai
+  section: AI tools
+  note: Tick up to 3.
+- name: s_claude_code
+  type: checkbox
+  label: Claude Code
+- name: s_agent_skills
+  type: checkbox
+  label: AI agents & agent skills
+- name: s_mcp
+  type: checkbox
+  label: MCP servers
+- name: s_local_llm
+  type: checkbox
+  label: Local LLMs (Ollama, llama.cpp …)
+- name: stack_other
+  type: text
+  label: Anything else in your stack?
+  description: Max 80 characters. No URLs, emails, keys or IPs.
+  placeholder: Max 80 chars. e.g. Authentik, Portainer, Proxmox (no secrets)
+- name: h_tunnels
+  section: Tunnels & reverse proxies
+  note: Tick up to 3. Others go in the text box.
+- name: t_cloudflare
+  type: checkbox
+  label: Cloudflare Tunnel
+- name: t_tailscale
+  type: checkbox
+  label: Tailscale / Headscale
+- name: t_wireguard
+  type: checkbox
+  label: WireGuard / NetBird
+- name: p_caddy
+  type: checkbox
+  label: Caddy / NPM / NGINX
+- name: tunnel_other
+  type: text
+  label: Other tunnel / proxy?
+  description: Max 80 characters. No URLs, emails, keys or IPs.
+  placeholder: Max 80 chars. e.g. ZeroTier, HAProxy, frp
+- name: h_about
+  section: About your setup
+- name: hosting
+  type: dropdown
+  label: Where do you host?
+  options:
+  - Home server / homelab
+  - VPS
+  - Home server + VPS
+  - Cloud or not hosting yet
+- name: os
+  type: dropdown
+  label: Main OS / platform
+  options:
+  - Debian / Ubuntu
+  - Proxmox VE
+  - Unraid / TrueNAS
+  - Other (Linux / Windows / macOS)
+- name: experience
+  type: radio
+  label: Experience level
+  options:
+  - New to self-hosting
+  - Comfortable (I run a few services)
+  - Advanced (I run a lot / do this for work)
+- name: problems
+  type: textarea
+  label: What problem are you facing (or want to solve)?
+  description: Staff-only. Max 500 characters. Don't paste secrets, keys, tokens, private domains or IPs.
+  placeholder: Max 500 chars. e.g. Pangolin resource returns 404 behind CGNAT
+- name: h_opt
+  section: Optional extras
+  note: Nothing below happens unless you tick it.
+- name: watch_tags
+  type: checkbox
+  label: Notify me about new topics for the tools I ticked (Watching First Post)
+- name: save_profile
+  type: checkbox
+  label: Copy my answers to my profile (stack, tunnels, interests, experience, hosting, OS). You can edit or clear them any time.
+- name: flair
+  type: checkbox
+  label: Show a flair badge on my avatar for the tools I ticked (you can leave the group any time)
+- name: followup
+  type: radio
+  label: Follow-up
+  required: true
+  options:
+  - Yes, send me one follow-up in 3 days
+  - No thanks, don't message me again
+pm:
+  workflow_id: 41
+  node_name: Candidates
+  title: Help us tailor HHF to your setup (2-minute questionnaire)
+  body: |-
+    Hi @{{USERNAME}}, quick note from the HHF Technology team, and thanks for being part of the forum.
+
+    We've added a short questionnaire so we can point you to the guides and tools that fit your setup: what you run, the tunnels and proxies you use, and anything you're stuck on. Only staff see your answers, and nothing goes on your profile unless you tick that box.
+
+    You can also show your stack (Pangolin, Traefik, CrowdSec, the AI tools you use and more) on your profile and user card: [add it here]({{BASE_URL}}/my/preferences/profile).
+
+    This is a one-time message. If you'd rather not get onboarding messages, [opt out here]({{BASE_URL}}/workflows/form/eb2de0bc-2150-4a92-ab4d-43b8685cb97a) and we won't message you about it again.
+
+    **Your next step:** [open the questionnaire]({{BASE_URL}}/workflows/form/2d340c3d-9d99-407b-82a3-2e5e33167844). It takes about 2 minutes.
+
+    Thanks,
+    HHF Technology
