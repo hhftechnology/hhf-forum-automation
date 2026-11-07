@@ -7,6 +7,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import re
 import sys
 import time
@@ -18,7 +19,7 @@ from urllib.parse import quote
 import yaml
 
 from . import ai as ai_mod
-from .facts import Advisory, fmt_date, fmt_range, has_public_poc, md_text, severity_from_cvss
+from .facts import Advisory, fmt_date, fmt_range, has_public_poc, kev_matches, md_text, severity_from_cvss
 from .sources import epss, ghsa, kev, nvd, osv, releases, ubuntu
 from .sources.base import Fetcher, SourceError, default_fetcher
 from .textfmt import (COMMIT_RE, clause_phrase, clip_phrase, norm_tag, nvd_short_title, fit_title, is_commit, humanize_ranges, is_pseudo, join_list, join_names, lower_phrase, pseudo_parts, scrub_pseudo,
@@ -56,18 +57,35 @@ def _kw_re(words: list[str]) -> re.Pattern:
     return re.compile(r"(?<![\w-])(?:" + "|".join(re.escape(w).replace(r"\ ", r"\s+") for w in words) + r")(?![\w-])", re.I)
 
 
+def _product_is(product: str, kws: list[str]) -> bool:
+    prod = product.replace("_", " ").replace("-", " ")
+    return any(prod == k or prod.startswith(k + " ") or prod.endswith(" " + k) for k in kws)
+
+
 def match_nvd(rec: dict, projects: list[dict]) -> dict | None:
+    """Match an NVD record to a project by its *vulnerable* CPEs only (rec["cpes"] already excludes "running on" nodes).
+
+    The vendor:product must be one the project configures (nvd.cpes, or nvd.vendors with a product named by nvd.keywords).
+    A record whose vulnerable CPEs are all someone else's (a bundled library such as Brotli) never matches, and the
+    description alone is never keyword-matched. Records still without CPEs (awaiting analysis) match only when a
+    reference points at the project's own GitHub repository.
+    """
+    cpes = [(v.lower(), p.lower()) for v, p in rec.get("cpes", [])]
+    desc = rec.get("description", "")
     for p in projects:
         nv = p.get("nvd", {})
-        if nv.get("exclude") and re.search("|".join(nv["exclude"]), rec.get("description", ""), re.I):
+        if nv.get("exclude") and re.search("|".join(nv["exclude"]), desc, re.I):
             continue
         kws = [k.lower() for k in nv.get("keywords", [])]
         vendors = {v.lower() for v in nv.get("vendors", [])}
-        for vendor, product in rec.get("cpes", []):
-            prod, ven = product.replace("_", " "), vendor.replace("_", " ")
-            if prod in kws or ven in kws or (vendor in vendors and any(k in prod for k in kws)):
+        explicit = {tuple(c.lower().split(":", 1)) for c in nv.get("cpes", []) if ":" in c}
+        mine = [(v, pr) for v, pr in cpes if (v, pr) in explicit or (v in vendors and _product_is(pr, kws))]
+        if mine:
+            if len(mine) == len(cpes) or (kws and _kw_re(kws).search(desc)):
                 return p
-        if not rec.get("cpes") and kws and _kw_re(kws).search(rec.get("description", "")):
+            continue  # also lists other vulnerable products and never names this one: a bundled dependency
+        repo = (p.get("repo") or "").lower()
+        if not cpes and repo and any(f"github.com/{repo}/" in (r.get("url") or "").lower() for r in rec.get("references", [])):
             return p
     return None
 
@@ -151,7 +169,7 @@ def _names(project: dict) -> list[str]:
 
 
 def _project_fields(project: dict) -> dict:
-    return {"vendor": project.get("vendor", ""), "ubuntu_packages": project.get("ubuntu_packages", []),
+    return {"kev_aliases": project.get("kev", []), "vendor": project.get("vendor", ""), "ubuntu_packages": project.get("ubuntu_packages", []),
             "ubuntu_service": project.get("ubuntu_service", "")}
 
 
@@ -289,9 +307,12 @@ def finalize(a: Advisory, nvd_by_id: dict[str, dict], osv_info: dict | None, kev
             a.sources.add("NVD")
             if n.get("published"):
                 nvd_pub.append(_dt(n["published"]))
-        if cve in kev_idx:
+        if cve in kev_idx and kev_matches(kev_idx[cve], a.kev_aliases):  # never claim KEV for another vendor's CVE
             a.kev[cve] = kev_idx[cve]
             a.sources.add("KEV")
+            if not a.workaround and kev_idx[cve].get("requiredAction"):
+                # CISA's text is long boilerplate: keep the first clause ("Apply mitigations in accordance with vendor instructions")
+                a.workaround = re.split(r",\s|;\s|\.\s", kev_idx[cve]["requiredAction"].strip())[0].rstrip(".") + "."
         if cve in epss_map:
             a.epss[cve] = epss_map[cve]
         for u in usn_map.get(cve, []):
@@ -498,10 +519,10 @@ def id_line(g: Group) -> str:
     a = g.primary
     more = ""
     if g.others:
-        more = f"and {len(g.others)} more, incl. " + ", ".join(adv_id(o) for o in g.others[:3])
+        more = f" (and {len(g.others)} more, incl. " + ", ".join(adv_id(o) for o in g.others[:3]) + ")"
     if a.cves:
-        return f"**{a.cves[0]}**" + (f" ({more})" if more else "")
-    return f"**{a.ghsa or a.key}** (no CVE yet" + (f", {more}" if more else "") + ")"
+        return f"**{a.cves[0]}**{more}"
+    return f"**{a.ghsa or a.key}** (no CVE yet){more}"
 
 
 def facts_for(g: Group) -> dict:
@@ -641,6 +662,23 @@ def collect(since: date, until: date, *, fx: Fetcher, projects: list[dict], post
     except SourceError as exc:
         log.warning("KEV failed: %s", exc)
     stats["kev_catalog"] = len(kev_idx)
+    # KEV entries added in the window for a watchlist project become items even when GHSA/NVD matching missed them
+    have = {c for a in items for c in a.cves}
+    for cve, e in kev_idx.items():
+        d = e.get("dateAdded")
+        if not d or cve in have or not (since <= date.fromisoformat(d) <= until):
+            continue
+        pj = next((p for p in projects if kev_matches(e, p.get("kev", []))), None)
+        if not pj:
+            continue
+        n = nvd_by_id.get(cve) or nvd.get_cve(cve, fx) or {
+            "id": cve, "published": f"{d}T00:00:00", "description": e.get("shortDescription", ""), "cvss": None,
+            "severity": None, "references": [], "cpes": []}
+        nvd_by_id[cve] = n
+        items.append(advisory_from_nvd(n, pj))
+        stats["kev_driven"] = stats.get("kev_driven", 0) + 1
+    already = set(posted)
+    items = [a for a in items if not (a.key in already or (a.ghsa and a.ghsa in already) or set(a.cves) & already)]
     for a in items:
         for c in a.cves:
             if c not in nvd_by_id and len(nvd_by_id) < 400:
@@ -660,10 +698,13 @@ def collect(since: date, until: date, *, fx: Fetcher, projects: list[dict], post
         if not a.affected and a.fixed_version:
             a.affected = f"before {a.fixed_version}"
 
-    already = set(posted)
-    main = sorted([a for a in items if (a.disclosed or a.published) >= since_dt and a.key not in already], key=sort_key)
-    missed = sorted([a for a in items if (a.disclosed or a.published) < since_dt and a.key not in already
-                     and not (set(a.cves) & already)], key=sort_key)
+    def in_window(a: Advisory) -> bool:  # disclosed in the window, or added to CISA KEV in the window
+        if (a.disclosed or a.published) >= since_dt:
+            return True
+        return any(e.get("dateAdded") and since <= date.fromisoformat(e["dateAdded"]) <= until for e in a.kev.values())
+
+    main = sorted([a for a in items if in_window(a)], key=sort_key)
+    missed = sorted([a for a in items if not in_window(a)], key=sort_key)
     stats["candidates"] = len(main)
     stats["main"], stats["missed"] = len(main), len(missed)
     return main, missed, stats
@@ -694,12 +735,9 @@ def build_intro(n_items: int, m_items: int, missed_labels: list[str], edge_claus
                  "we hadn’t covered yet (see *Missed Earlier*).")
     else:
         lead += "."
-    if edge_clauses:
-        edge = f"Start with your edge: {join_list(edge_clauses)}."
-    else:
-        edge = "Start with your edge: no reverse-proxy, web-server, DNS, VPN or firewall issues were flagged this week."
+    edge = f" Start with your edge: {join_list(edge_clauses)}." if edge_clauses else ""
     fast = f" Then patch fast: {join_list(fast_clauses)}." if fast_clauses else ""
-    return f"{lead} {edge}{fast}"
+    return f"{lead}{edge}{fast}"
 
 
 _ADMIN_RE = re.compile(r"\b(admin\w*|management|api|console|dashboard|web (?:ui|interface|gui)|control plane|listener)\b", re.I)
@@ -917,6 +955,9 @@ def build(since: date, until: date, *, fx: Fetcher, writer: ai_mod.AIWriter, pro
     all_main, all_missed, stats = collect(since, until, fx=fx, projects=projects, posted=posted)
     main_groups = group_advisories(all_main)
     n_adv = sum(len(g.advs) for g in main_groups)
+    if not main_groups:  # nothing new this week: deliver nothing
+        return {"empty": True, "title": "", "raw": "", "tags": TAGS, "external_id": f"weekly-advisory-{until.isoformat()}",
+                "stats": stats, "ids": [], "n_main": 0, "n_missed": 0, "ai": writer.stats}
     rest = []
     for a in all_missed:  # a project already in the main list folds its earlier advisories into that item
         tgt = next((g for g in main_groups if g.label == (a.group or a.project)), None)
@@ -1014,6 +1055,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--dry-run", action="store_true", help="write out/weekly_advisory-<date>.md, no writes")
     ap.add_argument("--direct", action="store_true", help="create the topic via the Discourse API")
     ap.add_argument("--no-ai", action="store_true")
+    ap.add_argument("--ignore-posted", action="store_true", help="do not exclude ids already in the posted state (also HHF_IGNORE_POSTED=1)")
     ap.add_argument("--out-dir", type=Path, default=ROOT / "out")
     ap.add_argument("--state", type=Path, default=ROOT / "state" / "posted.json")
     ap.add_argument("--max-repos", type=int, default=60, help="cap on per-repo GitHub calls")
@@ -1024,7 +1066,12 @@ def main(argv: list[str] | None = None) -> int:
 
     state = load_state(args.state)
     res = build(since, args.until, fx=default_fetcher(), writer=ai_mod.AIWriter(enabled=not args.no_ai),
-                projects=load_watchlist(), posted=state.get("posted", {}))
+                projects=load_watchlist(),
+                posted={} if (args.ignore_posted or os.environ.get("HHF_IGNORE_POSTED")) else state.get("posted", {}))
+    if res.get("empty"):
+        print(json.dumps({"stats": res["stats"]}, indent=2))
+        print("nothing new this week: nothing delivered, state unchanged")
+        return 0
     print(json.dumps({"title": res["title"], "stats": res["stats"], "ai": res["ai"]}, indent=2))
     if args.dry_run:
         args.out_dir.mkdir(parents=True, exist_ok=True)
