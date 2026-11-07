@@ -165,6 +165,11 @@ class Advisory:
     added: datetime | None = None  # when the GHSA reached the GitHub Advisory Database
     disclosed: datetime | None = None  # earliest known public date
     nvd_published: datetime | None = None
+    fix_commit: str = ""  # sha7 of an upstream fix commit when no tagged release was found
+    unpatched: bool = False  # only when every source explicitly says there is no fix
+    osv_checked: bool = False
+    backports: bool = False
+    releases_type: str = ""
     vendor: str = ""
     kev_aliases: list[dict] = field(default_factory=list)  # [{vendor?, product}] CISA KEV names for this project
     ubuntu_packages: list[str] = field(default_factory=list)  # Ubuntu source packages that ship this project

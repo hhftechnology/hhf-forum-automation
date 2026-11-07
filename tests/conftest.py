@@ -49,6 +49,8 @@ def make_router(overrides: dict | None = None):
             return httpx.Response(404, json={})
         if key == "ubuntu.com/security/notices.json":
             return httpx.Response(200, text=fx_text("ubuntu.json") if "CVE-2026-1111" in u.params.get("details", "") else '{"notices":[]}')
+        if u.host == "api.wordpress.org":
+            return httpx.Response(404, json={})
         if key == "api.ransomware.live/v2/recentvictims":
             return httpx.Response(200, text=fx_text("ransomware.json"))
         if u.host in ("news.example", "feeds.test") or key.endswith(".xml") or "feed" in u.path:

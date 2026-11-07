@@ -275,6 +275,7 @@ projects:
   - {vendor: "WordPress", product: "WordPress"}
   - {vendor: "WordPress", product: "WordPress Core"}
   category: app
+  releases: {type: wordpress_api}  # https://api.wordpress.org/core/version-check/1.7/ lists current releases per branch
   repo: WordPress/WordPress
   image: wordpress
   packages:

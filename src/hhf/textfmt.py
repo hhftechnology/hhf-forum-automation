@@ -304,3 +304,32 @@ def clause_phrase(label: str, short: str) -> str:
         return f"{label} has {low}"
     article = "an" if re.match(r"(?i)^(?:[aeiou]|rce\b|ssrf\b|xss\b|xxe\b|sql\b|ntlm\b|ldap\b|os\b|api\b)", low) else "a"
     return f"{label} has {article} {low}"
+
+
+# ---- versions from free text -----------------------------------------------------
+def vkey(v: str) -> tuple[int, ...]:
+    return tuple(int(x) for x in re.findall(r"\d+", (v or "").split("-")[0]))
+
+
+_V = r"v?(\d+(?:\.\d+)+)"
+
+
+def parse_affected(desc: str) -> dict | None:
+    """Affected versions from prose: 'versions 4.7 through 7.1.3', '5.0 before 5.2', 'up to and including 2.1', 'prior to 10.6', '< 3.1'.
+
+    Returns {"text", "lo", "hi", "hi_incl"} (text like '4.7 – 7.1.3', 'before 10.6', '≤ 2.1') or None.
+    """
+    d = re.sub(r"\s+", " ", desc or "")
+    m = re.search(rf"versions?\s+(?:from\s+)?{_V}\s+(?:through|thru|to|up to and including|and earlier than)\s+{_V}", d, re.I)
+    if m:
+        return {"text": f"{m.group(1)} – {m.group(2)}", "lo": m.group(1), "hi": m.group(2), "hi_incl": True}
+    m = re.search(rf"{_V}\s+before\s+{_V}", d, re.I)
+    if m:
+        return {"text": f"{m.group(1)} – before {m.group(2)}", "lo": m.group(1), "hi": m.group(2), "hi_incl": False}
+    m = re.search(rf"(?:up to and including|up to|through|thru|<=|≤)\s*{_V}", d, re.I)
+    if m:
+        return {"text": f"≤ {m.group(1)}", "lo": None, "hi": m.group(1), "hi_incl": True}
+    m = re.search(rf"(?:prior to|earlier than|before|<)\s*{_V}", d, re.I)
+    if m:
+        return {"text": f"before {m.group(1)}", "lo": None, "hi": m.group(1), "hi_incl": False}
+    return None
