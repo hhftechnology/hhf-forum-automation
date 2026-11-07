@@ -1,10 +1,15 @@
 """NVD CVE API 2.0. Optional key in the apiKey header (never in the URL)."""
 from __future__ import annotations
 
+import logging
 import os
 from datetime import datetime, timedelta, timezone
 
 from .base import Fetcher, SourceError, default_fetcher
+
+log = logging.getLogger("hhf.nvd")
+KEYLESS_INTERVAL = 6.5
+_key_rejected = False
 
 URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 ATTRIBUTION = "This product uses data from the NVD API but is not endorsed or certified by the NVD (https://nvd.nist.gov)."
@@ -12,7 +17,26 @@ ATTRIBUTION = "This product uses data from the NVD API but is not endorsed or ce
 
 def _headers() -> dict:
     k = os.environ.get("NVD_API_KEY")
-    return {"apiKey": k} if k else {}
+    return {"apiKey": k} if k and not _key_rejected else {}
+
+
+def _get(fx: Fetcher, params: dict, ttl: float):
+    """GET with the API key; on 404/403 (NVD's answer to a bad key) retry once without it."""
+    global _key_rejected
+    headers = _headers()
+    try:
+        return fx.get_json(URL, params=params, headers=headers, ttl=ttl)
+    except SourceError as exc:
+        msg = str(exc)
+        if not headers or not (msg.startswith("HTTP 404") or msg.startswith("HTTP 403")):
+            raise
+    _key_rejected = True
+    log.warning("NVD rejected the API key; retrying without it")
+    host = "services.nvd.nist.gov"
+    mi = getattr(fx, "min_interval", None)
+    if isinstance(mi, dict):
+        mi[host] = KEYLESS_INTERVAL
+    return fx.get_json(URL, params=params, headers={}, ttl=ttl)
 
 
 def _iso(dt: datetime) -> str:
@@ -64,31 +88,42 @@ def normalize(vuln: dict) -> dict:
     }
 
 
+MAX_RANGE = timedelta(days=120)  # NVD 2.0 rejects pub date ranges over 120 days
+
+
+def _chunks(start: datetime, end: datetime):
+    while start < end:
+        nxt = min(start + MAX_RANGE, end)
+        yield start, nxt
+        start = nxt
+
+
 def fetch_window(start: datetime, end: datetime, severities=("CRITICAL", "HIGH"),
                  fx: Fetcher | None = None, max_pages: int = 6) -> list[dict]:
     fx = fx or default_fetcher()
     out: dict[str, dict] = {}
-    for sev in severities:
-        idx = 0
-        for _ in range(max_pages):
-            params = {
-                "pubStartDate": _iso(start), "pubEndDate": _iso(end),
-                "cvssV3Severity": sev, "resultsPerPage": 2000, "startIndex": idx,
-            }
-            data = fx.get_json(URL, params=params, headers=_headers(), ttl=3600)
-            for v in data.get("vulnerabilities", []):
-                n = normalize(v)
-                out[n["id"]] = n
-            idx += data.get("resultsPerPage", 0) or 0
-            if idx >= data.get("totalResults", 0) or not data.get("resultsPerPage"):
-                break
+    for c_start, c_end in _chunks(start, end):
+        for sev in severities:
+            idx = 0
+            for _ in range(max_pages):
+                params = {
+                    "pubStartDate": _iso(c_start), "pubEndDate": _iso(c_end),
+                    "cvssV3Severity": sev, "resultsPerPage": 2000, "startIndex": idx,
+                }
+                data = _get(fx, params, 3600)
+                for v in data.get("vulnerabilities", []):
+                    n = normalize(v)
+                    out[n["id"]] = n
+                idx += data.get("resultsPerPage", 0) or 0
+                if idx >= data.get("totalResults", 0) or not data.get("resultsPerPage"):
+                    break
     return list(out.values())
 
 
 def get_cve(cve_id: str, fx: Fetcher | None = None) -> dict | None:
     fx = fx or default_fetcher()
     try:
-        data = fx.get_json(URL, params={"cveId": cve_id}, headers=_headers(), ttl=6 * 3600)
+        data = _get(fx, {"cveId": cve_id}, 6 * 3600)
     except SourceError:
         return None
     vs = data.get("vulnerabilities", [])

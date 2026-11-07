@@ -103,3 +103,88 @@ def test_github_models_endpoint_and_bearer(monkeypatch):
     client = httpx.Client(transport=httpx.MockTransport(handler))
     assert ai.GitHubModels().complete("s", "u", client) == "hi"
     assert seen["url"] == "https://models.github.ai/inference/chat/completions" and seen["auth"] == "Bearer tok"
+
+
+# ---- regression: false positives seen in the 2026-11-07 dry runs ----
+def test_daily_counts_dates_and_window_accepted():
+    facts = json.dumps({"victims": 20, "report_date": "2026-11-07", "year": 2026, "month": 11, "day": 7,
+                        "window_hours": 24})
+    t = "In the last 24 hours, 20 ransomware victims were listed in 2026."
+    assert ai.violations(t, facts) == []
+
+
+def test_versions_from_ranges_accepted():
+    facts = json.dumps({"affected": ">= 4.9.0, < 5.0.0-alpha.2", "description": "Fixed in 4.9 and 5.0.0-alpha.1.",
+                        "fixed": "5.0.0-alpha.2"})
+    t = "Versions 4.9, 5.0.0-alpha.1 and 5.0.0-alpha.2 are involved."
+    assert ai.violations(t, facts) == []
+
+
+def test_version_not_matched_inside_longer_version():
+    assert any("unknown version" in v for v in ai.violations("Upgrade to 5.0.0.", json.dumps({"fixed": "15.0.0"})))
+
+
+def test_invented_cve_still_rejected_with_rich_facts():
+    facts = json.dumps({"victims": 20, "year": 2026, "ids": ["CVE-2026-1111"]})
+    assert any("unknown id" in v for v in ai.violations("20 victims; see CVE-2026-9999.", facts))
+
+
+def test_writer_allow_widens_guard_only():
+    w = ai.AIWriter([Fake("Report from 2026 covers 24 hours.")])
+    assert w.prose("x", {"a": 1}) is None
+    w = ai.AIWriter([Fake("Report from 2026 covers 24 hours.")])
+    assert w.prose("x", {"a": 1}, allow={"year": 2026, "window_hours": 24}) is not None
+
+
+# ---- providers ----
+def test_default_providers_is_gemini_only(monkeypatch):
+    monkeypatch.delenv("AI_PROVIDERS", raising=False)
+    monkeypatch.setenv("GEMINI_API_KEY", "k")
+    monkeypatch.setenv("GITHUB_TOKEN", "t")
+    assert [p.name for p in ai.AIWriter().providers] == ["gemini"]
+
+
+def test_github_still_usable_when_explicit(monkeypatch):
+    monkeypatch.setenv("AI_PROVIDERS", "gemini,github")
+    monkeypatch.setenv("GEMINI_API_KEY", "k")
+    monkeypatch.setenv("GITHUB_TOKEN", "t")
+    assert [p.name for p in ai.AIWriter().providers] == ["gemini", "github"]
+
+
+def _gemini_client(responses):
+    seq = list(responses)
+    calls = []
+
+    def h(req):
+        calls.append(req)
+        return seq.pop(0)
+
+    return httpx.Client(transport=httpx.MockTransport(h)), calls
+
+
+OK = httpx.Response(200, json={"candidates": [{"content": {"parts": [{"text": "hi"}]}}]})
+
+
+@pytest.mark.parametrize("status", [429, 503])
+def test_gemini_retries_once_with_retry_after_capped(monkeypatch, status, caplog):
+    monkeypatch.setenv("GEMINI_API_KEY", "secret-gem-key")
+    slept = []
+    monkeypatch.setattr(ai, "_sleep", slept.append)
+    client, calls = _gemini_client([httpx.Response(status, headers={"Retry-After": "120"}), OK])
+    with caplog.at_level("WARNING"):
+        assert ai.Gemini().complete("s", "u", client) == "hi"
+    assert len(calls) == 2 and slept == [30.0]
+    assert str(status) in caplog.text and "secret-gem-key" not in caplog.text
+
+
+def test_gemini_second_failure_raises_and_no_retry_on_400(monkeypatch):
+    monkeypatch.setenv("GEMINI_API_KEY", "k")
+    monkeypatch.setattr(ai, "_sleep", lambda s: None)
+    client, calls = _gemini_client([httpx.Response(429), httpx.Response(429)])
+    with pytest.raises(ai.ProviderError, match="429"):
+        ai.Gemini().complete("s", "u", client)
+    assert len(calls) == 2
+    client, calls = _gemini_client([httpx.Response(400)])
+    with pytest.raises(ai.ProviderError):
+        ai.Gemini().complete("s", "u", client)
+    assert len(calls) == 1
