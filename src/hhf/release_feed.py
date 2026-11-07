@@ -125,9 +125,11 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     state = load_json(args.state)
     state.setdefault("last", {})
-    run(entries, state, client, dry_run=args.dry_run)
-    if not args.dry_run:
-        save_json(args.state, state)
+    try:
+        run(entries, state, client, dry_run=args.dry_run)
+    finally:  # keep tags of posts already made even if a later post fails
+        if not args.dry_run:
+            save_json(args.state, state)
     return 0
 
 
