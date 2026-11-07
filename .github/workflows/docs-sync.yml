@@ -1,0 +1,61 @@
+name: docs-sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Render to out/ only, no writes to Discourse
+        type: boolean
+        default: true
+      repo:
+        description: Only this repo (name or owner/name); empty = all
+        type: string
+        default: ""
+  repository_dispatch:
+    types: [docs-updated]
+
+concurrency:
+  group: docs-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      DISCOURSE_URL: ${{ secrets.DISCOURSE_URL }}
+      DISCOURSE_API_KEY: ${{ secrets.DISCOURSE_API_KEY }}
+      DISCOURSE_API_USERNAME: system
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # repository_dispatch payload may carry {"repo": "name"}; dispatch runs are real syncs
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
+      REPO_FILTER: ${{ github.event_name == 'workflow_dispatch' && inputs.repo || github.event.client_payload.repo || '' }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - uses: actions/setup-python@v5.6.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install
+        run: pip install -e .
+
+      - name: Sync docs
+        run: |
+          args=(--only-changed)
+          if [ "$DRY_RUN" = "true" ]; then args=(--dry-run); fi
+          if [ -n "$REPO_FILTER" ]; then args+=(--repo "$REPO_FILTER"); fi
+          python -m hhf.docs_import "${args[@]}"
+
+      - name: Upload rendered markdown
+        if: ${{ env.DRY_RUN == 'true' }}
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: docs-out
+          path: out/
+          if-no-files-found: ignore

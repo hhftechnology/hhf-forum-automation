@@ -1,0 +1,63 @@
+---
+title: Sample Page
+description: A short intro
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+export const imageBase = 'https://example.test/img';
+
+{/* a JSX comment */}
+
+# Sample Page
+
+<Callout type="warn" title="Careful">
+  Back up first.
+</Callout>
+
+<Callout>Plain note</Callout>
+
+<Callout type="success">Nice tip</Callout>
+
+<Tabs items={['npm', 'pnpm']}>
+  <Tab value="npm">
+    Use npm.
+  </Tab>
+  <Tab value="pnpm">
+    Use pnpm.
+
+    ```bash
+    pnpm install
+    ```
+  </Tab>
+</Tabs>
+
+<Steps>
+<Step>
+### Install
+
+Run it.
+
+```bash
+import { not } from 'stripped'
+<Callout>untouched</Callout>
+```
+</Step>
+<Step>
+Configure it.
+</Step>
+</Steps>
+
+<Cards>
+  <Card title="Guide" href="/docs/guide/intro" description="Read the guide" />
+  <Card title="Ext" href="https://example.com" />
+</Cards>
+
+<Fancy>kept inner text</Fancy>
+
+Use `<Callout>` in code, see [guide](./guide/intro.mdx#top) and [home](/docs).
+Compare <YOUR_TOKEN> literal. ![shot](./shot.png) <img src={`${imageBase}/a.png`} alt="a" style={{ width: 1 }} />
+
+<div className="x">
+  wrapped
+</div>
