@@ -145,9 +145,9 @@ def test_golden_structure(golden_fx):
 
     # Caddy item: primary is the highest CVSS of three Highs; 3 GHSAs on the Reference line, 3 table rows
     c = raw[raw.index("**GHSA-jf74-f69g-hcj9**"):].split("\n---\n")[0]
-    assert c.startswith("**GHSA-jf74-f69g-hcj9** (no CVE yet, and 2 more, incl. GHSA-f278-mgc7-46j3, GHSA-r766-rf9f-588h) | Disclosed")
+    assert c.startswith("**GHSA-jf74-f69g-hcj9** (no CVE yet) (and 2 more, incl. GHSA-f278-mgc7-46j3, GHSA-r766-rf9f-588h) | Disclosed")
     assert "* **Severity** : High (CVSS 7.5)" in c and "* **Affected** : before 2.11.8" in c
-    assert "GHSA-r766-rf9f-588h | N/A | None known" in c  # no CVSS score yet -> N/A in the table
+    assert "| GHSA-r766-rf9f-588h | High (no score) | None known | N/A | Patch this week |" in c  # severity stands in for the missing score
     ref = [ln for ln in c.split("\n") if ln.startswith("**Reference**")][0]
     assert ref.count(" / ") == 2 and "All Caddy advisories" not in ref
     assert c.count("\n| GHSA-") == 3
@@ -494,3 +494,154 @@ def test_also_in_this_batch_has_phrase_and_cvss_max_four():
                      severity="high", cvss=9.0 - i / 10, published=datetime(2026, 11, 1, tzinfo=timezone.utc)) for i in range(7)]
     sentence = weekly.others_sentence(weekly.group_advisories(advs)[0])
     assert sentence.count("CVSS") == 4 and "path traversal in uploads, CVSS 8.9" in sentence and sentence.endswith("and 2 more.")
+
+
+# ---- round 3: accuracy and state ---------------------------------------------------------------------
+BROTLI_KEV = {"cveID": "CVE-2026-111497", "vendorProject": "Google", "product": "Brotli", "vulnerabilityName": "Google Brotli Buffer Overflow",
+              "dateAdded": "2026-10-27", "shortDescription": "Brotli decoder overflow.", "requiredAction": "Apply updates per vendor instructions.",
+              "dueDate": "2026-11-17"}
+
+
+def _clickhouse():
+    return next(p for p in WL if p["name"] == "ClickHouse")
+
+
+def test_brotli_kev_record_is_never_attributed_to_clickhouse():
+    p = _clickhouse()
+    a = Advisory(key="CVE-2026-111497", title="t", project="ClickHouse", cves=["CVE-2026-111497"], kev_aliases=p["kev"], severity="critical")
+    weekly.finalize(a, {}, None, {"CVE-2026-111497": BROTLI_KEV}, {}, {})
+    assert a.kev == {} and not a.is_kev
+    # ... and no ClickHouse KEV bullet is produced
+    g = weekly.Group("ClickHouse", [a])
+    assert not [b for b in weekly.takeaways([g], [], []) if "Exploited first" in b or "KEV" in b]
+
+
+def test_nvd_matching_uses_only_vulnerable_cpes_of_the_project():
+    p = _clickhouse()
+    rec = {"id": "CVE-2026-111497", "description": "A buffer overflow in the Brotli decoder in Google Brotli versions 1.0.3 through 1.2.0.",
+           "cpes": [("google", "brotli")], "references": []}
+    assert weekly.match_nvd(rec, [p]) is None
+    # a bundled-dependency record that also lists a ClickHouse CPE but never names ClickHouse is not a ClickHouse bug
+    assert weekly.match_nvd({**rec, "cpes": [("google", "brotli"), ("clickhouse", "clickhouse")]}, [p]) is None
+    # a real ClickHouse record matches, a description alone never does
+    assert weekly.match_nvd({"id": "x", "description": "ClickHouse flaw", "cpes": [("clickhouse", "clickhouse")], "references": []}, [p]) is p
+    assert weekly.match_nvd({"id": "x", "description": "ClickHouse flaw", "cpes": [], "references": []}, [p]) is None
+    assert weekly.match_nvd({"id": "x", "description": "flaw", "cpes": [],
+                             "references": [{"url": "https://github.com/ClickHouse/ClickHouse/security/advisories/GHSA-1"}]}, [p]) is p
+
+
+KEV_WP = {"cveID": "CVE-2026-119977", "vendorProject": "WordPress", "product": "WordPress Core", "vulnerabilityName": "WordPress Core RCE",
+          "dateAdded": "2026-11-03", "shortDescription": "WordPress core upgrade-window RCE.",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use.", "dueDate": "2026-11-24"}
+
+
+def _kev_fx(tmp_path, entries):
+    def kev(req):
+        return httpx.Response(200, json={"vulnerabilities": entries})
+
+    def nvd(req):
+        if req.url.params.get("cveId") == "CVE-2026-119977":
+            return httpx.Response(200, json={"vulnerabilities": [{"cve": {
+                "id": "CVE-2026-119977", "published": "2026-10-28T09:00:00.000",
+                "descriptions": [{"lang": "en", "value": "WordPress core can be made to execute attacker PHP while an upgrade runs."}],
+                "metrics": {"cvssMetricV31": [{"type": "Primary", "cvssData": {"baseScore": 8.1, "baseSeverity": "HIGH"}}]},
+                "references": []}}]})
+        return httpx.Response(200, json={"resultsPerPage": 0, "totalResults": 0, "vulnerabilities": []})
+
+    h = make_router({"www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json": kev,
+                     "services.nvd.nist.gov/rest/json/cves/2.0": nvd, "api.github.com/advisories": lambda r: httpx.Response(200, json=[])})
+    return Fetcher(cache_dir=tmp_path, client=httpx.Client(transport=httpx.MockTransport(h)), sleep=lambda s: None, max_retries=0)
+
+
+def test_kev_entry_in_window_becomes_the_first_item(tmp_path):
+    fx = _kev_fx(tmp_path, [KEV_WP, BROTLI_KEV])
+    r = build(fx)
+    raw = r["raw"]
+    assert re.search(r"^### \*\*1\. WordPress: ", raw, re.M)
+    assert "**CVE-2026-119977** | Disclosed: October 28, 2026 (added to CISA KEV November 3)" in raw
+    assert "* **Severity** : High (CVSS 8.1), on CISA KEV" in raw
+    assert "* **Workaround** : Apply mitigations per vendor instructions or discontinue use." in raw  # no comma in this text
+    assert "| CVE-2026-119977 | 8.1 | Known exploited (CISA KEV) | N/A | Patch now |" in raw
+    assert "**Exploited first**: WordPress CVE-2026-119977 is on CISA’s KEV list" in raw
+    assert "ClickHouse" not in raw and "CVE-2026-111497" not in raw  # the Brotli entry belongs to nobody on the watchlist
+
+
+def test_kev_entry_outside_window_or_unknown_vendor_is_ignored(tmp_path):
+    old = {**KEV_WP, "dateAdded": "2026-10-01"}
+    r = build(_kev_fx(tmp_path, [old, {**KEV_WP, "cveID": "CVE-2026-1", "vendorProject": "Nobody", "product": "Thing"}]))
+    assert r.get("empty") is True
+
+
+def test_posted_ids_are_excluded_everywhere(golden_fx):
+    posted = {"GHSA-xv5x-242w-7hf7": "2026-11-04", "CVE-2026-94300": "2026-11-04", "GHSA-j97h-3f8r-mrjr": "2026-11-04"}
+    r = weekly.build(date(2026, 10, 29), date(2026, 11, 4), fx=golden_fx, writer=ai.AIWriter(enabled=False), projects=WL,
+                     posted=posted, sleep=lambda s: None)
+    raw = r["raw"]
+    assert "Traefik" not in raw and "GHSA-xv5x-242w-7hf7" not in raw and "Keycloak" not in raw and "## **Missed Earlier**" not in raw
+    assert "**CVE-2026-19630**" in raw  # the other BIND CVEs were not posted, so they still appear
+    assert raw.count("\n### **") == 2 and raw.startswith("Here’s a roundup of **2 critical/high security issues**")
+
+
+def test_posted_duplicates_by_cve_or_ghsa_are_skipped(mock_fx):
+    r = weekly.build(date(2026, 11, 1), date(2026, 11, 7), fx=mock_fx, writer=ai.AIWriter(enabled=False), projects=WL,
+                     posted={"CVE-2026-1111": "2026-11-01"}, sleep=lambda s: None)
+    assert "CVE-2026-1111" not in r["raw"] and "GHSA-aaaa-bbbb-cccc" not in r["raw"]
+
+
+def test_intro_omits_empty_sentences():
+    only_fast = weekly.build_intro(2, 0, [], [], ["WordPress has an RCE"])
+    assert "Start with your edge" not in only_fast and "flagged" not in only_fast and only_fast.endswith("Then patch fast: WordPress has an RCE.")
+    neither = weekly.build_intro(1, 0, [], [], [])
+    assert neither.endswith("self-hosted projects.") and "Then patch fast" not in neither
+    assert weekly.build_intro(1, 0, [], ["A has a bug"], []).endswith("Start with your edge: A has a bug.")
+
+
+def test_zero_items_exits_with_nothing_new_and_delivers_nothing(tmp_path, monkeypatch, capsys):
+    from hhf import webhook
+    fx = _kev_fx(tmp_path, [])
+    monkeypatch.setattr(weekly, "default_fetcher", lambda: fx)
+    monkeypatch.setattr(webhook, "deliver", lambda *a, **k: pytest.fail("must not deliver"))
+    state = tmp_path / "posted.json"
+    rc = weekly.main(["--until", "2026-11-04", "--no-ai", "--state", str(state), "--out-dir", str(tmp_path)])
+    assert rc == 0 and "nothing new this week" in capsys.readouterr().out
+    assert not state.exists() and not list(tmp_path.glob("weekly_advisory-*.md"))
+    rc = weekly.main(["--until", "2026-11-04", "--no-ai", "--dry-run", "--state", str(state), "--out-dir", str(tmp_path)])
+    assert rc == 0 and not list(tmp_path.glob("weekly_advisory-*.md"))
+
+
+def test_ignore_posted_flag(mock_fx, monkeypatch, tmp_path):
+    monkeypatch.setattr(weekly, "default_fetcher", lambda: mock_fx)
+    state = tmp_path / "posted.json"
+    state.write_text(json.dumps({"posted": {"CVE-2026-1111": "2026-11-01", "GHSA-xv5x-242w-7hf7": "x", "CVE-2026-4444": "x",
+                                            "GHSA-gggg-hhhh-iiii": "x", "CVE-2026-3333": "x", "GHSA-aaaa-bbbb-cccc": "x"}}))
+    args = ["--since", "2026-11-01", "--until", "2026-11-07", "--dry-run", "--no-ai", "--state", str(state), "--out-dir", str(tmp_path)]
+    weekly.main(args)
+    assert not (tmp_path / "weekly_advisory-2026-11-07.md").exists()
+    weekly.main(args + ["--ignore-posted"])
+    assert "Keycloak" in (tmp_path / "weekly_advisory-2026-11-07.md").read_text(encoding="utf-8")
+
+
+def test_seed_posted_script(tmp_path):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("seed_posted", "scripts/seed_posted.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    md = tmp_path / "post.md"
+    md.write_text("**CVE-2026-94300** and [GHSA-XV5X-242W-7HF7](u), again CVE-2026-94300, not CVE-26-1", encoding="utf-8")
+    st = tmp_path / "s.json"
+    assert mod.main([str(md), "2026-11-04", "--state", str(st)]) == 0
+    assert json.loads(st.read_text()) == {"posted": {"CVE-2026-94300": "2026-11-04", "GHSA-xv5x-242w-7hf7": "2026-11-04"}}
+    ref = mod.extract_ids(open("tests/fixtures/format/reference_4696.md", encoding="utf-8").read())
+    assert "CVE-2026-119977" in ref and "GHSA-xv5x-242w-7hf7" in ref
+    seeded = json.load(open("state/posted.json"))["posted"]
+    assert set(ref) == set(seeded) and set(seeded.values()) == {"2026-11-04"}
+
+
+def test_action_follows_severity_when_unscored():
+    from hhf.facts import action_for
+    assert action_for(False, None, None, "critical") == "Patch within 72h"
+    assert action_for(False, None, None, "high") == "Patch this week"
+    assert action_for(True, None, None, "high") == "Patch now"
+    a = Advisory(key="GHSA-1", ghsa="GHSA-1", title="t", project="p", severity="critical")
+    r = a.rows()[0]
+    assert r["cvss"] == "Critical (no score)" and r["action"] == "Patch within 72h"

@@ -21,11 +21,11 @@ def severity_from_cvss(score: float | None) -> str | None:
     return "low"
 
 
-def action_for(kev: bool, epss: float | None, cvss: float | None) -> str:
-    """KEV or EPSS >= 0.5 -> now; CVSS >= 9 or EPSS >= 0.1 -> 72h; else this week."""
+def action_for(kev: bool, epss: float | None, cvss: float | None, severity: str | None = None) -> str:
+    """KEV or EPSS >= 0.5 -> now; CVSS >= 9 (or severity critical when unscored) or EPSS >= 0.1 -> 72h; else this week."""
     if kev or (epss is not None and epss >= 0.5):
         return "Patch now"
-    if (cvss is not None and cvss >= 9.0) or (epss is not None and epss >= 0.1):
+    if (cvss is not None and cvss >= 9.0) or (cvss is None and severity == "critical") or (epss is not None and epss >= 0.1):
         return "Patch within 72h"
     return "Patch this week"
 
@@ -166,6 +166,7 @@ class Advisory:
     disclosed: datetime | None = None  # earliest known public date
     nvd_published: datetime | None = None
     vendor: str = ""
+    kev_aliases: list[dict] = field(default_factory=list)  # [{vendor?, product}] CISA KEV names for this project
     ubuntu_packages: list[str] = field(default_factory=list)  # Ubuntu source packages that ship this project
     ubuntu_service: str = ""
     usn_info: dict[str, dict] = field(default_factory=dict)  # USN id -> {"published", "packages": {release: [(name, version)]}}
@@ -201,10 +202,10 @@ class Advisory:
             out.append(
                 {
                     "cve": cve or self.ghsa or "— (no CVE yet)",
-                    "cvss": fmt_cvss(self.cvss),
+                    "cvss": fmt_cvss(self.cvss) if self.cvss is not None or not self.severity else f"{self.severity.capitalize()} (no score)",
                     "exploitation": exploitation_label(kev, self.poc),
                     "epss": fmt_epss(*(e or (None, None))),
-                    "action": action_for(kev, e[0] if e else None, self.cvss),
+                    "action": action_for(kev, e[0] if e else None, self.cvss, self.severity),
                 }
             )
         return out
@@ -212,3 +213,10 @@ class Advisory:
 
 def host_of(url: str) -> str:
     return urlsplit(url).netloc
+
+
+def kev_matches(entry: dict, aliases: list[dict]) -> bool:
+    """A KEV entry belongs to a watchlist project only when vendorProject/product match one of its configured aliases."""
+    ven, prod = (entry.get("vendorProject") or "").strip().lower(), (entry.get("product") or "").strip().lower()
+    return any((not al.get("vendor") or al["vendor"].strip().lower() == ven) and al.get("product", "").strip().lower() == prod
+               for al in aliases or [])
