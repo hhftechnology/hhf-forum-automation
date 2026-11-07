@@ -132,3 +132,17 @@ through a pull request; CI (`form-sync`) validates the file and runs the round-t
 - Publish semantics were read from the plugin source (`workflows_controller#update`, `Workflow::Update`,
   `Workflow::Publish`); they have not been exercised against the live forum from this repository, so do the first
   apply on staging.
+
+## Release feed (GitHub releases -> forum)
+
+`python -m hhf.release_feed` (workflow `release-feed.yml`, every 6 h) posts new releases of the repos in
+`config/releases.yml` as replies in one pinned, closed topic per repo, under the category "Project Releases".
+
+- Edit the list by PR. Run `python -m hhf.release_feed --bootstrap` once (add `--dry-run` to preview) to create the
+  missing subcategory + topic (closed, pinned) and paste the printed `category_id` / `topic_id` into the config.
+- State is `state/releases.json` (last posted tag per repo). A repo with no state is only baselined, never backfilled.
+- `--dry-run` prints the planned posts and writes nothing.
+- The API key's user must be staff/bot (only staff can reply in closed topics); bootstrap also needs category creation rights.
+- Notifications: for each group listed in an entry, set the group's default notification level on that repo's
+  subcategory to **Watching** (Category settings > Security/Settings > group notification levels, or the group's
+  "Default notifications" page). Members then get the native bell notification for every new release post.

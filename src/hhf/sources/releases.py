@@ -26,6 +26,7 @@ def latest(repo: str, fx: Fetcher | None = None, per_page: int = 5) -> list[dict
             "repo": repo, "tag": r.get("tag_name"), "name": r.get("name") or r.get("tag_name"),
             "url": r.get("html_url"), "published": r.get("published_at"),
             "prerelease": bool(r.get("prerelease")),
+            "body": body,
             "security": bool(SECURITY_RE.search(body) or SECURITY_RE.search(r.get("name") or "")),
         })
     return out
