@@ -131,6 +131,28 @@ class DiscourseClient:
         not be in the future. Shifts the first post (and replies relatively) and resets bumped_at."""
         return self.request("PUT", f"/t/{topic_id}/change-timestamp", data={"timestamp": str(int(timestamp))})
 
+    def create_post(self, topic_id: int, raw: str) -> dict:
+        """Reply to an existing topic (staff can reply in closed topics)."""
+        return self.request("POST", "/posts.json", data={"topic_id": topic_id, "raw": raw})
+
+    def set_topic_status(self, topic_id: int, status: str, enabled: bool) -> dict:
+        """status: closed | pinned | archived | visible."""
+        return self.request("PUT", f"/t/{topic_id}/status.json",
+                            data={"status": status, "enabled": "true" if enabled else "false"})
+
+    def find_topic_by_title(self, category_id: int, title: str) -> int | None:
+        topics = self.request("GET", f"/c/{category_id}.json")["topic_list"]["topics"]
+        return next((t["id"] for t in topics if t["title"] == title), None)
+
+    def list_categories(self) -> list[dict]:
+        return self.request("GET", "/site.json")["categories"]
+
+    def create_category(self, name: str, parent_category_id: int | None = None) -> dict:
+        data: dict[str, Any] = {"name": name, "color": "0088CC", "text_color": "FFFFFF"}
+        if parent_category_id:
+            data["parent_category_id"] = parent_category_id
+        return self.request("POST", "/categories.json", data=data)["category"]
+
     # -- uploads / categories -------------------------------------------------
     def upload_file(self, filename: str, content: bytes, upload_type: str = "composer") -> dict:
         ctype = mimetypes.guess_type(filename)[0] or "application/octet-stream"
