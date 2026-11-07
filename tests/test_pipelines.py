@@ -17,7 +17,7 @@ def build_weekly(mock_fx, posted=None, writer=None):
 def test_watchlist_covers_required_projects():
     names = {p["name"].lower() for p in WL}
     for n in ["traefik", "caddy", "nginx", "keycloak", "authentik", "nextcloud", "immich", "jellyfin", "plex", "vaultwarden",
-              "gitea", "forgejo", "home assistant", "pangolin", "crowdsec", "portainer", "proxmox", "wordpress", "pgadmin",
+              "gitea", "forgejo", "home assistant", "pangolin", "crowdsec", "portainer", "proxmox", "wordpress", "pgadmin 4",
               "grafana", "uptime kuma", "incus", "lxd", "docker", "bind", "openssh", "synapse", "mastodon", "paperless-ngx", "n8n"]:
         assert n in names, n
 

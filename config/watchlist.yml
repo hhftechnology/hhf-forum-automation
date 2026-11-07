@@ -36,6 +36,8 @@ projects:
     - caddy
 - name: nginx
   category: edge
+  ubuntu_packages: [nginx]
+  ubuntu_service: nginx
   repo: nginx/nginx
   image: nginx
   nvd:
@@ -69,6 +71,9 @@ projects:
     - crowdsec
 - name: OpenSSH
   category: edge
+  vendor: OpenSSH
+  ubuntu_packages: [openssh]
+  ubuntu_service: ssh
   repo: openssh/openssh-portable
   nvd:
     vendors:
@@ -77,6 +82,9 @@ projects:
     - openssh
 - name: BIND
   category: edge
+  vendor: ISC
+  ubuntu_packages: [bind9]
+  ubuntu_service: named
   repo: isc-projects/bind9
   image: internetsystemsconsortium/bind9
   nvd:
@@ -239,7 +247,7 @@ projects:
     - \bplugins?\b
     - \bthemes?\b
     - \bwoocommerce\b
-- name: pgAdmin
+- name: pgAdmin 4
   category: data
   repo: pgadmin-org/pgadmin4
   image: dpage/pgadmin4
@@ -304,6 +312,13 @@ projects:
     - linuxcontainers
     keywords:
     - lxd
+- name: Docker Desktop
+  category: app
+  nvd:
+    vendors:
+    - docker
+    keywords:
+    - docker desktop
 - name: Docker
   category: platform
   repo: moby/moby
@@ -523,3 +538,89 @@ projects:
     - discourse
     keywords:
     - discourse
+- name: HAProxy
+  category: edge
+  repo: haproxy/haproxy
+  image: haproxy
+  ubuntu_packages: [haproxy]
+  ubuntu_service: haproxy
+  nvd:
+    vendors:
+    - haproxy
+    keywords:
+    - haproxy
+- name: OPNsense
+  category: edge
+  repo: opnsense/core
+  nvd:
+    vendors:
+    - opnsense
+    keywords:
+    - opnsense
+- name: vsftpd
+  category: edge
+  nvd:
+    vendors:
+    - vsftpd_project
+    - vsftpd
+    keywords:
+    - vsftpd
+- name: Langflow
+  category: app
+  repo: langflow-ai/langflow
+  image: langflowai/langflow
+  packages:
+  - ecosystem: pip
+    name: langflow
+  - ecosystem: pip
+    name: langflow-base
+  nvd:
+    vendors:
+    - langflow
+    - langflow-ai
+    keywords:
+    - langflow
+- name: ClickHouse
+  category: data
+  repo: ClickHouse/ClickHouse
+  image: clickhouse/clickhouse-server
+  nvd:
+    vendors:
+    - clickhouse
+    keywords:
+    - clickhouse
+- name: imgproxy
+  category: app
+  repo: imgproxy/imgproxy
+  image: darthsim/imgproxy
+  packages:
+  - ecosystem: go
+    name: github.com/imgproxy/imgproxy/v3
+  nvd:
+    vendors:
+    - imgproxy
+    keywords:
+    - imgproxy
+- name: Flowise
+  category: app
+  repo: FlowiseAI/Flowise
+  image: flowiseai/flowise
+  packages:
+  - ecosystem: npm
+    name: flowise
+  nvd:
+    vendors:
+    - flowiseai
+    keywords:
+    - flowise
+- name: Frappe
+  category: app
+  repo: frappe/frappe
+  packages:
+  - ecosystem: pip
+    name: frappe
+  nvd:
+    vendors:
+    - frappe
+    keywords:
+    - frappe
