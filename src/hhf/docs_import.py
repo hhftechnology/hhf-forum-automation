@@ -15,6 +15,8 @@ import os
 import posixpath
 import re
 import sys
+import time
+from datetime import date, datetime, timedelta, timezone
 from dataclasses import dataclass, field
 from pathlib import Path
 from urllib.parse import quote
@@ -22,7 +24,7 @@ from urllib.parse import quote
 import httpx
 import yaml
 
-from .mdx import convert_mdx, doc_slug, find_leftover_jsx, rewrite_links
+from .mdx import convert_mdx, doc_slug, find_leftover_jsx, rewrite_links, split_frontmatter
 
 log = logging.getLogger("hhf.docs_import")
 
@@ -97,9 +99,58 @@ def slugify(s: str) -> str:
 # --------------------------------------------------------------------------
 # GitHub (read only)
 # --------------------------------------------------------------------------
+DATE_KEYS = ("date", "published", "created")
+BACKFILL_TOLERANCE = timedelta(days=1)
+
+
+class GitHubRateLimit(RuntimeError):
+    pass
+
+
+def _iso(dt: datetime) -> str:
+    return dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def parse_when(value) -> datetime | None:
+    """Best-effort conversion of a frontmatter / API value to an aware UTC datetime."""
+    if isinstance(value, datetime):
+        dt = value
+    elif isinstance(value, date):
+        dt = datetime(value.year, value.month, value.day)
+    elif isinstance(value, str) and value.strip():
+        try:
+            dt = datetime.fromisoformat(value.strip().replace("Z", "+00:00"))
+        except ValueError:
+            return None
+    else:
+        return None
+    return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt.astimezone(timezone.utc)
+
+
+def frontmatter_date(source: str) -> str | None:
+    """Explicit original date from frontmatter (date / published / created), ISO-8601 UTC."""
+    fm, _ = split_frontmatter(source.replace("\r\n", "\n"))
+    for key in DATE_KEYS:
+        dt = parse_when(fm.get(key))
+        if dt:
+            return _iso(dt)
+    return None
+
+
 class GitHub:
-    def __init__(self, token: str | None = None, transport: httpx.BaseTransport | None = None):
+    def __init__(
+        self,
+        token: str | None = None,
+        transport: httpx.BaseTransport | None = None,
+        cache_dir: str | Path | None = None,
+        sleep=time.sleep,
+    ):
         token = token if token is not None else os.environ.get("GITHUB_TOKEN")
+        self._date_cache_path = Path(
+            cache_dir if cache_dir is not None else os.environ.get("HHF_CACHE_DIR", ".cache")
+        ) / "doc-first-commit-dates.json"
+        self._sleep = sleep
+        self._dates: dict[str, str] | None = None
         headers = {"User-Agent": "hhf-docs-import"}
         if token:
             headers["Authorization"] = f"Bearer {token}"
@@ -118,6 +169,59 @@ class GitHub:
         if data.get("truncated"):
             log.warning("%s: git tree truncated", repo)
         return {e["path"]: e["sha"] for e in data["tree"] if e["type"] == "blob"}
+
+    def _get_api(self, url: str, params: dict | None = None) -> httpx.Response:
+        for attempt in range(3):
+            r = self._http.get(url, params=params, headers={"Accept": "application/vnd.github+json"})
+            limited = r.status_code == 429 or (
+                r.status_code == 403 and (r.headers.get("x-ratelimit-remaining") == "0" or "Retry-After" in r.headers)
+            )
+            if not limited:
+                r.raise_for_status()
+                return r
+            if "Retry-After" in r.headers:
+                wait = float(r.headers["Retry-After"])
+            else:
+                wait = float(r.headers.get("x-ratelimit-reset", "0")) - time.time()
+            if wait > 60 or attempt == 2:
+                raise GitHubRateLimit(
+                    f"GitHub rate limit hit (resets in ~{max(wait, 0):.0f}s); set GITHUB_TOKEN or rerun later. "
+                    "Dates fetched so far are cached."
+                )
+            self._sleep(max(wait, 0) + 1)
+        raise AssertionError("unreachable")
+
+    def _load_dates(self) -> dict[str, str]:
+        if self._dates is None:
+            try:
+                self._dates = json.loads(self._date_cache_path.read_text())
+            except (OSError, ValueError):
+                self._dates = {}
+        return self._dates
+
+    def first_commit_date(self, repo: str, branch: str, path: str) -> str:
+        """Author date (ISO-8601 UTC) of the oldest commit touching ``path`` on ``branch``.
+        GET /repos/{repo}/commits?path=&sha=&per_page=1, then the Link rel="last" page.
+        Does not follow renames. Cached in .cache/doc-first-commit-dates.json."""
+        cache = self._load_dates()
+        key = f"{repo}:{branch}:{path}"
+        if key in cache:
+            return cache[key]
+        r = self._get_api(
+            f"https://api.github.com/repos/{repo}/commits",
+            {"path": path, "sha": branch, "per_page": 1},
+        )
+        last = r.links.get("last")
+        if last:
+            r = self._get_api(last["url"])
+        commits = r.json()
+        if not commits:
+            raise LookupError(f"{repo}:{path}: no commits found on {branch}")
+        dt = parse_when(commits[0]["commit"]["author"]["date"])
+        cache[key] = _iso(dt)
+        self._date_cache_path.parent.mkdir(parents=True, exist_ok=True)
+        self._date_cache_path.write_text(json.dumps(cache, indent=0, sort_keys=True))
+        return cache[key]
 
     def raw_url(self, repo: str, branch: str, path: str) -> str:
         return f"https://raw.githubusercontent.com/{repo}/{branch}/{quote(path)}"
@@ -292,6 +396,7 @@ class Page:
     post_id: int | None = None
     existing_marker: tuple[str, str] | None = None
     created_digest: str | None = None
+    date: str | None = None  # original publication date, ISO-8601 UTC
 
 
 @dataclass
@@ -306,6 +411,10 @@ class Stats:
     leftover: list[str] = field(default_factory=list)
     unlisted: list[str] = field(default_factory=list)
     index_set: str = ""
+    checked: int = 0
+    changed: int = 0
+    missing: int = 0
+    dates: dict[str, str] = field(default_factory=dict)  # rel (or "__index__") -> ISO date
 
 
 def load_tree(cfg: RepoCfg, gh: GitHub) -> tuple[DocTree, dict[str, str]]:
@@ -388,6 +497,62 @@ def index_raw(cfg: RepoCfg, sections: list[Section], titles: dict[str, str], url
     return "\n".join(out)
 
 
+def page_date(cfg: RepoCfg, gh: GitHub, repo_path: str) -> str:
+    """Frontmatter date/published/created if present, else author date of the first commit."""
+    src = gh.raw(cfg.repo, cfg.branch, repo_path).decode("utf-8")
+    return frontmatter_date(src) or gh.first_commit_date(cfg.repo, cfg.branch, repo_path)
+
+
+def compute_dates(cfg: RepoCfg, gh: GitHub, rels: list[str]) -> dict[str, str]:
+    dates = {rel: page_date(cfg, gh, f"{cfg.path}/{rel}.mdx") for rel in rels}
+    if dates:
+        dates["__index__"] = min(v for v in dates.values())  # ISO-8601 UTC sorts lexically
+    return dates
+
+
+def _page_order(cfg: RepoCfg, gh: GitHub) -> list[str]:
+    tree, _ = load_tree(cfg, gh)
+    sections = tree.sections()
+    listed = {p for s in sections for p in s.pages}
+    return [p for s in sections for p in s.pages] + sorted(tree.files - listed)
+
+
+def print_dates(cfg: RepoCfg, gh: GitHub) -> Stats:
+    """Read-only: no Discourse access."""
+    st = Stats(cfg.repo)
+    rels = _page_order(cfg, gh)
+    st.pages = len(rels)
+    st.dates = compute_dates(cfg, gh, rels)
+    return st
+
+
+def backfill_dates(cfg: RepoCfg, gh: GitHub, client) -> Stats:
+    """Set topic created_at (via PUT /t/:id/change-timestamp) to the original doc date for
+    every existing page topic and the index topic. Never edits content. Idempotent: a topic is
+    only touched when its created_at differs from the target by more than one day."""
+    st = Stats(cfg.repo)
+    rels = _page_order(cfg, gh)
+    st.pages = len(rels)
+    st.dates = compute_dates(cfg, gh, rels)
+    targets = [(rel, external_id(cfg.repo, f"{cfg.path}/{rel}.mdx")) for rel in rels]
+    targets.append(("__index__", external_id(cfg.repo, "__doc_index__")))
+    for rel, ext in targets:
+        topic = client.get_topic_by_external_id(ext)
+        if not topic:
+            st.missing += 1
+            log.warning("%s: no topic for %s", cfg.repo, rel)
+            continue
+        st.checked += 1
+        target = parse_when(st.dates[rel])
+        current = parse_when(topic.get("created_at"))
+        if current is not None and abs(current - target) <= BACKFILL_TOLERANCE:
+            st.skipped += 1
+            continue
+        client.change_timestamp(topic["id"], int(target.timestamp()))
+        st.changed += 1
+    return st
+
+
 def sync_repo(
     cfg: RepoCfg,
     gh: GitHub,
@@ -439,6 +604,11 @@ def sync_repo(
     plain_titles = {p.rel: p.title for p in pages}
     build_titles(cfg, pages)
 
+    # original publication dates, only fetched when a topic is going to be created
+    dates: dict[str, str] = {}
+    if client is not None and (any(p.topic_id is None for p in pages) or not index_topic):
+        dates = compute_dates(cfg, gh, [p.rel for p in pages])
+
     for p in pages:
         if client is not None and p.topic_id is None:
             body = p.raw
@@ -449,6 +619,7 @@ def sync_repo(
                 category=cfg.category_id,
                 external_id=external_id(cfg.repo, p.repo_path),
                 tags=cfg.tags,
+                created_at=dates.get(p.rel),
             )
             p.topic_id, p.slug, p.post_id = res["topic_id"], res["topic_slug"], res["id"]
             p.created_digest = dg
@@ -492,7 +663,8 @@ def sync_repo(
     idx_title = f"{cfg.label} Documentation"
     if not index_topic:
         res = client.create_topic(
-            title=idx_title, raw=idx_text, category=cfg.category_id, external_id=index_ext, tags=cfg.tags
+            title=idx_title, raw=idx_text, category=cfg.category_id, external_id=index_ext, tags=cfg.tags,
+            created_at=dates.get("__index__"),
         )
         index_id = res["topic_id"]
     else:
@@ -522,6 +694,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--dry-run", action="store_true", help="render to --out, no Discourse access")
     ap.add_argument("--repo", action="append", help="owner/name or name; repeatable")
     ap.add_argument("--only-changed", action="store_true")
+    ap.add_argument("--print-dates", action="store_true",
+                    help="read-only: print the original date per page (no Discourse access)")
+    ap.add_argument("--backfill-dates", action="store_true",
+                    help="set created_at of existing page/index topics to the original doc date "
+                         "(change-timestamp; no content edits)")
     ap.add_argument("--no-upload-images", action="store_true", help="use raw GitHub URLs for images")
     ap.add_argument("--out", default="out")
     args = ap.parse_args(argv)
@@ -538,6 +715,26 @@ def main(argv: list[str] | None = None) -> int:
     gh = GitHub()
     client = None
     base = os.environ.get("DISCOURSE_URL", DEFAULT_URL).rstrip("/") or DEFAULT_URL
+    if args.print_dates and args.backfill_dates:
+        log.error("--print-dates and --backfill-dates are mutually exclusive")
+        return 2
+    if args.print_dates:
+        for cfg in cfgs:
+            st = print_dates(cfg, gh)
+            vals = [v for k, v in st.dates.items() if k != "__index__"]
+            for rel, d in st.dates.items():
+                print(f"{cfg.name}\t{d}\t{rel}")
+            if vals:
+                print(f"# {cfg.repo}: pages={len(vals)} earliest={min(vals)} latest={max(vals)}")
+        return 0
+    if args.backfill_dates:
+        from .discourse import DiscourseClient
+
+        client = DiscourseClient()
+        for cfg in cfgs:
+            st = backfill_dates(cfg, gh, client)
+            print(f"{cfg.repo}: checked={st.checked} changed={st.changed} skipped={st.skipped} missing={st.missing}")
+        return 0
     if not args.dry_run:
         from .discourse import DiscourseClient
 

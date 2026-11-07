@@ -126,6 +126,11 @@ class DiscourseClient:
             self.request("PUT", f"/t/-/{topic_id}.json", data={"title": title})
         return result
 
+    def change_timestamp(self, topic_id: int, timestamp: int | float) -> dict:
+        """PUT /t/:topic_id/change-timestamp (staff only); ``timestamp`` is unix seconds and must
+        not be in the future. Shifts the first post (and replies relatively) and resets bumped_at."""
+        return self.request("PUT", f"/t/{topic_id}/change-timestamp", data={"timestamp": str(int(timestamp))})
+
     # -- uploads / categories -------------------------------------------------
     def upload_file(self, filename: str, content: bytes, upload_type: str = "composer") -> dict:
         ctype = mimetypes.guess_type(filename)[0] or "application/octet-stream"
