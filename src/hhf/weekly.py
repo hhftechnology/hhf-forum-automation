@@ -292,6 +292,15 @@ def facts_for(a: Advisory) -> dict:
     }
 
 
+def allow_for(a: Advisory) -> dict:
+    """Every text field of the advisory, untruncated, for the AI guard's allowed set."""
+    return {"title": a.title, "project": a.project, "ids": ([a.ghsa] if a.ghsa else []) + a.cves,
+            "description": a.description, "affected": a.affected, "fixed": a.fixed,
+            "fixed_version": a.fixed_version, "workaround": a.workaround, "cvss": a.cvss,
+            "published": a.published.isoformat() if a.published else None,
+            "references": [list(r) for r in a.references], "usn": [list(u) for u in a.usn]}
+
+
 def det_prose(a: Advisory) -> str:
     t = plain_summary(a.description, 420)
     return t or f"{a.project} published a security advisory; see the references for details."
@@ -425,7 +434,7 @@ def collect(since: date, until: date, *, fx: Fetcher, projects: list[dict], post
     return main, missed, stats, rel
 
 
-def edge_sentence(main: list[Advisory], writer: ai_mod.AIWriter, counts: dict) -> tuple[str, bool]:
+def edge_sentence(main: list[Advisory], writer: ai_mod.AIWriter, counts: dict, dates: dict | None = None) -> tuple[str, bool]:
     edge = [a for a in main if a.category == "edge"]
     ident = [a for a in main if a.category == "identity"]
     facts = {"edge": [f"{a.project} ({severity_line(a)})" for a in edge],
@@ -435,7 +444,8 @@ def edge_sentence(main: list[Advisory], writer: ai_mod.AIWriter, counts: dict) -
     if writer.active:
         t = writer.prose(
             "Write ONE or TWO sentences that continue the phrase 'Start with your edge:' (reverse proxies, VPN, "
-            "DNS, SSH) and then say what to patch next. Do not repeat the phrase itself.", facts, max_chars=400)
+            "DNS, SSH) and then say what to patch next. Do not repeat the phrase itself.", facts, max_chars=400,
+            allow={"advisories": [allow_for(a) for a in main], "dates": dates or {}})
         if t:
             return t, True
     parts = []
@@ -521,15 +531,19 @@ def build(since: date, until: date, *, fx: Fetcher, writer: ai_mod.AIWriter, pro
     edge, _ = edge_sentence(main + extra, ai_mod.AIWriter(enabled=False), {})
     raw = fit(False, edge)  # first pass sizes the post with deterministic prose
     used_ai = False
+    dates = {"since": since.isoformat(), "until": until.isoformat(), "year": until.year, "month": until.month,
+             "day": until.day, "since_year": since.year, "since_month": since.month, "since_day": since.day,
+             "window_days": (until - since).days}
     if writer.active:
         for a in main:
             t = writer.prose(
                 "Write the 'Technical Details' paragraph for this advisory: 2 to 3 plain sentences saying what "
-                "the flaw is, what an attacker can do and who is affected.", facts_for(a), max_chars=700)
+                "the flaw is, what an attacker can do and who is affected.", facts_for(a), max_chars=700,
+                allow={"advisory": allow_for(a), "dates": dates})
             sleep(4)  # stay under free-tier per-minute limits
             if t:
                 prose[a.key], used_ai = t, True
-        edge_ai, ok = edge_sentence(main + extra, writer, {"new_items": len(main), "missed_items": len(missed)})
+        edge_ai, ok = edge_sentence(main + extra, writer, {"new_items": len(main), "missed_items": len(missed)}, dates)
         used_ai = used_ai or ok
         raw = fit(used_ai, edge_ai)
     stats["main"], stats["missed"] = len(main), len(missed)

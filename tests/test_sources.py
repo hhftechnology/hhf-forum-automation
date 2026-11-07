@@ -119,3 +119,54 @@ def test_fetcher_retries_429_with_retry_after(tmp_path):
     fx = Fetcher(cache_dir=tmp_path, client=httpx.Client(transport=httpx.MockTransport(lambda r: seq.pop(0))),
                  sleep=slept.append, max_retries=2)
     assert fx.get_json("https://x.test/a") == {"ok": True} and 3.0 in slept
+
+
+def test_nvd_404_with_key_retries_without_key(monkeypatch, tmp_path, caplog):
+    monkeypatch.setenv("NVD_API_KEY", "sekret-key-123")
+    monkeypatch.setattr(nvd, "_key_rejected", False)
+    seen = []
+
+    def h(req):
+        seen.append("apiKey" in req.headers)
+        if "apiKey" in req.headers:
+            return httpx.Response(404, text="nope")
+        return httpx.Response(200, json={"vulnerabilities": [], "totalResults": 0, "resultsPerPage": 0})
+
+    fx = Fetcher(cache_dir=tmp_path, client=httpx.Client(transport=httpx.MockTransport(h)), sleep=lambda s: None)
+    with caplog.at_level("WARNING"):
+        out = nvd.fetch_window(datetime(2026, 11, 1, tzinfo=timezone.utc), datetime(2026, 11, 2, tzinfo=timezone.utc),
+                               severities=("HIGH", "CRITICAL"), fx=fx)
+    assert out == []
+    assert seen == [True, False, False]  # key tried once, then dropped for the rest of the run
+    assert "NVD rejected the API key; retrying without it" in caplog.text
+    assert caplog.text.count("rejected the API key") == 1
+    assert "sekret-key-123" not in caplog.text
+    assert fx.min_interval["services.nvd.nist.gov"] == nvd.KEYLESS_INTERVAL
+
+
+def test_nvd_404_without_key_still_raises(monkeypatch, tmp_path):
+    monkeypatch.delenv("NVD_API_KEY", raising=False)
+    monkeypatch.setattr(nvd, "_key_rejected", False)
+    fx = Fetcher(cache_dir=tmp_path, client=httpx.Client(transport=httpx.MockTransport(lambda r: httpx.Response(404))),
+                 sleep=lambda s: None)
+    with pytest.raises(SourceError):
+        nvd.fetch_window(datetime(2026, 11, 1, tzinfo=timezone.utc), datetime(2026, 11, 2, tzinfo=timezone.utc), fx=fx)
+
+
+def test_nvd_window_params_iso_ms_and_120_day_chunks(monkeypatch, tmp_path):
+    monkeypatch.delenv("NVD_API_KEY", raising=False)
+    monkeypatch.setattr(nvd, "_key_rejected", False)
+    ranges = []
+
+    def h(req):
+        ranges.append((req.url.params["pubStartDate"], req.url.params["pubEndDate"]))
+        return httpx.Response(200, json={"vulnerabilities": [], "totalResults": 0, "resultsPerPage": 0})
+
+    fx = Fetcher(cache_dir=tmp_path, client=httpx.Client(transport=httpx.MockTransport(h)), sleep=lambda s: None)
+    nvd.fetch_window(datetime(2026, 1, 1, tzinfo=timezone.utc), datetime(2026, 7, 1, tzinfo=timezone.utc),
+                     severities=("HIGH",), fx=fx)
+    assert len(ranges) == 2
+    assert ranges[0][0] == "2026-01-01T00:00:00.000"
+    for s, e in ranges:
+        d = datetime.fromisoformat(e) - datetime.fromisoformat(s)
+        assert d.days <= 120 and s.endswith(".000") and e.endswith(".000")

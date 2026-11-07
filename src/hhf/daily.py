@@ -315,16 +315,22 @@ def build(since: datetime, now: datetime, *, fx: Fetcher, writer: ai_mod.AIWrite
     overall = overall_severity(top, new_kev_crit)
 
     used_ai = False
+    window_hours = max(1, round((now - since).total_seconds() / 3600))
+    allow = {"report_date": now.date().isoformat(), "year": now.year, "month": now.month, "day": now.day,
+             "window_start": since.isoformat(), "window_end": now.isoformat(), "window_hours": window_hours,
+             "stats": data["stats"], "overall": overall,
+             "threats": [{"title": t.title, "summary": t.summary, "url": t.url, "facts": t.facts} for t in data["threats"]]}
     if writer.active:
         for t in top:
-            txt = writer.prose("Write a 2 to 3 sentence summary of this threat for a security briefing.", t.facts, max_chars=500)
+            txt = writer.prose("Write a 2 to 3 sentence summary of this threat for a security briefing.", t.facts,
+                               max_chars=500, allow=allow)
             sleep(4)
             if txt:
                 t.summary, used_ai = txt, True
     exec_facts = {"overall": overall, "counts": data["stats"],
                   "top": [{"title": t.title, "severity": t.severity, "types": t.types} for t in top[:5]]}
     executive = writer.prose("Write a 3 to 4 sentence executive summary of the last 24 hours of threat activity.",
-                             exec_facts, max_chars=700) if writer.active else None
+                             exec_facts, max_chars=700, allow=allow) if writer.active else None
     used_ai = used_ai or bool(executive)
     executive = executive or det_executive(data, top, overall)
 
