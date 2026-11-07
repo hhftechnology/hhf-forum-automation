@@ -30,7 +30,7 @@ def test_exploitation_labels():
 
 
 def test_formatting():
-    assert fmt_epss(0.64, 0.985) == "0.640 (98.5th percentile)"
+    assert fmt_epss(0.64, 0.985) == "64.0% (99th percentile)"
     assert fmt_epss(None, None) == "N/A"
     assert fmt_cvss(7.5) == "7.5" and fmt_cvss(None) == "N/A"
     assert fmt_date("2026-11-02T10:00:00Z") == "November 2, 2026"

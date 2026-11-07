@@ -82,8 +82,8 @@ def violations(text: str, facts_text: str) -> list[str]:
 
 
 def clean_prose(text: str) -> str:
-    t = re.sub(r"\s+", " ", text or "").strip().strip('"')
-    return t.replace("<", "&lt;").replace(">", "&gt;")
+    # No HTML escaping here: the markdown templates do not autoescape and md_text neutralises real tags.
+    return re.sub(r"\s+", " ", text or "").strip().strip('"')
 
 
 # ---- providers --------------------------------------------------------------

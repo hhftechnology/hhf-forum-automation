@@ -25,7 +25,7 @@ def test_watchlist_covers_required_projects():
 def test_weekly_end_to_end(mock_fx):
     r = build_weekly(mock_fx)
     raw = r["raw"]
-    assert r["title"] == "Weekly Self-Hosted Security Summary: November 1 – November 7, 2026"
+    assert r["title"] == "🚨 Weekly Self-Hosted Security Summary (November 1 – November 7, 2026)"
     assert r["tags"] == ["security", "cve", "weekly-security", "self-hosted"]
     assert r["external_id"] == "weekly-advisory-2026-11-07"
     assert raw.startswith("Here’s a roundup of **")
@@ -33,30 +33,30 @@ def test_weekly_end_to_end(mock_fx):
     # reference layout
     assert "### **1. " in raw and "**Technical Details** :" in raw and "* **Severity** : " in raw
     assert "| CVE | CVSS | Exploitation | EPSS | Action |" in raw
-    assert "**Remediation Steps**" in raw and "**Official References**" in raw and "**Reference** : [" in raw
-    assert "## Missed Earlier" in raw and "## Sources" in raw
+    assert "**Remediation Steps** : 1. " in raw and "**Reference** : [" in raw and "**Official References**" not in raw
+    assert "## **Missed Earlier**" in raw and "## Sources" not in raw and "## **Key Takeaways This Week**" in raw
     # KEV item first, with CVE row + action
     assert "### **1. Keycloak" in raw and "### **2. Traefik" in raw
-    assert "| CVE-2026-1111 | 9.8 | Known exploited (CISA KEV) | 0.640 (98.5th percentile) | Patch now |" in raw
+    assert "| CVE-2026-1111 | 9.8 | Known exploited (CISA KEV) | 64.0% (99th percentile) | Patch now |" in raw
     # GHSA without CVE
-    assert "(no CVE yet)" in raw and "— (no CVE yet) | 7.5 | None known | N/A | Patch this week |" in raw
+    assert "(no CVE yet)" in raw and "| GHSA-xv5x-242w-7hf7 | 7.5 | None known | N/A | Patch this week |" in raw
     # upgrade command from the watchlist image, workaround, USN, NVD references
     assert "`docker pull traefik:3.6.2`" in raw and "Disable the Negotiate header" in raw
     assert "https://ubuntu.com/security/notices/USN-9000-1" in raw and "https://nvd.nist.gov/vuln/detail/CVE-2026-1111" in raw
     # unrelated GHSA excluded, NVD-only Nextcloud included (CVSS 8.8, EPSS 0.12 -> 72h, public PoC)
     assert "left-pad" not in raw and "Unrelated" not in raw
-    assert "| CVE-2026-4444 | 8.8 | Public PoC | 0.120 (91.0th percentile) | Patch within 72h |" in raw
+    assert "| CVE-2026-4444 | 8.8 | Public PoC | 12.0% (91st percentile) | Patch within 72h |" in raw
     assert "CVE-2026-5555" not in raw  # no watchlist match
     # missed earlier: Grafana from Oct 20 (8-30 days old)
-    assert raw.index("## Missed Earlier") < raw.index("Grafana older issue")
-    assert "Security-related releases" in raw and "v3.6.2" in raw
+    assert raw.index("## **Missed Earlier**") < raw.index("Grafana: Older Issue")
+    assert "Security-related releases" not in raw
     assert "SECRET" not in raw
 
 
 def test_weekly_skips_already_posted(mock_fx):
     r = build_weekly(mock_fx, posted={"GHSA-aaaa-bbbb-cccc": "2026-11-01", "GHSA-gggg-hhhh-iiii": "2026-11-01"})
-    body = r["raw"].split("## Sources")[0]
-    assert "jwt algorithm" not in body and "Grafana older issue" not in body
+    body = r["raw"]
+    assert "JWT Algorithm" not in body and "Grafana: Older Issue" not in body
     assert "Traefik" in body  # unposted items are still included
 
 
@@ -110,7 +110,7 @@ def test_daily_end_to_end(mock_fx, monkeypatch):
               "## Ransomware Activity by Sector", "## Notable IOCs", "## Recommended Actions", "## Sources"]:
         assert h in raw
     assert "| CVE | Product | CVSS | EPSS | KEV due date | Action |" in raw
-    assert "| CVE-2026-1111 | Red Hat Keycloak | 9.8 | 0.640 (98.5th percentile) | 2026-11-27 | Patch now |" in raw
+    assert "| CVE-2026-1111 | Red Hat Keycloak | 9.8 | 64.0% (99th percentile) | 2026-11-27 | Patch now |" in raw
     assert "| Healthcare | 2 |" in raw
     assert "**Severity:** " in raw and "**Type:** " in raw and "**Industry:** " in raw
     assert r["tags"][0] == "daily-briefing" and r["tags"][1] in ("critical", "high", "medium", "low") and len(r["tags"]) <= 10
@@ -171,7 +171,6 @@ def test_direct_delivery_is_idempotent(monkeypatch):
 def test_markdown_neutralises_untrusted_text():
     from hhf.render import render_weekly
     a = Advisory(key="CVE-1", title="x", project="p")
-    out = weekly.view(a, "ping @admin <script>alert(1)</script>")
-    md = render_weekly({"intro": "i", "items": [{**out, "title": "t|x"}], "missed": [], "extra": [], "releases": [],
-                        "sources": [], "prose_note": "n"})
+    out = weekly.view(weekly.Group("p", [a]), "ping @admin <script>alert(1)</script>")
+    md = render_weekly({"intro": "i", "items": [{**out, "title": "t|x"}], "missed": [], "takeaways": ["* b"], "data_line": "d"})
     assert "@admin" not in md and "<script>" not in md
