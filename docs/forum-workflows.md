@@ -110,3 +110,17 @@ as a test on staging.
 - Facts are cross-checked in the linked advisories. AI text is rejected automatically if it contains a CVE,
   GHSA, version, URL or number that is not in the source facts, but the facts come from third-party feeds.
 - Move the topic into category 86 to publish (workflow 2 then announces it).
+
+## Release feed (GitHub releases -> forum)
+
+`python -m hhf.release_feed` (workflow `release-feed.yml`, every 6 h) posts new releases of the repos in
+`config/releases.yml` as replies in one pinned, closed topic per repo, under the category "Project Releases".
+
+- Edit the list by PR. Run `python -m hhf.release_feed --bootstrap` once (add `--dry-run` to preview) to create the
+  missing subcategory + topic (closed, pinned) and paste the printed `category_id` / `topic_id` into the config.
+- State is `state/releases.json` (last posted tag per repo). A repo with no state is only baselined, never backfilled.
+- `--dry-run` prints the planned posts and writes nothing.
+- The API key's user must be staff/bot (only staff can reply in closed topics); bootstrap also needs category creation rights.
+- Notifications: for each group listed in an entry, set the group's default notification level on that repo's
+  subcategory to **Watching** (Category settings > Security/Settings > group notification levels, or the group's
+  "Default notifications" page). Members then get the native bell notification for every new release post.
