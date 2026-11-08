@@ -40,18 +40,6 @@ set_secret() {
 echo "Secrets for $REPO"
 set_secret DISCOURSE_URL required
 set_secret DISCOURSE_API_KEY required
-set_secret GEMINI_API_KEY required
-set_secret WORKFLOW_WEBHOOK_TOKEN optional
-set_secret WORKFLOW_WEBHOOK_URL_WEEKLY optional
-set_secret WORKFLOW_WEBHOOK_URL_DAILY optional
-set_secret ABUSECH_AUTH_KEY optional
-set_secret OTX_KEY optional
-set_secret NVD_API_KEY optional
-
-# Non-secret forum ids (drafts categories created on 2026-11-07).
-"${GH[@]}" variable set ADVISORY_DRAFTS_CATEGORY_ID -R "$REPO" --body 114 >/dev/null
-"${GH[@]}" variable set BRIEFING_DRAFTS_CATEGORY_ID -R "$REPO" --body 113 >/dev/null
-echo "Variables ADVISORY_DRAFTS_CATEGORY_ID=114, BRIEFING_DRAFTS_CATEGORY_ID=113 set"
 
 echo
 "${GH[@]}" secret list -R "$REPO"
