@@ -9,6 +9,10 @@ on:
         description: "Dry run: print planned posts, post nothing, write no state"
         type: boolean
         default: true
+      bootstrap:
+        description: "Bootstrap: create missing categories, topics and groups; prints ids for config/releases.yml"
+        type: boolean
+        default: false
 
 permissions:
   contents: write # commit state/releases.json
@@ -23,6 +27,7 @@ jobs:
     timeout-minutes: 15
     env:
       DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+      BOOTSTRAP: ${{ github.event_name == 'workflow_dispatch' && inputs.bootstrap || 'false' }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       DISCOURSE_URL: ${{ secrets.DISCOURSE_URL }}
       DISCOURSE_API_KEY: ${{ secrets.DISCOURSE_API_KEY }}
@@ -39,9 +44,10 @@ jobs:
         run: |
           args=()
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          if [ "$BOOTSTRAP" = "true" ]; then args+=(--bootstrap); fi
           python -m hhf.release_feed "${args[@]}"
       - name: Commit posted releases
-        if: ${{ !cancelled() && env.DRY_RUN != 'true' }} # also after a failed post, so posted tags are kept
+        if: ${{ !cancelled() && env.DRY_RUN != 'true' && env.BOOTSTRAP != 'true' }} # also after a failed post, so posted tags are kept
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

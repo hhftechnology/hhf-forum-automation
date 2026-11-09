@@ -21,6 +21,6 @@ Subscribing: releases are muted for everyone by default, so they stay out of Lat
 Setup (the API user must be staff):
 
 1. Add an entry to `config/releases.yml` with `groups: [releases-<repo>]`.
-2. `python -m hhf.release_feed --bootstrap --dry-run`, then without `--dry-run`. It creates the category, subcategory, topic and group, sets Watching for the group, mutes the categories by default, and prints `category_id` / `topic_id` to paste into the config.
+2. `python -m hhf.release_feed --bootstrap --dry-run`, then without `--dry-run` (or run the Release feed workflow with `bootstrap` on, which uses the repo secrets). It creates the category, subcategory, topic and group, sets Watching for the group, mutes the categories by default, and prints `category_id` / `topic_id` to paste into the config.
 3. Generate and import the DM workflow: `python scripts/build_workflow_json.py --out docs/workflows`, then import `docs/workflows/4-release-notify.json`. In its Webhook node attach a Bearer Token credential holding `WORKFLOW_WEBHOOK_TOKEN`; the production URL it shows is `WORKFLOW_WEBHOOK_URL_RELEASE`. Then **Publish** the workflow: an imported workflow is a draft, and its webhook only accepts calls once published. Without it, posts still go out but no DMs are sent.
 4. Set the secrets `WORKFLOW_WEBHOOK_URL_RELEASE` and `WORKFLOW_WEBHOOK_TOKEN` (`scripts/set-secrets.sh`). Without them the feed still posts, and only the DMs are skipped. A webhook failure only warns; the post is already made and the state still advances.
