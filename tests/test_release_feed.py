@@ -226,6 +226,16 @@ def make_client(handler):
     return DiscourseClient("https://forum.example", "k", transport=httpx.MockTransport(handler))
 
 
+def test_list_categories_reads_all_pages():
+    pages = {"1": [{"id": 1}, {"id": 2, "parent_category_id": 1}], "2": [{"id": 3}], "3": [{"id": 3}]}
+
+    def handler(req):
+        assert req.url.path == "/categories.json" and req.url.params["include_subcategories"] == "true"
+        return httpx.Response(200, json={"category_list": {"categories": pages.get(req.url.params["page"], [])}})
+
+    assert [c["id"] for c in make_client(handler).list_categories()] == [1, 2, 3]
+
+
 def test_mute_categories_keeps_existing_ids():
     sent = {}
 

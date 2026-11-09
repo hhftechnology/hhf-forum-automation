@@ -145,7 +145,20 @@ class DiscourseClient:
         return next((t["id"] for t in topics if t["title"] == title), None)
 
     def list_categories(self) -> list[dict]:
-        return self.request("GET", "/site.json")["categories"]
+        """All categories, subcategories included (flat, with parent_category_id).
+
+        /site.json is not used: with lazy_load_categories it omits most categories. With
+        include_subcategories this endpoint lists every category flat; it may paginate, so read pages
+        until one adds nothing new."""
+        seen: dict[int, dict] = {}
+        for page in range(1, 50):
+            cats = self.request("GET", "/categories.json",
+                                params={"include_subcategories": "true", "page": page})["category_list"]["categories"]
+            new = [c for c in cats if c["id"] not in seen]
+            if not new:
+                break
+            seen.update((c["id"], c) for c in new)
+        return list(seen.values())
 
     def create_category(self, name: str, parent_category_id: int | None = None) -> dict:
         """Everyone sees (read-only); staff, and so the bot, create and reply. The API user must be staff."""
