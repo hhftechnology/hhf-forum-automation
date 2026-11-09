@@ -196,6 +196,8 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool) -> None:
                 cats.append(parent)
                 muted.append(parent["id"])
             cat_id = client.create_category(name, parent_category_id=parent["id"])["id"]
+            # mute before its topic exists, so a new release topic never shows in Latest
+            client.mute_categories_by_default([parent["id"], cat_id])
         title = _title(e)
         topic_id = e.get("topic_id") or client.find_topic_by_title(cat_id, title)
         if not topic_id:

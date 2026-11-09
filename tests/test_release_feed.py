@@ -305,6 +305,7 @@ def test_bootstrap_multiple_parents_and_titles():
             return None
 
         def create_topic(self, title, category, raw):
+            assert category in self.ever_muted, "category must be muted before its topic is created"
             self.topics.append((title, category))
             return {"topic_id": 500 + len(self.topics)}
 
@@ -317,8 +318,11 @@ def test_bootstrap_multiple_parents_and_titles():
         def watch_category_for_group(self, *a):
             pass
 
+        ever_muted: set = set()
+
         def mute_categories_by_default(self, ids):
             self.muted = ids
+            self.ever_muted = self.ever_muted | set(ids)
 
     c = Multi()
     entries = [{"repo": "a/x", "name": "X", "parent": "P1"}, {"repo": "a/y"},
