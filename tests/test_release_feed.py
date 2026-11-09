@@ -217,8 +217,11 @@ def test_watch_category_keeps_existing_watched():
 # -- workflow builder ---------------------------------------------------------------
 def test_release_workflow_shape():
     wf = bwj.wf_release_notify()
-    assert len(wf["nodes"]) == 3
-    pm = next(n for n in wf["nodes"] if n["type"] == "action:send_personal_message")
-    assert pm["parameters"]["sender_username"] == "hhf.technology"
-    assert wf["connections"]["Webhook"]["main"][0][0]["node"] == "Each group"
-    assert wf["connections"]["Each group"]["main"][0][0]["node"] == "Notify group"
+    assert [n["type"] for n in wf["nodes"]] == [
+        "trigger:webhook", "action:split_out", "flow:loop_over_items", "action:send_personal_message"]
+    pm = wf["nodes"][-1]
+    assert pm["parameters"]["sender_username"] == "hhf.technoloy"  # the real account name
+    c = wf["connections"]
+    assert c["Webhook"]["main"][0][0]["node"] == "Split groups"
+    assert c["Each group"]["main"][0] == [] and c["Each group"]["main"][1][0]["node"] == "Notify group"
+    assert c["Notify group"]["main"][0][0]["node"] == "Each group"

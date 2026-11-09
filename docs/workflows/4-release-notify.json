@@ -22,17 +22,34 @@
       }
     },
     {
-      "id": "loop",
-      "type": "flow:loop_over_items",
+      "id": "split",
+      "type": "action:split_out",
       "typeVersion": "1.0",
-      "name": "Each group",
+      "name": "Split groups",
       "parameters": {
-        "items": "={{ $json.body.groups }}"
+        "field": "body.groups",
+        "include": "all_other_fields",
+        "destination_field_name": "group"
       },
       "credentials": {},
       "webhookId": null,
       "position": {
         "x": 240,
+        "y": 0
+      }
+    },
+    {
+      "id": "loop",
+      "type": "flow:loop_over_items",
+      "typeVersion": "1.0",
+      "name": "Each group",
+      "parameters": {
+        "batch_size": 1
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 480,
         "y": 0
       }
     },
@@ -43,22 +60,33 @@
       "name": "Notify group",
       "parameters": {
         "recipient_group_names": [
-          "={{ $json }}"
+          "={{ $json.group }}"
         ],
-        "sender_username": "hhf.technology",
-        "title": "={{ \"New release: \" + $(\"Webhook\").item.json.body.repo + \" \" + $(\"Webhook\").item.json.body.tag }}",
-        "raw": "=A new release of {{ $(\"Webhook\").item.json.body.repo }} is out: {{ $(\"Webhook\").item.json.body.tag }}\n\n{{ $(\"Webhook\").item.json.body.url }}"
+        "sender_username": "hhf.technoloy",
+        "title": "=New release: {{ $json.body.repo }} {{ $json.body.tag }}",
+        "raw": "=A new release of **{{ $json.body.repo }}** is out: {{ $json.body.tag }}\n\n{{ $json.body.url }}\n\nYou get this because you joined @{{ $json.group }}; leave the group to stop."
       },
       "credentials": {},
       "webhookId": null,
       "position": {
-        "x": 480,
-        "y": 0
+        "x": 720,
+        "y": 120
       }
     }
   ],
   "connections": {
     "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Split groups",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split groups": {
       "main": [
         [
           {
@@ -71,9 +99,21 @@
     },
     "Each group": {
       "main": [
+        [],
         [
           {
             "node": "Notify group",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify group": {
+      "main": [
+        [
+          {
+            "node": "Each group",
             "type": "main",
             "index": 0
           }
