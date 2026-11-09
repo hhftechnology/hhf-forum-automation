@@ -1,0 +1,124 @@
+{
+  "name": "HHF: release notify",
+  "description": "Receives a release webhook and DMs each opt-in group.",
+  "nodes": [
+    {
+      "id": "webhook",
+      "type": "trigger:webhook",
+      "typeVersion": "1.0",
+      "name": "Webhook",
+      "parameters": {
+        "path": "hhf-release",
+        "http_method": "POST",
+        "authentication": "bearer_auth",
+        "response_mode": "on_received",
+        "response_code": "200"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "split",
+      "type": "action:split_out",
+      "typeVersion": "1.0",
+      "name": "Split groups",
+      "parameters": {
+        "field": "body.groups",
+        "include": "all_other_fields",
+        "destination_field_name": "group"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 240,
+        "y": 0
+      }
+    },
+    {
+      "id": "loop",
+      "type": "flow:loop_over_items",
+      "typeVersion": "1.0",
+      "name": "Each group",
+      "parameters": {
+        "batch_size": 1
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 480,
+        "y": 0
+      }
+    },
+    {
+      "id": "pm",
+      "type": "action:send_personal_message",
+      "typeVersion": "1.0",
+      "name": "Notify group",
+      "parameters": {
+        "recipient_group_names": [
+          "={{ $json.group }}"
+        ],
+        "sender_username": "hhf.technoloy",
+        "title": "=New release: {{ $json.body.repo }} {{ $json.body.tag }}",
+        "raw": "=A new release of **{{ $json.body.repo }}** is out: {{ $json.body.tag }}\n\n{{ $json.body.url }}\n\nYou get this because you joined @{{ $json.group }}. To stop, leave the group and set the release subcategory's bell back to Normal."
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 720,
+        "y": 120
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Split groups",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split groups": {
+      "main": [
+        [
+          {
+            "node": "Each group",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Each group": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Notify group",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify group": {
+      "main": [
+        [
+          {
+            "node": "Each group",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
