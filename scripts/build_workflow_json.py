@@ -34,7 +34,8 @@ def wf_release_notify() -> dict:
             "recipient_group_names": ["={{ $json.group }}"], "sender_username": "hhf.technoloy",
             "title": "=New release: {{ $json.body.repo }} {{ $json.body.tag }}",
             "raw": "=A new release of **{{ $json.body.repo }}** is out: {{ $json.body.tag }}\n\n{{ $json.body.url }}\n\n"
-                   "You get this because you joined @{{ $json.group }}; leave the group to stop."}),
+                   "You get this because you joined @{{ $json.group }}. To stop, leave the group "
+                   "and set the release subcategory's bell back to Normal."}),
     ]
     # loop port (index 1) -> PM -> back into the loop; done port (index 0) ends
     conns = {"Webhook": link(["Split groups"]), "Split groups": link(["Each group"]),

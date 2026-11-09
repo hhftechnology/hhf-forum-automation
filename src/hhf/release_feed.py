@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -23,23 +24,34 @@ PARENT_NAME = "Project Releases"
 FETCH = 10  # releases looked at per repo per run
 
 
+MAX_BODY = 20000  # well under Discourse's default max_post_length (32000), so long changelogs never block a repo
+
+
 def load_json(path: Path) -> dict:
+    """Missing file = empty state. A corrupt file raises: treating it as empty would silently re-baseline every repo."""
     try:
         return json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
+    except FileNotFoundError:
         return {"last": {}}
 
 
 def save_json(path: Path, state: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    os.replace(tmp, path)  # atomic: a crash never leaves truncated JSON
 
 
 def render(rel: dict) -> str:
     head = f"## [{rel['repo']} {rel['name']}]({rel['url']})"
     if rel["prerelease"]:
         head += " (pre-release)"
-    return f"{head}\n\n{rel.get('body') or '_No release notes._'}"
+    body = rel.get("body") or "_No release notes._"
+    if len(body) > MAX_BODY:
+        body = body[:MAX_BODY].rstrip() + f"\n\n…\n\n[Full release notes]({rel['url']})"
+    # GitHub @handles would ping unrelated forum users or groups; a zero-width space stops mention parsing
+    body = re.sub(r"@(?=[\w-])", "@​", body)
+    return f"{head}\n\n{body}"
 
 
 def _rows(entry: dict, fetch) -> list[dict]:

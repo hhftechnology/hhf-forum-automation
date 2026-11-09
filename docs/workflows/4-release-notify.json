@@ -64,7 +64,7 @@
         ],
         "sender_username": "hhf.technoloy",
         "title": "=New release: {{ $json.body.repo }} {{ $json.body.tag }}",
-        "raw": "=A new release of **{{ $json.body.repo }}** is out: {{ $json.body.tag }}\n\n{{ $json.body.url }}\n\nYou get this because you joined @{{ $json.group }}; leave the group to stop."
+        "raw": "=A new release of **{{ $json.body.repo }}** is out: {{ $json.body.tag }}\n\n{{ $json.body.url }}\n\nYou get this because you joined @{{ $json.group }}. To stop, leave the group and set the release subcategory's bell back to Normal."
       },
       "credentials": {},
       "webhookId": null,

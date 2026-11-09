@@ -96,6 +96,26 @@ def test_state_saved_when_a_later_post_fails(tmp_path, monkeypatch):
     assert json.loads(st.read_text(encoding="utf-8"))["last"]["o/r"] == "v2"
 
 
+def test_render_neutralizes_mentions_and_truncates():
+    out = rf.render({**rel("v1"), "body": "Thanks @alice and @team-x! mail a@b.c"})
+    assert "@alice" not in out and "@​alice" in out and "@​team-x" in out
+    long = rf.render({**rel("v1"), "body": "x" * (rf.MAX_BODY + 500)})
+    assert len(long) < rf.MAX_BODY + 300 and "[Full release notes](https://x/v1)" in long
+
+
+def test_state_missing_is_empty_corrupt_raises(tmp_path):
+    p = tmp_path / "s.json"
+    assert rf.load_json(p) == {"last": {}}
+    rf.save_json(p, {"last": {"o/r": "v1"}})
+    assert rf.load_json(p) == {"last": {"o/r": "v1"}} and not (tmp_path / "s.json.tmp").exists()
+    p.write_text("{trunc", encoding="utf-8")
+    try:
+        rf.load_json(p)
+        raise AssertionError("corrupt state must not be read as empty")
+    except ValueError:
+        pass
+
+
 def test_failed_post_stops_that_repo_only():
     class FailOnV3(FakeClient):
         def create_post(self, topic_id, raw):
