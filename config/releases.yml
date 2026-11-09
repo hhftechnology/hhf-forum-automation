@@ -1,0 +1,18 @@
+# Repos whose GitHub releases are posted into the forum (edit by PR).
+# Forum layout: category "Project Releases" > one subcategory per repo > ONE pinned, closed topic
+# "<repo> releases"; the bot posts each new release as a reply.
+# Fill category_id/topic_id by running `python -m hhf.release_feed --bootstrap` (it prints them).
+# groups: public self-join groups, e.g. releases-traefik. Joining one sets the subcategory to Watching
+# and the release workflow DMs the group on every release. Bootstrap creates missing groups.
+# Uncomment and edit the placeholders below.
+releases: []
+# - repo: traefik/traefik
+#   category_id: null
+#   topic_id: null
+#   groups: [releases-traefik]
+#   include_prereleases: false
+# - repo: caddyserver/caddy
+#   category_id: null
+#   topic_id: null
+#   groups: [releases-caddy]
+#   include_prereleases: false

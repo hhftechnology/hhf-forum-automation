@@ -40,6 +40,8 @@ set_secret() {
 echo "Secrets for $REPO"
 set_secret DISCOURSE_URL required
 set_secret DISCOURSE_API_KEY required
+set_secret WORKFLOW_WEBHOOK_URL_RELEASE optional
+set_secret WORKFLOW_WEBHOOK_TOKEN optional
 
 echo
 "${GH[@]}" secret list -R "$REPO"

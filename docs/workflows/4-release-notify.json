@@ -1,0 +1,84 @@
+{
+  "name": "HHF: release notify",
+  "description": "Receives a release webhook and DMs each opt-in group.",
+  "nodes": [
+    {
+      "id": "webhook",
+      "type": "trigger:webhook",
+      "typeVersion": "1.0",
+      "name": "Webhook",
+      "parameters": {
+        "path": "hhf-release",
+        "http_method": "POST",
+        "authentication": "bearer_auth",
+        "response_mode": "on_received",
+        "response_code": "200"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "loop",
+      "type": "flow:loop_over_items",
+      "typeVersion": "1.0",
+      "name": "Each group",
+      "parameters": {
+        "items": "={{ $json.body.groups }}"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 240,
+        "y": 0
+      }
+    },
+    {
+      "id": "pm",
+      "type": "action:send_personal_message",
+      "typeVersion": "1.0",
+      "name": "Notify group",
+      "parameters": {
+        "recipient_group_names": [
+          "={{ $json }}"
+        ],
+        "sender_username": "hhf.technology",
+        "title": "={{ \"New release: \" + $(\"Webhook\").item.json.body.repo + \" \" + $(\"Webhook\").item.json.body.tag }}",
+        "raw": "=A new release of {{ $(\"Webhook\").item.json.body.repo }} is out: {{ $(\"Webhook\").item.json.body.tag }}\n\n{{ $(\"Webhook\").item.json.body.url }}"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 480,
+        "y": 0
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Each group",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Each group": {
+      "main": [
+        [
+          {
+            "node": "Notify group",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

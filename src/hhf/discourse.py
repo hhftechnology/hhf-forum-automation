@@ -131,6 +131,61 @@ class DiscourseClient:
         not be in the future. Shifts the first post (and replies relatively) and resets bumped_at."""
         return self.request("PUT", f"/t/{topic_id}/change-timestamp", data={"timestamp": str(int(timestamp))})
 
+    def create_post(self, topic_id: int, raw: str) -> dict:
+        """Reply to an existing topic (staff can reply in closed topics)."""
+        return self.request("POST", "/posts.json", data={"topic_id": topic_id, "raw": raw})
+
+    def set_topic_status(self, topic_id: int, status: str, enabled: bool) -> dict:
+        """status: closed | pinned | archived | visible."""
+        return self.request("PUT", f"/t/{topic_id}/status.json",
+                            data={"status": status, "enabled": "true" if enabled else "false"})
+
+    def find_topic_by_title(self, category_id: int, title: str) -> int | None:
+        topics = self.request("GET", f"/c/{category_id}.json")["topic_list"]["topics"]
+        return next((t["id"] for t in topics if t["title"] == title), None)
+
+    def list_categories(self) -> list[dict]:
+        return self.request("GET", "/site.json")["categories"]
+
+    def create_category(self, name: str, parent_category_id: int | None = None) -> dict:
+        """Everyone sees (read-only); staff, and so the bot, create and reply. The API user must be staff."""
+        data: dict[str, Any] = {"name": name, "color": "0088CC", "text_color": "FFFFFF",
+                                "permissions[everyone]": 3, "permissions[staff]": 1}
+        if parent_category_id:
+            data["parent_category_id"] = parent_category_id
+        return self.request("POST", "/categories.json", data=data)["category"]
+
+    # -- groups / defaults ----------------------------------------------------
+    def ensure_group(self, name: str, full_name: str) -> dict:
+        """Get the group, or create it public and self-join; members watch categories by default."""
+        found = self.request("GET", f"/groups/{name}.json", allow_404=True)
+        if found:
+            return found["group"]
+        data = {"group[name]": name, "group[full_name]": full_name, "group[visibility_level]": 0,
+                "group[public_admission]": "true", "group[public_exit]": "true",
+                "group[default_notification_level]": 3}
+        return self.request("POST", "/admin/groups.json", data=data)["basic_group"]
+
+    def watch_category_for_group(self, group_name: str, category_id: int) -> None:
+        """Add the category to the group's Watching list, keeping the ones it already has."""
+        group = self.request("GET", f"/groups/{group_name}.json")["group"]
+        ids = list(group.get("watching_category_ids") or [])
+        if category_id in ids:
+            return
+        self.request("PUT", f"/groups/{group['id']}.json",
+                     data={"group[watching_category_ids][]": [*ids, category_id], "update_existing_users": "true"})
+
+    def mute_categories_by_default(self, category_ids: list[int]) -> None:
+        """Add the ids to the default_categories_muted site setting (pipe list), keeping the existing ones."""
+        settings = self.request("GET", "/admin/site_settings.json")["site_settings"]
+        current = next((s["value"] for s in settings if s["setting"] == "default_categories_muted"), "") or ""
+        ids = [int(i) for i in str(current).split("|") if i]
+        merged = ids + [i for i in category_ids if i not in ids]
+        if merged == ids:
+            return
+        self.request("PUT", "/admin/site_settings/default_categories_muted.json",
+                     data={"default_categories_muted": "|".join(map(str, merged)), "update_existing_user": "true"})
+
     # -- uploads / categories -------------------------------------------------
     def upload_file(self, filename: str, content: bytes, upload_type: str = "composer") -> dict:
         ctype = mimetypes.guess_type(filename)[0] or "application/octet-stream"

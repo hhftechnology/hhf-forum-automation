@@ -4,7 +4,21 @@ Automation for forum.hhf.technology:
 
 - **Docs sync** (`docs-sync.yml`, `src/hhf/docs_import.py`, `config/docs.yml`): imports MDX docs into forum topics.
 - **Form sync** (`form-sync.yml`, `src/hhf/form_sync.py`, `forms/`): keeps the onboarding form in sync from `forms/onboarding.yml`.
+- **Release feed** (`release-feed.yml`, `src/hhf/release_feed.py`, `config/releases.yml`): see below.
 
 Secrets: `DISCOURSE_URL`, `DISCOURSE_API_KEY` (set with `scripts/set-secrets.sh`).
 
 The daily briefing and weekly advisory moved to https://github.com/hhftechnology/hhf-blog-automation.
+
+## Release feed
+
+Every 6 hours the feed posts new GitHub releases of the repos in `config/releases.yml` as replies in one pinned, closed topic per repo (category "Project Releases"). State is `state/releases.json`; the first run only records a baseline.
+
+Subscribing: releases are muted for everyone by default, so they stay out of Latest. A member joins the repo's public group (for example `releases-traefik`) to get the subcategory on Watching and a DM for every release; leaving the group stops both.
+
+Setup (the API user must be staff):
+
+1. Add an entry to `config/releases.yml` with `groups: [releases-<repo>]`.
+2. `python -m hhf.release_feed --bootstrap --dry-run`, then without `--dry-run`. It creates the category, subcategory, topic and group, sets Watching for the group, mutes the categories by default, and prints `category_id` / `topic_id` to paste into the config.
+3. Generate and import the DM workflow: `python scripts/build_workflow_json.py --out docs/workflows`, then import `docs/workflows/4-release-notify.json`. In its Webhook node attach a Bearer Token credential holding `WORKFLOW_WEBHOOK_TOKEN`; the production URL it shows is `WORKFLOW_WEBHOOK_URL_RELEASE`. ponytail: the loop node type id (`flow:loop_over_items`) and its `items` parameter are unverified; check them against the discourse-workflows plugin before import.
+4. Set the secrets `WORKFLOW_WEBHOOK_URL_RELEASE` and `WORKFLOW_WEBHOOK_TOKEN` (`scripts/set-secrets.sh`). Without them the feed still posts, and only the DMs are skipped. A webhook failure only warns; the post is already made and the state still advances.
