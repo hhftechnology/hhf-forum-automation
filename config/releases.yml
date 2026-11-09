@@ -14,198 +14,198 @@ releases:
 - repo: fosrl/pangolin
   parent: Pangolin Releases
   name: Pangolin
-  category_id: null
-  topic_id: null
+  category_id: 116
+  topic_id: 4810
   groups: [releases-pangolin]
   include_prereleases: false
 - repo: fosrl/newt
   parent: Pangolin Releases
   name: Newt
-  category_id: null
-  topic_id: null
+  category_id: 117
+  topic_id: 4812
   groups: [releases-newt]
   include_prereleases: false
 - repo: fosrl/gerbil
   parent: Pangolin Releases
   name: Gerbil
-  category_id: null
-  topic_id: null
+  category_id: 118
+  topic_id: 4814
   groups: [releases-gerbil]
   include_prereleases: false
 - repo: fosrl/badger
   parent: Pangolin Releases
   name: Badger
-  category_id: null
-  topic_id: null
+  category_id: 119
+  topic_id: 4816
   groups: [releases-badger]
   include_prereleases: false
 - repo: fosrl/olm
   parent: Pangolin Releases
   name: Olm
-  category_id: null
-  topic_id: null
+  category_id: 120
+  topic_id: 4818
   groups: [releases-olm]
   include_prereleases: false
 - repo: fosrl/cli
   parent: Pangolin Releases
   name: CLI
-  category_id: null
-  topic_id: null
+  category_id: 121
+  topic_id: 4820
   groups: [releases-pg-cli]
   include_prereleases: false
 - repo: fosrl/android
   parent: Pangolin Releases
   name: Android
-  category_id: null
-  topic_id: null
+  category_id: 122
+  topic_id: 4822
   groups: [releases-android]
   include_prereleases: false
 - repo: fosrl/apple
   parent: Pangolin Releases
   name: iOS
   tag_prefix: "ios-"
-  category_id: null
-  topic_id: null
+  category_id: 123
+  topic_id: 4824
   groups: [releases-ios]
   include_prereleases: false
 - repo: fosrl/apple
   parent: Pangolin Releases
   name: macOS
   tag_prefix: "mac-"
-  category_id: null
-  topic_id: null
+  category_id: 124
+  topic_id: 4826
   groups: [releases-macos]
   include_prereleases: false
 - repo: fosrl/windows-linux
   parent: Pangolin Releases
   name: Windows
   tag_prefix: "windows-"
-  category_id: null
-  topic_id: null
+  category_id: 125
+  topic_id: 4828
   groups: [releases-windows]
   include_prereleases: false
 - repo: fosrl/windows-linux
   parent: Pangolin Releases
   name: Linux
   tag_prefix: "linux-"
-  category_id: null
-  topic_id: null
+  category_id: 126
+  topic_id: 4830
   groups: [releases-linux]
   include_prereleases: false
 - repo: fosrl/helm-charts
   parent: Pangolin Releases
   name: Helm charts
-  category_id: null
-  topic_id: null
+  category_id: 127
+  topic_id: 4832
   groups: [releases-helm]
   include_prereleases: false
 - repo: fosrl/pangolin-node
   parent: Pangolin Releases
   name: Pangolin Node
-  category_id: null
-  topic_id: null
+  category_id: 128
+  topic_id: 4834
   groups: [releases-pg-node]
   include_prereleases: false
 - repo: traefik/traefik
   name: Traefik
-  category_id: null
-  topic_id: null
+  category_id: 130
+  topic_id: 4837
   groups: [releases-traefik]
   include_prereleases: false
 - repo: coollabsio/coolify
   name: Coolify
-  category_id: null
-  topic_id: null
+  category_id: 131
+  topic_id: 4839
   groups: [releases-coolify]
   include_prereleases: false
 - repo: n8n-io/n8n
   name: n8n
   tag_prefix: "n8n@"
-  category_id: null
-  topic_id: null
+  category_id: 132
+  topic_id: 4841
   groups: [releases-n8n]
   include_prereleases: false
 - repo: crowdsecurity/crowdsec
   name: CrowdSec
-  category_id: null
-  topic_id: null
+  category_id: 133
+  topic_id: 4843
   groups: [releases-crowdsec]
   include_prereleases: false
 - repo: caddyserver/caddy
   name: Caddy
-  category_id: null
-  topic_id: null
+  category_id: 134
+  topic_id: 4845
   groups: [releases-caddy]
   include_prereleases: false
 - repo: goauthentik/authentik
   name: authentik
-  category_id: null
-  topic_id: null
+  category_id: 135
+  topic_id: 4847
   groups: [releases-authentik]
   include_prereleases: false
 - repo: authelia/authelia
   name: Authelia
-  category_id: null
-  topic_id: null
+  category_id: 136
+  topic_id: 4849
   groups: [releases-authelia]
   include_prereleases: false
 - repo: portainer/portainer
   name: Portainer
-  category_id: null
-  topic_id: null
+  category_id: 137
+  topic_id: 4851
   groups: [releases-portainer]
   include_prereleases: false
 - repo: louislam/uptime-kuma
   name: Uptime Kuma
-  category_id: null
-  topic_id: null
+  category_id: 138
+  topic_id: 4853
   groups: [releases-uptime-kuma]
   include_prereleases: false
 - repo: immich-app/immich
   name: Immich
-  category_id: null
-  topic_id: null
+  category_id: 139
+  topic_id: 4855
   groups: [releases-immich]
   include_prereleases: false
 - repo: jellyfin/jellyfin
   name: Jellyfin
-  category_id: null
-  topic_id: null
+  category_id: 140
+  topic_id: 4857
   groups: [releases-jellyfin]
   include_prereleases: false
 - repo: home-assistant/core
   name: Home Assistant
-  category_id: null
-  topic_id: null
+  category_id: 141
+  topic_id: 4859
   groups: [releases-hass]
   include_prereleases: false
 - repo: AdguardTeam/AdGuardHome
   name: AdGuard Home
-  category_id: null
-  topic_id: null
+  category_id: 142
+  topic_id: 4861
   groups: [releases-adguard]
   include_prereleases: false
 - repo: pi-hole/pi-hole
   name: Pi-hole
-  category_id: null
-  topic_id: null
+  category_id: 143
+  topic_id: 4863
   groups: [releases-pihole]
   include_prereleases: false
 - repo: tailscale/tailscale
   name: Tailscale
-  category_id: null
-  topic_id: null
+  category_id: 144
+  topic_id: 4865
   groups: [releases-tailscale]
   include_prereleases: false
 - repo: dani-garcia/vaultwarden
   name: Vaultwarden
-  category_id: null
-  topic_id: null
+  category_id: 145
+  topic_id: 4867
   groups: [releases-vaultwarden]
   include_prereleases: false
 - repo: NginxProxyManager/nginx-proxy-manager
   name: Nginx Proxy Manager
-  category_id: null
-  topic_id: null
+  category_id: 146
+  topic_id: 4869
   groups: [releases-npm]
   include_prereleases: false
