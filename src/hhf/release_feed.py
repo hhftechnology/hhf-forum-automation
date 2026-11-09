@@ -77,6 +77,7 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None) 
     if not can_notify and any(e.get("groups") for e in entries):
         print("WORKFLOW_WEBHOOK_URL_RELEASE / WORKFLOW_WEBHOOK_TOKEN not set: no DMs will be sent")
     n = 0
+    failed: list[str] = []
     for e in entries:
         repo = e["repo"]
         if not e.get("topic_id"):
@@ -96,10 +97,17 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None) 
             if dry_run and groups:
                 print(f"  would DM groups: {', '.join(groups)}")
             if not dry_run:
-                result = client.create_post(e["topic_id"], render(rel))
+                try:
+                    result = client.create_post(e["topic_id"], render(rel))
+                except Exception as exc:  # stop this repo (keeps release order), go on with the others
+                    print(f"error: posting {repo} {rel['tag']} failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+                    failed.append(repo)
+                    break
                 state["last"][repo] = rel["tag"]  # per post, so a mid-run failure never re-posts
                 if groups and can_notify:
                     notify(repo, rel["tag"], groups, result)
+    if failed:  # after all repos, so the job still fails visibly; main() saves state first
+        raise RuntimeError(f"posting failed for: {', '.join(failed)}")
     return n
 
 

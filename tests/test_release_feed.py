@@ -96,6 +96,25 @@ def test_state_saved_when_a_later_post_fails(tmp_path, monkeypatch):
     assert json.loads(st.read_text(encoding="utf-8"))["last"]["o/r"] == "v2"
 
 
+def test_failed_post_stops_that_repo_only():
+    class FailOnV3(FakeClient):
+        def create_post(self, topic_id, raw):
+            if topic_id == 42 and "v3" in raw:
+                raise RuntimeError("boom")
+            super().create_post(topic_id, raw)
+
+    rows = [rel("v4"), rel("v3"), rel("v2")]
+    other = {**ENTRY, "repo": "o/s", "topic_id": 43}
+    c, state = FailOnV3(), {"last": {"o/r": "v2", "o/s": "v2"}}
+    try:
+        rf.run([ENTRY, other], state, c, dry_run=False, fetch=fetcher(rows))
+        raise AssertionError("expected the run to report the failure")
+    except RuntimeError as exc:
+        assert "o/r" in str(exc)
+    assert state["last"] == {"o/r": "v2", "o/s": "v4"}  # v3 failed: o/r not advanced, v4 not posted out of order
+    assert [p[0] for p in c.posts] == [43, 43]
+
+
 # -- webhook notify ----------------------------------------------------------
 GROUP_ENTRY = {**ENTRY, "groups": ["releases-r"]}
 RESULT = {"topic_slug": "o-r-releases", "topic_id": 42, "post_number": 5}

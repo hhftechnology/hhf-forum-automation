@@ -41,7 +41,7 @@ jobs:
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           python -m hhf.release_feed "${args[@]}"
       - name: Commit posted releases
-        if: ${{ env.DRY_RUN != 'true' }}
+        if: ${{ !cancelled() && env.DRY_RUN != 'true' }} # also after a failed post, so posted tags are kept
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
