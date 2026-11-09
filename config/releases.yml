@@ -1,18 +1,211 @@
 # Repos whose GitHub releases are posted into the forum (edit by PR).
-# Forum layout: category "Project Releases" > one subcategory per repo > ONE pinned, closed topic
-# "<repo> releases"; the bot posts each new release as a reply.
+# Forum layout: a parent category (default "Project Releases") > one subcategory per entry > ONE pinned,
+# closed topic "<repo> releases"; the bot posts each new release as a reply.
 # Fill category_id/topic_id by running `python -m hhf.release_feed --bootstrap` (it prints them).
-# groups: public self-join groups, e.g. releases-traefik. Joining one sets the subcategory to Watching
-# and the release workflow DMs the group on every release. Bootstrap creates missing groups.
-# Uncomment and edit the placeholders below.
-releases: []
-# - repo: traefik/traefik
-#   category_id: null
-#   topic_id: null
-#   groups: [releases-traefik]
-#   include_prereleases: false
-# - repo: caddyserver/caddy
-#   category_id: null
-#   topic_id: null
-#   groups: [releases-caddy]
-#   include_prereleases: false
+# Optional per-entry fields:
+#   parent: parent category name (default "Project Releases"); created by bootstrap if missing.
+#   name: subcategory display name (default: the repo basename).
+#   tag_prefix: only releases whose tag starts with this are posted. Use it to split one repo into several
+#     entries (e.g. ios-/mac-) or to ignore moving tags; a split topic is "<repo> <name> releases".
+#     Entries sharing a repo need distinct tag_prefix values; state is keyed by "<repo>#<tag_prefix>".
+# groups: public self-join groups (1-20 chars of a-z0-9_-), e.g. releases-traefik. Joining one sets the
+# subcategory to Watching and the release workflow DMs the group on every release. Bootstrap creates missing groups.
+releases:
+- repo: fosrl/pangolin
+  parent: Pangolin Releases
+  name: Pangolin
+  category_id: null
+  topic_id: null
+  groups: [releases-pangolin]
+  include_prereleases: false
+- repo: fosrl/newt
+  parent: Pangolin Releases
+  name: Newt
+  category_id: null
+  topic_id: null
+  groups: [releases-newt]
+  include_prereleases: false
+- repo: fosrl/gerbil
+  parent: Pangolin Releases
+  name: Gerbil
+  category_id: null
+  topic_id: null
+  groups: [releases-gerbil]
+  include_prereleases: false
+- repo: fosrl/badger
+  parent: Pangolin Releases
+  name: Badger
+  category_id: null
+  topic_id: null
+  groups: [releases-badger]
+  include_prereleases: false
+- repo: fosrl/olm
+  parent: Pangolin Releases
+  name: Olm
+  category_id: null
+  topic_id: null
+  groups: [releases-olm]
+  include_prereleases: false
+- repo: fosrl/cli
+  parent: Pangolin Releases
+  name: CLI
+  category_id: null
+  topic_id: null
+  groups: [releases-pg-cli]
+  include_prereleases: false
+- repo: fosrl/android
+  parent: Pangolin Releases
+  name: Android
+  category_id: null
+  topic_id: null
+  groups: [releases-android]
+  include_prereleases: false
+- repo: fosrl/apple
+  parent: Pangolin Releases
+  name: iOS
+  tag_prefix: "ios-"
+  category_id: null
+  topic_id: null
+  groups: [releases-ios]
+  include_prereleases: false
+- repo: fosrl/apple
+  parent: Pangolin Releases
+  name: macOS
+  tag_prefix: "mac-"
+  category_id: null
+  topic_id: null
+  groups: [releases-macos]
+  include_prereleases: false
+- repo: fosrl/windows-linux
+  parent: Pangolin Releases
+  name: Windows
+  tag_prefix: "windows-"
+  category_id: null
+  topic_id: null
+  groups: [releases-windows]
+  include_prereleases: false
+- repo: fosrl/windows-linux
+  parent: Pangolin Releases
+  name: Linux
+  tag_prefix: "linux-"
+  category_id: null
+  topic_id: null
+  groups: [releases-linux]
+  include_prereleases: false
+- repo: fosrl/helm-charts
+  parent: Pangolin Releases
+  name: Helm charts
+  category_id: null
+  topic_id: null
+  groups: [releases-helm]
+  include_prereleases: false
+- repo: fosrl/pangolin-node
+  parent: Pangolin Releases
+  name: Pangolin Node
+  category_id: null
+  topic_id: null
+  groups: [releases-pg-node]
+  include_prereleases: false
+- repo: traefik/traefik
+  name: Traefik
+  category_id: null
+  topic_id: null
+  groups: [releases-traefik]
+  include_prereleases: false
+- repo: coollabsio/coolify
+  name: Coolify
+  category_id: null
+  topic_id: null
+  groups: [releases-coolify]
+  include_prereleases: false
+- repo: n8n-io/n8n
+  name: n8n
+  tag_prefix: "n8n@"
+  category_id: null
+  topic_id: null
+  groups: [releases-n8n]
+  include_prereleases: false
+- repo: crowdsecurity/crowdsec
+  name: CrowdSec
+  category_id: null
+  topic_id: null
+  groups: [releases-crowdsec]
+  include_prereleases: false
+- repo: caddyserver/caddy
+  name: Caddy
+  category_id: null
+  topic_id: null
+  groups: [releases-caddy]
+  include_prereleases: false
+- repo: goauthentik/authentik
+  name: authentik
+  category_id: null
+  topic_id: null
+  groups: [releases-authentik]
+  include_prereleases: false
+- repo: authelia/authelia
+  name: Authelia
+  category_id: null
+  topic_id: null
+  groups: [releases-authelia]
+  include_prereleases: false
+- repo: portainer/portainer
+  name: Portainer
+  category_id: null
+  topic_id: null
+  groups: [releases-portainer]
+  include_prereleases: false
+- repo: louislam/uptime-kuma
+  name: Uptime Kuma
+  category_id: null
+  topic_id: null
+  groups: [releases-uptime-kuma]
+  include_prereleases: false
+- repo: immich-app/immich
+  name: Immich
+  category_id: null
+  topic_id: null
+  groups: [releases-immich]
+  include_prereleases: false
+- repo: jellyfin/jellyfin
+  name: Jellyfin
+  category_id: null
+  topic_id: null
+  groups: [releases-jellyfin]
+  include_prereleases: false
+- repo: home-assistant/core
+  name: Home Assistant
+  category_id: null
+  topic_id: null
+  groups: [releases-hass]
+  include_prereleases: false
+- repo: AdguardTeam/AdGuardHome
+  name: AdGuard Home
+  category_id: null
+  topic_id: null
+  groups: [releases-adguard]
+  include_prereleases: false
+- repo: pi-hole/pi-hole
+  name: Pi-hole
+  category_id: null
+  topic_id: null
+  groups: [releases-pihole]
+  include_prereleases: false
+- repo: tailscale/tailscale
+  name: Tailscale
+  category_id: null
+  topic_id: null
+  groups: [releases-tailscale]
+  include_prereleases: false
+- repo: dani-garcia/vaultwarden
+  name: Vaultwarden
+  category_id: null
+  topic_id: null
+  groups: [releases-vaultwarden]
+  include_prereleases: false
+- repo: NginxProxyManager/nginx-proxy-manager
+  name: Nginx Proxy Manager
+  category_id: null
+  topic_id: null
+  groups: [releases-npm]
+  include_prereleases: false

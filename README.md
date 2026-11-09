@@ -12,7 +12,9 @@ The daily briefing and weekly advisory moved to https://github.com/hhftechnology
 
 ## Release feed
 
-Every 6 hours the feed posts new GitHub releases of the repos in `config/releases.yml` as replies in one pinned, closed topic per repo (category "Project Releases"). State is `state/releases.json`; the first run only records a baseline.
+Every 6 hours the feed posts new GitHub releases of the repos in `config/releases.yml` as replies in one pinned, closed topic per repo (parent category "Project Releases" by default). State is `state/releases.json`; the first run only records a baseline.
+
+Each entry may set `parent` (parent category name, default "Project Releases"), `name` (subcategory name, default the repo basename) and `tag_prefix` (only tags starting with it are posted, so one repo can feed several subcategories, e.g. `ios-` / `mac-`, or skip moving tags like `stable`). State is keyed by the repo, or `repo#tag_prefix` when a prefix is set. Group names must be 1-20 characters of `a-z0-9_-`.
 
 Subscribing: releases are muted for everyone by default, so they stay out of Latest. A member joins the repo's public group (for example `releases-traefik`) to get the subcategory on Watching and a DM for every release. To unsubscribe, leave the group (stops the DMs) and set the subcategory's bell back to Normal: Discourse does not reset notification levels when a member leaves a group.
 

@@ -1,6 +1,6 @@
 """Post new GitHub releases of watched repos as replies in pinned, closed forum topics.
 
-Config: config/releases.yml. State: state/releases.json ({"last": {repo: last posted tag}}).
+Config: config/releases.yml. State: state/releases.json ({"last": {key: last posted tag}}, see key()).
 Auth for the forum comes from DISCOURSE_URL / DISCOURSE_API_KEY (the key's user must be staff/bot:
 only staff can reply in closed topics).
 """
@@ -54,10 +54,41 @@ def render(rel: dict) -> str:
     return f"{head}\n\n{body}"
 
 
+def key(e: dict) -> str:
+    """State key: the repo, or repo#tag_prefix when several entries share a repo."""
+    return f"{e['repo']}#{e['tag_prefix']}" if e.get("tag_prefix") else e["repo"]
+
+
+def _sub(e: dict) -> str:
+    return e.get("name") or e["repo"].split("/")[-1]
+
+
+def _parent(e: dict) -> str:
+    return e.get("parent") or PARENT_NAME
+
+
+def _title(e: dict) -> str:
+    """"<repo> releases"; a tag_prefix split adds the name ("fosrl/apple iOS releases") unless it only repeats the repo."""
+    split = e.get("tag_prefix") and _sub(e).lower() != e["repo"].split("/")[-1].lower()
+    return f"{e['repo']} {_sub(e)} releases" if split else f"{e['repo']} releases"
+
+
+def validate(entries: list[dict]) -> None:
+    seen: set[str] = set()
+    for e in entries:
+        for g in e.get("groups") or []:
+            if not re.fullmatch(r"[a-z0-9_-]{1,20}", str(g)):
+                raise ValueError(f"invalid group name {g!r} in {key(e)}: use 1-20 chars of [a-z0-9_-]")
+        if key(e) in seen:
+            raise ValueError(f"duplicate release entry {key(e)}")
+        seen.add(key(e))
+
+
 def _rows(entry: dict, fetch) -> list[dict]:
-    """Non-draft releases (newest first), pre-releases only when the entry opts in."""
+    """Non-draft releases (newest first), pre-releases only when the entry opts in; tag_prefix narrows by tag."""
+    prefix = entry.get("tag_prefix") or ""
     return [r for r in fetch(entry["repo"], per_page=FETCH)
-            if r["tag"] and (entry.get("include_prereleases") or not r["prerelease"])]
+            if r["tag"] and r["tag"].startswith(prefix) and (entry.get("include_prereleases") or not r["prerelease"])]
 
 
 def new_releases(rows: list[dict], last: str) -> list[dict]:
@@ -91,7 +122,7 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None) 
     n = 0
     failed: list[str] = []
     for e in entries:
-        repo = e["repo"]
+        repo = key(e)
         if not e.get("topic_id"):
             print(f"skip {repo}: no topic_id (run --bootstrap)")
             continue
@@ -117,7 +148,7 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None) 
                     break
                 state["last"][repo] = rel["tag"]  # per post, so a mid-run failure never re-posts
                 if groups and can_notify:
-                    notify(repo, rel["tag"], groups, result)
+                    notify(e["repo"], rel["tag"], groups, result)
     if failed:  # after all repos, so the job still fails visibly; main() saves state first
         raise RuntimeError(f"posting failed for: {', '.join(failed)}")
     return n
@@ -138,39 +169,45 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool) -> None:
     In dry-run, ``client`` is not used (may be None).
     """
     if dry_run:
-        print(f"would ensure category {PARENT_NAME} (everyone read-only, staff create)")
+        parents = list(dict.fromkeys(_parent(e) for e in entries))
+        for pn in parents:
+            print(f"would ensure category {pn} (everyone read-only, staff create)")
         for e in entries:
-            repo, name = e["repo"], e["repo"].split("/")[-1]
-            print(f"would ensure {PARENT_NAME}/{name} + closed pinned topic '{repo} releases'")
+            name, pn = _sub(e), _parent(e)
+            print(f"would ensure {pn}/{name} + closed pinned topic '{_title(e)}'")
             for g in e.get("groups") or []:
-                print(f"would ensure public group '{g}' and set it to Watching on {PARENT_NAME}/{name}")
-        print(f"would mute {PARENT_NAME} and {len(entries)} subcategories by default")
+                print(f"would ensure public group '{g}' and set it to Watching on {pn}/{name}")
+        print(f"would mute {len(parents)} parent categories and {len(entries)} subcategories by default")
         return
     cats = client.list_categories()
-    parent = next((c for c in cats if c["name"] == PARENT_NAME and not c.get("parent_category_id")), None)
-    muted: list[int] = [parent["id"]] if parent else []
+    parents: dict[str, dict | None] = {
+        pn: next((c for c in cats if c["name"] == pn and not c.get("parent_category_id")), None)
+        for pn in dict.fromkeys(_parent(e) for e in entries)}
+    muted: list[int] = [p["id"] for p in parents.values() if p]
     watch: list[tuple[str, int]] = []
     for e in entries:
-        repo, name, groups = e["repo"], e["repo"].split("/")[-1], e.get("groups") or []
+        repo, name, pn, groups = e["repo"], _sub(e), _parent(e), e.get("groups") or []
+        parent = parents[pn]
         cat_id = e.get("category_id") or next(
             (c["id"] for c in cats if c["name"] == name and parent and c.get("parent_category_id") == parent["id"]), None)
         if not cat_id:
             if not parent:
-                parent = client.create_category(PARENT_NAME)
+                parent = parents[pn] = client.create_category(pn)
                 cats.append(parent)
                 muted.append(parent["id"])
             cat_id = client.create_category(name, parent_category_id=parent["id"])["id"]
-        topic_id = e.get("topic_id") or client.find_topic_by_title(cat_id, f"{repo} releases")
+        title = _title(e)
+        topic_id = e.get("topic_id") or client.find_topic_by_title(cat_id, title)
         if not topic_id:
             topic_id = client.create_topic(
-                title=f"{repo} releases", category=cat_id, raw=topic_text(repo, groups))["topic_id"]
+                title=title, category=cat_id, raw=topic_text(repo, groups))["topic_id"]
             client.set_topic_status(topic_id, "pinned", True)
             client.set_topic_status(topic_id, "closed", True)
         for g in groups:
-            client.ensure_group(g, f"{repo} releases")
+            client.ensure_group(g, title)
             watch.append((g, cat_id))
         muted.append(cat_id)
-        print(f"{repo}: category_id: {cat_id}  topic_id: {topic_id}")
+        print(f"{key(e)}: category_id: {cat_id}  topic_id: {topic_id}")
     # mute first, then group Watching, so the mute backfill can never override a member's Watching
     client.mute_categories_by_default(muted)
     for g, cat_id in watch:
@@ -186,6 +223,7 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
 
     entries = (yaml.safe_load(args.config.read_text(encoding="utf-8")) or {}).get("releases") or []
+    validate(entries)
     client = None if args.dry_run else DiscourseClient()
     if args.bootstrap:
         bootstrap(entries, client, dry_run=args.dry_run)

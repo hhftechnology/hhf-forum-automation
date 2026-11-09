@@ -264,3 +264,83 @@ def test_release_workflow_shape():
     assert c["Webhook"]["main"][0][0]["node"] == "Split groups"
     assert c["Each group"]["main"][0] == [] and c["Each group"]["main"][1][0]["node"] == "Notify group"
     assert c["Notify group"]["main"][0][0]["node"] == "Each group"
+
+
+# -- parent / name / tag_prefix ------------------------------------------------------
+def test_tag_prefix_filters_and_state_is_keyed_per_entry():
+    ios = {**ENTRY, "repo": "o/apple", "tag_prefix": "ios-", "topic_id": 1}
+    mac = {**ENTRY, "repo": "o/apple", "tag_prefix": "mac-", "topic_id": 2}
+    rows = [rel("mac-2"), rel("ios-2"), rel("ios-1"), rel("mac-1")]
+    assert rf.key(ios) == "o/apple#ios-" and rf.key({**ios, "tag_prefix": None}) == "o/apple"
+    c, state = FakeClient(), {"last": {"o/apple#ios-": "ios-1", "o/apple#mac-": "mac-1"}}
+    assert rf.run([ios, mac], state, c, dry_run=False, fetch=fetcher(rows)) == 2
+    assert [p[0] for p in c.posts] == [1, 2] and "ios-2" in c.posts[0][1] and "mac-2" in c.posts[1][1]
+    assert state["last"] == {"o/apple#ios-": "ios-2", "o/apple#mac-": "mac-2"}
+
+
+def test_bootstrap_multiple_parents_and_titles():
+    class Multi:
+        def __init__(self):
+            self.cats, self.topics, self.muted = [], [], None
+
+        def list_categories(self):
+            return self.cats
+
+        def create_category(self, name, parent_category_id=None):
+            c = {"id": 100 + len(self.cats), "name": name, "parent_category_id": parent_category_id}
+            self.cats.append(c)
+            return c
+
+        def find_topic_by_title(self, cat_id, title):
+            return None
+
+        def create_topic(self, title, category, raw):
+            self.topics.append((title, category))
+            return {"topic_id": 500 + len(self.topics)}
+
+        def set_topic_status(self, *a):
+            pass
+
+        def ensure_group(self, *a):
+            pass
+
+        def watch_category_for_group(self, *a):
+            pass
+
+        def mute_categories_by_default(self, ids):
+            self.muted = ids
+
+    c = Multi()
+    entries = [{"repo": "a/x", "name": "X", "parent": "P1"}, {"repo": "a/y"},
+               {"repo": "a/z", "name": "Zed", "parent": "P1", "tag_prefix": "z-"}]
+    rf.bootstrap(entries, c, dry_run=False)
+    parents = {x["name"]: x["id"] for x in c.cats if not x["parent_category_id"]}
+    assert set(parents) == {"P1", rf.PARENT_NAME}
+    subs = {x["name"]: x["parent_category_id"] for x in c.cats if x["parent_category_id"]}
+    assert subs == {"X": parents["P1"], "y": parents[rf.PARENT_NAME], "Zed": parents["P1"]}
+    assert [t[0] for t in c.topics] == ["a/x releases", "a/y releases", "a/z Zed releases"]
+    # a prefix used only to skip moving tags (n8n@) does not repeat the name in the title
+    assert rf._title({"repo": "n8n-io/n8n", "name": "n8n", "tag_prefix": "n8n@"}) == "n8n-io/n8n releases"
+    assert set(parents.values()) <= set(c.muted) and len(c.muted) == 5
+
+
+def test_validate_rejects_bad_group_and_duplicate_key(tmp_path):
+    for bad in ("Releases-X", "x" * 21, "has space", ""):
+        try:
+            rf.validate([{"repo": "o/r", "groups": [bad]}])
+            raise AssertionError(f"accepted {bad!r}")
+        except ValueError as exc:
+            assert "group" in str(exc)
+    try:
+        rf.validate([{"repo": "o/r"}, {"repo": "o/r"}])
+        raise AssertionError("duplicate accepted")
+    except ValueError as exc:
+        assert "duplicate" in str(exc)
+    rf.validate([{"repo": "o/r", "tag_prefix": "a"}, {"repo": "o/r", "tag_prefix": "b", "groups": ["releases-ok_1"]}])
+    cfg = tmp_path / "c.yml"
+    cfg.write_text("releases:\n- {repo: o/r, groups: [BAD]}\n", encoding="utf-8")
+    try:
+        rf.main(["--dry-run", "--config", str(cfg), "--state", str(tmp_path / "s.json")])
+        raise AssertionError("main accepted a bad config")
+    except ValueError:
+        pass
