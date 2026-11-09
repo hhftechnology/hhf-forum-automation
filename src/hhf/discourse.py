@@ -141,7 +141,8 @@ class DiscourseClient:
                             data={"status": status, "enabled": "true" if enabled else "false"})
 
     def find_topic_by_title(self, category_id: int, title: str) -> int | None:
-        topics = self.request("GET", f"/c/{category_id}.json")["topic_list"]["topics"]
+        # /c/{id}.json redirects to the slug URL, which the client does not follow
+        topics = self.request("GET", "/latest.json", params={"category": category_id, "no_subcategories": "true"})["topic_list"]["topics"]
         return next((t["id"] for t in topics if t["title"] == title), None)
 
     def list_categories(self) -> list[dict]:
