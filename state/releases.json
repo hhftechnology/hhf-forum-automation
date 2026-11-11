@@ -22,11 +22,11 @@
     "fosrl/windows-linux#windows-": "windows-0.16.0",
     "goauthentik/authentik": "version/2026.8.5",
     "home-assistant/core": "2026.11.1",
-    "immich-app/immich": "v3.4.0",
+    "immich-app/immich": "v3.4.1",
     "jellyfin/jellyfin": "v12.4",
     "louislam/uptime-kuma": "2.5.9",
     "n8n-io/n8n#n8n@": "n8n@2.47.4",
-    "pi-hole/pi-hole": "v6.5",
+    "pi-hole/pi-hole": "v6.6",
     "portainer/portainer": "2.45.3",
     "tailscale/tailscale": "v1.104.6",
     "traefik/traefik": "v3.7.18"
