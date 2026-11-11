@@ -28,7 +28,7 @@
     "n8n-io/n8n#n8n@": "n8n@1.123.93",
     "pi-hole/pi-hole": "v6.5",
     "portainer/portainer": "2.45.3",
-    "tailscale/tailscale": "v1.104.5",
+    "tailscale/tailscale": "v1.104.6",
     "traefik/traefik": "v3.7.18"
   }
 }
