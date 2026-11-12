@@ -7,7 +7,7 @@
     "coollabsio/coolify": "v4.7.5",
     "crowdsecurity/crowdsec": "v1.8.2",
     "dani-garcia/vaultwarden": "1.37.5",
-    "fosrl/android": "0.8.2",
+    "fosrl/android": "0.8.3",
     "fosrl/apple#ios-": "ios-0.12.0",
     "fosrl/apple#mac-": "mac-0.12.2",
     "fosrl/badger": "v1.8.0",
@@ -28,7 +28,7 @@
     "n8n-io/n8n#n8n@": "n8n@2.47.5",
     "pi-hole/pi-hole": "v6.6",
     "portainer/portainer": "2.45.3",
-    "tailscale/tailscale": "v1.104.6",
+    "tailscale/tailscale": "v1.104.7",
     "traefik/traefik": "v3.7.18"
   }
 }
