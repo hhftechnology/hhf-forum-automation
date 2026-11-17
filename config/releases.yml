@@ -11,6 +11,7 @@
 # groups: public self-join groups (1-20 chars of a-z0-9_-), e.g. releases-traefik. Joining one sets the
 # subcategory to Watching and the release workflow DMs the group on every release. Bootstrap creates missing groups.
 # New channels require either app_reference (to use that catalogue app's approved icon) or a reviewed icon_url.
+# Newly provisioned group names must begin with releases-; already mapped legacy group names are retained.
 # Newly provisioned channels also get an open discussion topic; IDs are published in state/release_channels.json.
 releases:
 - repo: fosrl/pangolin

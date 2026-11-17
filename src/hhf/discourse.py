@@ -161,12 +161,16 @@ class DiscourseClient:
             seen.update((c["id"], c) for c in new)
         return list(seen.values())
 
-    def create_category(self, name: str, parent_category_id: int | None = None) -> dict:
+    def create_category(
+        self, name: str, parent_category_id: int | None = None, *, create_post_groups: list[str] | None = None
+    ) -> dict:
         """Everyone sees (read-only); staff, and so the bot, create and reply. The API user must be staff."""
         data: dict[str, Any] = {"name": name, "color": "0088CC", "text_color": "FFFFFF",
                                 "permissions[everyone]": 3, "permissions[staff]": 1}
         if parent_category_id:
             data["parent_category_id"] = parent_category_id
+        for group in create_post_groups or []:
+            data[f"permissions[{group}]"] = 2
         return self.request("POST", "/categories.json", data=data)["category"]
 
     # -- groups / defaults ----------------------------------------------------
