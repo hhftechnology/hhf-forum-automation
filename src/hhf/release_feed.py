@@ -99,6 +99,7 @@ def validate(entries: list[dict], *, require_icon: bool = True) -> None:
     seen: set[str] = set()
     groups: set[str] = set()
     channel_titles: set[tuple[str, str]] = set()
+    category_names: set[tuple[str, str]] = set()
     for e in entries:
         if not isinstance(e, dict):
             raise ValueError("release entries must be objects")
@@ -113,10 +114,15 @@ def validate(entries: list[dict], *, require_icon: bool = True) -> None:
         if _validation_key(e) in seen:
             raise ValueError(f"duplicate release entry {key(e)}")
         seen.add(_validation_key(e))
-        title_key = (_parent(e).casefold(), discussion_title(e).casefold())
+        parent_key = _parent(e).strip().casefold()
+        title_key = (parent_key, discussion_title(e).casefold())
         if title_key in channel_titles:
             raise ValueError(f"duplicate release channel title {discussion_title(e)!r} in {_parent(e)}")
         channel_titles.add(title_key)
+        category_key = (parent_key, _sub(e).strip().casefold())
+        if category_key in category_names:
+            raise ValueError(f"duplicate release category {_sub(e)!r} in {_parent(e)}")
+        category_names.add(category_key)
         channel_groups = e.get("groups") or [_group(e)]
         if not isinstance(channel_groups, list) or len(channel_groups) > 20:
             raise ValueError(f"invalid groups in {key(e)}")
@@ -175,7 +181,7 @@ def _save_channels(path: Path, entries: list[dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     rows = []
     for e in entries:
-        row = {k: e[k] for k in ("repo", "category_id", "topic_id", "name", "tag_prefix", "discussion_topic_id") if k in e}
+        row = {k: e[k] for k in ("repo", "category_id", "topic_id", "name", "parent", "tag_prefix", "discussion_topic_id") if k in e}
         row["groups"] = e.get("groups") or [_group(e)]
         rows.append(row)
     tmp = path.with_name(path.name + ".tmp")

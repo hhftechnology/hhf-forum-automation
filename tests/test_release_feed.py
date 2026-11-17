@@ -456,6 +456,14 @@ def test_validation_normalizes_repo_collisions_and_distinguishes_topic_bindings(
         assert "must differ" in str(exc)
 
 
+def test_duplicate_child_category_is_rejected_even_with_distinct_discussion_titles():
+    existing = {"repo": "first/widget", "name": "Widget", "category_id": 10, "topic_id": 20}
+    new = {"repo": "second/widget", "name": "widget", "app_reference": "widget-app", "groups": ["releases-widget-2"]}
+    with pytest.raises(ValueError, match="duplicate release category"):
+        rf.validate([existing, new])
+    rf.validate([existing, {**new, "parent": "Other Releases"}])
+
+
 def test_new_channel_requires_managed_group_prefix_but_mapped_legacy_name_is_allowed():
     try:
         rf.validate([{"repo": "o/r", "groups": ["legacy-r"], "app_reference": "sample-app"}])
@@ -519,15 +527,20 @@ def test_github_workflow_validates_prs_without_secrets_and_provisions_on_config_
     assert validate["if"] == "${{ github.event_name == 'pull_request' }}"
     assert "env" not in validate and workflow["permissions"]["contents"] == "read"
     assert any("--validate-only" in step.get("run", "") for step in validate["steps"])
-    assert workflow["jobs"]["releases"]["if"] == "${{ github.event_name != 'pull_request' }}"
+    releases = workflow["jobs"]["releases"]
+    assert releases["if"] == "${{ github.event_name != 'pull_request' }}"
+    assert releases["steps"][0]["with"]["ref"] == "${{ github.ref }}"
 
 
 def test_channel_mapping_is_full_snapshot_and_merges_ids(tmp_path):
-    entries = [{"repo": "O/R", "groups": ["releases-r"], "category_id": 1, "topic_id": 2}]
+    entries = [
+        {"repo": "O/R", "parent": "First", "tag_prefix": "a-", "groups": ["releases-a"], "category_id": 1, "topic_id": 2},
+        {"repo": "O/R", "parent": "Second", "tag_prefix": "b-", "groups": ["releases-b"], "category_id": 3, "topic_id": 4},
+    ]
     path = tmp_path / "release_channels.json"
     rf._save_channels(path, entries)
     loaded = rf._load_channels(path)
-    fresh = [{"repo": "O/R", "groups": ["releases-r"]}]
+    fresh = [{"repo": "O/R", "tag_prefix": "a-"}]
     rf._merge_channels(fresh, loaded)
     assert fresh[0]["category_id"] == 1 and fresh[0]["topic_id"] == 2
     assert json.loads(path.read_text(encoding="utf-8")) == {"releases": entries}

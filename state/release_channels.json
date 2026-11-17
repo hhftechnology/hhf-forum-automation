@@ -6,6 +6,7 @@
         "releases-pangolin"
       ],
       "name": "Pangolin",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/pangolin",
       "topic_id": 4810
     },
@@ -15,6 +16,7 @@
         "releases-newt"
       ],
       "name": "Newt",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/newt",
       "topic_id": 4812
     },
@@ -24,6 +26,7 @@
         "releases-gerbil"
       ],
       "name": "Gerbil",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/gerbil",
       "topic_id": 4814
     },
@@ -33,6 +36,7 @@
         "releases-badger"
       ],
       "name": "Badger",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/badger",
       "topic_id": 4816
     },
@@ -42,6 +46,7 @@
         "releases-olm"
       ],
       "name": "Olm",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/olm",
       "topic_id": 4818
     },
@@ -51,6 +56,7 @@
         "releases-pg-cli"
       ],
       "name": "CLI",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/cli",
       "topic_id": 4820
     },
@@ -60,6 +66,7 @@
         "releases-android"
       ],
       "name": "Android",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/android",
       "topic_id": 4822
     },
@@ -69,6 +76,7 @@
         "releases-ios"
       ],
       "name": "iOS",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/apple",
       "tag_prefix": "ios-",
       "topic_id": 4824
@@ -79,6 +87,7 @@
         "releases-macos"
       ],
       "name": "macOS",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/apple",
       "tag_prefix": "mac-",
       "topic_id": 4826
@@ -89,6 +98,7 @@
         "releases-windows"
       ],
       "name": "Windows",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/windows-linux",
       "tag_prefix": "windows-",
       "topic_id": 4828
@@ -99,6 +109,7 @@
         "releases-linux"
       ],
       "name": "Linux",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/windows-linux",
       "tag_prefix": "linux-",
       "topic_id": 4830
@@ -109,6 +120,7 @@
         "releases-helm"
       ],
       "name": "Helm charts",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/helm-charts",
       "topic_id": 4832
     },
@@ -118,6 +130,7 @@
         "releases-pg-node"
       ],
       "name": "Pangolin Node",
+      "parent": "Pangolin Releases",
       "repo": "fosrl/pangolin-node",
       "topic_id": 4834
     },
