@@ -11,8 +11,10 @@ import json
 import os
 import re
 import sys
+from urllib.parse import urlparse
 from pathlib import Path
 
+import httpx
 import yaml
 
 from .discourse import DiscourseClient
@@ -73,15 +75,94 @@ def _title(e: dict) -> str:
     return f"{e['repo']} {_sub(e)} releases" if split else f"{e['repo']} releases"
 
 
+def _group(e: dict) -> str:
+    groups = e.get("groups") or []
+    return groups[0] if groups else "releases-" + re.sub(r"[^a-z0-9_-]", "-", str(_sub(e)).lower())[:11].strip("-")
+
+
+def _channel_key(e: dict) -> tuple[str, str | None]:
+    return e["repo"].lower(), e.get("tag_prefix")
+
+
 def validate(entries: list[dict]) -> None:
+    if not isinstance(entries, list):
+        raise ValueError("releases must be a list")
     seen: set[str] = set()
+    groups: set[str] = set()
     for e in entries:
-        for g in e.get("groups") or []:
-            if not re.fullmatch(r"[a-z0-9_-]{1,20}", str(g)):
-                raise ValueError(f"invalid group name {g!r} in {key(e)}: use 1-20 chars of [a-z0-9_-]")
+        if not isinstance(e, dict):
+            raise ValueError("release entries must be objects")
+        if not isinstance(e.get("repo"), str) or not re.fullmatch(r"[\w.-]+/[\w.-]+", e["repo"]):
+            raise ValueError(f"invalid release repo {e.get('repo')!r}")
+        if e.get("name") is not None and (not isinstance(e["name"], str) or not e["name"].strip() or len(e["name"]) > 120):
+            raise ValueError(f"invalid name in {key(e)}")
+        if e.get("parent") is not None and (not isinstance(e["parent"], str) or not e["parent"].strip() or len(e["parent"]) > 120):
+            raise ValueError(f"invalid parent in {key(e)}")
+        if e.get("tag_prefix") is not None and (not isinstance(e["tag_prefix"], str) or len(e["tag_prefix"]) > 80):
+            raise ValueError(f"invalid tag_prefix in {key(e)}")
         if key(e) in seen:
             raise ValueError(f"duplicate release entry {key(e)}")
         seen.add(key(e))
+        channel_groups = e.get("groups") or [_group(e)]
+        if not isinstance(channel_groups, list) or len(channel_groups) > 20:
+            raise ValueError(f"invalid groups in {key(e)}")
+        for g in channel_groups:
+            if not isinstance(g, str) or not re.fullmatch(r"[a-z0-9_-]{1,20}", g):
+                raise ValueError(f"invalid group name {g!r} in {key(e)}: use 1-20 chars of [a-z0-9_-]")
+            if g in groups:
+                raise ValueError(f"duplicate release group {g}")
+            groups.add(g)
+        for field in ("category_id", "topic_id", "discussion_topic_id"):
+            value = e.get(field)
+            if value is not None and (type(value) is not int or value <= 0):
+                raise ValueError(f"invalid {field} in {key(e)}")
+        if e.get("app_reference") is not None and (
+            not isinstance(e["app_reference"], str) or not re.fullmatch(r"[a-z0-9][a-z0-9-]{1,63}", e["app_reference"])
+        ):
+            raise ValueError(f"invalid app_reference in {key(e)}")
+        if e.get("icon_url") is not None:
+            if not isinstance(e["icon_url"], str):
+                raise ValueError(f"icon_url must be an HTTPS URL in {key(e)}")
+            parsed = urlparse(e["icon_url"])
+            if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
+                raise ValueError(f"icon_url must be an HTTPS URL in {key(e)}")
+        if (not e.get("category_id") or not e.get("topic_id")) and not (e.get("app_reference") or e.get("icon_url")):
+            raise ValueError(f"new release channel {key(e)} requires app_reference or icon_url")
+
+
+def _load_channels(path: Path) -> list[dict]:
+    try:
+        document = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return []
+    if not isinstance(document, dict) or not isinstance(document.get("releases"), list):
+        raise ValueError("release channel mapping must contain a releases list")
+    validate(document["releases"])
+    return document["releases"]
+
+
+def _merge_channels(entries: list[dict], channels: list[dict]) -> None:
+    by_key = {_channel_key(e): e for e in channels}
+    for entry in entries:
+        mapped = by_key.get(_channel_key(entry))
+        if mapped:
+            for field in ("category_id", "topic_id", "discussion_topic_id"):
+                if not entry.get(field) and mapped.get(field):
+                    entry[field] = mapped[field]
+            if not entry.get("groups") and mapped.get("groups"):
+                entry["groups"] = mapped["groups"]
+
+
+def _save_channels(path: Path, entries: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    rows = []
+    for e in entries:
+        row = {k: e[k] for k in ("repo", "category_id", "topic_id", "name", "tag_prefix", "discussion_topic_id") if k in e}
+        row["groups"] = e.get("groups") or [_group(e)]
+        rows.append(row)
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(json.dumps({"releases": rows}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    os.replace(tmp, path)
 
 
 def _rows(entry: dict, fetch) -> list[dict]:
@@ -162,40 +243,88 @@ def topic_text(repo: str, groups: list[str]) -> str:
     return text
 
 
-def bootstrap(entries: list[dict], client, *, dry_run: bool) -> None:
-    """Idempotently create the category, subcategories, topics, groups and defaults; print ids for the config.
+def discussion_text(repo: str, groups: list[str]) -> str:
+    text = f"Discuss [{repo}](https://github.com/{repo}) and share how you use it."
+    if groups:
+        text += f"\n\nJoin [@{groups[0]}](/g/{groups[0]}) for release notifications."
+    return text
 
-    Releases stay out of Latest (categories muted by default); joining a repo's group turns on Watching.
+
+def _icon_bytes(entry: dict, client) -> tuple[str, bytes] | None:
+    if entry.get("icon_url"):
+        url = entry["icon_url"]
+    elif entry.get("app_reference"):
+        icon_url = client.get_app_icon(entry["app_reference"])
+        if not icon_url:
+            raise ValueError(f"catalogue app {entry['app_reference']} has no approved icon")
+        url = icon_url
+    else:
+        return None
+    parsed = urlparse(url)
+    if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
+        raise ValueError(f"untrusted icon URL for {key(entry)}")
+    response = httpx.get(url, timeout=15, follow_redirects=False)
+    response.raise_for_status()
+    if len(response.content) > 5_000_000 or response.headers.get("content-type", "").split(";")[0] not in {
+        "image/png", "image/jpeg", "image/webp", "image/gif"
+    }:
+        raise ValueError(f"invalid icon response for {key(entry)}")
+    ext = {"image/png": "png", "image/jpeg": "jpg", "image/webp": "webp", "image/gif": "gif"}[
+        response.headers["content-type"].split(";")[0]
+    ]
+    return f"{_group(entry)}.{ext}", response.content
+
+
+def bootstrap(entries: list[dict], client, *, dry_run: bool) -> None:
+    """Idempotently provision incomplete channels and print IDs for review.
+
+    New release categories are muted by default; joining a channel group turns on Watching.
     In dry-run, ``client`` is not used (may be None).
     """
+    entries = [e for e in entries if not (e.get("category_id") and e.get("topic_id"))]
+    if not entries:
+        return
     if dry_run:
-        parents = list(dict.fromkeys(_parent(e) for e in entries))
-        for pn in parents:
-            print(f"would ensure category {pn} (everyone read-only, staff create)")
         for e in entries:
             name, pn = _sub(e), _parent(e)
+            groups = e.get("groups") or [_group(e)]
+            if e.get("category_id") and e.get("topic_id"):
+                continue
+            print(f"would ensure category {pn} (everyone read-only, staff create)")
             print(f"would ensure {pn}/{name} + closed pinned topic '{_title(e)}'")
-            for g in e.get("groups") or []:
+            for g in groups:
                 print(f"would ensure public group '{g}' and set it to Watching on {pn}/{name}")
-        print(f"would mute {len(parents)} parent categories and {len(entries)} subcategories by default")
+            print(f"would create discussion topic in {pn}/{name}")
+        print("would mute newly created categories by default")
         return
     cats = client.list_categories()
+    existing_groups: dict[str, dict | None] = {}
+    icons: dict[str, tuple[str, bytes] | None] = {}
+    for e in entries:
+        for g in e.get("groups") or [_group(e)]:
+            if g not in existing_groups:
+                existing_groups[g] = client.get_group(g)
+            if not existing_groups[g] and key(e) not in icons:
+                icons[key(e)] = _icon_bytes(e, client)
     parents: dict[str, dict | None] = {
         pn: next((c for c in cats if c["name"] == pn and not c.get("parent_category_id")), None)
         for pn in dict.fromkeys(_parent(e) for e in entries)}
-    muted: list[int] = [p["id"] for p in parents.values() if p]
+    muted: list[int] = []
     watch: list[tuple[str, int]] = []
     for e in entries:
-        repo, name, pn, groups = e["repo"], _sub(e), _parent(e), e.get("groups") or []
+        repo, name, pn = e["repo"], _sub(e), _parent(e)
+        groups = e.get("groups") or [_group(e)]
         parent = parents[pn]
         cat_id = e.get("category_id") or next(
             (c["id"] for c in cats if c["name"] == name and parent and c.get("parent_category_id") == parent["id"]), None)
+        new_channel = not cat_id and not e.get("topic_id")
         if not cat_id:
             if not parent:
                 parent = parents[pn] = client.create_category(pn)
                 cats.append(parent)
                 muted.append(parent["id"])
-            cat_id = client.create_category(name, parent_category_id=parent["id"])["id"]
+            category = client.create_category(name, parent_category_id=parent["id"])
+            cat_id = category["id"]
             # mute before its topic exists, so a new release topic never shows in Latest
             client.mute_categories_by_default([parent["id"], cat_id])
         title = _title(e)
@@ -205,13 +334,18 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool) -> None:
                 title=title, category=cat_id, raw=topic_text(repo, groups))["topic_id"]
             client.set_topic_status(topic_id, "pinned", True)
             client.set_topic_status(topic_id, "closed", True)
+        e["category_id"], e["topic_id"], e["groups"] = cat_id, topic_id, groups
+        # Newly provisioned channels get a separate open discussion topic; legacy channels stay as-is.
+        if new_channel and not e.get("discussion_topic_id"):
+            discussion_title = f"{repo} discussion"
+            e["discussion_topic_id"] = client.find_topic_by_title(cat_id, discussion_title) or client.create_topic(
+                title=discussion_title, category=cat_id, raw=discussion_text(repo, groups))["topic_id"]
         for g in groups:
-            client.ensure_group(g, title)
+            icon = icons.get(key(e)) if not existing_groups[g] else None
+            upload_id = client.upload_file(icon[0], icon[1], upload_type="group_flair")["id"] if icon else None
+            client.ensure_group(g, title, flair_upload_id=upload_id)
             watch.append((g, cat_id))
-        muted.append(cat_id)
         print(f"{key(e)}: category_id: {cat_id}  topic_id: {topic_id}")
-    # mute first, then group Watching, so the mute backfill can never override a member's Watching
-    client.mute_categories_by_default(muted)
     for g, cat_id in watch:
         client.watch_category_for_group(g, cat_id)
 
@@ -219,16 +353,20 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool) -> None:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Post new GitHub releases to the forum")
     ap.add_argument("--dry-run", action="store_true", help="print planned actions, write nothing")
-    ap.add_argument("--bootstrap", action="store_true", help="create missing subcategories/topics (explicit opt-in)")
+    ap.add_argument("--bootstrap", action="store_true", help="provision missing channels and exit")
     ap.add_argument("--config", type=Path, default=ROOT / "config" / "releases.yml")
     ap.add_argument("--state", type=Path, default=ROOT / "state" / "releases.json")
+    ap.add_argument("--channels", type=Path, default=ROOT / "state" / "release_channels.json")
     args = ap.parse_args(argv)
 
     entries = (yaml.safe_load(args.config.read_text(encoding="utf-8")) or {}).get("releases") or []
+    _merge_channels(entries, _load_channels(args.channels))
     validate(entries)
     client = None if args.dry_run else DiscourseClient()
+    bootstrap(entries, client, dry_run=args.dry_run)
+    if not args.dry_run:
+        _save_channels(args.channels, entries)
     if args.bootstrap:
-        bootstrap(entries, client, dry_run=args.dry_run)
         return 0
     state = load_json(args.state)
     state.setdefault("last", {})

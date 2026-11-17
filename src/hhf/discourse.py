@@ -170,14 +170,24 @@ class DiscourseClient:
         return self.request("POST", "/categories.json", data=data)["category"]
 
     # -- groups / defaults ----------------------------------------------------
-    def ensure_group(self, name: str, full_name: str) -> dict:
-        """Get the group, or create it public and self-join; members watch categories by default."""
+    def get_group(self, name: str) -> dict | None:
         found = self.request("GET", f"/groups/{name}.json", allow_404=True)
+        return found["group"] if found else None
+
+    def get_app_icon(self, reference: str) -> str | None:
+        app = self.request("GET", f"/hhf-apps/apps/{reference}.json", allow_404=True)
+        return app.get("icon_url") if app else None
+
+    def ensure_group(self, name: str, full_name: str, *, flair_upload_id: int | None = None) -> dict:
+        """Get the group, or create it public and self-join; members watch categories by default."""
+        found = self.get_group(name)
         if found:
-            return found["group"]
+            return found
         data = {"group[name]": name, "group[full_name]": full_name, "group[visibility_level]": 0,
                 "group[public_admission]": "true", "group[public_exit]": "true",
                 "group[default_notification_level]": 3}
+        if flair_upload_id:
+            data["group[flair_upload_id]"] = flair_upload_id
         return self.request("POST", "/admin/groups.json", data=data)["basic_group"]
 
     def watch_category_for_group(self, group_name: str, category_id: int) -> None:

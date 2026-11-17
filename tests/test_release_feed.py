@@ -68,7 +68,7 @@ def test_dry_run_writes_nothing(tmp_path, monkeypatch, capsys):
     before = st.read_text(encoding="utf-8")
     monkeypatch.setattr(rf.releases, "latest", lambda repo, fx=None, per_page=5: [rel("v2"), rel("v1")])
     monkeypatch.setattr(rf, "DiscourseClient", lambda: (_ for _ in ()).throw(AssertionError("no client in dry-run")))
-    assert rf.main(["--dry-run", "--config", str(cfg), "--state", str(st)]) == 0
+    assert rf.main(["--dry-run", "--config", str(cfg), "--state", str(st), "--channels", str(tmp_path / "channels.json")]) == 0
     assert "post o/r v2" in capsys.readouterr().out
     assert st.read_text(encoding="utf-8") == before
     assert len(list(tmp_path.iterdir())) == 2
@@ -90,7 +90,7 @@ def test_state_saved_when_a_later_post_fails(tmp_path, monkeypatch):
     monkeypatch.setattr(rf.releases, "latest", lambda repo, fx=None, per_page=5: [rel("v3"), rel("v2"), rel("v1")])
     monkeypatch.setattr(rf, "DiscourseClient", Flaky)
     try:
-        rf.main(["--config", str(cfg), "--state", str(st)])
+        rf.main(["--config", str(cfg), "--state", str(st), "--channels", str(tmp_path / "channels.json")])
     except RuntimeError:
         pass
     assert json.loads(st.read_text(encoding="utf-8"))["last"]["o/r"] == "v2"
@@ -219,7 +219,7 @@ def test_bootstrap_real_ensures_groups_watching_and_mute():
 def test_bootstrap_still_does_groups_for_fully_configured_entry():
     c = BootClient()
     rf.bootstrap([{**GROUP_ENTRY}], c, dry_run=False)
-    assert "create_category" not in c.calls and "ensure_group" in c.calls
+    assert c.calls == []
 
 
 def make_client(handler):
@@ -234,6 +234,27 @@ def test_list_categories_reads_all_pages():
         return httpx.Response(200, json={"category_list": {"categories": pages.get(req.url.params["page"], [])}})
 
     assert [c["id"] for c in make_client(handler).list_categories()] == [1, 2, 3]
+
+
+def test_get_app_icon_uses_catalogue_endpoint():
+    def handler(req):
+        assert req.url.path == "/hhf-apps/apps/sample-app.json"
+        return httpx.Response(200, json={"icon_url": "https://r2.hhf.technology/icon.png"})
+
+    assert make_client(handler).get_app_icon("sample-app") == "https://r2.hhf.technology/icon.png"
+
+
+def test_ensure_group_sets_flair_only_when_creating():
+    sent = {}
+
+    def handler(req):
+        if req.method == "GET":
+            return httpx.Response(404, json={})
+        sent["body"] = req.content.decode()
+        return httpx.Response(200, json={"basic_group": {"id": 5}})
+
+    assert make_client(handler).ensure_group("releases-r", "R releases", flair_upload_id=99) == {"id": 5}
+    assert "group%5Bflair_upload_id%5D=99" in sent["body"]
 
 
 def test_mute_categories_keeps_existing_ids():
@@ -304,6 +325,9 @@ def test_bootstrap_multiple_parents_and_titles():
         def find_topic_by_title(self, cat_id, title):
             return None
 
+        def get_group(self, name):
+            return {"id": 1}
+
         def create_topic(self, title, category, raw):
             assert category in self.ever_muted, "category must be muted before its topic is created"
             self.topics.append((title, category))
@@ -312,7 +336,7 @@ def test_bootstrap_multiple_parents_and_titles():
         def set_topic_status(self, *a):
             pass
 
-        def ensure_group(self, *a):
+        def ensure_group(self, *a, **kw):
             pass
 
         def watch_category_for_group(self, *a):
@@ -332,10 +356,65 @@ def test_bootstrap_multiple_parents_and_titles():
     assert set(parents) == {"P1", rf.PARENT_NAME}
     subs = {x["name"]: x["parent_category_id"] for x in c.cats if x["parent_category_id"]}
     assert subs == {"X": parents["P1"], "y": parents[rf.PARENT_NAME], "Zed": parents["P1"]}
-    assert [t[0] for t in c.topics] == ["a/x releases", "a/y releases", "a/z Zed releases"]
+    assert [t[0] for t in c.topics if not t[0].endswith(" discussion")] == [
+        "a/x releases", "a/y releases", "a/z Zed releases"]
     # a prefix used only to skip moving tags (n8n@) does not repeat the name in the title
     assert rf._title({"repo": "n8n-io/n8n", "name": "n8n", "tag_prefix": "n8n@"}) == "n8n-io/n8n releases"
-    assert set(parents.values()) <= set(c.muted) and len(c.muted) == 5
+    assert c.muted and set(parents.values()) & set(c.muted)
+
+
+def test_new_channel_requires_approved_icon_source():
+    try:
+        rf.validate([{"repo": "o/r"}])
+        raise AssertionError("new channel without icon accepted")
+    except ValueError as exc:
+        assert "app_reference or icon_url" in str(exc)
+    rf.validate([{"repo": "o/r", "app_reference": "sample-app"}])
+
+
+def test_channel_mapping_is_full_snapshot_and_merges_ids(tmp_path):
+    entries = [{"repo": "O/R", "groups": ["releases-r"], "category_id": 1, "topic_id": 2}]
+    path = tmp_path / "release_channels.json"
+    rf._save_channels(path, entries)
+    loaded = rf._load_channels(path)
+    fresh = [{"repo": "O/R", "groups": ["releases-r"]}]
+    rf._merge_channels(fresh, loaded)
+    assert fresh[0]["category_id"] == 1 and fresh[0]["topic_id"] == 2
+    assert json.loads(path.read_text(encoding="utf-8")) == {"releases": entries}
+
+
+def test_new_channel_creates_group_with_flair_and_open_discussion(monkeypatch):
+    class Provisioner:
+        def __init__(self):
+            self.calls = []
+
+        def list_categories(self): return []
+        def create_category(self, name, parent_category_id=None):
+            row = {"id": 10 + len(self.calls), "name": name, "parent_category_id": parent_category_id}
+            self.calls.append(("category", row))
+            return row
+        def mute_categories_by_default(self, ids): self.calls.append(("mute", ids))
+        def find_topic_by_title(self, category_id, title): return None
+        def create_topic(self, **kw):
+            self.calls.append(("topic", kw))
+            return {"topic_id": 100 + len(self.calls)}
+        def set_topic_status(self, topic_id, status, enabled): self.calls.append((status, enabled))
+        def get_group(self, name): return None
+        def upload_file(self, filename, content, upload_type):
+            self.calls.append(("upload", filename, content, upload_type))
+            return {"id": 99}
+        def ensure_group(self, name, title, *, flair_upload_id=None):
+            self.calls.append(("group", name, flair_upload_id))
+        def watch_category_for_group(self, group, cat_id): self.calls.append(("watch", group, cat_id))
+
+    monkeypatch.setattr(rf, "_icon_bytes", lambda entry, client: ("sample.png", b"png"))
+    c = Provisioner()
+    entry = {"repo": "o/r", "app_reference": "sample-app"}
+    rf.bootstrap([entry], c, dry_run=False)
+    assert entry["groups"] == ["releases-r"]
+    assert entry["discussion_topic_id"] is not None
+    assert ("group", "releases-r", 99) in c.calls
+    assert any(x[0] == "topic" and x[1]["title"] == "o/r discussion" for x in c.calls)
 
 
 def test_validate_rejects_bad_group_and_duplicate_key(tmp_path):
@@ -346,11 +425,12 @@ def test_validate_rejects_bad_group_and_duplicate_key(tmp_path):
         except ValueError as exc:
             assert "group" in str(exc)
     try:
-        rf.validate([{"repo": "o/r"}, {"repo": "o/r"}])
+        rf.validate([{"repo": "o/r", "app_reference": "sample"}, {"repo": "o/r", "app_reference": "sample"}])
         raise AssertionError("duplicate accepted")
     except ValueError as exc:
         assert "duplicate" in str(exc)
-    rf.validate([{"repo": "o/r", "tag_prefix": "a"}, {"repo": "o/r", "tag_prefix": "b", "groups": ["releases-ok_1"]}])
+    rf.validate([{"repo": "o/r", "tag_prefix": "a", "category_id": 1, "topic_id": 2},
+                 {"repo": "o/r", "tag_prefix": "b", "groups": ["releases-ok_1"], "category_id": 3, "topic_id": 4}])
     cfg = tmp_path / "c.yml"
     cfg.write_text("releases:\n- {repo: o/r, groups: [BAD]}\n", encoding="utf-8")
     try:

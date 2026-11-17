@@ -10,7 +10,7 @@ on:
         type: boolean
         default: true
       bootstrap:
-        description: "Bootstrap: create missing categories, topics and groups; prints ids for config/releases.yml"
+        description: "Bootstrap: provision any missing release channels and print their ids"
         type: boolean
         default: false
 
@@ -46,13 +46,14 @@ jobs:
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           if [ "$BOOTSTRAP" = "true" ]; then args+=(--bootstrap); fi
           python -m hhf.release_feed "${args[@]}"
-      - name: Commit posted releases
-        if: ${{ !cancelled() && env.DRY_RUN != 'true' && env.BOOTSTRAP != 'true' }} # also after a failed post, so posted tags are kept
+      - name: Commit release state and channel mapping
+        if: ${{ !cancelled() && env.DRY_RUN != 'true' }} # also after a failed post, so successful posts and provisioning are kept
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state/releases.json
+          git add state/release_channels.json
           if git diff --cached --quiet; then echo "no state change"; exit 0; fi
-          git commit -m "chore: record posted releases [skip ci]"
+          git commit -m "chore: record release feed state [skip ci]"
           git pull --rebase --autostash
           git push

@@ -1,7 +1,7 @@
 # Repos whose GitHub releases are posted into the forum (edit by PR).
 # Forum layout: a parent category (default "Project Releases") > one subcategory per entry > ONE pinned,
 # closed topic "<repo> releases"; the bot posts each new release as a reply.
-# Fill category_id/topic_id by running `python -m hhf.release_feed --bootstrap` (it prints them).
+# Missing category_id/topic_id are provisioned by the scheduled feed and published in state/release_channels.json.
 # Optional per-entry fields:
 #   parent: parent category name (default "Project Releases"); created by bootstrap if missing.
 #   name: subcategory display name (default: the repo basename).
@@ -10,6 +10,8 @@
 #     Entries sharing a repo need distinct tag_prefix values; state is keyed by "<repo>#<tag_prefix>".
 # groups: public self-join groups (1-20 chars of a-z0-9_-), e.g. releases-traefik. Joining one sets the
 # subcategory to Watching and the release workflow DMs the group on every release. Bootstrap creates missing groups.
+# New channels require either app_reference (to use that catalogue app's approved icon) or a reviewed icon_url.
+# Newly provisioned channels also get an open discussion topic; IDs are published in state/release_channels.json.
 releases:
 - repo: fosrl/pangolin
   parent: Pangolin Releases
