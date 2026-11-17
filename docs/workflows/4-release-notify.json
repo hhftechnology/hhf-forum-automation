@@ -1,6 +1,6 @@
 {
   "name": "HHF: release notify",
-  "description": "Receives a release webhook and DMs each opt-in group.",
+  "description": "Validates a release webhook and DMs each opt-in group. HTTP 200 acknowledges receipt only.",
   "nodes": [
     {
       "id": "webhook",
@@ -12,12 +12,29 @@
         "http_method": "POST",
         "authentication": "bearer_auth",
         "response_mode": "on_received",
-        "response_code": "200"
+        "response_code": "200",
+        "response_body": "Accepted; validation and delivery run asynchronously."
       },
       "credentials": {},
       "webhookId": null,
       "position": {
         "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "validate",
+      "type": "action:code",
+      "typeVersion": "1.0",
+      "name": "Validate release payload",
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "code": "var items = $input.all();\nif (items.length !== 1) throw new Error(\"Expected one release webhook item\");\nvar payload = items[0].json && items[0].json.body;\nif (!payload || payload.kind !== \"release\") throw new Error(\"Invalid release payload\");\nif (typeof payload.repo !== \"string\" || !/^[A-Za-z0-9-]{1,39}\\/[A-Za-z0-9_.-]{1,100}$/.test(payload.repo)) throw new Error(\"Invalid repository\");\nif (typeof payload.tag !== \"string\" || payload.tag.length < 1 || payload.tag.length > 200 || /[\\x00-\\x1f\\x7f]/.test(payload.tag)) throw new Error(\"Invalid release tag\");\nvar base = \"https://forum.hhf.technology\";\nif (typeof payload.url !== \"string\" || payload.url.indexOf(base + \"/t/\") !== 0) throw new Error(\"Release link must be forum-local\");\nvar parts = payload.url.slice((base + \"/t/\").length).split(\"/\");\nif (parts.length !== 3 || !parts[0] || parts[0].length > 200 || /[\\x00-\\x20\\x7f?#]/.test(parts[0]) ||\n    !/^[0-9]{1,12}$/.test(parts[1]) || !/^[0-9]{1,12}$/.test(parts[2]) || Number(parts[1]) < 1 || Number(parts[2]) < 1) {\n  throw new Error(\"Invalid forum release link\");\n}\nif (!Array.isArray(payload.groups) || payload.groups.length < 1 || payload.groups.length > 20) throw new Error(\"Invalid release groups\");\nvar groups = [];\npayload.groups.forEach(function(group) {\n  if (typeof group !== \"string\" || !/^[a-z0-9_-]{1,20}$/.test(group) || groups.indexOf(group) !== -1) throw new Error(\"Invalid release group\");\n  groups.push(group);\n});\nreturn [{ json: { body: { repo: payload.repo, tag: payload.tag, url: payload.url, groups: groups } } }];"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 240,
         "y": 0
       }
     },
@@ -34,7 +51,7 @@
       "credentials": {},
       "webhookId": null,
       "position": {
-        "x": 240,
+        "x": 480,
         "y": 0
       }
     },
@@ -49,7 +66,7 @@
       "credentials": {},
       "webhookId": null,
       "position": {
-        "x": 480,
+        "x": 720,
         "y": 0
       }
     },
@@ -69,13 +86,24 @@
       "credentials": {},
       "webhookId": null,
       "position": {
-        "x": 720,
+        "x": 960,
         "y": 120
       }
     }
   ],
   "connections": {
     "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate release payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate release payload": {
       "main": [
         [
           {
