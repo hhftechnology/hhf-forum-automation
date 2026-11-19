@@ -20,7 +20,7 @@ releases:
   category_id: 116
   topic_id: 4810
   groups: [releases-pangolin]
-  include_prereleases: false
+  include_prereleases: true
 - repo: fosrl/newt
   parent: Pangolin Releases
   name: Newt
