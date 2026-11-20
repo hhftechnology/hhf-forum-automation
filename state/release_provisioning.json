@@ -1,0 +1,322 @@
+{
+  "releases": [
+    {
+      "category_id": 116,
+      "groups": [
+        "releases-pangolin"
+      ],
+      "include_prereleases": true,
+      "name": "Pangolin",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/pangolin",
+      "topic_id": 4810
+    },
+    {
+      "category_id": 117,
+      "groups": [
+        "releases-newt"
+      ],
+      "include_prereleases": false,
+      "name": "Newt",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/newt",
+      "topic_id": 4812
+    },
+    {
+      "category_id": 118,
+      "groups": [
+        "releases-gerbil"
+      ],
+      "include_prereleases": false,
+      "name": "Gerbil",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/gerbil",
+      "topic_id": 4814
+    },
+    {
+      "category_id": 119,
+      "groups": [
+        "releases-badger"
+      ],
+      "include_prereleases": false,
+      "name": "Badger",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/badger",
+      "topic_id": 4816
+    },
+    {
+      "category_id": 120,
+      "groups": [
+        "releases-olm"
+      ],
+      "include_prereleases": false,
+      "name": "Olm",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/olm",
+      "topic_id": 4818
+    },
+    {
+      "category_id": 121,
+      "groups": [
+        "releases-pg-cli"
+      ],
+      "include_prereleases": false,
+      "name": "CLI",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/cli",
+      "topic_id": 4820
+    },
+    {
+      "category_id": 122,
+      "groups": [
+        "releases-android"
+      ],
+      "include_prereleases": false,
+      "name": "Android",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/android",
+      "topic_id": 4822
+    },
+    {
+      "category_id": 123,
+      "groups": [
+        "releases-ios"
+      ],
+      "include_prereleases": false,
+      "name": "iOS",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/apple",
+      "tag_prefix": "ios-",
+      "topic_id": 4824
+    },
+    {
+      "category_id": 124,
+      "groups": [
+        "releases-macos"
+      ],
+      "include_prereleases": false,
+      "name": "macOS",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/apple",
+      "tag_prefix": "mac-",
+      "topic_id": 4826
+    },
+    {
+      "category_id": 125,
+      "groups": [
+        "releases-windows"
+      ],
+      "include_prereleases": false,
+      "name": "Windows",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/windows-linux",
+      "tag_prefix": "windows-",
+      "topic_id": 4828
+    },
+    {
+      "category_id": 126,
+      "groups": [
+        "releases-linux"
+      ],
+      "include_prereleases": false,
+      "name": "Linux",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/windows-linux",
+      "tag_prefix": "linux-",
+      "topic_id": 4830
+    },
+    {
+      "category_id": 127,
+      "groups": [
+        "releases-helm"
+      ],
+      "include_prereleases": false,
+      "name": "Helm charts",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/helm-charts",
+      "topic_id": 4832
+    },
+    {
+      "category_id": 128,
+      "groups": [
+        "releases-pg-node"
+      ],
+      "include_prereleases": false,
+      "name": "Pangolin Node",
+      "parent": "Pangolin Releases",
+      "repo": "fosrl/pangolin-node",
+      "topic_id": 4834
+    },
+    {
+      "category_id": 130,
+      "groups": [
+        "releases-traefik"
+      ],
+      "include_prereleases": false,
+      "name": "Traefik",
+      "repo": "traefik/traefik",
+      "topic_id": 4837
+    },
+    {
+      "category_id": 131,
+      "groups": [
+        "releases-coolify"
+      ],
+      "include_prereleases": false,
+      "name": "Coolify",
+      "repo": "coollabsio/coolify",
+      "topic_id": 4839
+    },
+    {
+      "category_id": 132,
+      "groups": [
+        "releases-n8n"
+      ],
+      "include_prereleases": false,
+      "name": "n8n",
+      "repo": "n8n-io/n8n",
+      "tag_prefix": "n8n@",
+      "topic_id": 4841
+    },
+    {
+      "category_id": 133,
+      "groups": [
+        "releases-crowdsec"
+      ],
+      "include_prereleases": false,
+      "name": "CrowdSec",
+      "repo": "crowdsecurity/crowdsec",
+      "topic_id": 4843
+    },
+    {
+      "category_id": 134,
+      "groups": [
+        "releases-caddy"
+      ],
+      "include_prereleases": false,
+      "name": "Caddy",
+      "repo": "caddyserver/caddy",
+      "topic_id": 4845
+    },
+    {
+      "category_id": 135,
+      "groups": [
+        "releases-authentik"
+      ],
+      "include_prereleases": false,
+      "name": "authentik",
+      "repo": "goauthentik/authentik",
+      "topic_id": 4847
+    },
+    {
+      "category_id": 136,
+      "groups": [
+        "releases-authelia"
+      ],
+      "include_prereleases": false,
+      "name": "Authelia",
+      "repo": "authelia/authelia",
+      "topic_id": 4849
+    },
+    {
+      "category_id": 137,
+      "groups": [
+        "releases-portainer"
+      ],
+      "include_prereleases": false,
+      "name": "Portainer",
+      "repo": "portainer/portainer",
+      "topic_id": 4851
+    },
+    {
+      "category_id": 138,
+      "groups": [
+        "releases-uptime-kuma"
+      ],
+      "include_prereleases": false,
+      "name": "Uptime Kuma",
+      "repo": "louislam/uptime-kuma",
+      "topic_id": 4853
+    },
+    {
+      "category_id": 139,
+      "groups": [
+        "releases-immich"
+      ],
+      "include_prereleases": false,
+      "name": "Immich",
+      "repo": "immich-app/immich",
+      "topic_id": 4855
+    },
+    {
+      "category_id": 140,
+      "groups": [
+        "releases-jellyfin"
+      ],
+      "include_prereleases": false,
+      "name": "Jellyfin",
+      "repo": "jellyfin/jellyfin",
+      "topic_id": 4857
+    },
+    {
+      "category_id": 141,
+      "groups": [
+        "releases-hass"
+      ],
+      "include_prereleases": false,
+      "name": "Home Assistant",
+      "repo": "home-assistant/core",
+      "topic_id": 4859
+    },
+    {
+      "category_id": 142,
+      "groups": [
+        "releases-adguard"
+      ],
+      "include_prereleases": false,
+      "name": "AdGuard Home",
+      "repo": "AdguardTeam/AdGuardHome",
+      "topic_id": 4861
+    },
+    {
+      "category_id": 143,
+      "groups": [
+        "releases-pihole"
+      ],
+      "include_prereleases": false,
+      "name": "Pi-hole",
+      "repo": "pi-hole/pi-hole",
+      "topic_id": 4863
+    },
+    {
+      "category_id": 144,
+      "groups": [
+        "releases-tailscale"
+      ],
+      "include_prereleases": false,
+      "name": "Tailscale",
+      "repo": "tailscale/tailscale",
+      "topic_id": 4865
+    },
+    {
+      "category_id": 145,
+      "groups": [
+        "releases-vaultwarden"
+      ],
+      "include_prereleases": false,
+      "name": "Vaultwarden",
+      "repo": "dani-garcia/vaultwarden",
+      "topic_id": 4867
+    },
+    {
+      "category_id": 146,
+      "groups": [
+        "releases-npm"
+      ],
+      "include_prereleases": false,
+      "name": "Nginx Proxy Manager",
+      "repo": "NginxProxyManager/nginx-proxy-manager",
+      "topic_id": 4869
+    }
+  ]
+}
