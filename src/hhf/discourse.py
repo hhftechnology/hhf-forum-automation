@@ -11,6 +11,7 @@ import logging
 import mimetypes
 import os
 import time
+from html.parser import HTMLParser
 from typing import Any
 
 import httpx
@@ -25,6 +26,25 @@ class DiscourseError(RuntimeError):
     def __init__(self, status: int, method: str, path: str, body: str = ""):
         super().__init__(f"{method} {path} -> HTTP {status}: {body[:300]}")
         self.status = status
+
+
+class _ReleaseHeadingLinks(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.in_heading = False
+        self.urls = set()
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "h2":
+            self.in_heading = True
+        elif tag == "a" and self.in_heading:
+            url = dict(attrs).get("href")
+            if url:
+                self.urls.add(url)
+
+    def handle_endtag(self, tag):
+        if tag == "h2":
+            self.in_heading = False
 
 
 class DiscourseClient:
@@ -135,6 +155,22 @@ class DiscourseClient:
         """Reply to an existing topic (staff can reply in closed topics)."""
         return self.request("POST", "/posts.json", data={"topic_id": topic_id, "raw": raw})
 
+    def release_urls(self, topic_id: int) -> set[str]:
+        """Exact release headings reconcile posts whose state save was interrupted."""
+        topic = self.request("GET", f"/t/{topic_id}.json")
+        stream = topic["post_stream"]["stream"]
+        urls = set()
+        for offset in range(0, len(stream), 20):
+            posts = self.request("GET", f"/t/{topic_id}/posts.json",
+                                 params={"post_ids[]": stream[offset:offset + 20]})["post_stream"]["posts"]
+            for post in posts:
+                if post.get("hidden") or post.get("deleted_at"):
+                    continue
+                parser = _ReleaseHeadingLinks()
+                parser.feed(post.get("cooked", ""))
+                urls.update(parser.urls)
+        return urls
+
     def set_topic_status(self, topic_id: int, status: str, enabled: bool) -> dict:
         """status: closed | pinned | archived | visible."""
         return self.request("PUT", f"/t/{topic_id}/status.json",
@@ -152,13 +188,15 @@ class DiscourseClient:
         include_subcategories this endpoint lists every category flat; it may paginate, so read pages
         until one adds nothing new."""
         seen: dict[int, dict] = {}
-        for page in range(1, 50):
+        page = 1
+        while True:
             cats = self.request("GET", "/categories.json",
                                 params={"include_subcategories": "true", "page": page})["category_list"]["categories"]
             new = [c for c in cats if c["id"] not in seen]
             if not new:
                 break
             seen.update((c["id"], c) for c in new)
+            page += 1
         return list(seen.values())
 
     def create_category(

@@ -11,6 +11,8 @@ import json
 import os
 import re
 import sys
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -23,7 +25,7 @@ from .webhook import DeliveryError, configured, post_webhook
 
 ROOT = Path(__file__).resolve().parents[2]
 PARENT_NAME = "Project Releases"
-FETCH = 10  # releases looked at per repo per run
+FETCH = 100
 
 
 MAX_BODY = 20000  # well under Discourse's default max_post_length (32000), so long changelogs never block a repo
@@ -111,6 +113,8 @@ def validate(entries: list[dict], *, require_icon: bool = True) -> None:
             raise ValueError(f"invalid parent in {key(e)}")
         if e.get("tag_prefix") is not None and (not isinstance(e["tag_prefix"], str) or len(e["tag_prefix"]) > 80):
             raise ValueError(f"invalid tag_prefix in {key(e)}")
+        if "include_prereleases" in e and type(e["include_prereleases"]) is not bool:
+            raise ValueError(f"include_prereleases must be a boolean in {key(e)}")
         if _validation_key(e) in seen:
             raise ValueError(f"duplicate release entry {key(e)}")
         seen.add(_validation_key(e))
@@ -141,7 +145,7 @@ def validate(entries: list[dict], *, require_icon: bool = True) -> None:
         if e.get("discussion_topic_id") and e.get("discussion_topic_id") == e.get("topic_id"):
             raise ValueError(f"release and discussion topic_id must differ in {key(e)}")
         if e.get("app_reference") is not None and (
-            not isinstance(e["app_reference"], str) or not re.fullmatch(r"[a-z0-9][a-z0-9-]{1,63}", e["app_reference"])
+            not isinstance(e["app_reference"], str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9-]{1,63}", e["app_reference"])
         ):
             raise ValueError(f"invalid app_reference in {key(e)}")
         if e.get("icon_url") is not None:
@@ -170,17 +174,19 @@ def _merge_channels(entries: list[dict], channels: list[dict]) -> None:
     for entry in entries:
         mapped = by_key.get(_channel_key(entry))
         if mapped:
-            for field in ("category_id", "topic_id", "discussion_topic_id"):
+            for field in ("category_id", "topic_id", "discussion_topic_id", "activated_at", "provisioning_error"):
                 if not entry.get(field) and mapped.get(field):
                     entry[field] = mapped[field]
             if not entry.get("groups") and mapped.get("groups"):
                 entry["groups"] = mapped["groups"]
 
 
-def _save_channels(path: Path, entries: list[dict]) -> None:
+def _save_channels(path: Path, entries: list[dict], *, complete_only: bool = True) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     rows = []
     for e in entries:
+        if complete_only and not (e.get("category_id") and e.get("topic_id")):
+            continue
         row = {k: e[k] for k in ("repo", "category_id", "topic_id", "name", "parent", "tag_prefix", "discussion_topic_id") if k in e}
         row["groups"] = e.get("groups") or [_group(e)]
         rows.append(row)
@@ -199,8 +205,9 @@ def _rows(entry: dict, fetch) -> list[dict]:
 def new_releases(rows: list[dict], last: str) -> list[dict]:
     """Releases newer than ``last``, oldest first."""
     tags = [r["tag"] for r in rows]
-    # last tag fell out of the window: post only the newest, never a backfill
-    rows = rows[: tags.index(last)] if last in tags else rows[:1]
+    if last not in tags:
+        raise ValueError(f"release checkpoint {last!r} is missing; repair required")
+    rows = rows[:tags.index(last)]
     return rows[::-1]
 
 
@@ -218,7 +225,7 @@ def notify(repo: str, tag: str, groups: list[str], result: dict) -> None:
         print(f"warning: notify failed for {repo} {tag}: {detail}", file=sys.stderr)
 
 
-def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None) -> int:
+def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, checkpoint=None, budget: float = 600) -> int:
     """Post new releases, updating ``state`` in place. Returns the number of posts (planned if dry)."""
     fetch = fetch or releases.latest
     can_notify = configured("release")
@@ -226,34 +233,77 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None) 
         print("WORKFLOW_WEBHOOK_URL_RELEASE / WORKFLOW_WEBHOOK_TOKEN not set: no DMs will be sent")
     n = 0
     failed: list[str] = []
-    for e in entries:
+    cursor = state.get("polling", {}).get("next")
+    start = next((i for i, entry in enumerate(entries) if key(entry) == cursor), 0)
+    deadline = time.monotonic() + budget
+    deferred = False
+    # shortcut: budget is checked between repositories; add per-request deadlines if one repository exceeds the job budget.
+    for e in entries[start:]:
         repo = key(e)
+        state["polling"] = {"next": repo, "pending": True}
+        if time.monotonic() >= deadline:
+            deferred = True
+            print(f"polling deferred at {repo}; continuing next scheduled run")
+            break
         if not e.get("topic_id"):
             print(f"skip {repo}: no topic_id (run --bootstrap)")
             continue
         last = state["last"].get(repo)
-        rows = _rows(e, fetch)
-        if last is None:
-            if rows:
-                print(f"baseline {repo}: {rows[0]['tag']} (not posted)")
-                state["last"][repo] = rows[0]["tag"]
+        try:
+            rows = _rows(e, fetch)
+            tracking = state.setdefault("tracking", {}).get(repo)
+            identity = lambda row: str(row.get("id", row["tag"]))
+            if tracking is None:
+                if last is None:
+                    activation = e.get("activated_at")
+                    baseline = [row for row in rows if not activation or not row.get("published_at") or row["published_at"] <= activation]
+                    tracking = state["tracking"][repo] = {"seen": [identity(row) for row in baseline]}
+                    if baseline:
+                        print(f"baseline {repo}: {baseline[0]['tag']} (not posted)")
+                        state["last"][repo] = baseline[0]["tag"]
+                    if checkpoint and not dry_run:
+                        checkpoint()
+                else:
+                    pending = new_releases(rows, last)
+                    pending_ids = {identity(row) for row in pending}
+                    tracking = state["tracking"][repo] = {"seen": [identity(row) for row in rows if identity(row) not in pending_ids]}
+            seen = set(tracking["seen"])
+            pending = [row for row in rows if identity(row) not in seen]
+            pending.reverse()
+            if pending and all(row.get("published_at") for row in pending):
+                pending.sort(key=lambda row: (row["published_at"], identity(row)))
+            existing = client.release_urls(e["topic_id"]) if pending and not dry_run and hasattr(client, "release_urls") else set()
+        except releases.ReleaseRateLimit:
+            deferred = True
+            print(f"GitHub rate limit at {repo}; continuing next scheduled run")
+            break
+        except (releases.ReleaseFetchError, ValueError, RuntimeError) as exc:
+            print(f"error: {repo}: {exc}", file=sys.stderr)
+            failed.append(repo)
             continue
         groups = e.get("groups") or []
-        for rel in new_releases(rows, last):
+        for rel in pending:
             print(f"post {repo} {rel['tag']} -> topic {e['topic_id']}")
             n += 1
             if dry_run and groups:
                 print(f"  would DM groups: {', '.join(groups)}")
             if not dry_run:
                 try:
-                    result = client.create_post(e["topic_id"], render(rel))
+                    result = None if rel["url"] in existing else client.create_post(e["topic_id"], render(rel))
                 except Exception as exc:  # stop this repo (keeps release order), go on with the others
                     print(f"error: posting {repo} {rel['tag']} failed: {type(exc).__name__}: {exc}", file=sys.stderr)
                     failed.append(repo)
                     break
                 state["last"][repo] = rel["tag"]  # per post, so a mid-run failure never re-posts
-                if groups and can_notify:
+                tracking["seen"].append(identity(rel))
+                if checkpoint:
+                    checkpoint()
+                if result and groups and can_notify:
                     notify(e["repo"], rel["tag"], groups, result)
+    if not deferred:
+        state["polling"] = {"pending": False}
+    if checkpoint and not dry_run:
+        checkpoint()
     if failed:  # after all repos, so the job still fails visibly; main() saves state first
         raise RuntimeError(f"posting failed for: {', '.join(failed)}")
     return n
@@ -318,13 +368,15 @@ def _icon_bytes(entry: dict, client) -> tuple[str, bytes] | None:
     return f"{_group(entry)}.{extensions[content_type]}", bytes(data)
 
 
-def bootstrap(entries: list[dict], client, *, dry_run: bool) -> None:
+def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, progress=None) -> None:
     """Idempotently provision incomplete channels and print IDs for review.
 
     New release categories are muted by default; joining a channel group turns on Watching.
     In dry-run, ``client`` is not used (may be None).
     """
-    entries = [e for e in entries if not (e.get("category_id") and e.get("topic_id"))]
+    entries = [e for e in entries if not (e.get("category_id") and e.get("topic_id") and not e.get("provisioning"))][:limit]
+    deadline = time.monotonic() + 600
+    # shortcut: deadline is checked between channels; add per-request deadlines if a channel exceeds the workflow budget.
     if not entries:
         return
     if dry_run:
@@ -343,58 +395,79 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool) -> None:
     cats = client.list_categories()
     existing_groups: dict[str, dict | None] = {}
     icons: dict[str, tuple[str, bytes] | None] = {}
-    for e in entries:
-        for g in e.get("groups") or [_group(e)]:
-            if g not in existing_groups:
-                existing_groups[g] = client.get_group(g)
-            if not existing_groups[g] and key(e) not in icons:
-                icons[key(e)] = _icon_bytes(e, client)
     parents: dict[str, dict | None] = {
         pn: next((c for c in cats if c["name"] == pn and not c.get("parent_category_id")), None)
         for pn in dict.fromkeys(_parent(e) for e in entries)}
     watch: list[tuple[str, int]] = []
+    failed = []
     for e in entries:
         repo, name, pn = e["repo"], _sub(e), _parent(e)
-        groups = e.get("groups") or [_group(e)]
-        title = _title(e)
-        # Create groups first so the category can grant them create_post on creation.
-        for g in groups:
-            if not existing_groups[g]:
-                icon = icons.get(key(e))
-                upload_id = client.upload_file(icon[0], icon[1], upload_type="group_flair")["id"] if icon else None
-                existing_groups[g] = client.ensure_group(g, title, flair_upload_id=upload_id)
-        new_channel = not e.get("topic_id")
-        unmapped_channel = not e.get("category_id") and new_channel
-        parent = parents[pn]
-        cat_id = e.get("category_id") or next(
-            (c["id"] for c in cats if c["name"] == name and parent and c.get("parent_category_id") == parent["id"]), None)
-        if not cat_id:
-            if not parent:
-                parent = parents[pn] = client.create_category(pn)
-                cats.append(parent)
-            category = client.create_category(name, parent_category_id=parent["id"], create_post_groups=groups)
-            cat_id = category["id"]
-        # Reapply after a partial create: this additive setting merge is idempotent.
-        if unmapped_channel:
-            client.mute_categories_by_default([parent["id"], cat_id])
-        topic_id = e.get("topic_id") or client.find_topic_by_title(cat_id, title)
-        if not topic_id:
-            topic_id = client.create_topic(
-                title=title, category=cat_id, raw=topic_text(repo, groups))["topic_id"]
-        if not e.get("topic_id"):
-            client.set_topic_status(topic_id, "pinned", True)
-            client.set_topic_status(topic_id, "closed", True)
-        e["category_id"], e["topic_id"], e["groups"] = cat_id, topic_id, groups
-        # Newly provisioned channels get a separate open discussion topic; legacy channels stay as-is.
-        if new_channel and not e.get("discussion_topic_id"):
-            title = discussion_title(e)
-            e["discussion_topic_id"] = client.find_topic_by_title(cat_id, title) or client.create_topic(
-                title=title, category=cat_id, raw=discussion_text(repo, groups))["topic_id"]
-        for g in groups:
-            watch.append((g, cat_id))
-        print(f"{key(e)}: category_id: {cat_id}  topic_id: {topic_id}")
-    for g, cat_id in watch:
-        client.watch_category_for_group(g, cat_id)
+        if time.monotonic() >= deadline:
+            break
+        try:
+            e["provisioning"] = True
+            groups = e.get("groups") or [_group(e)]
+            title = _title(e)
+            # Create groups first so the category can grant them create_post on creation.
+            for g in groups:
+                if g not in existing_groups:
+                    existing_groups[g] = client.get_group(g)
+                if not existing_groups[g] and key(e) not in icons:
+                    icons[key(e)] = _icon_bytes(e, client)
+                if not existing_groups[g]:
+                    icon = icons.get(key(e))
+                    upload_id = client.upload_file(icon[0], icon[1], upload_type="group_flair")["id"] if icon else None
+                    existing_groups[g] = client.ensure_group(g, title, flair_upload_id=upload_id)
+            new_channel = not e.get("topic_id")
+            unmapped_channel = not e.get("category_id") and new_channel
+            parent = parents[pn]
+            cat_id = e.get("category_id") or next(
+                (c["id"] for c in cats if c["name"] == name and parent and c.get("parent_category_id") == parent["id"]), None)
+            if not cat_id:
+                if not parent:
+                    parent = parents[pn] = client.create_category(pn)
+                    cats.append(parent)
+                category = client.create_category(name, parent_category_id=parent["id"], create_post_groups=groups)
+                cat_id = category["id"]
+                cats.append(category)
+            e["category_id"] = cat_id
+            if progress:
+                progress()
+            # Reapply after a partial create: this additive setting merge is idempotent.
+            if unmapped_channel or e.get("provisioning"):
+                client.mute_categories_by_default([parent["id"], cat_id])
+            topic_id = e.get("topic_id") or client.find_topic_by_title(cat_id, title)
+            if not topic_id:
+                topic_id = client.create_topic(
+                    title=title, category=cat_id, raw=topic_text(repo, groups))["topic_id"]
+            if not e.get("topic_id"):
+                client.set_topic_status(topic_id, "pinned", True)
+                client.set_topic_status(topic_id, "closed", True)
+            e["category_id"], e["topic_id"], e["groups"] = cat_id, topic_id, groups
+            if progress:
+                progress()
+            # Newly provisioned channels get a separate open discussion topic; legacy channels stay as-is.
+            if (new_channel or e.get("provisioning")) and not e.get("discussion_topic_id"):
+                title = discussion_title(e)
+                e["discussion_topic_id"] = client.find_topic_by_title(cat_id, title) or client.create_topic(
+                    title=title, category=cat_id, raw=discussion_text(repo, groups))["topic_id"]
+            for g in groups:
+                client.watch_category_for_group(g, cat_id)
+            e.pop("provisioning_error", None)
+            e.pop("provisioning", None)
+            e.setdefault("activated_at", datetime.now(timezone.utc).isoformat())
+            if progress:
+                progress()
+            print(f"{key(e)}: category_id: {cat_id}  topic_id: {topic_id}")
+        except Exception as exc:
+            e["provisioning"] = True
+            e["provisioning_error"] = type(exc).__name__
+            failed.append(key(e))
+            if progress:
+                progress()
+            print(f"error: provisioning {key(e)}: {type(exc).__name__}", file=sys.stderr)
+    if failed:
+        raise RuntimeError(f"release provisioning failed for: {", ".join(failed)}")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -405,27 +478,54 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--config", type=Path, default=ROOT / "config" / "releases.yml")
     ap.add_argument("--state", type=Path, default=ROOT / "state" / "releases.json")
     ap.add_argument("--channels", type=Path, default=ROOT / "state" / "release_channels.json")
+    ap.add_argument("--provision-limit", type=int, default=50)
+    ap.add_argument("--continue-poll", action="store_true", help="resume an unfinished polling cycle during provisioning runs")
     args = ap.parse_args(argv)
+    if not 1 <= args.provision_limit <= 50:
+        ap.error("--provision-limit must be between 1 and 50")
 
     entries = (yaml.safe_load(args.config.read_text(encoding="utf-8")) or {}).get("releases") or []
     _merge_channels(entries, _load_channels(args.channels))
+    progress_path = args.channels.with_name("release_provisioning.json")
+    if progress_path.exists():
+        progress_rows = json.loads(progress_path.read_text(encoding="utf-8"))["releases"]
+        _merge_channels(entries, progress_rows)
+        pending_keys = {_channel_key(row) for row in progress_rows if row.get("provisioning")}
+        for entry in entries:
+            if _channel_key(entry) in pending_keys:
+                entry["provisioning"] = True
     validate(entries)
     if args.validate_only:
         print(f"validated {len(entries)} release channels")
         return 0
     client = None if args.dry_run else DiscourseClient()
-    bootstrap(entries, client, dry_run=args.dry_run)
-    if not args.dry_run:
-        _save_channels(args.channels, entries)
-    if args.bootstrap:
-        return 0
+    def progress():
+        save_json(progress_path, {"releases": entries})
+        _save_channels(args.channels, [entry for entry in entries if not entry.get("provisioning")])
+    provisioning_error = None
+    try:
+        bootstrap(entries, client, dry_run=args.dry_run, limit=args.provision_limit,
+                  progress=None if args.dry_run else progress)
+    except RuntimeError as exc:
+        provisioning_error = exc
+    finally:
+        if not args.dry_run:
+            progress()
     state = load_json(args.state)
     state.setdefault("last", {})
+    if args.bootstrap and not (args.continue_poll and state.get("polling", {}).get("pending")):
+        if provisioning_error:
+            raise provisioning_error
+        return 0
     try:
-        run(entries, state, client, dry_run=args.dry_run)
+        ready = [entry for entry in entries if entry.get("topic_id") and not entry.get("provisioning")]
+        run(ready, state, client, dry_run=args.dry_run,
+            checkpoint=lambda: save_json(args.state, state))
     finally:  # keep tags of posts already made even if a later post fails
         if not args.dry_run:
             save_json(args.state, state)
+    if provisioning_error:
+        raise provisioning_error
     return 0
 
 

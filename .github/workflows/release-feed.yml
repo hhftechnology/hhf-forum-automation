@@ -11,11 +11,14 @@ on:
       - "config/releases.yml"
       - "src/hhf/discourse.py"
       - "src/hhf/release_feed.py"
+      - "src/hhf/sources/releases.py"
       - "scripts/build_workflow_json.py"
       - "tests/**"
       - "docs/workflows/4-release-notify.json"
   schedule:
     - cron: "0 */6 * * *" # every 6 hours
+    - cron: "15,30,45 * * * *" # provisioning continuation
+    - cron: "0 1-5,7-11,13-17,19-23 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -59,6 +62,7 @@ jobs:
     env:
       DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
       BOOTSTRAP: ${{ github.event_name == 'workflow_dispatch' && inputs.bootstrap || 'false' }}
+      PROVISION_ONLY: ${{ github.event_name == 'schedule' && github.event.schedule != '0 */6 * * *' }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       DISCOURSE_URL: ${{ secrets.DISCOURSE_URL }}
       DISCOURSE_API_KEY: ${{ secrets.DISCOURSE_API_KEY }}
@@ -78,7 +82,8 @@ jobs:
         run: |
           args=()
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
-          if [ "$BOOTSTRAP" = "true" ]; then args+=(--bootstrap); fi
+          if [ "$BOOTSTRAP" = "true" ] || [ "$PROVISION_ONLY" = "true" ]; then args+=(--bootstrap); fi
+          if [ "$PROVISION_ONLY" = "true" ]; then args+=(--continue-poll); fi
           python -m hhf.release_feed "${args[@]}"
       - name: Commit release state and channel mapping
         if: ${{ !cancelled() && env.DRY_RUN != 'true' }} # also after a failed post, so successful posts and provisioning are kept
@@ -87,6 +92,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state/releases.json
           git add state/release_channels.json
+          git add state/release_provisioning.json
           if git diff --cached --quiet; then echo "no state change"; exit 0; fi
           git commit -m "chore: record release feed state [skip ci]"
           git pull --rebase --autostash

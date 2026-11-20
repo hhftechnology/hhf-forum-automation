@@ -624,7 +624,7 @@ def test_bootstrap_retry_reuses_partial_category_and_release_topic(monkeypatch):
         rf.bootstrap([{"repo": "o/r", "app_reference": "sample-app"}], client, dry_run=False)
         raise AssertionError("simulated interruption was not raised")
     except RuntimeError as exc:
-        assert "simulated interruption" in str(exc)
+        assert str(exc) == "release provisioning failed for: o/r"
     retried = {"repo": "o/r", "app_reference": "sample-app"}
     rf.bootstrap([retried], client, dry_run=False)
     assert len([topic for topic in client.topics if topic["title"] == "o/r releases"]) == 1

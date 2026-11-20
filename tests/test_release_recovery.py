@@ -1,0 +1,163 @@
+import json
+
+import httpx
+import pytest
+
+from hhf import release_feed as rf
+from hhf.discourse import DiscourseClient
+from hhf.sources import releases
+from test_release_feed import ENTRY, FakeClient, fetcher, rel
+
+
+def test_complete_catchup_and_checkpoint_each_post():
+    state = {"last": {"o/r": "v1"}}
+    client = FakeClient()
+    checkpoints = []
+    rf.run([ENTRY], state, client, dry_run=False,
+           fetch=fetcher([rel(f"v{i}") for i in range(26, 0, -1)]),
+           checkpoint=lambda: checkpoints.append(state["last"]["o/r"]))
+    assert len(client.posts) == 25 and checkpoints == [f"v{i}" for i in range(2, 27)] + ["v26"]
+    assert rf.run([ENTRY], state, client, dry_run=False, fetch=fetcher([rel("v26")])) == 0
+
+
+def test_empty_repository_activation_posts_its_first_future_release():
+    client, state = FakeClient(), {"last": {}}
+    rf.run([ENTRY], state, client, dry_run=False, fetch=fetcher([]))
+    assert state["tracking"]["o/r"] == {"seen": []}
+    rf.run([ENTRY], state, client, dry_run=False, fetch=fetcher([rel("v1")]))
+    assert len(client.posts) == 1
+
+
+def test_missing_legacy_checkpoint_is_visible_and_does_not_advance():
+    client, state = FakeClient(), {"last": {"o/r": "missing"}}
+    with pytest.raises(RuntimeError):
+        rf.run([ENTRY], state, client, dry_run=False, fetch=fetcher([rel("v2")]))
+    assert state["last"]["o/r"] == "missing" and not client.posts
+
+
+def test_existing_forum_release_repairs_state_without_posting_again():
+    client, state = FakeClient(), {"last": {"o/r": "v1"}}
+    client.release_urls = lambda topic: {rel("v2")["url"]}
+    rf.run([ENTRY], state, client, dry_run=False, fetch=fetcher([rel("v2"), rel("v1")]))
+    assert state["last"]["o/r"] == "v2" and not client.posts
+
+
+def test_source_pages_all_results_and_does_not_expose_token(monkeypatch):
+    calls = []
+    def get(url, **kwargs):
+        calls.append(kwargs["params"]["page"])
+        page = calls[-1]
+        headers = {"link": '<https://api.github.com/repos/o/r/releases?page=2>; rel="next"'} if page == 1 else {}
+        return httpx.Response(200, json=[{"id": page, "tag_name": f"v{page}", "html_url": f"https://github.com/o/r/releases/tag/v{page}"}],
+                              headers=headers, request=httpx.Request("GET", url))
+    monkeypatch.setattr(releases.httpx, "get", get)
+    assert len(releases.latest("o/r")) == 2 and calls == [1, 2]
+    monkeypatch.setattr(releases.httpx, "get", lambda url, **kwargs: httpx.Response(500, request=httpx.Request("GET", url)))
+    with pytest.raises(releases.ReleaseFetchError, match="unavailable"):
+        releases.latest("o/r")
+
+
+def test_partial_channels_are_not_published(tmp_path):
+    path = tmp_path / "channels.json"
+    rf._save_channels(path, [{"repo": "o/r", "category_id": 1}, {"repo": "o/s", "category_id": 2, "topic_id": 3}])
+    assert [row["repo"] for row in json.loads(path.read_text())["releases"]] == ["o/s"]
+
+
+def test_large_provisioning_batch_is_bounded_without_side_effects(capsys):
+    entries = [{"repo": f"o/r{i}", "app_reference": f"app-{i}"} for i in range(2000)]
+    rf.bootstrap(entries, None, dry_run=True)
+    assert capsys.readouterr().out.count("would create discussion") == 50
+    assert all("topic_id" not in entry for entry in entries)
+
+
+def test_existing_release_feed_runs_even_when_new_channel_provisioning_fails(tmp_path, monkeypatch):
+    config, state, channels = tmp_path / "c.yml", tmp_path / "s.json", tmp_path / "channels.json"
+    config.write_text("releases:\n- {repo: o/r, category_id: 1, topic_id: 42}\n")
+    state.write_text(json.dumps({"last": {"o/r": "v1"}}))
+    client = FakeClient()
+    monkeypatch.setattr(rf, "DiscourseClient", lambda: client)
+    monkeypatch.setattr(rf, "bootstrap", lambda *args, **kwargs: (_ for _ in ()).throw(RuntimeError("provisioning failed")))
+    monkeypatch.setattr(rf.releases, "latest", fetcher([rel("v2"), rel("v1")]))
+    with pytest.raises(RuntimeError, match="provisioning failed"):
+        rf.main(["--config", str(config), "--state", str(state), "--channels", str(channels)])
+    assert len(client.posts) == 1 and json.loads(state.read_text())["last"]["o/r"] == "v2"
+
+
+def test_first_poll_catches_releases_published_after_channel_activation():
+    entry = {**ENTRY, "activated_at": "2026-11-19T10:00:00+00:00"}
+    old = {**rel("v1"), "published_at": "2026-11-18T00:00:00+00:00"}
+    new = {**rel("v2"), "published_at": "2026-11-19T11:00:00+00:00"}
+    client, state = FakeClient(), {"last": {}}
+    rf.run([entry], state, client, dry_run=False, fetch=fetcher([new, old]))
+    assert len(client.posts) == 1 and "v2" in client.posts[0][1]
+
+
+def test_2000_channels_resume_in_50_channel_batches(monkeypatch):
+    class Client:
+        def __init__(self):
+            self.categories, self.groups, self.topics, self.watching = [], {}, {}, set()
+        def list_categories(self): return list(self.categories)
+        def get_group(self, name): return self.groups.get(name)
+        def upload_file(self, *args, **kwargs): return {"id": 1}
+        def ensure_group(self, name, title, **kwargs):
+            self.groups[name] = {"id": len(self.groups) + 1}
+            return self.groups[name]
+        def create_category(self, name, parent_category_id=None, **kwargs):
+            row = {"id": len(self.categories) + 1, "name": name, "parent_category_id": parent_category_id}
+            self.categories.append(row)
+            return row
+        def mute_categories_by_default(self, ids): pass
+        def find_topic_by_title(self, category_id, title): return self.topics.get((category_id, title))
+        def create_topic(self, *, category, title, raw):
+            assert (category, title) not in self.topics
+            self.topics[(category, title)] = len(self.topics) + 1
+            return {"topic_id": self.topics[(category, title)]}
+        def set_topic_status(self, *args): pass
+        def watch_category_for_group(self, group, category): self.watching.add((group, category))
+    monkeypatch.setattr(rf, "_icon_bytes", lambda entry, client: ("icon.png", b"fixture"))
+    entries = [{"repo": f"example/app-{i}", "app_reference": f"app-{i}"} for i in range(2000)]
+    client = Client()
+    for completed in range(50, 2001, 50):
+        rf.bootstrap(entries, client, dry_run=False)
+        assert sum(bool(entry.get("topic_id")) for entry in entries) == completed
+    rf.bootstrap(entries, client, dry_run=False)
+    assert len(client.categories) == 2001 and len(client.groups) == 2000
+    assert len(client.topics) == 4000 and len(client.watching) == 2000
+
+
+def test_polling_budget_preserves_a_resumable_cursor():
+    client, state = FakeClient(), {"last": {"o/r": "v1"}}
+    rf.run([ENTRY], state, client, dry_run=False, budget=0, fetch=fetcher([rel("v2"), rel("v1")]))
+    assert state["polling"] == {"next": "o/r", "pending": True} and not client.posts
+    rf.run([ENTRY], state, client, dry_run=False, fetch=fetcher([rel("v2"), rel("v1")]))
+    assert state["polling"] == {"pending": False} and len(client.posts) == 1
+
+
+def test_rate_limit_defers_without_advancing_release_state():
+    client, state = FakeClient(), {"last": {"o/r": "v1"}}
+    def limited(*args, **kwargs): raise releases.ReleaseRateLimit("deferred")
+    rf.run([ENTRY], state, client, dry_run=False, fetch=limited)
+    assert state["last"]["o/r"] == "v1" and state["polling"]["pending"]
+    assert not client.posts
+
+
+def test_category_discovery_continues_beyond_49_pages():
+    def handler(request):
+        page = int(request.url.params["page"])
+        rows = [{"id": page}] if page <= 75 else []
+        return httpx.Response(200, json={"category_list": {"categories": rows}})
+    client = DiscourseClient("https://forum.example", "fixture", transport=httpx.MockTransport(handler))
+    assert len(client.list_categories()) == 75
+
+
+def test_retry_recognizes_release_links_after_native_heading_anchors():
+    def handler(request):
+        if request.url.path == "/t/42.json":
+            return httpx.Response(200, json={"post_stream": {"stream": [1]}})
+        return httpx.Response(200, json={"post_stream": {"posts": [{"cooked":
+            '<h2><a name="heading" href="#heading"></a><strong><a href=\'https://github.com/o/r/releases/tag/v2\'>v2</a></strong></h2>'
+            '<p><a href="https://github.com/o/r/releases/tag/mentioned-only">notes</a></p>'}]}})
+    client = DiscourseClient("https://forum.example", "fixture", transport=httpx.MockTransport(handler))
+    urls = client.release_urls(42)
+    assert "https://github.com/o/r/releases/tag/v2" in urls
+    assert "https://github.com/o/r/releases/tag/mentioned-only" not in urls
