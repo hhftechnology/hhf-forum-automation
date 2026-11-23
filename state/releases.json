@@ -25,11 +25,11 @@
     "immich-app/immich": "v3.4.2",
     "jellyfin/jellyfin": "v12.4",
     "louislam/uptime-kuma": "2.5.12",
-    "n8n-io/n8n#n8n@": "n8n@1.123.100",
+    "n8n-io/n8n#n8n@": "n8n@1.123.101",
     "pi-hole/pi-hole": "v6.6",
     "portainer/portainer": "2.45.4",
     "tailscale/tailscale": "v1.104.7",
-    "traefik/traefik": "v3.7.19"
+    "traefik/traefik": "v3.8.0"
   },
   "polling": {
     "pending": false
@@ -4061,7 +4061,9 @@
         "93455211",
         "93161912",
         "452442280",
-        "452449322"
+        "452449322",
+        "455157861",
+        "455160639"
       ]
     },
     "pi-hole/pi-hole": {
@@ -4873,7 +4875,10 @@
         "4203218",
         "3795535",
         "3691467",
-        "3593597"
+        "3593597",
+        "455545847",
+        "455552038",
+        "455553478"
       ]
     }
   }
