@@ -7,7 +7,7 @@
     "coollabsio/coolify": "v4.7.6",
     "crowdsecurity/crowdsec": "v1.8.2",
     "dani-garcia/vaultwarden": "1.37.5",
-    "fosrl/android": "0.9.1",
+    "fosrl/android": "0.10.0",
     "fosrl/apple#ios-": "ios-0.13.0",
     "fosrl/apple#mac-": "mac-0.14.0",
     "fosrl/badger": "v1.8.0",
@@ -21,7 +21,7 @@
     "fosrl/windows-linux#linux-": "linux-0.2.0",
     "fosrl/windows-linux#windows-": "windows-0.17.0",
     "goauthentik/authentik": "version/2026.8.6",
-    "home-assistant/core": "2026.11.2",
+    "home-assistant/core": "2026.11.3",
     "immich-app/immich": "v3.4.2",
     "jellyfin/jellyfin": "v12.4",
     "louislam/uptime-kuma": "2.5.12",
@@ -1456,7 +1456,8 @@
         "279529470",
         "279129228",
         "279128904",
-        "452863306"
+        "452863306",
+        "455883338"
       ]
     },
     "fosrl/apple#ios-": {
@@ -2967,7 +2968,8 @@
         "1791689",
         "1751686",
         "1749364",
-        "269955"
+        "269955",
+        "455979622"
       ]
     },
     "immich-app/immich": {
