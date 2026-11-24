@@ -212,3 +212,4 @@ releases:
   topic_id: 4869
   groups: [releases-npm]
   include_prereleases: false
+# Release validation pilot. Channel configuration is unchanged.
