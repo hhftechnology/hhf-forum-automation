@@ -13,7 +13,7 @@
     "fosrl/badger": "v1.8.0",
     "fosrl/cli": "0.23.0",
     "fosrl/gerbil": "1.6.0",
-    "fosrl/helm-charts": "pangolin-cli-0.1.0",
+    "fosrl/helm-charts": "pangolin-node-0.1.1",
     "fosrl/newt": "1.20.1",
     "fosrl/olm": "1.10.2",
     "fosrl/pangolin": "1.27.1",
@@ -25,7 +25,7 @@
     "immich-app/immich": "v3.4.2",
     "jellyfin/jellyfin": "v12.4",
     "louislam/uptime-kuma": "2.5.12",
-    "n8n-io/n8n#n8n@": "n8n@1.123.101",
+    "n8n-io/n8n#n8n@": "n8n@2.49.5",
     "pi-hole/pi-hole": "v6.6",
     "portainer/portainer": "2.45.4",
     "tailscale/tailscale": "v1.104.7",
@@ -1605,7 +1605,9 @@
         "308076790",
         "292312150",
         "248708865",
-        "247022667"
+        "247022667",
+        "457032953",
+        "457049827"
       ]
     },
     "fosrl/newt": {
@@ -4065,7 +4067,8 @@
         "452442280",
         "452449322",
         "455157861",
-        "455160639"
+        "455160639",
+        "455608909"
       ]
     },
     "pi-hole/pi-hole": {
