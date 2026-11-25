@@ -49,7 +49,7 @@ jobs:
     env:
       DISCOURSE_URL: ${{ secrets.DISCOURSE_URL }}
       DISCOURSE_API_KEY: ${{ secrets.DISCOURSE_API_KEY }}
-      DISCOURSE_API_USERNAME: system
+      DISCOURSE_API_USERNAME: ${{ vars.DISCOURSE_API_USERNAME || 'system' }}
       APPLY: ${{ inputs.apply }}
       ALLOW_REMOVED: ${{ inputs.allow_removed }}
     steps:

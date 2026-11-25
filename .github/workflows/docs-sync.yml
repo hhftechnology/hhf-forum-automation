@@ -25,10 +25,12 @@ jobs:
   sync:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    # Forum credentials live in the forum-feed environment, shared with the release feed.
+    environment: forum-feed
     env:
       DISCOURSE_URL: ${{ secrets.DISCOURSE_URL }}
       DISCOURSE_API_KEY: ${{ secrets.DISCOURSE_API_KEY }}
-      DISCOURSE_API_USERNAME: system
+      DISCOURSE_API_USERNAME: ${{ vars.DISCOURSE_API_USERNAME || 'system' }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # repository_dispatch payload may carry {"repo": "name"}; dispatch runs are real syncs
       DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
