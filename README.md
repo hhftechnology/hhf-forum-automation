@@ -2,7 +2,7 @@
 
 Automation for forum.hhf.technology:
 
-- **Docs sync** (`docs-sync.yml`, `src/hhf/docs_import.py`, `config/docs.yml`): imports MDX docs into forum topics.
+- **Docs import** (`src/hhf/docs_import.py`, `config/docs.yml`): imported MDX docs into forum topics. It was a one-off import, so it no longer has a workflow; run `python -m hhf.docs_import --dry-run` locally to preview, with the same `DISCOURSE_*` variables, if it is ever needed again.
 - **Form sync** (`form-sync.yml`, `src/hhf/form_sync.py`, `forms/`): keeps the onboarding form in sync from `forms/onboarding.yml`.
 - **Release feed** (`release-feed.yml`, `src/hhf/release_feed.py`, `config/releases.yml`): see below.
 
@@ -10,10 +10,10 @@ Secrets: `DISCOURSE_URL`, `DISCOURSE_API_KEY` (set with `scripts/set-secrets.sh`
 
 Where the forum credentials live:
 
-- **`forum-feed` environment** (deployment branch `main`, no required reviewers): used by `release-feed` and `docs-sync`, which run on a schedule or on dispatch.
+- **`forum-feed` environment** (deployment branch `main`, no required reviewers): used by `release-feed`, which runs on a schedule, on pushes of `config/releases.yml` and on dispatch.
 - **`forum-production` environment** (deployment branch `main`, required reviewers): used by `form-sync`.
 - Each environment holds its own `DISCOURSE_URL` and `DISCOURSE_API_KEY`, and the optional variable `DISCOURSE_API_USERNAME`, the forum account the key belongs to. Without that variable the workflows act as `system`. The release feed also reads `WORKFLOW_WEBHOOK_URL_RELEASE` and `WORKFLOW_WEBHOOK_TOKEN` from `forum-feed`.
-- Repository-level secrets with the same names still work, because environment jobs can read them, but environment values win. Delete the repository-level copies once both environments are set.
+- Repository-level secrets with the same names still work, because environment jobs can read them, but environment values win. `scripts/set-secrets.sh` writes only repository-level secrets, so set the environment secrets in Settings > Environments, including `WORKFLOW_WEBHOOK_URL_RELEASE` and `WORKFLOW_WEBHOOK_TOKEN` in `forum-feed`. Delete the repository-level copies only after every environment holds the secrets its jobs read.
 - The API user must be an admin: provisioning creates groups through `/admin/groups.json` and changes the `default_categories_muted` site setting, and form sync edits Discourse Workflows.
 
 The daily briefing and weekly advisory moved to https://github.com/hhftechnology/hhf-blog-automation.
