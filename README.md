@@ -8,6 +8,14 @@ Automation for forum.hhf.technology:
 
 Secrets: `DISCOURSE_URL`, `DISCOURSE_API_KEY` (set with `scripts/set-secrets.sh`).
 
+Where the forum credentials live:
+
+- **`forum-feed` environment** (deployment branch `main`, no required reviewers): used by `release-feed` and `docs-sync`, which run on a schedule or on dispatch.
+- **`forum-production` environment** (deployment branch `main`, required reviewers): used by `form-sync`.
+- Each environment holds its own `DISCOURSE_URL` and `DISCOURSE_API_KEY`, and the optional variable `DISCOURSE_API_USERNAME`, the forum account the key belongs to. Without that variable the workflows act as `system`. The release feed also reads `WORKFLOW_WEBHOOK_URL_RELEASE` and `WORKFLOW_WEBHOOK_TOKEN` from `forum-feed`.
+- Repository-level secrets with the same names still work, because environment jobs can read them, but environment values win. Delete the repository-level copies once both environments are set.
+- The API user must be an admin: provisioning creates groups through `/admin/groups.json` and changes the `default_categories_muted` site setting, and form sync edits Discourse Workflows.
+
 The daily briefing and weekly advisory moved to https://github.com/hhftechnology/hhf-blog-automation.
 
 ## Release feed
@@ -34,7 +42,7 @@ Each entry may set `parent` (parent category name, default "Project Releases"), 
 
 Subscribing: releases are muted for everyone by default, so they stay out of Latest. A member joins the repo's public group (for example `releases-traefik`) to get the subcategory on Watching and a DM for every release. To unsubscribe, leave the group (stops the DMs) and set the subcategory's bell back to Normal: Discourse does not reset notification levels when a member leaves a group.
 
-Setup (the API user must be staff):
+Setup (the API user must be an admin, see above):
 
 1. Add an entry to `config/releases.yml`. New channels need `app_reference` for a catalogue-approved icon or a reviewed HTTPS `icon_url`; `groups` may be omitted, in which case it is generated from the channel name. Explicit group names for new channels must start with `releases-`; completed legacy mappings retain their existing names.
 2. Run `python -m hhf.release_feed --bootstrap --dry-run` to review the planned resources. A normal scheduled run provisions missing category, pinned closed release topic, public group with its approved icon, group Watching, and an open discussion topic for newly created channels. It records IDs in `state/release_channels.json`; the workflow commits that mapping for the catalogue to consume. Existing configured channels, groups, members, and topic status are left alone.
