@@ -29,6 +29,7 @@ FETCH = 100
 
 
 MAX_BODY = 20000  # well under Discourse's default max_post_length (32000), so long changelogs never block a repo
+MAX_NAME = 120  # upstream release names are untrusted; a heading never needs more
 MAX_ICON_BYTES = 5_000_000
 ICON_HOSTS = {
     "forum.hhf.technology", "r2.hhf.technology", "raw.githubusercontent.com", "github.com",
@@ -51,16 +52,28 @@ def save_json(path: Path, state: dict) -> None:
     os.replace(tmp, path)  # atomic: a crash never leaves truncated JSON
 
 
+def _no_mentions(text: str) -> str:
+    """GitHub @handles would ping unrelated forum users or groups; a zero-width space stops mention parsing."""
+    return re.sub(r"@(?=[\w-])", "@​", text)
+
+
+def _safe_name(name) -> str:
+    """Upstream release names are untrusted: one line, capped, with link and inline-markup characters escaped,
+    so a name like `x](u) @group [y` can neither close the heading link early nor ping anyone."""
+    name = " ".join(str(name or "").split())
+    if len(name) > MAX_NAME:
+        name = name[:MAX_NAME].rstrip() + "…"
+    return _no_mentions(re.sub(r"([\\`*_\[\]()<>!|~])", r"\\\1", name))
+
+
 def render(rel: dict) -> str:
-    head = f"## [{rel['repo']} {rel['name']}]({rel['url']})"
+    head = f"## [{rel['repo']} {_safe_name(rel['name'])}]({rel['url']})"
     if rel["prerelease"]:
         head += " (pre-release)"
     body = rel.get("body") or "_No release notes._"
     if len(body) > MAX_BODY:
         body = body[:MAX_BODY].rstrip() + f"\n\n…\n\n[Full release notes]({rel['url']})"
-    # GitHub @handles would ping unrelated forum users or groups; a zero-width space stops mention parsing
-    body = re.sub(r"@(?=[\w-])", "@​", body)
-    return f"{head}\n\n{body}"
+    return f"{head}\n\n{_no_mentions(body)}"
 
 
 def key(e: dict) -> str:
