@@ -107,6 +107,16 @@ def test_render_neutralizes_mentions_and_truncates():
     assert len(long) < rf.MAX_BODY + 300 and "[Full release notes](https://x/v1)" in long
 
 
+def test_render_neutralizes_hostile_release_name():
+    out = rf.render({**rel("v1"), "name": "x](u) @alice [y\n## @team"})
+    head = out.split("\n\n", 1)[0]
+    assert "\n" not in head and "@alice" not in out and "@team" not in out and "@​alice" in head
+    # escaped brackets keep the heading one link that still points at the release
+    assert head == "## [o/r x\\]\\(u\\) @​alice \\[y ## @​team](https://x/v1)"
+    capped = rf.render({**rel("v1"), "name": "n" * (rf.MAX_NAME * 3)}).split("\n\n", 1)[0]
+    assert capped.count("n") == rf.MAX_NAME and capped.endswith("…](https://x/v1)")
+
+
 def test_state_missing_is_empty_corrupt_raises(tmp_path):
     p = tmp_path / "s.json"
     assert rf.load_json(p) == {"last": {}}
