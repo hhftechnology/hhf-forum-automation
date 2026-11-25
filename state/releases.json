@@ -4,7 +4,7 @@
     "NginxProxyManager/nginx-proxy-manager": "v2.17.1",
     "authelia/authelia": "v4.39.28",
     "caddyserver/caddy": "v2.11.9",
-    "coollabsio/coolify": "v4.7.6",
+    "coollabsio/coolify": "v4.7.8",
     "crowdsecurity/crowdsec": "v1.8.2",
     "dani-garcia/vaultwarden": "1.37.5",
     "fosrl/android": "0.10.0",
@@ -25,7 +25,7 @@
     "immich-app/immich": "v3.4.2",
     "jellyfin/jellyfin": "v12.4",
     "louislam/uptime-kuma": "2.5.12",
-    "n8n-io/n8n#n8n@": "n8n@2.49.5",
+    "n8n-io/n8n#n8n@": "n8n@2.49.6",
     "pi-hole/pi-hole": "v6.6",
     "portainer/portainer": "2.45.4",
     "tailscale/tailscale": "v1.104.7",
@@ -1255,7 +1255,9 @@
         "40915417",
         "40872238",
         "40521947",
-        "40379816"
+        "40379816",
+        "458002031",
+        "458178969"
       ]
     },
     "crowdsecurity/crowdsec": {
@@ -4068,7 +4070,8 @@
         "452449322",
         "455157861",
         "455160639",
-        "455608909"
+        "455608909",
+        "457829573"
       ]
     },
     "pi-hole/pi-hole": {
