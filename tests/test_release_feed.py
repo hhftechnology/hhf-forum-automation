@@ -1,4 +1,5 @@
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -786,3 +787,38 @@ def test_list_and_update_groups():
     method, url, body = sent[-1]
     assert method == "PUT" and url.endswith("/groups/9.json")
     assert "group%5Bfull_name%5D=A+releases" in body and "group%5Bflair_upload_id%5D=3" in body
+
+
+def test_group_title_keeps_only_letters_digits_hyphens_and_spaces():
+    assert rf.group_title({"repo": "jms1717/8mb.local", "name": "8mb.local"}) == "8mblocal releases"
+    assert rf.group_title({"repo": "o/r", "name": "Uptime-Kuma (beta)!"}) == "Uptime-Kuma beta releases"
+    assert rf.group_title({"repo": "o/x.y", "name": "!!!"}) == "x-y releases"
+
+
+def test_group_handle_is_readable_bounded_and_unique():
+    assert rf.group_handle("Uptime-Kuma", "louislam/uptime-kuma", None, {}) == "releases-uptime-kuma"
+    long_ref = "home-assistant-time-machine"
+    assert rf.group_handle(long_ref, "o/r", None, {}, 36) == "releases-home-assistant-time-machine"
+    short = rf.group_handle(long_ref, "o/r", None, {}, 20)
+    assert len(short) <= 20 and re.fullmatch(r"releases-home-a-[0-9a-f]{4}", short)
+    taken = {"releases-npm": ("nginxproxymanager/nginx-proxy-manager", "")}
+    clash = rf.group_handle("npm", "npm/cli", None, taken)
+    assert re.fullmatch(r"releases-npm-[0-9a-f]{4}", clash)
+    assert rf.group_handle("npm", "NginxProxyManager/nginx-proxy-manager", None, taken) == "releases-npm"
+    assert re.fullmatch(r"releases-[a-z0-9-]+", rf.group_handle("A_b.C", "o/r", None, {}))
+
+
+def test_rename_plan_renames_only_hashed_catalogue_groups():
+    sys.path.insert(0, str(rf.ROOT / "scripts"))
+    import rename_release_handles as rrh
+
+    entries = [
+        {"repo": "fosrl/newt", "groups": ["releases-newt"]},
+        {"repo": "a/agregarr", "groups": ["releases-2658b0b9b69"], "app_reference": "agregarr"},
+        {"repo": "n/npm", "groups": ["releases-0123456789a"], "app_reference": "newt"},
+        {"repo": "x/y", "groups": ["releases-abcdefabcde"]},
+    ]
+    renames = rrh.plan(entries, 36)
+    assert renames["releases-2658b0b9b69"] == "releases-agregarr"
+    assert re.fullmatch(r"releases-newt-[0-9a-f]{4}", renames["releases-0123456789a"])
+    assert "releases-abcdefabcde" not in renames and len(renames) == 2

@@ -260,6720 +260,6720 @@ releases:
 - name: 1Panel
   repo: 1panel-dev/1panel
   groups:
-  - releases-79054f81c28
+  - releases-1panel
   app_reference: 1panel
   include_prereleases: false
 - name: 2FAuth
   repo: bubka/2fauth
   groups:
-  - releases-641aa6cefff
+  - releases-2fauth
   app_reference: 2fauth
   include_prereleases: false
 - name: 8mb.local
   repo: jms1717/8mb.local
   groups:
-  - releases-81be1223029
+  - releases-8mb-local
   app_reference: 8mb-local
   include_prereleases: false
 - name: Ackee
   repo: electerious/ackee
   groups:
-  - releases-8dc970f5501
+  - releases-ackee
   app_reference: ackee
   include_prereleases: false
 - name: Ackify
   repo: kolapsis/ackify
   groups:
-  - releases-eec06aee73a
+  - releases-ackify
   app_reference: ackify
   include_prereleases: false
 - name: Activepieces
   repo: activepieces/activepieces
   groups:
-  - releases-68bd869049a
+  - releases-activepieces
   app_reference: activepieces
   include_prereleases: false
 - name: Actual Budget
   repo: actualbudget/actual
   groups:
-  - releases-ebf74299853
+  - releases-actual-budget
   app_reference: actual-budget
   include_prereleases: false
 - name: AdGuardHome Sync
   repo: bakito/adguardhome-sync
   groups:
-  - releases-419574822af
+  - releases-adguardhome-sync
   app_reference: adguardhome-sync
   include_prereleases: false
 - name: Webhook
   repo: adnanh/webhook
   groups:
-  - releases-a501656a736
+  - releases-adnanh-webhook
   app_reference: adnanh-webhook
   include_prereleases: false
 - name: AdventureLog
   repo: seanmorley15/adventurelog
   groups:
-  - releases-caf1d84a9c6
+  - releases-adventurelog
   app_reference: adventurelog
   include_prereleases: false
 - name: AFFiNE
   repo: toeverything/affine
   groups:
-  - releases-261d3b1b37a
+  - releases-affine
   app_reference: affine
   include_prereleases: false
 - name: Agregarr
   repo: agregarr/agregarr
   groups:
-  - releases-2658b0b9b69
+  - releases-agregarr
   app_reference: agregarr
   include_prereleases: false
 - name: AirPipe
   repo: sanyam-g/airpipe
   groups:
-  - releases-383fc44f2a3
+  - releases-airpipe
   app_reference: airpipe
   include_prereleases: false
 - name: AirTrail
   repo: johanohly/airtrail
   groups:
-  - releases-e00ab8faa5c
+  - releases-airtrail
   app_reference: airtrail
   include_prereleases: false
 - name: Akaunting
   repo: akaunting/akaunting
   groups:
-  - releases-48806811172
+  - releases-akaunting
   app_reference: akaunting
   include_prereleases: false
 - name: Alexandrie
   repo: smaug6739/alexandrie
   groups:
-  - releases-d640dde796a
+  - releases-alexandrie
   app_reference: alexandrie
   include_prereleases: false
 - name: AliasVault
   repo: aliasvault/aliasvault
   groups:
-  - releases-c3a2d408cb0
+  - releases-aliasvault
   app_reference: aliasvault
   include_prereleases: false
 - name: Amnezia
   repo: amnezia-vpn/amnezia-client
   groups:
-  - releases-0d2d54d753f
+  - releases-amnezia
   app_reference: amnezia
   include_prereleases: false
 - name: Ampache
   repo: ampache/ampache
   groups:
-  - releases-6f267e8cbf0
+  - releases-ampache
   app_reference: ampache
   include_prereleases: false
 - name: Otter Wiki
   repo: redimp/otterwiki
   groups:
-  - releases-992f07224c2
+  - releases-an-otter-wiki
   app_reference: an-otter-wiki
   include_prereleases: false
 - name: Anchor
   repo: zhfahim/anchor
   groups:
-  - releases-592de1ef614
+  - releases-anchor-notes
   app_reference: anchor-notes
   include_prereleases: false
 - name: Anchr
   repo: muety/anchr
   groups:
-  - releases-93496f4597a
+  - releases-anchr
   app_reference: anchr
   include_prereleases: false
 - name: AniBridge
   repo: anibridge/anibridge
   groups:
-  - releases-89ee0b0a943
+  - releases-anibridge
   app_reference: anibridge
   include_prereleases: false
 - name: AnonAddy
   repo: anonaddy/anonaddy
   groups:
-  - releases-ba70e0a01d7
+  - releases-anonaddy
   app_reference: anonaddy
   include_prereleases: false
 - name: Anonymous Overflow
   repo: httpjamesm/anonymousoverflow
   groups:
-  - releases-168fe6c36a2
+  - releases-anonymousoverflow
   app_reference: anonymousoverflow
   include_prereleases: false
 - name: Ansible
   repo: ansible/ansible
   groups:
-  - releases-4d5c63c1828
+  - releases-ansible
   app_reference: ansible
   include_prereleases: false
 - name: AnyAppStart
   repo: aceberg/anyappstart
   groups:
-  - releases-91143f974e6
+  - releases-anyappstart
   app_reference: anyappstart
   include_prereleases: false
 - name: AnyCable
   repo: anycable/anycable
   groups:
-  - releases-cd6ba71d6f9
+  - releases-anycable
   app_reference: anycable
   include_prereleases: false
 - name: Apache Answer
   repo: apache/answer
   groups:
-  - releases-5527051161d
+  - releases-apache-answer
   app_reference: apache-answer
   include_prereleases: false
 - name: Apache Superset
   repo: apache/superset
   groups:
-  - releases-b09a3182d69
+  - releases-apache-superset
   app_reference: apache-superset
   include_prereleases: false
 - name: AppFlowy
   repo: appflowy-io/appflowy
   groups:
-  - releases-fd27ed05c57
+  - releases-appflowy
   app_reference: appflowy
   include_prereleases: false
 - name: Apprise
   repo: caronc/apprise
   groups:
-  - releases-05049e1131e
+  - releases-apprise
   app_reference: apprise
   include_prereleases: false
 - name: Appsmith
   repo: appsmithorg/appsmith
   groups:
-  - releases-b0aa9927e1d
+  - releases-appsmith
   app_reference: appsmith
   include_prereleases: false
 - name: Appwrite
   repo: appwrite/appwrite
   groups:
-  - releases-de0bb21f3f0
+  - releases-appwrite
   app_reference: appwrite
   include_prereleases: false
 - name: ARA
   repo: ansible-community/ara
   groups:
-  - releases-a7582e38770
+  - releases-ara-records-ansible
   app_reference: ara-records-ansible
   include_prereleases: false
 - name: Arcane
   repo: getarcaneapp/arcane
   groups:
-  - releases-c7a3f66d000
+  - releases-arcane
   app_reference: arcane
   include_prereleases: false
 - name: ArchiveBox
   repo: archivebox/archivebox
   groups:
-  - releases-dc1439ab1b4
+  - releases-archivebox
   app_reference: archivebox
   include_prereleases: false
 - name: Argus
   repo: release-argus/argus
   groups:
-  - releases-db2367aaf37
+  - releases-argus
   app_reference: argus
   include_prereleases: false
 - name: Asciinema
   repo: asciinema/asciinema
   groups:
-  - releases-c989a1519b1
+  - releases-asciinema
   app_reference: asciinema
   include_prereleases: false
 - name: Atheos
   repo: atheos/atheos
   groups:
-  - releases-0430c3649eb
+  - releases-atheos
   app_reference: atheos
   include_prereleases: false
 - name: Atlas CMMS
   repo: grashjs/cmms
   groups:
-  - releases-141d5e02672
+  - releases-atlas-cmms
   app_reference: atlas-cmms
   include_prereleases: false
 - name: Atlas
   repo: karam-ajaj/atlas
   groups:
-  - releases-42366b03930
+  - releases-atlas-network
   app_reference: atlas-network
   include_prereleases: false
 - name: Atomic CRM
   repo: marmelab/atomic-crm
   groups:
-  - releases-fed5afb27b3
+  - releases-atomic-crm
   app_reference: atomic-crm
   include_prereleases: false
 - name: Atuin
   repo: atuinsh/atuin
   groups:
-  - releases-2973df6e855
+  - releases-atuin
   app_reference: atuin
   include_prereleases: false
 - name: AudioBookRequest
   repo: markbeep/audiobookrequest
   groups:
-  - releases-0dc2df11b88
+  - releases-audiobookrequest
   app_reference: audiobookrequest
   include_prereleases: false
 - name: AudioBookshelf
   repo: advplyr/audiobookshelf
   groups:
-  - releases-de0d43036df
+  - releases-audiobookshelf
   app_reference: audiobookshelf
   include_prereleases: false
 - name: AudioSilo
   repo: kodestar/audiosilo-server
   groups:
-  - releases-42c900f4891
+  - releases-audiosilo
   app_reference: audiosilo
   include_prereleases: false
 - name: Aureus
   repo: aureuserp/aureuserp
   groups:
-  - releases-a3451fc6a59
+  - releases-aureus
   app_reference: aureus
   include_prereleases: false
 - name: Aurral
   repo: lklynet/aurral
   groups:
-  - releases-f1dd50ff1fd
+  - releases-aurral
   app_reference: aurral
   include_prereleases: false
 - name: Authgear
   repo: authgear/authgear-server
   groups:
-  - releases-10a7e8d7720
+  - releases-authgear
   app_reference: authgear
   include_prereleases: false
 - name: AuthPortal
   repo: modom-ofn/auth-portal
   groups:
-  - releases-df3e5d28049
+  - releases-authportal
   app_reference: authportal
   include_prereleases: false
 - name: auto-mcs
   repo: macarooni-man/auto-mcs
   groups:
-  - releases-84357767f77
+  - releases-auto-mcs
   app_reference: auto-mcs
   include_prereleases: false
 - name: autobrr
   repo: autobrr/autobrr
   groups:
-  - releases-f0ede91763c
+  - releases-autobrr
   app_reference: autobrr
   include_prereleases: false
 - name: Automad
   repo: marcantondahmen/automad
   groups:
-  - releases-e25be54b4d6
+  - releases-automad
   app_reference: automad
   include_prereleases: false
 - name: AzuraCast
   repo: azuracast/azuracast
   groups:
-  - releases-d2d972e837f
+  - releases-azuracast
   app_reference: azuracast
   include_prereleases: false
 - name: Baby Buddy
   repo: babybuddy/babybuddy
   groups:
-  - releases-c3e4825595a
+  - releases-baby-buddy
   app_reference: baby-buddy
   include_prereleases: false
 - name: Backrest
   repo: garethgeorge/backrest
   groups:
-  - releases-31cdb43b798
+  - releases-backrest
   app_reference: backrest
   include_prereleases: false
 - name: BackupPC
   repo: backuppc/backuppc
   groups:
-  - releases-44e7c5de867
+  - releases-backuppc
   app_reference: backuppc
   include_prereleases: false
 - name: Baikal
   repo: sabre-io/baikal
   groups:
-  - releases-b4e90023c6d
+  - releases-baikal
   app_reference: baikal
   include_prereleases: false
 - name: Bar Assistant
   repo: karlomikus/bar-assistant
   groups:
-  - releases-fd985070d87
+  - releases-bar-assistant
   app_reference: bar-assistant
   include_prereleases: false
 - name: Baserow
   repo: baserow/baserow
   groups:
-  - releases-5ecadbcbea3
+  - releases-baserow
   app_reference: baserow
   include_prereleases: false
 - name: Basic Memory
   repo: basicmachines-co/basic-memory
   groups:
-  - releases-2c8e788ca8d
+  - releases-basic-memory
   app_reference: basic-memory
   include_prereleases: false
 - name: Bazarr
   repo: morpheus65535/bazarr
   groups:
-  - releases-3762e774a24
+  - releases-bazarr
   app_reference: bazarr
   include_prereleases: false
 - name: Beaver Habit Tracker
   repo: daya0576/beaverhabits
   groups:
-  - releases-04626316a6c
+  - releases-beaver-habit-tracker
   app_reference: beaver-habit-tracker
   include_prereleases: false
 - name: BentoPDF
   repo: alam00000/bentopdf
   groups:
-  - releases-9ce3a359d72
+  - releases-bentopdf
   app_reference: bentopdf
   include_prereleases: false
 - name: Beszel
   repo: henrygd/beszel
   groups:
-  - releases-6ee9e31aa54
+  - releases-beszel
   app_reference: beszel
   include_prereleases: false
 - name: bewCloud
   repo: bewcloud/bewcloud
   groups:
-  - releases-afbeebcd191
+  - releases-bewcloud
   app_reference: bewcloud
   include_prereleases: false
 - name: BiblioReads
   repo: nesaku/biblioreads
   groups:
-  - releases-47f1bd37195
+  - releases-biblioreads
   app_reference: biblioreads
   include_prereleases: false
 - name: Bichon
   repo: rustmailer/bichon
   groups:
-  - releases-f08c489c3dc
+  - releases-bichon
   app_reference: bichon
   include_prereleases: false
 - name: BigBlueButton
   repo: bigbluebutton/bigbluebutton
   groups:
-  - releases-f7b3eab372a
+  - releases-bigbluebutton
   app_reference: bigbluebutton
   include_prereleases: false
 - name: Bigcapital
   repo: bigcapitalhq/bigcapital
   groups:
-  - releases-8dac9e6f95c
+  - releases-bigcapital
   app_reference: bigcapital
   include_prereleases: false
 - name: BirdNET-Analyzer
   repo: birdnet-team/birdnet-analyzer
   groups:
-  - releases-75944476f3a
+  - releases-birdnet-analyzer
   app_reference: birdnet-analyzer
   include_prereleases: false
 - name: Bitmagnet
   repo: bitmagnet-io/bitmagnet
   groups:
-  - releases-0fddaf076f6
+  - releases-bitmagnet
   app_reference: bitmagnet
   include_prereleases: false
 - name: Bitwarden
   repo: bitwarden/server
   groups:
-  - releases-454cc5865a4
+  - releases-bitwarden
   app_reference: bitwarden
   include_prereleases: false
 - name: bknd
   repo: bknd-io/bknd
   groups:
-  - releases-8a3a9b221e7
+  - releases-bknd
   app_reference: bknd
   include_prereleases: false
 - name: Black Candy
   repo: blackcandy-org/blackcandy
   groups:
-  - releases-ec712d4d8d5
+  - releases-black-candy
   app_reference: black-candy
   include_prereleases: false
 - name: Blinko
   repo: blinkospace/blinko
   groups:
-  - releases-7427a6ca3fb
+  - releases-blinko
   app_reference: blinko
   include_prereleases: false
 - name: Blocky
   repo: 0xerr0r/blocky
   groups:
-  - releases-813ee1ea567
+  - releases-blocky
   app_reference: blocky
   include_prereleases: false
 - name: BookHaven
   repo: hrbingr/bookhaven
   groups:
-  - releases-6c6707ec8aa
+  - releases-bookhaven
   app_reference: bookhaven
   include_prereleases: false
 - name: BookHeaven
   repo: bookheaven/bookheaven.server
   groups:
-  - releases-eb5275e44ed
+  - releases-bookheaven
   app_reference: bookheaven
   include_prereleases: false
 - name: BookLogr
   repo: mozzo1000/booklogr
   groups:
-  - releases-1d84d89cbcc
+  - releases-booklogr
   app_reference: booklogr
   include_prereleases: false
 - name: BookWyrm
   repo: bookwyrm-social/bookwyrm
   groups:
-  - releases-c1cffc7dba2
+  - releases-bookwyrm
   app_reference: bookwyrm
   include_prereleases: false
 - name: Borg
   repo: borgbackup/borg
   groups:
-  - releases-e3dc115ce41
+  - releases-borg
   app_reference: borg
   include_prereleases: false
 - name: Borg Backup Server
   repo: marcpope/borgbackupserver
   groups:
-  - releases-4baf229257a
+  - releases-borg-backup-server
   app_reference: borg-backup-server
   include_prereleases: false
 - name: Borg UI
   repo: karanhudia/borg-ui
   groups:
-  - releases-64004b81b21
+  - releases-borg-ui
   app_reference: borg-ui
   include_prereleases: false
 - name: Boxarr
   repo: iongpt/boxarr
   groups:
-  - releases-8d064306055
+  - releases-boxarr
   app_reference: boxarr
   include_prereleases: false
 - name: Bracket
   repo: evroon/bracket
   groups:
-  - releases-025213f361e
+  - releases-bracket
   app_reference: bracket
   include_prereleases: false
 - name: BrainRotGuard
   repo: ghjj123/brainrotguard
   groups:
-  - releases-b5eb6950b01
+  - releases-brainrotguard
   app_reference: brainrotguard
   include_prereleases: false
 - name: BroadcastChannel
   repo: miantiao-me/broadcastchannel
   groups:
-  - releases-19738ebb9c2
+  - releases-broadcastchannel
   app_reference: broadcastchannel
   include_prereleases: false
 - name: Budget Board
   repo: teelur/budget-board
   groups:
-  - releases-f48de15d8a6
+  - releases-budget-board
   app_reference: budget-board
   include_prereleases: false
 - name: BudgetBee
   repo: budgetbee/budgetbee
   groups:
-  - releases-4138659725a
+  - releases-budgetbee
   app_reference: budgetbee
   include_prereleases: false
 - name: Budibase
   repo: budibase/budibase
   groups:
-  - releases-98c5adc18aa
+  - releases-budibase
   app_reference: budibase
   include_prereleases: false
 - name: Bugsink
   repo: bugsink/bugsink
   groups:
-  - releases-609913ec46a
+  - releases-bugsink
   app_reference: bugsink
   include_prereleases: false
 - name: Bulwark
   repo: bulwarkmail/webmail
   groups:
-  - releases-c08f872e9bc
+  - releases-bulwark
   app_reference: bulwark
   include_prereleases: false
 - name: BunkerM
   repo: bunkeriot/bunkerm
   groups:
-  - releases-a06d283f65d
+  - releases-bunkerm
   app_reference: bunkerm
   include_prereleases: false
 - name: BunkerWeb
   repo: bunkerity/bunkerweb
   groups:
-  - releases-8bbb4b63b04
+  - releases-bunkerweb
   app_reference: bunkerweb
   include_prereleases: false
 - name: ByteStash
   repo: jordan-dalby/bytestash
   groups:
-  - releases-ebec2215024
+  - releases-bytestash
   app_reference: bytestash
   include_prereleases: false
 - name: Cachet
   repo: cachethq/cachet
   groups:
-  - releases-74c50820800
+  - releases-cachet
   app_reference: cachet
   include_prereleases: false
 - name: CaddyManager
   repo: caddymanager/caddymanager
   groups:
-  - releases-4e55d8c0226
+  - releases-caddymanager
   app_reference: caddymanager
   include_prereleases: false
 - name: cAdvisor
   repo: google/cadvisor
   groups:
-  - releases-817b8e9e6fa
+  - releases-cadvisor
   app_reference: cadvisor
   include_prereleases: false
 - name: Cal.com
   repo: calcom/cal.diy
   groups:
-  - releases-1fa4b0202a0
+  - releases-cal-com
   app_reference: cal-com
   include_prereleases: false
 - name: Cal.rs
   repo: olivierlambert/calrs
   groups:
-  - releases-8a2d0053b66
+  - releases-cal-rs
   app_reference: cal-rs
   include_prereleases: false
 - name: Calagopus
   repo: calagopus/panel
   groups:
-  - releases-8ba34d16eab
+  - releases-calagopus
   app_reference: calagopus
   include_prereleases: false
 - name: Calibre-Web
   repo: janeczku/calibre-web
   groups:
-  - releases-6d5a35667bd
+  - releases-calibre-web
   app_reference: calibre-web
   include_prereleases: false
 - name: Calibre-Web Automated
   repo: crocodilestick/calibre-web-automated
   groups:
-  - releases-d5fd0618a70
+  - releases-calibre-web-automated
   app_reference: calibre-web-automated
   include_prereleases: false
 - name: Calino
   repo: ivan-malinovski/calino
   groups:
-  - releases-0df1b64f6ac
+  - releases-calino
   app_reference: calino
   include_prereleases: false
 - name: Calorific
   repo: xdpirate/calorific
   groups:
-  - releases-8be2278c978
+  - releases-calorific
   app_reference: calorific
   include_prereleases: false
 - name: Canine
   repo: caninehq/canine
   groups:
-  - releases-19fc259979a
+  - releases-canine
   app_reference: canine
   include_prereleases: false
 - name: Cap
   repo: tiagozip/cap
   groups:
-  - releases-50ee3402ad5
+  - releases-cap-captcha
   app_reference: cap-captcha
   include_prereleases: false
 - name: CapRover
   repo: caprover/caprover
   groups:
-  - releases-d41350780fe
+  - releases-caprover
   app_reference: caprover
   include_prereleases: false
 - name: Cardinal Media Server
   repo: cardinalapps/self-hosted
   groups:
-  - releases-03ee3965958
+  - releases-cardinal-media-server
   app_reference: cardinal-media-server
   include_prereleases: false
 - name: Casdoor
   repo: casdoor/casdoor
   groups:
-  - releases-9831250ef5d
+  - releases-casdoor
   app_reference: casdoor
   include_prereleases: false
 - name: Castopod
   repo: ad-aures/castopod
   groups:
-  - releases-f9ece5b8bf0
+  - releases-castopod
   app_reference: castopod
   include_prereleases: false
 - name: Cerbos
   repo: cerbos/cerbos
   groups:
-  - releases-3462f2218b2
+  - releases-cerbos
   app_reference: cerbos
   include_prereleases: false
 - name: Cert Warden
   repo: gregtwallace/certwarden
   groups:
-  - releases-deb09d3bbbd
+  - releases-cert-warden
   app_reference: cert-warden
   include_prereleases: false
 - name: CetusGuard
   repo: hectorm/cetusguard
   groups:
-  - releases-df8ef4d6796
+  - releases-cetusguard
   app_reference: cetusguard
   include_prereleases: false
 - name: ChangeDetection
   repo: dgtlmoon/changedetection.io
   groups:
-  - releases-43c97298014
+  - releases-changedetection
   app_reference: changedetection
   include_prereleases: false
 - name: Chartbrew
   repo: chartbrew/chartbrew
   groups:
-  - releases-9c36336356f
+  - releases-chartbrew
   app_reference: chartbrew
   include_prereleases: false
 - name: ChartDB
   repo: chartdb/chartdb
   groups:
-  - releases-969f67b456e
+  - releases-chartdb
   app_reference: chartdb
   include_prereleases: false
 - name: Chatto
   repo: chattocorp/chatto
   groups:
-  - releases-7102c78b9d4
+  - releases-chatto
   app_reference: chatto
   include_prereleases: false
 - name: Chatwoot
   repo: chatwoot/chatwoot
   groups:
-  - releases-208649e739e
+  - releases-chatwoot
   app_reference: chatwoot
   include_prereleases: false
 - name: CheckCle
   repo: operacle/checkcle
   groups:
-  - releases-84ff9450962
+  - releases-checkcle
   app_reference: checkcle
   include_prereleases: false
 - name: Checkmate
   repo: bluewave-labs/checkmate
   groups:
-  - releases-e4d0c444bb9
+  - releases-checkmate
   app_reference: checkmate
   include_prereleases: false
 - name: Chevereto
   repo: chevereto/chevereto
   groups:
-  - releases-c208342c387
+  - releases-chevereto
   app_reference: chevereto
   include_prereleases: false
 - name: Chhoto URL
   repo: sintan1729/chhoto-url
   groups:
-  - releases-69aa8589c6d
+  - releases-chhoto-url
   app_reference: chhoto-url
   include_prereleases: false
 - name: Chibisafe
   repo: chibisafe/chibisafe
   groups:
-  - releases-7627eaeb32b
+  - releases-chibisafe
   app_reference: chibisafe
   include_prereleases: false
 - name: Chitchatter
   repo: jeremyckahn/chitchatter
   groups:
-  - releases-81b931180ec
+  - releases-chitchatter
   app_reference: chitchatter
   include_prereleases: false
 - name: Christmas Community
   repo: wingysam/christmas-community
   groups:
-  - releases-43694c4a23f
+  - releases-christmas-community
   app_reference: christmas-community
   include_prereleases: false
 - name: ChronoFrame
   repo: hoshinosuzumi/chronoframe
   groups:
-  - releases-2680900a0ef
+  - releases-chronoframe
   app_reference: chronoframe
   include_prereleases: false
 - name: Cially
   repo: cially/cially
   groups:
-  - releases-422272f05d4
+  - releases-cially
   app_reference: cially
   include_prereleases: false
 - name: Cinephage
   repo: cinephage/cinephage
   groups:
-  - releases-e5ca1a1cbb1
+  - releases-cinephage
   app_reference: cinephage
   include_prereleases: false
 - name: circled.me
   repo: circled-me/server
   groups:
-  - releases-d0ae2ee909b
+  - releases-circled-me
   app_reference: circled-me
   include_prereleases: false
 - name: ClamAV
   repo: cisco-talos/clamav
   groups:
-  - releases-3f376ed67df
+  - releases-clamav
   app_reference: clamav
   include_prereleases: false
 - name: Clean Slate
   repo: successible/cleanslate
   groups:
-  - releases-19b658401c5
+  - releases-clean-slate
   app_reference: clean-slate
   include_prereleases: false
 - name: Cleanuparr
   repo: cleanuparr/cleanuparr
   groups:
-  - releases-03c715616ac
+  - releases-cleanuparr
   app_reference: cleanuparr
   include_prereleases: false
 - name: ClickHouse
   repo: clickhouse/clickhouse
   groups:
-  - releases-f2668589ee8
+  - releases-clickhouse
   app_reference: clickhouse
   include_prereleases: false
 - name: Cliparr
   repo: techsquidtv/cliparr
   groups:
-  - releases-22147da5c26
+  - releases-cliparr
   app_reference: cliparr
   include_prereleases: false
 - name: ClipCascade
   repo: sathvik-rao/clipcascade
   groups:
-  - releases-bdd1bbad419
+  - releases-clipcascade
   app_reference: clipcascade
   include_prereleases: false
 - name: Cloud Commander
   repo: coderaiser/cloudcmd
   groups:
-  - releases-93d9db58bf8
+  - releases-cloud-commander
   app_reference: cloud-commander
   include_prereleases: false
 - name: Cloud in a Bottle
   repo: cloud-in-a-bottle/cloud-in-a-bottle
   groups:
-  - releases-3c941aba2f1
+  - releases-cloud-in-a-bottle
   app_reference: cloud-in-a-bottle
   include_prereleases: false
 - name: CloudBeaver
   repo: dbeaver/cloudbeaver
   groups:
-  - releases-54f1e9fa37e
+  - releases-cloudbeaver
   app_reference: cloudbeaver
   include_prereleases: false
 - name: Cloudflared
   repo: cloudflare/cloudflared
   groups:
-  - releases-4eb8091d4fc
+  - releases-cloudflared
   app_reference: cloudflared
   include_prereleases: false
 - name: CloudPanel
   repo: cloudpanel-io/cloudpanel-ce
   groups:
-  - releases-a2300b7edae
+  - releases-cloudpanel
   app_reference: cloudpanel
   include_prereleases: false
 - name: Wishlist
   repo: cmintey/wishlist
   groups:
-  - releases-34af11cfa7d
+  - releases-cmintey-wishlist
   app_reference: cmintey-wishlist
   include_prereleases: false
 - name: code-server
   repo: coder/code-server
   groups:
-  - releases-f046955f16d
+  - releases-code-server
   app_reference: code-server
   include_prereleases: false
 - name: Coder
   repo: coder/coder
   groups:
-  - releases-28042574a19
+  - releases-coder
   app_reference: coder
   include_prereleases: false
 - name: Colanode
   repo: colanode/colanode
   groups:
-  - releases-10694aa99d5
+  - releases-colanode
   app_reference: colanode
   include_prereleases: false
 - name: Comic Library Utilities
   repo: allaboutduncan/clu-comics
   groups:
-  - releases-e830e94eeac
+  - releases-comic-library-utilities
   app_reference: comic-library-utilities
   include_prereleases: false
 - name: CommaFeed
   repo: athou/commafeed
   groups:
-  - releases-d89df13427e
+  - releases-commafeed
   app_reference: commafeed
   include_prereleases: false
 - name: Compass
   repo: adinhodovic/compass
   groups:
-  - releases-150aeca47e9
+  - releases-compass-dashboard
   app_reference: compass-dashboard
   include_prereleases: false
 - name: Compose Craft
   repo: composecraft/composecraft
   groups:
-  - releases-2a1d05b91c8
+  - releases-compose-craft
   app_reference: compose-craft
   include_prereleases: false
 - name: Configarr
   repo: raydak-labs/configarr
   groups:
-  - releases-b84b3f31722
+  - releases-configarr
   app_reference: configarr
   include_prereleases: false
 - name: Container Hub
   repo: eznix86/docker-registry-ui
   groups:
-  - releases-44f9574d952
+  - releases-container-hub
   app_reference: container-hub
   include_prereleases: false
 - name: Contao
   repo: contao/contao
   groups:
-  - releases-a7c28847317
+  - releases-contao
   app_reference: contao
   include_prereleases: false
 - name: Continuwuity
   repo: continuwuity/continuwuity
   groups:
-  - releases-82c5a7799b1
+  - releases-continuwuity
   app_reference: continuwuity
   include_prereleases: false
 - name: Converse
   repo: conversejs/converse.js
   groups:
-  - releases-dff6457f541
+  - releases-converse
   app_reference: converse
   include_prereleases: false
 - name: ConvertX
   repo: c4illin/convertx
   groups:
-  - releases-4102a3ba1f6
+  - releases-convertx
   app_reference: convertx
   include_prereleases: false
 - name: Convos
   repo: convos-chat/convos
   groups:
-  - releases-4864cdaecd9
+  - releases-convos
   app_reference: convos
   include_prereleases: false
 - name: Convoy
   repo: frain-dev/convoy
   groups:
-  - releases-0441b2bcbbc
+  - releases-convoy
   app_reference: convoy
   include_prereleases: false
 - name: CookCLI
   repo: cooklang/cookcli
   groups:
-  - releases-f594f65f825
+  - releases-cookcli
   app_reference: cookcli
   include_prereleases: false
 - name: copyparty
   repo: 9001/copyparty
   groups:
-  - releases-a29fa262abe
+  - releases-copyparty
   app_reference: copyparty
   include_prereleases: false
 - name: Countly
   repo: countly/countly-server
   groups:
-  - releases-6d1eed89ff9
+  - releases-countly
   app_reference: countly
   include_prereleases: false
 - name: Cr*nMaster
   repo: fccview/cronmaster
   groups:
-  - releases-b70bfece504
+  - releases-cr-nmaster
   app_reference: cr-nmaster
   include_prereleases: false
 - name: Cronicle
   repo: jhuckaby/cronicle
   groups:
-  - releases-de108a751ae
+  - releases-cronicle
   app_reference: cronicle
   include_prereleases: false
 - name: Crontab Guru
   repo: cronitorio/cronitor-cli
   groups:
-  - releases-b9919d6aeed
+  - releases-crontab-guru
   app_reference: crontab-guru
   include_prereleases: false
 - name: CrossWatch
   repo: cenodude/crosswatch
   groups:
-  - releases-40b3b1938cb
+  - releases-crosswatch
   app_reference: crosswatch
   include_prereleases: false
 - name: CrowdSec Manager
   repo: hhftechnology/crowdsec_manager
   groups:
-  - releases-8887b54ae9e
+  - releases-crowdsec-manager
   app_reference: crowdsec-manager
   include_prereleases: false
 - name: CrowdSec Web UI
   repo: theduffman85/crowdsec-web-ui
   groups:
-  - releases-4a2d017d19f
+  - releases-crowdsec-web-ui
   app_reference: crowdsec-web-ui
   include_prereleases: false
 - name: Crumbs
   repo: bretzel-app/crumbs
   groups:
-  - releases-9c6d205b962
+  - releases-crumbs-notes
   app_reference: crumbs-notes
   include_prereleases: false
 - name: Cryptgeon
   repo: cupcakearmy/cryptgeon
   groups:
-  - releases-ba6eb41fb31
+  - releases-cryptgeon
   app_reference: cryptgeon
   include_prereleases: false
 - name: CryptPad
   repo: cryptpad/cryptpad
   groups:
-  - releases-3343d3f2e7c
+  - releases-cryptpad
   app_reference: cryptpad
   include_prereleases: false
 - name: Cup
   repo: sergi0g/cup
   groups:
-  - releases-ee9ba7e98ea
+  - releases-cup-updates
   app_reference: cup-updates
   include_prereleases: false
 - name: Cupdate
   repo: alexgustafsson/cupdate
   groups:
-  - releases-07eda66b003
+  - releases-cupdate
   app_reference: cupdate
   include_prereleases: false
 - name: CyberChef
   repo: gchq/cyberchef
   groups:
-  - releases-36cdabd14a0
+  - releases-cyberchef
   app_reference: cyberchef
   include_prereleases: false
 - name: Cypht
   repo: cypht-org/cypht
   groups:
-  - releases-7a6b545449a
+  - releases-cypht
   app_reference: cypht
   include_prereleases: false
 - name: Dagu
   repo: dagucloud/dagu
   groups:
-  - releases-cc9bb6eb8e5
+  - releases-dagu
   app_reference: dagu
   include_prereleases: false
 - name: DailyTXT
   repo: phitux/dailytxt
   groups:
-  - releases-54e4b623257
+  - releases-dailytxt
   app_reference: dailytxt
   include_prereleases: false
 - name: Dashbrr
   repo: autobrr/dashbrr
   groups:
-  - releases-2c1d04b9788
+  - releases-dashbrr
   app_reference: dashbrr
   include_prereleases: false
 - name: dash.
   repo: mauricenino/dashdot
   groups:
-  - releases-d3d2b637cb5
+  - releases-dashdot
   app_reference: dashdot
   include_prereleases: false
 - name: DashLit
   repo: codewec/dashlit
   groups:
-  - releases-37ef1c88607
+  - releases-dashlit
   app_reference: dashlit
   include_prereleases: false
 - name: Dashwise
   repo: andreasmolnardev/dashwise
   groups:
-  - releases-746ce6df2cf
+  - releases-dashwise
   app_reference: dashwise
   include_prereleases: false
 - name: Dashy
   repo: lissy93/dashy
   groups:
-  - releases-b5f45d2bf7e
+  - releases-dashy
   app_reference: dashy
   include_prereleases: false
 - name: Databag
   repo: balzack/databag
   groups:
-  - releases-d633c9a2911
+  - releases-databag
   app_reference: databag
   include_prereleases: false
 - name: Databasus
   repo: databasus/databasus
   groups:
-  - releases-902cb35c821
+  - releases-databasus
   app_reference: databasus
   include_prereleases: false
 - name: Datasette
   repo: simonw/datasette
   groups:
-  - releases-6f3d1fac0f4
+  - releases-datasette
   app_reference: datasette
   include_prereleases: false
 - name: Davis
   repo: tchapi/davis
   groups:
-  - releases-2a7ad18a996
+  - releases-davis
   app_reference: davis
   include_prereleases: false
 - name: Dawarich
   repo: freika/dawarich
   groups:
-  - releases-651d39688a5
+  - releases-dawarich
   app_reference: dawarich
   include_prereleases: false
 - name: DBackup
   repo: skyfay/dbackup
   groups:
-  - releases-facb9889e5c
+  - releases-dbackup
   app_reference: dbackup
   include_prereleases: false
 - name: DbGate
   repo: dbgate/dbgate
   groups:
-  - releases-3b0917820a4
+  - releases-dbgate
   app_reference: dbgate
   include_prereleases: false
 - name: ddclient
   repo: ddclient/ddclient
   groups:
-  - releases-7fc0a4b7618
+  - releases-ddclient
   app_reference: ddclient
   include_prereleases: false
 - name: DDNS Updater
   repo: qdm12/ddns-updater
   groups:
-  - releases-cd774078fe5
+  - releases-ddns-updater
   app_reference: ddns-updater
   include_prereleases: false
 - name: Decypharr
   repo: sirrobot01/decypharr
   groups:
-  - releases-053e35a50ba
+  - releases-decypharr
   app_reference: decypharr
   include_prereleases: false
 - name: Defguard
   repo: defguard/defguard
   groups:
-  - releases-c40ea0ae5d7
+  - releases-defguard
   app_reference: defguard
   include_prereleases: false
 - name: Deft
   repo: maneek21/deft
   groups:
-  - releases-dd7f7cc43a3
+  - releases-deft
   app_reference: deft
   include_prereleases: false
 - name: degoog
   repo: degoog-org/degoog
   groups:
-  - releases-2d7aa9741be
+  - releases-degoog
   app_reference: degoog
   include_prereleases: false
 - name: Deployrr
   repo: simplehomelab/deployrr
   groups:
-  - releases-820128c13fa
+  - releases-deployrr
   app_reference: deployrr
   include_prereleases: false
 - name: Directus
   repo: directus/directus
   groups:
-  - releases-e9f8baec973
+  - releases-directus
   app_reference: directus
   include_prereleases: false
 - name: Discourse
   repo: discourse/discourse
   groups:
-  - releases-6fc40557195
+  - releases-discourse
   app_reference: discourse
   include_prereleases: false
 - name: Diskover
   repo: diskoverdata/diskover-community
   groups:
-  - releases-18eedbd8b6e
+  - releases-diskover
   app_reference: diskover
   include_prereleases: false
 - name: Dispatcharr
   repo: dispatcharr/dispatcharr
   groups:
-  - releases-2897692c28d
+  - releases-dispatcharr
   app_reference: dispatcharr
   include_prereleases: false
 - name: Dittofeed
   repo: dittofeed/dittofeed
   groups:
-  - releases-d64d4ce5b5a
+  - releases-dittofeed
   app_reference: dittofeed
   include_prereleases: false
 - name: Diun
   repo: crazy-max/diun
   groups:
-  - releases-57243fe0855
+  - releases-diun
   app_reference: diun
   include_prereleases: false
 - name: diyHue
   repo: diyhue/diyhue
   groups:
-  - releases-7df4449a653
+  - releases-diyhue
   app_reference: diyhue
   include_prereleases: false
 - name: Docassemble
   repo: jhpyle/docassemble
   groups:
-  - releases-357bf94a662
+  - releases-docassemble
   app_reference: docassemble
   include_prereleases: false
 - name: Dock-Dploy
   repo: hhftechnology/dock-dploy
   groups:
-  - releases-28a3ce540d1
+  - releases-dock-dploy
   app_reference: dock-dploy
   include_prereleases: false
 - name: Dockcheck
   repo: mag37/dockcheck
   groups:
-  - releases-8d8cac89df8
+  - releases-dockcheck
   app_reference: dockcheck
   include_prereleases: false
 - name: Docker Registry Browser
   repo: klausmeyer/docker-registry-browser
   groups:
-  - releases-ad103a8056b
+  - releases-docker-registry-browser
   app_reference: docker-registry-browser
   include_prereleases: false
 - name: Docker Socket Proxy
   repo: tecnativa/docker-socket-proxy
   groups:
-  - releases-2e9c377e9e5
+  - releases-docker-socket-proxy
   app_reference: docker-socket-proxy
   include_prereleases: false
 - name: Docker Volume Backup
   repo: offen/docker-volume-backup
   groups:
-  - releases-eed67fb5e4c
+  - releases-docker-volume-backup
   app_reference: docker-volume-backup
   include_prereleases: false
 - name: Dockerizalo
   repo: undernightcore/dockerizalo
   groups:
-  - releases-0578035b000
+  - releases-dockerizalo
   app_reference: dockerizalo
   include_prereleases: false
 - name: DockFlare
   repo: chrispybacon-dev/dockflare
   groups:
-  - releases-5663d9b2010
+  - releases-dockflare
   app_reference: dockflare
   include_prereleases: false
 - name: Dockge
   repo: louislam/dockge
   groups:
-  - releases-09a2eda06bd
+  - releases-dockge
   app_reference: dockge
   include_prereleases: false
 - name: Dockhand
   repo: finsys/dockhand
   groups:
-  - releases-385642bc45c
+  - releases-dockhand
   app_reference: dockhand
   include_prereleases: false
 - name: Docking Station
   repo: loolzzz/docking-station
   groups:
-  - releases-5916073c9ba
+  - releases-docking-station
   app_reference: docking-station
   include_prereleases: false
 - name: Dockman
   repo: ra341/dockman
   groups:
-  - releases-520069862ab
+  - releases-dockman
   app_reference: dockman
   include_prereleases: false
 - name: Dockpeek
   repo: dockpeek/dockpeek
   groups:
-  - releases-1d4864dfb3c
+  - releases-dockpeek
   app_reference: dockpeek
   include_prereleases: false
 - name: DockSTARTer
   repo: ghostwriters/dockstarter
   groups:
-  - releases-dc8e80a4cff
+  - releases-dockstarter
   app_reference: dockstarter
   include_prereleases: false
 - name: DockTail
   repo: marvinvr/docktail
   groups:
-  - releases-a57fff056b8
+  - releases-docktail
   app_reference: docktail
   include_prereleases: false
 - name: Dockwatch
   repo: notifiarr/dockwatch
   groups:
-  - releases-2ecf2d11811
+  - releases-dockwatch
   app_reference: dockwatch
   include_prereleases: false
 - name: Docmost
   repo: docmost/docmost
   groups:
-  - releases-c8e7850bc4e
+  - releases-docmost
   app_reference: docmost
   include_prereleases: false
 - name: Doco-CD
   repo: kimdre/doco-cd
   groups:
-  - releases-94b37b25566
+  - releases-doco-cd
   app_reference: doco-cd
   include_prereleases: false
 - name: Docs
   repo: suitenumerique/docs
   groups:
-  - releases-dbe6a9298c0
+  - releases-docs-collaboration
   app_reference: docs-collaboration
   include_prereleases: false
 - name: Docspell
   repo: eikek/docspell
   groups:
-  - releases-9565ad55861
+  - releases-docspell
   app_reference: docspell
   include_prereleases: false
 - name: Documenso
   repo: documenso/documenso
   groups:
-  - releases-43bf1d46eca
+  - releases-documenso
   app_reference: documenso
   include_prereleases: false
 - name: Docusaurus
   repo: meta/docusaurus
   groups:
-  - releases-d7f809030b8
+  - releases-docusaurus
   app_reference: docusaurus
   include_prereleases: false
 - name: DocuSeal
   repo: docusealco/docuseal
   groups:
-  - releases-361bbf50e48
+  - releases-docuseal
   app_reference: docuseal
   include_prereleases: false
 - name: Dokku
   repo: dokku/dokku
   groups:
-  - releases-b267cd92c46
+  - releases-dokku
   app_reference: dokku
   include_prereleases: false
 - name: Dokploy
   repo: dokploy/dokploy
   groups:
-  - releases-cd99fbb70e4
+  - releases-dokploy
   app_reference: dokploy
   include_prereleases: false
 - name: Doku
   repo: amerkurev/doku
   groups:
-  - releases-02928209a1d
+  - releases-doku
   app_reference: doku
   include_prereleases: false
 - name: DokuWiki
   repo: dokuwiki/dokuwiki
   groups:
-  - releases-37f1dfdc893
+  - releases-dokuwiki
   app_reference: dokuwiki
   include_prereleases: false
 - name: Dolibarr
   repo: dolibarr/dolibarr
   groups:
-  - releases-ccb55e61a56
+  - releases-dolibarr
   app_reference: dolibarr
   include_prereleases: false
 - name: Domain Locker
   repo: lissy93/domain-locker
   groups:
-  - releases-630c9141631
+  - releases-domain-locker
   app_reference: domain-locker
   include_prereleases: false
 - name: Domain Watchdog
   repo: maelgangloff/domain-watchdog
   groups:
-  - releases-bc95112f586
+  - releases-domain-watchdog
   app_reference: domain-watchdog
   include_prereleases: false
 - name: Donetick
   repo: donetick/donetick
   groups:
-  - releases-4fc0e2d1fbb
+  - releases-donetick
   app_reference: donetick
   include_prereleases: false
 - name: Doska
   repo: romenkova/doska
   groups:
-  - releases-ea3c33a5d84
+  - releases-doska
   app_reference: doska
   include_prereleases: false
 - name: Dovecot
   repo: dovecot/core
   groups:
-  - releases-13fdf8ecd81
+  - releases-dovecot
   app_reference: dovecot
   include_prereleases: false
 - name: Downtify
   repo: henriquesebastiao/downtify
   groups:
-  - releases-39f99fce7fa
+  - releases-downtify
   app_reference: downtify
   include_prereleases: false
 - name: Dozzle
   repo: amir20/dozzle
   groups:
-  - releases-3de32e16ddd
+  - releases-dozzle
   app_reference: dozzle
   include_prereleases: false
 - name: draw.io
   repo: jgraph/drawio
   groups:
-  - releases-caff6b5a9ba
+  - releases-draw-io
   app_reference: draw-io
   include_prereleases: false
 - name: drawDB
   repo: drawdb-io/drawdb
   groups:
-  - releases-e0544a85c6d
+  - releases-drawdb
   app_reference: drawdb
   include_prereleases: false
 - name: Dreeve
   repo: dreeveapp/dreeve
   groups:
-  - releases-6fc3b62a059
+  - releases-dreeve
   app_reference: dreeve
   include_prereleases: false
 - name: Dribdat
   repo: dribdat/dribdat
   groups:
-  - releases-96db2151e84
+  - releases-dribdat
   app_reference: dribdat
   include_prereleases: false
 - name: Drivebase
   repo: drivebase/drivebase
   groups:
-  - releases-212425f5aed
+  - releases-drivebase
   app_reference: drivebase
   include_prereleases: false
 - name: Drop
   repo: drop-oss/drop
   groups:
-  - releases-4e50699895f
+  - releases-drop
   app_reference: drop
   include_prereleases: false
 - name: DroppedNeedle
   repo: droppedneedle/droppedneedle
   groups:
-  - releases-7d04cde1787
+  - releases-droppedneedle
   app_reference: droppedneedle
   include_prereleases: false
 - name: Dub
   repo: dubinc/dub.link
   groups:
-  - releases-ff9109709e8
+  - releases-dub
   app_reference: dub
   include_prereleases: false
 - name: Dufs
   repo: sigoden/dufs
   groups:
-  - releases-fdeb19355d2
+  - releases-dufs
   app_reference: dufs
   include_prereleases: false
 - name: DumbAssets
   repo: dumbwareio/dumbassets
   groups:
-  - releases-2a01c59f0b9
+  - releases-dumbassets
   app_reference: dumbassets
   include_prereleases: false
 - name: DumbBudget
   repo: dumbwareio/dumbbudget
   groups:
-  - releases-3da0047f305
+  - releases-dumbbudget
   app_reference: dumbbudget
   include_prereleases: false
 - name: DumbDo
   repo: dumbwareio/dumbdo
   groups:
-  - releases-f7fd69e756d
+  - releases-dumbdo
   app_reference: dumbdo
   include_prereleases: false
 - name: DumbDrop
   repo: dumbwareio/dumbdrop
   groups:
-  - releases-f32a2c708b6
+  - releases-dumbdrop
   app_reference: dumbdrop
   include_prereleases: false
 - name: DumbKan
   repo: dumbwareio/dumbkan
   groups:
-  - releases-c3bb2bafa34
+  - releases-dumbkan
   app_reference: dumbkan
   include_prereleases: false
 - name: DumbPad
   repo: dumbwareio/dumbpad
   groups:
-  - releases-f00e24c7e77
+  - releases-dumbpad
   app_reference: dumbpad
   include_prereleases: false
 - name: DumbWhoIs
   repo: dumbwareio/dumbwhois
   groups:
-  - releases-41c3ad380aa
+  - releases-dumbwhois
   app_reference: dumbwhois
   include_prereleases: false
 - name: Duplicacy
   repo: gilbertchen/duplicacy
   groups:
-  - releases-fd5adedbca6
+  - releases-duplicacy
   app_reference: duplicacy
   include_prereleases: false
 - name: Duplicati
   repo: duplicati/duplicati
   groups:
-  - releases-c9e442cc285
+  - releases-duplicati
   app_reference: duplicati
   include_prereleases: false
 - name: DVinyl
   repo: kyonew/dvinyl
   groups:
-  - releases-69cdeb62451
+  - releases-dvinyl
   app_reference: dvinyl
   include_prereleases: false
 - name: DweebUI
   repo: lllllllillllllillll/dweebui
   groups:
-  - releases-563f9535ef0
+  - releases-dweebui
   app_reference: dweebui
   include_prereleases: false
 - name: Dynacat
   repo: panonim/dynacat
   groups:
-  - releases-c4d9840333d
+  - releases-dynacat
   app_reference: dynacat
   include_prereleases: false
 - name: Easy!Appointments
   repo: alextselegidis/easyappointments
   groups:
-  - releases-0eaf77da5ab
+  - releases-easy-appointments
   app_reference: easy-appointments
   include_prereleases: false
 - name: Ech0
   repo: lin-snow/ech0
   groups:
-  - releases-4b52dcce023
+  - releases-ech0
   app_reference: ech0
   include_prereleases: false
 - name: EdenText
   repo: stffnb/edentext
   groups:
-  - releases-0926b49be4a
+  - releases-edentext
   app_reference: edentext
   include_prereleases: false
 - name: Eigenfocus
   repo: eigenfocus/eigenfocus
   groups:
-  - releases-0013fb1974d
+  - releases-eigenfocus
   app_reference: eigenfocus
   include_prereleases: false
 - name: Emoncms
   repo: emoncms/emoncms
   groups:
-  - releases-cb1b72ea7f8
+  - releases-emoncms
   app_reference: emoncms
   include_prereleases: false
 - name: Enclosed
   repo: corentinth/enclosed
   groups:
-  - releases-efbd2356040
+  - releases-enclosed
   app_reference: enclosed
   include_prereleases: false
 - name: Endurain
   repo: endurain-project/endurain
   groups:
-  - releases-4d40290365b
+  - releases-endurain
   app_reference: endurain
   include_prereleases: false
 - name: Ente Auth
   repo: ente/ente
   groups:
-  - releases-b6ddcb7de73
+  - releases-ente-auth
   app_reference: ente-auth
   include_prereleases: false
 - name: Eonvelope
   repo: dacid99/eonvelope
   groups:
-  - releases-2d8d336684b
+  - releases-eonvelope
   app_reference: eonvelope
   include_prereleases: false
 - name: Ergo
   repo: ergochat/ergo
   groups:
-  - releases-93a8b1a21f1
+  - releases-ergo
   app_reference: ergo
   include_prereleases: false
 - name: Erugo
   repo: erugooss/erugo
   groups:
-  - releases-25b1bc122ee
+  - releases-erugo
   app_reference: erugo
   include_prereleases: false
 - name: ESPHome
   repo: esphome/esphome
   groups:
-  - releases-b0a4a4a1507
+  - releases-esphome
   app_reference: esphome
   include_prereleases: false
 - name: EspoCRM
   repo: espocrm/espocrm
   groups:
-  - releases-e177fed8d28
+  - releases-espocrm
   app_reference: espocrm
   include_prereleases: false
 - name: EteSync
   repo: etesync/server
   groups:
-  - releases-38eab3d94e0
+  - releases-etesync
   app_reference: etesync
   include_prereleases: false
 - name: Etherpad
   repo: ether/etherpad
   groups:
-  - releases-da6bc612f7f
+  - releases-etherpad
   app_reference: etherpad
   include_prereleases: false
 - name: evcc
   repo: evcc-io/evcc
   groups:
-  - releases-e8408f15460
+  - releases-evcc
   app_reference: evcc
   include_prereleases: false
 - name: EverShop
   repo: evershopcommerce/evershop
   groups:
-  - releases-cf931f4b6f6
+  - releases-evershop
   app_reference: evershop
   include_prereleases: false
 - name: ExcaliDash
   repo: zimengxiong/excalidash
   groups:
-  - releases-8a37843dc7f
+  - releases-excalidash
   app_reference: excalidash
   include_prereleases: false
 - name: Excalidraw
   repo: excalidraw/excalidraw
   groups:
-  - releases-e4651668130
+  - releases-excalidraw
   app_reference: excalidraw
   include_prereleases: false
 - name: Exercise Diary
   repo: aceberg/exercisediary
   groups:
-  - releases-39b3d8a71ef
+  - releases-exercise-diary
   app_reference: exercise-diary
   include_prereleases: false
 - name: ezBookkeeping
   repo: mayswind/ezbookkeeping
   groups:
-  - releases-857ede12d9b
+  - releases-ezbookkeeping
   app_reference: ezbookkeeping
   include_prereleases: false
 - name: eziwiki
   repo: i3months/eziwiki
   groups:
-  - releases-104c233966e
+  - releases-eziwiki
   app_reference: eziwiki
   include_prereleases: false
 - name: Fail2Ban
   repo: fail2ban/fail2ban
   groups:
-  - releases-5776f3f2e67
+  - releases-fail2ban
   app_reference: fail2ban
   include_prereleases: false
 - name: Faridoon
   repo: jamesread/faridoon
   groups:
-  - releases-1b39c42811b
+  - releases-faridoon
   app_reference: faridoon
   include_prereleases: false
 - name: Faved
   repo: denho/faved
   groups:
-  - releases-64c36a0d231
+  - releases-faved
   app_reference: faved
   include_prereleases: false
 - name: FCaptcha
   repo: webdecoy/fcaptcha
   groups:
-  - releases-95f4df21621
+  - releases-fcaptcha
   app_reference: fcaptcha
   include_prereleases: false
 - name: Feedbin
   repo: feedbin/feedbin
   groups:
-  - releases-b3c75aaa12e
+  - releases-feedbin
   app_reference: feedbin
   include_prereleases: false
 - name: Feeds Fun
   repo: tiendil/feeds.fun
   groups:
-  - releases-6741aff6bfc
+  - releases-feeds-fun
   app_reference: feeds-fun
   include_prereleases: false
 - name: Fenrus
   repo: revenz/fenrus
   groups:
-  - releases-69ce80eaceb
+  - releases-fenrus
   app_reference: fenrus
   include_prereleases: false
 - name: FerriShare
   repo: tobiasmarschner/ferrishare
   groups:
-  - releases-64c4290a701
+  - releases-ferrishare
   app_reference: ferrishare
   include_prereleases: false
 - name: Ferron
   repo: ferronweb/ferron
   groups:
-  - releases-5b7a2f0832e
+  - releases-ferron
   app_reference: ferron
   include_prereleases: false
 - name: Fider
   repo: getfider/fider
   groups:
-  - releases-79469c2f521
+  - releases-fider
   app_reference: fider
   include_prereleases: false
 - name: Figranium
   repo: figranium/figranium
   groups:
-  - releases-f90c10f0d77
+  - releases-figranium
   app_reference: figranium
   include_prereleases: false
 - name: FileBrowser Quantum
   repo: gtsteffaniak/filebrowser
   groups:
-  - releases-bfe874ad7d4
+  - releases-filebrowser-quantum
   app_reference: filebrowser-quantum
   include_prereleases: false
 - name: FileGator
   repo: filegator/filegator
   groups:
-  - releases-442f40eb505
+  - releases-filegator
   app_reference: filegator
   include_prereleases: false
 - name: FilePizza
   repo: kern/filepizza
   groups:
-  - releases-404107373c2
+  - releases-filepizza
   app_reference: filepizza
   include_prereleases: false
 - name: FileRise
   repo: error311/filerise
   groups:
-  - releases-052377cd43a
+  - releases-filerise
   app_reference: filerise
   include_prereleases: false
 - name: Filestash
   repo: mickael-kerjean/filestash
   groups:
-  - releases-ff82a167308
+  - releases-filestash
   app_reference: filestash
   include_prereleases: false
 - name: FileSync
   repo: polius/filesync
   groups:
-  - releases-8c718a94e2e
+  - releases-filesync
   app_reference: filesync
   include_prereleases: false
 - name: Firefly III
   repo: firefly-iii/firefly-iii
   groups:
-  - releases-60421266a2d
+  - releases-firefly-iii
   app_reference: firefly-iii
   include_prereleases: false
 - name: Fireshare
   repo: fireshare-app/fireshare
   groups:
-  - releases-a7be11c3f62
+  - releases-fireshare
   app_reference: fireshare
   include_prereleases: false
 - name: Fitbit Health Dashboard
   repo: arpanghosh8453/fitbit-grafana
   groups:
-  - releases-ec1de40597d
+  - releases-fitbit-health-dashboard
   app_reference: fitbit-health-dashboard
   include_prereleases: false
 - name: FitTrackee
   repo: samr1/fittrackee
   groups:
-  - releases-11eb23dbfa0
+  - releases-fittrackee
   app_reference: fittrackee
   include_prereleases: false
 - name: Fizzy
   repo: basecamp/fizzy
   groups:
-  - releases-3ae27b755cb
+  - releases-fizzy
   app_reference: fizzy
   include_prereleases: false
 - name: Fladder
   repo: donutware/fladder
   groups:
-  - releases-a785cb22d3d
+  - releases-fladder
   app_reference: fladder
   include_prereleases: false
 - name: FlareSolverr
   repo: flaresolverr/flaresolverr
   groups:
-  - releases-d67d2af557b
+  - releases-flaresolverr
   app_reference: flaresolverr
   include_prereleases: false
 - name: Flarum
   repo: flarum/flarum
   groups:
-  - releases-8eb4c706c52
+  - releases-flarum
   app_reference: flarum
   include_prereleases: false
 - name: FlashPaper
   repo: andrewpaglusch/flashpaper
   groups:
-  - releases-e38507f099d
+  - releases-flashpaper
   app_reference: flashpaper
   include_prereleases: false
 - name: Flatnotes
   repo: dullage/flatnotes
   groups:
-  - releases-666ed9e2ba0
+  - releases-flatnotes
   app_reference: flatnotes
   include_prereleases: false
 - name: Fli.so
   repo: thisuxhq/fli.so
   groups:
-  - releases-912d0a8f809
+  - releases-fli-so
   app_reference: fli-so
   include_prereleases: false
 - name: Flood
   repo: jesec/flood
   groups:
-  - releases-03902a6c0cb
+  - releases-flood
   app_reference: flood
   include_prereleases: false
 - name: Flow-Like
   repo: rheosoph/flow-like
   groups:
-  - releases-c3c034f59ad
+  - releases-flow-like
   app_reference: flow-like
   include_prereleases: false
 - name: FluidCalendar
   repo: dotnetfactory/fluid-calendar
   groups:
-  - releases-5613cbb11cc
+  - releases-fluidcalendar
   app_reference: fluidcalendar
   include_prereleases: false
 - name: Fluxer
   repo: fluxerapp/fluxer
   groups:
-  - releases-f8382c85ce1
+  - releases-fluxer
   app_reference: fluxer
   include_prereleases: false
 - name: Foldergram
   repo: foldergram/foldergram
   groups:
-  - releases-a568dec783e
+  - releases-foldergram
   app_reference: foldergram
   include_prereleases: false
 - name: FolderHost
   repo: mertjsx/folderhost
   groups:
-  - releases-aee20bbaec7
+  - releases-folderhost
   app_reference: folderhost
   include_prereleases: false
 - name: Formbricks
   repo: formbricks/formbricks
   groups:
-  - releases-961b516bc2d
+  - releases-formbricks
   app_reference: formbricks
   include_prereleases: false
 - name: Forms.md
   repo: formsmd/formsmd
   groups:
-  - releases-4b3c74d146e
+  - releases-forms-md
   app_reference: forms-md
   include_prereleases: false
 - name: Foundry Virtual Tabletop
   repo: foundryvtt/foundryvtt
   groups:
-  - releases-2a45114b9a2
+  - releases-foundry-virtual-tabletop
   app_reference: foundry-virtual-tabletop
   include_prereleases: false
 - name: ERPNext
   repo: frappe/erpnext
   groups:
-  - releases-7398b1f24cb
+  - releases-frappe-erpnext
   app_reference: frappe-erpnext
   include_prereleases: false
 - name: FreeScout
   repo: freescout-help-desk/freescout
   groups:
-  - releases-08b085c576f
+  - releases-freescout
   app_reference: freescout
   include_prereleases: false
 - name: FreshRSS
   repo: freshrss/freshrss
   groups:
-  - releases-92c3461d5f2
+  - releases-freshrss
   app_reference: freshrss
   include_prereleases: false
 - name: Friendica
   repo: friendica/friendica
   groups:
-  - releases-65b40551600
+  - releases-friendica
   app_reference: friendica
   include_prereleases: false
 - name: Frigate
   repo: blakeblackshear/frigate
   groups:
-  - releases-efab3b39790
+  - releases-frigate
   app_reference: frigate
   include_prereleases: false
 - name: Frigate-Notify
   repo: 0x2142/frigate-notify
   groups:
-  - releases-f60c402f1e9
+  - releases-frigate-notify
   app_reference: frigate-notify
   include_prereleases: false
 - name: FTPGrab
   repo: crazy-max/ftpgrab
   groups:
-  - releases-1989d1fac44
+  - releases-ftpgrab
   app_reference: ftpgrab
   include_prereleases: false
 - name: Fusion
   repo: 0x2e/fusion
   groups:
-  - releases-4638c7885ea
+  - releases-fusion-rss
   app_reference: fusion-rss
   include_prereleases: false
 - name: Fussel
   repo: cbenning/fussel
   groups:
-  - releases-fe9848502f6
+  - releases-fussel
   app_reference: fussel
   include_prereleases: false
 - name: Games on Whales
   repo: games-on-whales/wolf
   groups:
-  - releases-f4ff8f9f3f0
+  - releases-games-on-whales
   app_reference: games-on-whales
   include_prereleases: false
 - name: GameVault
   repo: phalcode/gamevault-app
   groups:
-  - releases-a3f3ff36aa6
+  - releases-gamevault
   app_reference: gamevault
   include_prereleases: false
 - name: Gameyfin
   repo: gameyfin/gameyfin
   groups:
-  - releases-5732dfe2388
+  - releases-gameyfin
   app_reference: gameyfin
   include_prereleases: false
 - name: Ganymede
   repo: zibbp/ganymede
   groups:
-  - releases-4648e0ea141
+  - releases-ganymede
   app_reference: ganymede
   include_prereleases: false
 - name: Garage
   repo: deuxfleurs-org/garage
   groups:
-  - releases-9600e711fed
+  - releases-garage
   app_reference: garage
   include_prereleases: false
 - name: Garmin Grafana
   repo: arpanghosh8453/garmin-grafana
   groups:
-  - releases-04d7b4ae679
+  - releases-garmin-grafana
   app_reference: garmin-grafana
   include_prereleases: false
 - name: Gaseous
   repo: gaseous-project/gaseous-server
   groups:
-  - releases-ddfb58d1012
+  - releases-gaseous
   app_reference: gaseous
   include_prereleases: false
 - name: Gathio
   repo: lowercasename/gathio
   groups:
-  - releases-b7c99c06a22
+  - releases-gathio
   app_reference: gathio
   include_prereleases: false
 - name: Gatus
   repo: twin/gatus
   groups:
-  - releases-1483efabe23
+  - releases-gatus
   app_reference: gatus
   include_prereleases: false
 - name: GeoPulse
   repo: tess1o/geopulse
   groups:
-  - releases-11e3fcdc0ad
+  - releases-geopulse
   app_reference: geopulse
   include_prereleases: false
 - name: Gerbera
   repo: gerbera/gerbera
   groups:
-  - releases-143225965ac
+  - releases-gerbera
   app_reference: gerbera
   include_prereleases: false
 - name: Ghost
   repo: tryghost/ghost
   groups:
-  - releases-ee1c966eb7b
+  - releases-ghost
   app_reference: ghost
   include_prereleases: false
 - name: Ghostfolio
   repo: ghostfolio/ghostfolio
   groups:
-  - releases-124b7afbfa6
+  - releases-ghostfolio
   app_reference: ghostfolio
   include_prereleases: false
 - name: ghstats
   repo: vladkens/ghstats
   groups:
-  - releases-9bb9f8b0c54
+  - releases-ghstats
   app_reference: ghstats
   include_prereleases: false
 - name: Giraffile
   repo: coffeetron832/giraffile
   groups:
-  - releases-8f1212e1398
+  - releases-giraffile
   app_reference: giraffile
   include_prereleases: false
 - name: Gitea
   repo: go-gitea/gitea
   groups:
-  - releases-7d142efadd9
+  - releases-gitea
   app_reference: gitea
   include_prereleases: false
 - name: GitHub Release Monitor
   repo: iamspido/github-release-monitor
   groups:
-  - releases-a15e3c4040d
+  - releases-github-release-monitor
   app_reference: github-release-monitor
   include_prereleases: false
 - name: GitSave
   repo: timwitzdam/gitsave
   groups:
-  - releases-ea74b9b852b
+  - releases-gitsave
   app_reference: gitsave
   include_prereleases: false
 - name: Gladys Assistant
   repo: gladysassistant/gladys
   groups:
-  - releases-3894f5c36ae
+  - releases-gladys-assistant
   app_reference: gladys-assistant
   include_prereleases: false
 - name: Glance
   repo: glanceapp/glance
   groups:
-  - releases-20320c5fc4c
+  - releases-glance
   app_reference: glance
   include_prereleases: false
 - name: Glances
   repo: nicolargo/glances
   groups:
-  - releases-302515bc227
+  - releases-glances
   app_reference: glances
   include_prereleases: false
 - name: GLAuth
   repo: glauth/glauth
   groups:
-  - releases-47e25907fa4
+  - releases-glauth
   app_reference: glauth
   include_prereleases: false
 - name: Global Threat Map
   repo: unicodeveloper/globalthreatmap
   groups:
-  - releases-0aee80dfaca
+  - releases-global-threat-map
   app_reference: global-threat-map
   include_prereleases: false
 - name: GLPI
   repo: glpi-project/glpi
   groups:
-  - releases-f8d46080bd0
+  - releases-glpi
   app_reference: glpi
   include_prereleases: false
 - name: Gmail Cleaner
   repo: gururagavendra/gmail-cleaner
   groups:
-  - releases-50f027fb2bf
+  - releases-gmail-cleaner
   app_reference: gmail-cleaner
   include_prereleases: false
 - name: GoatCounter
   repo: arp242/goatcounter
   groups:
-  - releases-81228262bd1
+  - releases-goatcounter
   app_reference: goatcounter
   include_prereleases: false
 - name: GoAway
   repo: pommee/goaway
   groups:
-  - releases-cd7d1531566
+  - releases-goaway
   app_reference: goaway
   include_prereleases: false
 - name: GoCron
   repo: flohoss/gocron
   groups:
-  - releases-399c3f2b7ac
+  - releases-gocron
   app_reference: gocron
   include_prereleases: false
 - name: Gogs
   repo: gogs/gogs
   groups:
-  - releases-d61323ba654
+  - releases-gogs
   app_reference: gogs
   include_prereleases: false
 - name: Gokapi
   repo: forceu/gokapi
   groups:
-  - releases-329dce107db
+  - releases-gokapi
   app_reference: gokapi
   include_prereleases: false
 - name: Gotenberg
   repo: gotenberg/gotenberg
   groups:
-  - releases-845c272d914
+  - releases-gotenberg
   app_reference: gotenberg
   include_prereleases: false
 - name: Gotify
   repo: gotify/server
   groups:
-  - releases-3fb15d1b119
+  - releases-gotify
   app_reference: gotify
   include_prereleases: false
 - name: Grafana
   repo: grafana/grafana
   groups:
-  - releases-3c03676f040
+  - releases-grafana
   app_reference: grafana
   include_prereleases: false
 - name: Gramps
   repo: gramps-project/gramps
   groups:
-  - releases-5b787d1d2fa
+  - releases-gramps
   app_reference: gramps
   include_prereleases: false
 - name: Gravity
   repo: beryju/gravity
   groups:
-  - releases-cd7d8a60dae
+  - releases-gravity
   app_reference: gravity
   include_prereleases: false
 - name: Graylog
   repo: graylog2/graylog2-server
   groups:
-  - releases-e240ca5cb84
+  - releases-graylog
   app_reference: graylog
   include_prereleases: false
 - name: Grimmory
   repo: grimmory-tools/grimmory
   groups:
-  - releases-aa244f89599
+  - releases-grimmory
   app_reference: grimmory
   include_prereleases: false
 - name: Grimoire
   repo: goniszewski/grimoire
   groups:
-  - releases-cd2ac3119c9
+  - releases-grimoire
   app_reference: grimoire
   include_prereleases: false
 - name: Grist
   repo: gristlabs/grist-core
   groups:
-  - releases-bd63dfd37f7
+  - releases-grist
   app_reference: grist
   include_prereleases: false
 - name: Grocy
   repo: grocy/grocy
   groups:
-  - releases-7f10847490c
+  - releases-grocy
   app_reference: grocy
   include_prereleases: false
 - name: Guacamole
   repo: apache/guacamole-server
   groups:
-  - releases-7e12afd0d2f
+  - releases-guacamole
   app_reference: guacamole
   include_prereleases: false
 - name: Guardian
   repo: hydroshieldmkii/guardian
   groups:
-  - releases-2820c18bea4
+  - releases-guardian-plex
   app_reference: guardian-plex
   include_prereleases: false
 - name: Habitat
   repo: carlnewton/habitat
   groups:
-  - releases-37bcc08aefb
+  - releases-habitat-social
   app_reference: habitat-social
   include_prereleases: false
 - name: Habitica
   repo: habitrpg/habitica
   groups:
-  - releases-16df71c38f6
+  - releases-habitica
   app_reference: habitica
   include_prereleases: false
 - name: HabitSync
   repo: jofoerster/habitsync
   groups:
-  - releases-bb0351fa2cb
+  - releases-habitsync
   app_reference: habitsync
   include_prereleases: false
 - name: HabitTrove
   repo: dohsimpson/habittrove
   groups:
-  - releases-4b267d8071b
+  - releases-habittrove
   app_reference: habittrove
   include_prereleases: false
 - name: Hammer
   repo: darkrock-studios/hammer-editor
   groups:
-  - releases-4a78d5d89be
+  - releases-hammer-editor
   app_reference: hammer-editor
   include_prereleases: false
 - name: HandBrake Web
   repo: thenickoftime/handbrake-web
   groups:
-  - releases-7b451814ff7
+  - releases-handbrake-web
   app_reference: handbrake-web
   include_prereleases: false
 - name: HAProxy
   repo: haproxy/haproxy
   groups:
-  - releases-a8669b7f683
+  - releases-haproxy
   app_reference: haproxy
   include_prereleases: false
 - name: Haptic
   repo: chroxify/haptic
   groups:
-  - releases-afa41255da7
+  - releases-haptic
   app_reference: haptic
   include_prereleases: false
 - name: Haven
   repo: ancsemi/haven
   groups:
-  - releases-0d5c02aabee
+  - releases-haven
   app_reference: haven
   include_prereleases: false
 - name: Headplane
   repo: tale/headplane
   groups:
-  - releases-e3f78ad8788
+  - releases-headplane
   app_reference: headplane
   include_prereleases: false
 - name: Headscale
   repo: juanfont/headscale
   groups:
-  - releases-40b29f4d225
+  - releases-headscale
   app_reference: headscale
   include_prereleases: false
 - name: Healthchecks
   repo: healthchecks/healthchecks
   groups:
-  - releases-03f377bb3c7
+  - releases-healthchecks
   app_reference: healthchecks
   include_prereleases: false
 - name: HealthLog
   repo: mbombeck/healthlog
   groups:
-  - releases-bd21f47550e
+  - releases-healthlog
   app_reference: healthlog
   include_prereleases: false
 - name: HedgeDoc
   repo: hedgedoc/hedgedoc
   groups:
-  - releases-a63fa940dde
+  - releases-hedgedoc
   app_reference: hedgedoc
   include_prereleases: false
 - name: Heimdall
   repo: linuxserver/heimdall
   groups:
-  - releases-8f488995320
+  - releases-heimdall
   app_reference: heimdall
   include_prereleases: false
 - name: HermesSEG
   repo: deeztek/hermes-secure-email-gateway
   groups:
-  - releases-5a2b50b3edf
+  - releases-hermesseg
   app_reference: hermesseg
   include_prereleases: false
 - name: HeyForm
   repo: heyform/heyform
   groups:
-  - releases-ed3d5cfc228
+  - releases-heyform
   app_reference: heyform
   include_prereleases: false
 - name: Hi.Events
   repo: hieventsdev/hi.events
   groups:
-  - releases-2cc76d6c7f2
+  - releases-hi-events
   app_reference: hi-events
   include_prereleases: false
 - name: Hollo
   repo: fedify-dev/hollo
   groups:
-  - releases-fc7f715c3fa
+  - releases-hollo
   app_reference: hollo
   include_prereleases: false
 - name: HolyArrs
   repo: holyarrs/holyarrs
   groups:
-  - releases-f444b4191f4
+  - releases-holyarrs
   app_reference: holyarrs
   include_prereleases: false
 - name: Homarr
   repo: homarr-labs/homarr
   groups:
-  - releases-7774f63d18d
+  - releases-homarr
   app_reference: homarr
   include_prereleases: false
 - name: Homarr iFrames
   repo: diogovalentte/homarr-iframes
   groups:
-  - releases-ef35333c773
+  - releases-homarr-iframes
   app_reference: homarr-iframes
   include_prereleases: false
 - name: HA Time Machine
   repo: saihgupr/homeassistanttimemachine
   groups:
-  - releases-435d101b38c
+  - releases-home-assistant-time-machine
   app_reference: home-assistant-time-machine
   include_prereleases: false
 - name: Homebox
   repo: sysadminsmedia/homebox
   groups:
-  - releases-907c6df0c01
+  - releases-homebox
   app_reference: homebox
   include_prereleases: false
 - name: HomeButler
   repo: higangssh/homebutler
   groups:
-  - releases-abeea621246
+  - releases-homebutler
   app_reference: homebutler
   include_prereleases: false
 - name: Homelable
   repo: pouzor/homelable
   groups:
-  - releases-e6c44f5ee9c
+  - releases-homelable
   app_reference: homelable
   include_prereleases: false
 - name: Homepage
   repo: gethomepage/homepage
   groups:
-  - releases-45bc82d68f0
+  - releases-homepage
   app_reference: homepage
   include_prereleases: false
 - name: Homer
   repo: homer-dashboard/homer
   groups:
-  - releases-fdcd952a565
+  - releases-homer
   app_reference: homer
   include_prereleases: false
 - name: HomeTube
   repo: egalitarianmonkey/hometube
   groups:
-  - releases-ebcc44d2c86
+  - releases-hometube
   app_reference: hometube
   include_prereleases: false
 - name: Honey
   repo: dani3l0/honey
   groups:
-  - releases-1e8237550ce
+  - releases-honey
   app_reference: honey
   include_prereleases: false
 - name: Hoodik
   repo: hudikhq/hoodik
   groups:
-  - releases-58244fdf506
+  - releases-hoodik
   app_reference: hoodik
   include_prereleases: false
 - name: Hook0
   repo: hook0/hook0
   groups:
-  - releases-618977e4a52
+  - releases-hook0
   app_reference: hook0
   include_prereleases: false
 - name: HortusFox
   repo: danielbrendel/hortusfox-web
   groups:
-  - releases-6453715f19a
+  - releases-hortusfox
   app_reference: hortusfox
   include_prereleases: false
 - name: Huginn
   repo: huginn/huginn
   groups:
-  - releases-29adb650047
+  - releases-huginn
   app_reference: huginn
   include_prereleases: false
 - name: HumHub
   repo: humhub/humhub
   groups:
-  - releases-71dd76c362c
+  - releases-humhub
   app_reference: humhub
   include_prereleases: false
 - name: Hyvor Relay
   repo: hyvor/relay
   groups:
-  - releases-41531f22da3
+  - releases-hyvor-relay
   app_reference: hyvor-relay
   include_prereleases: false
 - name: I, Librarian
   repo: mkucej/i-librarian-free
   groups:
-  - releases-653f3b8e917
+  - releases-i-librarian
   app_reference: i-librarian
   include_prereleases: false
 - name: Ideon
   repo: 3xpyth0n/ideon
   groups:
-  - releases-3c040b8c409
+  - releases-ideon
   app_reference: ideon
   include_prereleases: false
 - name: Ignidash
   repo: schelskedevco/ignidash
   groups:
-  - releases-119bd22172b
+  - releases-ignidash
   app_reference: ignidash
   include_prereleases: false
 - name: Ignis
   repo: nystik-gh/ignis
   groups:
-  - releases-7cb348edae3
+  - releases-ignis
   app_reference: ignis
   include_prereleases: false
 - name: ImgCompress
   repo: karimz1/imgcompress
   groups:
-  - releases-193abea68b4
+  - releases-imgcompress
   app_reference: imgcompress
   include_prereleases: false
 - name: Immich-Frame
   repo: immichframe/immichframe
   groups:
-  - releases-935ce52ae23
+  - releases-immich-frame
   app_reference: immich-frame
   include_prereleases: false
 - name: Immich Kiosk
   repo: damongolding/immich-kiosk
   groups:
-  - releases-80cbbf13a3d
+  - releases-immich-kiosk
   app_reference: immich-kiosk
   include_prereleases: false
 - name: Immich Power Tools
   repo: immich-power-tools/immich-power-tools
   groups:
-  - releases-816f6866dcd
+  - releases-immich-power-tools
   app_reference: immich-power-tools
   include_prereleases: false
 - name: Immich Public Proxy
   repo: alangrainger/immich-public-proxy
   groups:
-  - releases-fcc86d64432
+  - releases-immich-public-proxy
   app_reference: immich-public-proxy
   include_prereleases: false
 - name: Infisical
   repo: infisical/infisical
   groups:
-  - releases-fd801dc78df
+  - releases-infisical
   app_reference: infisical
   include_prereleases: false
 - name: InfluxDB
   repo: influxdata/influxdb
   groups:
-  - releases-79e243e3823
+  - releases-influxdb
   app_reference: influxdb
   include_prereleases: false
 - name: InvenTree
   repo: inventree/inventree
   groups:
-  - releases-6fcfd62b0e2
+  - releases-inventree
   app_reference: inventree
   include_prereleases: false
 - name: Investbrain
   repo: investbrainapp/investbrain
   groups:
-  - releases-7d81e417440
+  - releases-investbrain
   app_reference: investbrain
   include_prereleases: false
 - name: Invidious
   repo: iv-org/invidious
   groups:
-  - releases-a25fcc6dbb8
+  - releases-invidious
   app_reference: invidious
   include_prereleases: false
 - name: Invio
   repo: kittendevv/invio
   groups:
-  - releases-82b719ba1cf
+  - releases-invio
   app_reference: invio
   include_prereleases: false
 - name: Invoice Builder
   repo: piratuks/invoice-builder
   groups:
-  - releases-3cad43f4e23
+  - releases-invoice-builder
   app_reference: invoice-builder
   include_prereleases: false
 - name: Invoice Ninja
   repo: invoiceninja/invoiceninja
   groups:
-  - releases-a125c7fcd08
+  - releases-invoice-ninja
   app_reference: invoice-ninja
   include_prereleases: false
 - name: InvoicePlane
   repo: invoiceplane/invoiceplane
   groups:
-  - releases-1eb1906c70a
+  - releases-invoiceplane
   app_reference: invoiceplane
   include_prereleases: false
 - name: Invoicerr
   repo: invoicerr-app/invoicerr
   groups:
-  - releases-d27260fbaa3
+  - releases-invoicerr
   app_reference: invoicerr
   include_prereleases: false
 - name: InvoiceShelf
   repo: invoiceshelf/invoiceshelf
   groups:
-  - releases-a244425c511
+  - releases-invoiceshelf
   app_reference: invoiceshelf
   include_prereleases: false
 - name: IronCalc
   repo: ironcalc/ironcalc
   groups:
-  - releases-91a678723a8
+  - releases-ironcalc
   app_reference: ironcalc
   include_prereleases: false
 - name: IT Tools
   repo: corentinth/it-tools
   groups:
-  - releases-b18c546b671
+  - releases-it-tools
   app_reference: it-tools
   include_prereleases: false
 - name: Jackett
   repo: jackett/jackett
   groups:
-  - releases-0b6664e4bf8
+  - releases-jackett
   app_reference: jackett
   include_prereleases: false
 - name: Jellyfin Rewind
   repo: chaphasilor/jellyfin-rewind
   groups:
-  - releases-4f7b2340e82
+  - releases-jellyfin-rewind
   app_reference: jellyfin-rewind
   include_prereleases: false
 - name: Jellystat
   repo: cyfershepard/jellystat
   groups:
-  - releases-388f2e69d7d
+  - releases-jellystat
   app_reference: jellystat
   include_prereleases: false
 - name: Jellyswarrm
   repo: llukas22/jellyswarrm
   groups:
-  - releases-6bda76a5063
+  - releases-jellyswarrm
   app_reference: jellyswarrm
   include_prereleases: false
 - name: Jellysweep
   repo: jon4hz/jellysweep
   groups:
-  - releases-08bc2347f52
+  - releases-jellysweep
   app_reference: jellysweep
   include_prereleases: false
 - name: Jelu
   repo: bayang/jelu
   groups:
-  - releases-01bcfdd5192
+  - releases-jelu
   app_reference: jelu
   include_prereleases: false
 - name: Jitsi Meet
   repo: jitsi/jitsi-meet
   groups:
-  - releases-c42b27bcde7
+  - releases-jitsi-meet
   app_reference: jitsi-meet
   include_prereleases: false
 - name: Joplin
   repo: laurent22/joplin
   groups:
-  - releases-6d5c73a4144
+  - releases-joplin
   app_reference: joplin
   include_prereleases: false
 - name: Jotty
   repo: fccview/jotty
   groups:
-  - releases-2ef4930d152
+  - releases-jotty
   app_reference: jotty
   include_prereleases: false
 - name: Journiv
   repo: journiv/journiv-app
   groups:
-  - releases-2eead5cfea5
+  - releases-journiv
   app_reference: journiv
   include_prereleases: false
 - name: K7
   repo: kaybi-gh/k7
   groups:
-  - releases-7d573833928
+  - releases-k7
   app_reference: k7
   include_prereleases: false
 - name: Kan
   repo: kanbn/kan
   groups:
-  - releases-ebbc4309709
+  - releases-kan
   app_reference: kan
   include_prereleases: false
 - name: Kanba
   repo: kanba-co/kanba
   groups:
-  - releases-fb963e09ea6
+  - releases-kanba
   app_reference: kanba
   include_prereleases: false
 - name: Kanboard
   repo: kanboard/kanboard
   groups:
-  - releases-9ed629aa840
+  - releases-kanboard
   app_reference: kanboard
   include_prereleases: false
 - name: Kaneo
   repo: usekaneo/kaneo
   groups:
-  - releases-763012ed251
+  - releases-kaneo
   app_reference: kaneo
   include_prereleases: false
 - name: Kanidm
   repo: kanidm/kanidm
   groups:
-  - releases-98b7576fdd7
+  - releases-kanidm
   app_reference: kanidm
   include_prereleases: false
 - name: Kapowarr
   repo: casvt/kapowarr
   groups:
-  - releases-754c6aabf54
+  - releases-kapowarr
   app_reference: kapowarr
   include_prereleases: false
 - name: Karakeep
   repo: karakeep-app/karakeep
   groups:
-  - releases-0366331eca6
+  - releases-karakeep
   app_reference: karakeep
   include_prereleases: false
 - name: Kasm Workspaces
   repo: kasmtech/kasmvnc
   groups:
-  - releases-f2fba81b999
+  - releases-kasm-workspaces
   app_reference: kasm-workspaces
   include_prereleases: false
 - name: Kavita
   repo: kareadita/kavita
   groups:
-  - releases-90731f88188
+  - releases-kavita
   app_reference: kavita
   include_prereleases: false
 - name: KeePassXC
   repo: keepassxreboot/keepassxc
   groups:
-  - releases-1b8ede2a1fe
+  - releases-keepassxc
   app_reference: keepassxc
   include_prereleases: false
 - name: Keeper
   repo: ridafkih/keeper.sh
   groups:
-  - releases-838c1122b4c
+  - releases-keeper
   app_reference: keeper
   include_prereleases: false
 - name: Keila
   repo: pentacent/keila
   groups:
-  - releases-892ae63be9d
+  - releases-keila
   app_reference: keila
   include_prereleases: false
 - name: Kener
   repo: rajnandan1/kener
   groups:
-  - releases-34d0d9924dd
+  - releases-kener
   app_reference: kener
   include_prereleases: false
 - name: Kept
   repo: ericerkz/kept
   groups:
-  - releases-9ebeaea0442
+  - releases-kept-notes
   app_reference: kept-notes
   include_prereleases: false
 - name: Kestra
   repo: kestra-io/kestra
   groups:
-  - releases-9aed883c95c
+  - releases-kestra
   app_reference: kestra
   include_prereleases: false
 - name: Keycloak
   repo: keycloak/keycloak
   groups:
-  - releases-68f0a129480
+  - releases-keycloak
   app_reference: keycloak
   include_prereleases: false
 - name: Kimai
   repo: kimai/kimai
   groups:
-  - releases-61b0ae9ac7d
+  - releases-kimai
   app_reference: kimai
   include_prereleases: false
 - name: Kinto
   repo: kinto/kinto
   groups:
-  - releases-521f799b8c1
+  - releases-kinto
   app_reference: kinto
   include_prereleases: false
 - name: KitchenOwl
   repo: tombursch/kitchenowl
   groups:
-  - releases-d675c7179e9
+  - releases-kitchenowl
   app_reference: kitchenowl
   include_prereleases: false
 - name: Kite
   repo: kite-org/kite
   groups:
-  - releases-933414e6e14
+  - releases-kite-kubernetes
   app_reference: kite-kubernetes
   include_prereleases: false
 - name: Kitsu
   repo: cgwire/kitsu
   groups:
-  - releases-2de761ba321
+  - releases-kitsu
   app_reference: kitsu
   include_prereleases: false
 - name: Koel
   repo: koel/koel
   groups:
-  - releases-65f75adbf87
+  - releases-koel
   app_reference: koel
   include_prereleases: false
 - name: Koffan
   repo: pansalut/koffan
   groups:
-  - releases-e7abf0f7a40
+  - releases-koffan
   app_reference: koffan
   include_prereleases: false
 - name: Koillection
   repo: benjaminjonard/koillection
   groups:
-  - releases-706e3da7063
+  - releases-koillection
   app_reference: koillection
   include_prereleases: false
 - name: Koito
   repo: gabehf/koito
   groups:
-  - releases-4a5068202a5
+  - releases-koito
   app_reference: koito
   include_prereleases: false
 - name: Kometa
   repo: kometa-team/kometa
   groups:
-  - releases-40f6c633bb6
+  - releases-kometa
   app_reference: kometa
   include_prereleases: false
 - name: Komga
   repo: gotson/komga
   groups:
-  - releases-0e4cfa1f368
+  - releases-komga
   app_reference: komga
   include_prereleases: false
 - name: Komodo
   repo: moghtech/komodo
   groups:
-  - releases-cf60d94deeb
+  - releases-komodo
   app_reference: komodo
   include_prereleases: false
 - name: Kontoj
   repo: galaksiotech/kontoj
   groups:
-  - releases-8e45318e4ee
+  - releases-kontoj
   app_reference: kontoj
   include_prereleases: false
 - name: Kopia
   repo: kopia/kopia
   groups:
-  - releases-16fa1896009
+  - releases-kopia
   app_reference: kopia
   include_prereleases: false
 - name: KrakenD
   repo: krakend/krakend-ce
   groups:
-  - releases-5a76354edb4
+  - releases-krakend
   app_reference: krakend
   include_prereleases: false
 - name: Ktistec
   repo: toddsundsted/ktistec
   groups:
-  - releases-4199cf5d71d
+  - releases-ktistec
   app_reference: ktistec
   include_prereleases: false
 - name: Kubero
   repo: kubero-dev/kubero
   groups:
-  - releases-7cd1f646878
+  - releases-kubero
   app_reference: kubero
   include_prereleases: false
 - name: Kubetail
   repo: kubetail-org/kubetail
   groups:
-  - releases-6d899c0a326
+  - releases-kubetail
   app_reference: kubetail
   include_prereleases: false
 - name: Kutt
   repo: thedevs-network/kutt
   groups:
-  - releases-4d0183e32d4
+  - releases-kutt
   app_reference: kutt
   include_prereleases: false
 - name: Kuvasz
   repo: kuvasz-uptime/kuvasz
   groups:
-  - releases-7e8b314e0d2
+  - releases-kuvasz
   app_reference: kuvasz
   include_prereleases: false
 - name: Kyoo
   repo: zoriya/kyoo
   groups:
-  - releases-c9f9c8d6e5f
+  - releases-kyoo
   app_reference: kyoo
   include_prereleases: false
 - name: Lab Dash
   repo: anthonygress/lab-dash
   groups:
-  - releases-77ddd09c908
+  - releases-lab-dash
   app_reference: lab-dash
   include_prereleases: false
 - name: LAN Orangutan
   repo: 291-group/lan-orangutan
   groups:
-  - releases-ab593c76e63
+  - releases-lan-orangutan
   app_reference: lan-orangutan
   include_prereleases: false
 - name: LANCommander
   repo: lancommander/lancommander
   groups:
-  - releases-5a8e417f850
+  - releases-lancommander
   app_reference: lancommander
   include_prereleases: false
 - name: Laudspeaker
   repo: laudspeaker/laudspeaker
   groups:
-  - releases-1865c9bccc9
+  - releases-laudspeaker
   app_reference: laudspeaker
   include_prereleases: false
 - name: LeafWiki
   repo: perber/leafwiki
   groups:
-  - releases-6d996f3b962
+  - releases-leafwiki
   app_reference: leafwiki
   include_prereleases: false
 - name: Leantime
   repo: leantime/leantime
   groups:
-  - releases-84f4ff47a6d
+  - releases-leantime
   app_reference: leantime
   include_prereleases: false
 - name: Lemmy
   repo: lemmynet/lemmy
   groups:
-  - releases-25b3bfade1d
+  - releases-lemmy
   app_reference: lemmy
   include_prereleases: false
 - name: LetterFeed
   repo: leonmuscoden/letterfeed
   groups:
-  - releases-2b163d8637e
+  - releases-letterfeed
   app_reference: letterfeed
   include_prereleases: false
 - name: Libre Closet
   repo: lazztech/libre-closet
   groups:
-  - releases-663d0a2b6a2
+  - releases-libre-closet
   app_reference: libre-closet
   include_prereleases: false
 - name: LibreChat
   repo: librechat-ai/librechat
   groups:
-  - releases-816f3f8b50c
+  - releases-librechat
   app_reference: librechat
   include_prereleases: false
 - name: LibreDB Studio
   repo: libredb/libredb-studio
   groups:
-  - releases-a6c393c6f7d
+  - releases-libredb-studio
   app_reference: libredb-studio
   include_prereleases: false
 - name: LibrePhotos
   repo: librephotos/librephotos
   groups:
-  - releases-9bafbea5c26
+  - releases-librephotos
   app_reference: librephotos
   include_prereleases: false
 - name: LibreSpeed
   repo: librespeed/speedtest
   groups:
-  - releases-27da967f433
+  - releases-librespeed
   app_reference: librespeed
   include_prereleases: false
 - name: LibreTranslate
   repo: libretranslate/libretranslate
   groups:
-  - releases-f4e39175b5d
+  - releases-libretranslate
   app_reference: libretranslate
   include_prereleases: false
 - name: Librum
   repo: librum-reader/librum
   groups:
-  - releases-c98e4b370f7
+  - releases-librum
   app_reference: librum
   include_prereleases: false
 - name: Lidarr
   repo: lidarr/lidarr
   groups:
-  - releases-874c0d4e4ca
+  - releases-lidarr
   app_reference: lidarr
   include_prereleases: false
 - name: Lidify
   repo: thewicklowwolf/lidify
   groups:
-  - releases-6024e005c08
+  - releases-lidify
   app_reference: lidify
   include_prereleases: false
 - name: LimeSurvey
   repo: limesurvey/limesurvey
   groups:
-  - releases-0a31af6fc04
+  - releases-limesurvey
   app_reference: limesurvey
   include_prereleases: false
 - name: Lingarr
   repo: lingarr-translate/lingarr
   groups:
-  - releases-fe70a719a93
+  - releases-lingarr
   app_reference: lingarr
   include_prereleases: false
 - name: LinguaCafe
   repo: simjanos-dev/linguacafe
   groups:
-  - releases-859d162c892
+  - releases-linguacafe
   app_reference: linguacafe
   include_prereleases: false
 - name: LinkAce
   repo: kovah/linkace
   groups:
-  - releases-1a6e562485d
+  - releases-linkace
   app_reference: linkace
   include_prereleases: false
 - name: Linkding
   repo: sissbruecker/linkding
   groups:
-  - releases-d6b69c4f9c5
+  - releases-linkding
   app_reference: linkding
   include_prereleases: false
 - name: LinkStack
   repo: linkstackorg/linkstack
   groups:
-  - releases-9bef7feca67
+  - releases-linkstack
   app_reference: linkstack
   include_prereleases: false
 - name: Linkwarden
   repo: linkwarden/linkwarden
   groups:
-  - releases-cd6ff81de1d
+  - releases-linkwarden
   app_reference: linkwarden
   include_prereleases: false
 - name: LinuxGSM
   repo: gameservermanagers/linuxgsm
   groups:
-  - releases-ea80d69ac33
+  - releases-linuxgsm
   app_reference: linuxgsm
   include_prereleases: false
 - name: Webtop
   repo: linuxserver/docker-webtop
   groups:
-  - releases-e30fe0feb03
+  - releases-linuxserver-webtop
   app_reference: linuxserver-webtop
   include_prereleases: false
 - name: Listenarr
   repo: listenarrs/listenarr
   groups:
-  - releases-3bac7fe9d3a
+  - releases-listenarr
   app_reference: listenarr
   include_prereleases: false
 - name: listmonk
   repo: knadh/listmonk
   groups:
-  - releases-c91d980b01d
+  - releases-listmonk
   app_reference: listmonk
   include_prereleases: false
 - name: Litlyx
   repo: litlyx/litlyx
   groups:
-  - releases-65af5dcd2ef
+  - releases-litlyx
   app_reference: litlyx
   include_prereleases: false
 - name: LittleLink
   repo: sethcottle/littlelink
   groups:
-  - releases-cbe0e925531
+  - releases-littlelink
   app_reference: littlelink
   include_prereleases: false
 - name: Live Blog
   repo: liveblog/liveblog
   groups:
-  - releases-6cd4ff8a308
+  - releases-live-blog
   app_reference: live-blog
   include_prereleases: false
 - name: Livebook
   repo: livebook-dev/livebook
   groups:
-  - releases-cc0f960254c
+  - releases-livebook
   app_reference: livebook
   include_prereleases: false
 - name: Liwan
   repo: explodingcamera/liwan
   groups:
-  - releases-fecd37fd3cf
+  - releases-liwan
   app_reference: liwan
   include_prereleases: false
 - name: LLDAP
   repo: lldap/lldap
   groups:
-  - releases-e49510aaf5e
+  - releases-lldap
   app_reference: lldap
   include_prereleases: false
 - name: LocalAI
   repo: mudler/localai
   groups:
-  - releases-1e817bb92b3
+  - releases-localai
   app_reference: localai
   include_prereleases: false
 - name: Localess
   repo: lessify/localess
   groups:
-  - releases-0f0d02a721d
+  - releases-localess
   app_reference: localess
   include_prereleases: false
 - name: LocalSend
   repo: localsend/localsend
   groups:
-  - releases-e8c2be357bc
+  - releases-localsend
   app_reference: localsend
   include_prereleases: false
 - name: Lodestone
   repo: lodestone-team/lodestone
   groups:
-  - releases-a182cb7fd53
+  - releases-lodestone
   app_reference: lodestone
   include_prereleases: false
 - name: Logchef
   repo: mr-karan/logchef
   groups:
-  - releases-eac984b17d8
+  - releases-logchef
   app_reference: logchef
   include_prereleases: false
 - name: Logdy
   repo: logdyhq/logdy-core
   groups:
-  - releases-81ca1b514ae
+  - releases-logdy
   app_reference: logdy
   include_prereleases: false
 - name: LogForge
   repo: log-forge/logforge
   groups:
-  - releases-3e659562dd8
+  - releases-logforge
   app_reference: logforge
   include_prereleases: false
 - name: LoggiFly
   repo: clemcer/loggifly
   groups:
-  - releases-4867f2daea7
+  - releases-loggifly
   app_reference: loggifly
   include_prereleases: false
 - name: Logseq
   repo: logseq/logseq
   groups:
-  - releases-fc93321cc35
+  - releases-logseq
   app_reference: logseq
   include_prereleases: false
 - name: Logto
   repo: logto-io/logto
   groups:
-  - releases-d81bb32a503
+  - releases-logto
   app_reference: logto
   include_prereleases: false
 - name: Loki
   repo: grafana/loki
   groups:
-  - releases-8cde5cb6299
+  - releases-loki
   app_reference: loki
   include_prereleases: false
 - name: Loops
   repo: joinloops/loops-server
   groups:
-  - releases-1a7910fbdb3
+  - releases-loops
   app_reference: loops
   include_prereleases: false
 - name: LubeLogger
   repo: hargata/lubelog
   groups:
-  - releases-cc68937092f
+  - releases-lubelogger
   app_reference: lubelogger
   include_prereleases: false
 - name: Lumio
   repo: markusthiel/lumio
   groups:
-  - releases-0841ff4c912
+  - releases-lumio
   app_reference: lumio
   include_prereleases: false
 - name: Lunalytics
   repo: ksjaay/lunalytics
   groups:
-  - releases-a502d5fc9f9
+  - releases-lunalytics
   app_reference: lunalytics
   include_prereleases: false
 - name: Lyrion Music Server
   repo: lms-community/slimserver
   groups:
-  - releases-64b501db146
+  - releases-lyrion-music-server
   app_reference: lyrion-music-server
   include_prereleases: false
 - name: m3u-editor
   repo: m3ue/m3u-editor
   groups:
-  - releases-24b64ab8907
+  - releases-m3u-editor
   app_reference: m3u-editor
   include_prereleases: false
 - name: Mafl
   repo: hywax/mafl
   groups:
-  - releases-fe7c49bf729
+  - releases-mafl
   app_reference: mafl
   include_prereleases: false
 - name: Mail Archiver
   repo: s1t5/mail-archiver
   groups:
-  - releases-9e7fd0a4efc
+  - releases-mail-archiver
   app_reference: mail-archiver
   include_prereleases: false
 - name: Mail-in-a-Box
   repo: mail-in-a-box/mailinabox
   groups:
-  - releases-d778bd3e25f
+  - releases-mail-in-a-box
   app_reference: mail-in-a-box
   include_prereleases: false
 - name: Mailcow
   repo: mailcow/mailcow-dockerized
   groups:
-  - releases-3495fef7527
+  - releases-mailcow
   app_reference: mailcow
   include_prereleases: false
 - name: MailDev
   repo: maildev/maildev
   groups:
-  - releases-9c4b0422f61
+  - releases-maildev
   app_reference: maildev
   include_prereleases: false
 - name: MailFlow
   repo: maathimself/mailflow
   groups:
-  - releases-be2dde2933d
+  - releases-mailflow-sh
   app_reference: mailflow-sh
   include_prereleases: false
 - name: Mailpit
   repo: axllent/mailpit
   groups:
-  - releases-27bf7dcac47
+  - releases-mailpit
   app_reference: mailpit
   include_prereleases: false
 - name: Mailrise
   repo: yoryan/mailrise
   groups:
-  - releases-ef1de90b21d
+  - releases-mailrise
   app_reference: mailrise
   include_prereleases: false
 - name: Mailu
   repo: mailu/mailu
   groups:
-  - releases-30444fe0555
+  - releases-mailu
   app_reference: mailu
   include_prereleases: false
 - name: Maintainerr
   repo: maintainerr/maintainerr
   groups:
-  - releases-008085232f7
+  - releases-maintainerr
   app_reference: maintainerr
   include_prereleases: false
 - name: Maintenant
   repo: kolapsis/maintenant
   groups:
-  - releases-dd3431d88a5
+  - releases-maintenant
   app_reference: maintenant
   include_prereleases: false
 - name: Maloja
   repo: krateng/maloja
   groups:
-  - releases-9ad33bd5e30
+  - releases-maloja
   app_reference: maloja
   include_prereleases: false
 - name: Manage My Damn Life
   repo: intri-in/manage-my-damn-life-nextjs
   groups:
-  - releases-0b4fd3a5366
+  - releases-manage-my-damn-life
   app_reference: manage-my-damn-life
   include_prereleases: false
 - name: Manifest
   repo: mnfst/llm-gateway
   groups:
-  - releases-1e7113086aa
+  - releases-manifest
   app_reference: manifest
   include_prereleases: false
 - name: Many Notes
   repo: brufdev/many-notes
   groups:
-  - releases-d85f68b4d66
+  - releases-many-notes
   app_reference: many-notes
   include_prereleases: false
 - name: Manyfold
   repo: manyfold3d/manyfold
   groups:
-  - releases-e13acb17bf2
+  - releases-manyfold
   app_reference: manyfold
   include_prereleases: false
 - name: Marreta
   repo: manualdousuario/marreta
   groups:
-  - releases-6fc6f8ee5ce
+  - releases-marreta
   app_reference: marreta
   include_prereleases: false
 - name: Mastodon
   repo: mastodon/mastodon
   groups:
-  - releases-d1658978ecb
+  - releases-mastodon
   app_reference: mastodon
   include_prereleases: false
 - name: Materialious
   repo: materialious/materialious
   groups:
-  - releases-214383b509e
+  - releases-materialious
   app_reference: materialious
   include_prereleases: false
 - name: Mathesar
   repo: mathesar-foundation/mathesar
   groups:
-  - releases-629721d117a
+  - releases-mathesar
   app_reference: mathesar
   include_prereleases: false
 - name: Matomo
   repo: matomo-org/matomo
   groups:
-  - releases-e7ee1c448c4
+  - releases-matomo
   app_reference: matomo
   include_prereleases: false
 - name: Mattermost
   repo: mattermost/mattermost
   groups:
-  - releases-b25b84686df
+  - releases-mattermost
   app_reference: mattermost
   include_prereleases: false
 - name: Mautic
   repo: mautic/mautic
   groups:
-  - releases-63e5c00e2ba
+  - releases-mautic
   app_reference: mautic
   include_prereleases: false
 - name: Maxun
   repo: getmaxun/maxun
   groups:
-  - releases-4da2abe7124
+  - releases-maxun
   app_reference: maxun
   include_prereleases: false
 - name: Mazanoke
   repo: civilblur/mazanoke
   groups:
-  - releases-c7e6becfdb8
+  - releases-mazanoke
   app_reference: mazanoke
   include_prereleases: false
 - name: Mbin
   repo: mbinorg/mbin
   groups:
-  - releases-57d6a86da88
+  - releases-mbin
   app_reference: mbin
   include_prereleases: false
 - name: Mealie
   repo: mealie-recipes/mealie
   groups:
-  - releases-c471ce84886
+  - releases-mealie
   app_reference: mealie
   include_prereleases: false
 - name: Medama
   repo: medama-io/medama
   groups:
-  - releases-5eabe4f297f
+  - releases-medama
   app_reference: medama
   include_prereleases: false
 - name: MedAssist
   repo: njic/medassist
   groups:
-  - releases-edb196787cf
+  - releases-medassist
   app_reference: medassist
   include_prereleases: false
 - name: MediaLyze
   repo: frederikemmer/medialyze
   groups:
-  - releases-06de79f88f6
+  - releases-medialyze
   app_reference: medialyze
   include_prereleases: false
 - name: MediaManager
   repo: maxdorninger/mediamanager
   groups:
-  - releases-3bad6510aa0
+  - releases-mediamanager
   app_reference: mediamanager
   include_prereleases: false
 - name: MediKeep
   repo: afairgiant/medikeep
   groups:
-  - releases-133782b5a70
+  - releases-medikeep
   app_reference: medikeep
   include_prereleases: false
 - name: Medusa
   repo: medusajs/medusa
   groups:
-  - releases-7b686686802
+  - releases-medusa
   app_reference: medusa
   include_prereleases: false
 - name: Meelo
   repo: arthi-chaud/meelo
   groups:
-  - releases-33bb6ac27f5
+  - releases-meelo
   app_reference: meelo
   include_prereleases: false
 - name: Meerkat CRM
   repo: meerkatcrm/meerkat-crm
   groups:
-  - releases-481c3bbe1a2
+  - releases-meerkat-crm
   app_reference: meerkat-crm
   include_prereleases: false
 - name: Meetable
   repo: aaronpk/meetable
   groups:
-  - releases-3f18c71d35c
+  - releases-meetable
   app_reference: meetable
   include_prereleases: false
 - name: Meilisearch
   repo: meilisearch/meilisearch
   groups:
-  - releases-e7db0081492
+  - releases-meilisearch
   app_reference: meilisearch
   include_prereleases: false
 - name: Melody Auth
   repo: valuemelody/melody-auth
   groups:
-  - releases-c7fcf0054df
+  - releases-melody-auth
   app_reference: melody-auth
   include_prereleases: false
 - name: Meme Search
   repo: meme-search/meme-search
   groups:
-  - releases-0e6659d284a
+  - releases-meme-search
   app_reference: meme-search
   include_prereleases: false
 - name: Memories
   repo: pulsejet/memories
   groups:
-  - releases-98783481ca7
+  - releases-memories
   app_reference: memories
   include_prereleases: false
 - name: Memos
   repo: usememos/memos
   groups:
-  - releases-53012bdcf05
+  - releases-memos
   app_reference: memos
   include_prereleases: false
 - name: Memtly
   repo: memtly/memtly.community
   groups:
-  - releases-5fe1b9c0b2c
+  - releases-memtly
   app_reference: memtly
   include_prereleases: false
 - name: Mergeable
   repo: pvcnt/mergeable
   groups:
-  - releases-bd4c84f1752
+  - releases-mergeable
   app_reference: mergeable
   include_prereleases: false
 - name: MeshCentral
   repo: ylianst/meshcentral
   groups:
-  - releases-fc882df2641
+  - releases-meshcentral
   app_reference: meshcentral
   include_prereleases: false
 - name: Meshping
   repo: svedrin/meshping
   groups:
-  - releases-ea264c73ed5
+  - releases-meshping
   app_reference: meshping
   include_prereleases: false
 - name: Metabase
   repo: metabase/metabase
   groups:
-  - releases-c8f9d7b636c
+  - releases-metabase
   app_reference: metabase
   include_prereleases: false
 - name: Metadata Remote
   repo: wow-signal-dev/metadata-remote
   groups:
-  - releases-b1859ce6318
+  - releases-metadata-remote
   app_reference: metadata-remote
   include_prereleases: false
 - name: MeTube
   repo: alexta69/metube
   groups:
-  - releases-7b1c6bd354f
+  - releases-metube
   app_reference: metube
   include_prereleases: false
 - name: MicroBin
   repo: szabodanika/microbin
   groups:
-  - releases-a1afe3314d3
+  - releases-microbin
   app_reference: microbin
   include_prereleases: false
 - name: Mindwtr
   repo: dongdongbh/mindwtr
   groups:
-  - releases-7b8d4f988c0
+  - releases-mindwtr
   app_reference: mindwtr
   include_prereleases: false
 - name: Mini QR
   repo: lyqht/mini-qr
   groups:
-  - releases-889c286d295
+  - releases-mini-qr
   app_reference: mini-qr
   include_prereleases: false
 - name: Miniflux
   repo: miniflux/v2
   groups:
-  - releases-caf86d66f9c
+  - releases-miniflux
   app_reference: miniflux
   include_prereleases: false
 - name: miniserve
   repo: svenstaro/miniserve
   groups:
-  - releases-33958576a50
+  - releases-miniserve
   app_reference: miniserve
   include_prereleases: false
 - name: Minne
   repo: perstarkse/minne
   groups:
-  - releases-2fdb6b19478
+  - releases-minne
   app_reference: minne
   include_prereleases: false
 - name: MintHCM
   repo: minthcm/minthcm
   groups:
-  - releases-393f4fbf371
+  - releases-minthcm
   app_reference: minthcm
   include_prereleases: false
 - name: MinusPod
   repo: ttlequals0/minuspod
   groups:
-  - releases-58ffe0743b0
+  - releases-minuspod
   app_reference: minuspod
   include_prereleases: false
 - name: MiroTalk
   repo: miroslavpejic85/mirotalk
   groups:
-  - releases-9aaef8ad665
+  - releases-mirotalk
   app_reference: mirotalk
   include_prereleases: false
 - name: Misskey
   repo: misskey-dev/misskey
   groups:
-  - releases-711942f68e9
+  - releases-misskey
   app_reference: misskey
   include_prereleases: false
 - name: Mixpost
   repo: inovector/mixpost
   groups:
-  - releases-4d106eaaa8a
+  - releases-mixpost
   app_reference: mixpost
   include_prereleases: false
 - name: mkbrr
   repo: autobrr/mkbrr
   groups:
-  - releases-2f6ea072c25
+  - releases-mkbrr
   app_reference: mkbrr
   include_prereleases: false
 - name: mkcert Web UI
   repo: jeffcaldwellca/mkcertweb
   groups:
-  - releases-65317e01742
+  - releases-mkcert-web-ui
   app_reference: mkcert-web-ui
   include_prereleases: false
 - name: MkDocs
   repo: mkdocs/mkdocs
   groups:
-  - releases-5b7a3457673
+  - releases-mkdocs
   app_reference: mkdocs
   include_prereleases: false
 - name: MKVPriority
   repo: kennethsible/mkvpriority
   groups:
-  - releases-ab6ee3bc7e3
+  - releases-mkvpriority
   app_reference: mkvpriority
   include_prereleases: false
 - name: Monetr
   repo: monetr/monetr
   groups:
-  - releases-da9ed5e46b4
+  - releases-monetr
   app_reference: monetr
   include_prereleases: false
 - name: Monica
   repo: monicahq/monica
   groups:
-  - releases-26f193ca59d
+  - releases-monica
   app_reference: monica
   include_prereleases: false
 - name: Moocup
   repo: jellydeck/moocup
   groups:
-  - releases-21325fdda5d
+  - releases-moocup
   app_reference: moocup
   include_prereleases: false
 - name: Moodist
   repo: remvze/moodist
   groups:
-  - releases-d6a98708ad0
+  - releases-moodist
   app_reference: moodist
   include_prereleases: false
 - name: Moodle
   repo: moodle/moodle
   groups:
-  - releases-772478f2c0b
+  - releases-moodle
   app_reference: moodle
   include_prereleases: false
 - name: Mosquitto
   repo: eclipse-mosquitto/mosquitto
   groups:
-  - releases-81d1cd694c2
+  - releases-mosquitto
   app_reference: mosquitto
   include_prereleases: false
 - name: Movary
   repo: leepeuker/movary
   groups:
-  - releases-d916dcabcd3
+  - releases-movary
   app_reference: movary
   include_prereleases: false
 - name: Movim
   repo: movim/movim
   groups:
-  - releases-cc8b084e317
+  - releases-movim
   app_reference: movim
   include_prereleases: false
 - name: MQTT Web Interface
   repo: terdia/mqttui
   groups:
-  - releases-658ab28ee49
+  - releases-mqtt-web-interface
   app_reference: mqtt-web-interface
   include_prereleases: false
 - name: Multi-Scrobbler
   repo: foxxmd/multi-scrobbler
   groups:
-  - releases-babb5740cfc
+  - releases-multi-scrobbler
   app_reference: multi-scrobbler
   include_prereleases: false
 - name: Mumble
   repo: mumble-voip/mumble
   groups:
-  - releases-8b025a972ed
+  - releases-mumble
   app_reference: mumble
   include_prereleases: false
 - name: Music Assistant
   repo: music-assistant/server
   groups:
-  - releases-f3cc09bc7e7
+  - releases-music-assistant
   app_reference: music-assistant
   include_prereleases: false
 - name: Music Service
   repo: thijstakken/musicservice
   groups:
-  - releases-1ef17ece7b0
+  - releases-music-service
   app_reference: music-service
   include_prereleases: false
 - name: MyFin
   repo: afaneca/myfin
   groups:
-  - releases-9ba08780149
+  - releases-myfin
   app_reference: myfin
   include_prereleases: false
 - name: Mylar3
   repo: mylarcomics/mylar3
   groups:
-  - releases-f7418972575
+  - releases-mylar3
   app_reference: mylar3
   include_prereleases: false
 - name: MySpeed
   repo: gnmyt/myspeed
   groups:
-  - releases-7d103694ac7
+  - releases-myspeed
   app_reference: myspeed
   include_prereleases: false
 - name: Nakama
   repo: heroiclabs/nakama
   groups:
-  - releases-d5f73e29422
+  - releases-nakama
   app_reference: nakama
   include_prereleases: false
 - name: Nametag
   repo: mattogodoy/nametag
   groups:
-  - releases-d19a88a5579
+  - releases-nametag
   app_reference: nametag
   include_prereleases: false
 - name: NanoClaw
   repo: nanocoai/nanoclaw
   groups:
-  - releases-3ca40206c32
+  - releases-nanoclaw
   app_reference: nanoclaw
   include_prereleases: false
 - name: Navidrome
   repo: navidrome/navidrome
   groups:
-  - releases-a561e4baa66
+  - releases-navidrome
   app_reference: navidrome
   include_prereleases: false
 - name: Neko
   repo: m1k1o/neko
   groups:
-  - releases-3d31a1aa3e1
+  - releases-neko
   app_reference: neko
   include_prereleases: false
 - name: NeoDB
   repo: neodb-social/neodb
   groups:
-  - releases-37e851d5b30
+  - releases-neodb
   app_reference: neodb
   include_prereleases: false
 - name: NetAlertX
   repo: netalertx/netalertx
   groups:
-  - releases-0d76d8fe99c
+  - releases-netalertx
   app_reference: netalertx
   include_prereleases: false
 - name: NetBird
   repo: netbirdio/netbird
   groups:
-  - releases-2cd6b11c6c8
+  - releases-netbird
   app_reference: netbird
   include_prereleases: false
 - name: NetBox
   repo: netbox-community/netbox
   groups:
-  - releases-fee06cefb56
+  - releases-netbox
   app_reference: netbox
   include_prereleases: false
 - name: Netdata
   repo: netdata/netdata
   groups:
-  - releases-464e9a3c206
+  - releases-netdata
   app_reference: netdata
   include_prereleases: false
 - name: Netronome
   repo: autobrr/netronome
   groups:
-  - releases-834dd427823
+  - releases-netronome
   app_reference: netronome
   include_prereleases: false
 - name: NewsBlur
   repo: samuelclay/newsblur
   groups:
-  - releases-11d2836a05e
+  - releases-newsblur
   app_reference: newsblur
   include_prereleases: false
 - name: Nextcloud
   repo: nextcloud/server
   groups:
-  - releases-42554ab904b
+  - releases-nextcloud
   app_reference: nextcloud
   include_prereleases: false
 - name: Nextcloud Deck
   repo: nextcloud/deck
   groups:
-  - releases-abbe2f8ec5b
+  - releases-nextcloud-deck
   app_reference: nextcloud-deck
   include_prereleases: false
 - name: Nextcloud Forms
   repo: nextcloud/forms
   groups:
-  - releases-0735c4ca233
+  - releases-nextcloud-forms
   app_reference: nextcloud-forms
   include_prereleases: false
 - name: Nextcloud Mail
   repo: nextcloud/mail
   groups:
-  - releases-14610e09e9d
+  - releases-nextcloud-mail
   app_reference: nextcloud-mail
   include_prereleases: false
 - name: Nextcloud News
   repo: nextcloud/news
   groups:
-  - releases-68720cb5510
+  - releases-nextcloud-news
   app_reference: nextcloud-news
   include_prereleases: false
 - name: Nextcloud Notes
   repo: nextcloud/notes
   groups:
-  - releases-8abfcfdf748
+  - releases-nextcloud-notes
   app_reference: nextcloud-notes
   include_prereleases: false
 - name: Nextcloud Office
   repo: nextcloud/richdocuments
   groups:
-  - releases-9666768fe79
+  - releases-nextcloud-office
   app_reference: nextcloud-office
   include_prereleases: false
 - name: Nextcloud Social
   repo: alohasocial/social
   groups:
-  - releases-1b9731626fc
+  - releases-nextcloud-social
   app_reference: nextcloud-social
   include_prereleases: false
 - name: Nextcloud Tables
   repo: nextcloud/tables
   groups:
-  - releases-c1f93dba2f9
+  - releases-nextcloud-tables
   app_reference: nextcloud-tables
   include_prereleases: false
 - name: Nextcloud Talk
   repo: nextcloud/spreed
   groups:
-  - releases-495cc669055
+  - releases-nextcloud-talk
   app_reference: nextcloud-talk
   include_prereleases: false
 - name: Nextcloud Tasks
   repo: nextcloud/tasks
   groups:
-  - releases-c9dba47d876
+  - releases-nextcloud-tasks
   app_reference: nextcloud-tasks
   include_prereleases: false
 - name: Nexterm
   repo: gnmyt/nexterm
   groups:
-  - releases-f74f80cbad9
+  - releases-nexterm
   app_reference: nexterm
   include_prereleases: false
 - name: NextExplorer
   repo: nxzai/nextexplorer
   groups:
-  - releases-3140149c347
+  - releases-nextexplorer
   app_reference: nextexplorer
   include_prereleases: false
 - name: Nezha
   repo: nezhahq/nezha
   groups:
-  - releases-7cd7ebe00bb
+  - releases-nezha
   app_reference: nezha
   include_prereleases: false
 - name: nforwardauth
   repo: nosduco/nforwardauth
   groups:
-  - releases-2b6a9697faa
+  - releases-nforwardauth
   app_reference: nforwardauth
   include_prereleases: false
 - name: Nginx UI
   repo: 0xjacky/nginx-ui
   groups:
-  - releases-f85853fa040
+  - releases-nginx-ui
   app_reference: nginx-ui
   include_prereleases: false
 - name: Nightingale
   repo: rzru/nightingale
   groups:
-  - releases-83812c53b2a
+  - releases-nightingale-karaoke
   app_reference: nightingale-karaoke
   include_prereleases: false
 - name: Nimtable
   repo: nimtable/nimtable
   groups:
-  - releases-0f54b802ef2
+  - releases-nimtable
   app_reference: nimtable
   include_prereleases: false
 - name: Nixopus
   repo: nixopus/nixopus
   groups:
-  - releases-bd1cd0d4bc5
+  - releases-nixopus
   app_reference: nixopus
   include_prereleases: false
 - name: NocoBase
   repo: nocobase/nocobase
   groups:
-  - releases-eabd6a8ead1
+  - releases-nocobase
   app_reference: nocobase
   include_prereleases: false
 - name: NocoDB
   repo: nocodb/nocodb
   groups:
-  - releases-b723b2fb48e
+  - releases-nocodb
   app_reference: nocodb
   include_prereleases: false
 - name: Node-RED
   repo: node-red/node-red
   groups:
-  - releases-ddd9f6119dc
+  - releases-node-red
   app_reference: node-red
   include_prereleases: false
 - name: NodeBB
   repo: nodebb/nodebb
   groups:
-  - releases-39e556ca72b
+  - releases-nodebb
   app_reference: nodebb
   include_prereleases: false
 - name: nodecast-tv
   repo: technomancer702/nodecast-tv
   groups:
-  - releases-47f7303d636
+  - releases-nodecast-tv
   app_reference: nodecast-tv
   include_prereleases: false
 - name: Nogon
   repo: asciimoo/nogon
   groups:
-  - releases-bf7d969871f
+  - releases-nogon
   app_reference: nogon
   include_prereleases: false
 - name: Noodle Gallery
   repo: open-noodle/gallery
   groups:
-  - releases-e196811e953
+  - releases-noodle-gallery
   app_reference: noodle-gallery
   include_prereleases: false
 - name: Norish
   repo: norish-recipes/norish
   groups:
-  - releases-a7875c84be7
+  - releases-norish
   app_reference: norish
   include_prereleases: false
 - name: Note Mark
   repo: enchant97/note-mark
   groups:
-  - releases-e891b72cdcf
+  - releases-note-mark
   app_reference: note-mark
   include_prereleases: false
 - name: NoteDiscovery
   repo: gamosoft/notediscovery
   groups:
-  - releases-79db0490128
+  - releases-notediscovery
   app_reference: notediscovery
   include_prereleases: false
 - name: Notesnook
   repo: streetwriters/notesnook-sync-server
   groups:
-  - releases-e9c5bd264ae
+  - releases-notesnook
   app_reference: notesnook
   include_prereleases: false
 - name: Notifiarr
   repo: notifiarr/notifiarr
   groups:
-  - releases-7d44a2c1a7b
+  - releases-notifiarr
   app_reference: notifiarr
   include_prereleases: false
 - name: Notifuse
   repo: notifuse/notifuse
   groups:
-  - releases-6f82fb8aa05
+  - releases-notifuse
   app_reference: notifuse
   include_prereleases: false
 - name: Novu
   repo: novuhq/novu
   groups:
-  - releases-c190122966f
+  - releases-novu
   app_reference: novu
   include_prereleases: false
 - name: NPMplus
   repo: zoeyvid/npmplus
   groups:
-  - releases-88c0a1ec48d
+  - releases-npmplus
   app_reference: npmplus
   include_prereleases: false
 - name: ntfy
   repo: binwiederhier/ntfy
   groups:
-  - releases-9dee0dea1d2
+  - releases-ntfy
   app_reference: ntfy
   include_prereleases: false
 - name: Nutify
   repo: dartsteven/nutify
   groups:
-  - releases-090ec306bdb
+  - releases-nutify
   app_reference: nutify
   include_prereleases: false
 - name: NutriTrace
   repo: traceapps/nutritrace
   groups:
-  - releases-313234d021d
+  - releases-nutritrace
   app_reference: nutritrace
   include_prereleases: false
 - name: NZBGet
   repo: nzbgetcom/nzbget
   groups:
-  - releases-114952342a7
+  - releases-nzbget
   app_reference: nzbget
   include_prereleases: false
 - name: OAuth2 Proxy
   repo: oauth2-proxy/oauth2-proxy
   groups:
-  - releases-0de03d6d4db
+  - releases-oauth2-proxy
   app_reference: oauth2-proxy
   include_prereleases: false
 - name: Obico
   repo: thespaghettidetective/obico-server
   groups:
-  - releases-a95a0c7b7b9
+  - releases-obico
   app_reference: obico
   include_prereleases: false
 - name: Obsidian LiveSync
   repo: vrtmrz/obsidian-livesync
   groups:
-  - releases-d29a0aa3ae0
+  - releases-obsidian-livesync
   app_reference: obsidian-livesync
   include_prereleases: false
 - name: Octelium
   repo: octelium/octelium
   groups:
-  - releases-9a23c2528df
+  - releases-octelium
   app_reference: octelium
   include_prereleases: false
 - name: OctoPrint
   repo: octoprint/octoprint
   groups:
-  - releases-0b1154390e4
+  - releases-octoprint
   app_reference: octoprint
   include_prereleases: false
 - name: Ocular
   repo: simonwep/ocular
   groups:
-  - releases-4def5279723
+  - releases-ocular
   app_reference: ocular
   include_prereleases: false
 - name: Odoo
   repo: odoo/odoo
   groups:
-  - releases-b7ed8be4d00
+  - releases-odoo
   app_reference: odoo
   include_prereleases: false
 - name: OliveTin
   repo: olivetin/olivetin
   groups:
-  - releases-c11e7550477
+  - releases-olivetin
   app_reference: olivetin
   include_prereleases: false
 - name: Ombi
   repo: ombi-app/ombi
   groups:
-  - releases-ab7a70b4e91
+  - releases-ombi
   app_reference: ombi
   include_prereleases: false
 - name: OmniTools
   repo: iib0011/omni-tools
   groups:
-  - releases-740308767d5
+  - releases-omnitools
   app_reference: omnitools
   include_prereleases: false
 - name: OneDev
   repo: theonedev/onedev
   groups:
-  - releases-47e888b718c
+  - releases-onedev
   app_reference: onedev
   include_prereleases: false
 - name: OneUptime
   repo: oneuptime/oneuptime
   groups:
-  - releases-c2a2bfdab59
+  - releases-oneuptime
   app_reference: oneuptime
   include_prereleases: false
 - name: Ontime
   repo: cpvalente/ontime
   groups:
-  - releases-d3745583da4
+  - releases-ontime
   app_reference: ontime
   include_prereleases: false
 - name: onWatch
   repo: onllm-dev/onwatch
   groups:
-  - releases-68792ce3b0a
+  - releases-onwatch
   app_reference: onwatch
   include_prereleases: false
 - name: Open Archiver
   repo: logiclabs-ou/openarchiver
   groups:
-  - releases-69250ccab6c
+  - releases-open-archiver
   app_reference: open-archiver
   include_prereleases: false
 - name: Open DroneLog
   repo: arpanghosh8453/open-dronelog
   groups:
-  - releases-5bdb40edbb6
+  - releases-open-dronelog
   app_reference: open-dronelog
   include_prereleases: false
 - name: Open WebUI
   repo: open-webui/open-webui
   groups:
-  - releases-39f83605709
+  - releases-open-webui
   app_reference: open-webui
   include_prereleases: false
 - name: OpenBao
   repo: openbao/openbao
   groups:
-  - releases-a9544e7ba36
+  - releases-openbao
   app_reference: openbao
   include_prereleases: false
 - name: OpenBudgeteer
   repo: theaxelander/openbudgeteer
   groups:
-  - releases-5adc7db6082
+  - releases-openbudgeteer
   app_reference: openbudgeteer
   include_prereleases: false
 - name: Openchangelog
   repo: jonashiltl/openchangelog
   groups:
-  - releases-92ec2866af3
+  - releases-openchangelog
   app_reference: openchangelog
   include_prereleases: false
 - name: OpenClaw
   repo: openclaw/openclaw
   groups:
-  - releases-1604e849ac8
+  - releases-openclaw
   app_reference: openclaw
   include_prereleases: false
 - name: OpenCloud
   repo: opencloud-eu/opencloud
   groups:
-  - releases-df66af2eab1
+  - releases-opencloud
   app_reference: opencloud
   include_prereleases: false
 - name: OpenCut
   repo: opencut-app/opencut
   groups:
-  - releases-4266d046395
+  - releases-opencut
   app_reference: opencut
   include_prereleases: false
 - name: OpenEMR
   repo: openemr/openemr
   groups:
-  - releases-6ceac335547
+  - releases-openemr
   app_reference: openemr
   include_prereleases: false
 - name: Opengist
   repo: thomiceli/opengist
   groups:
-  - releases-0fde27539bc
+  - releases-opengist
   app_reference: opengist
   include_prereleases: false
 - name: OpenList
   repo: openlistteam/openlist
   groups:
-  - releases-0a8d57f4536
+  - releases-openlist
   app_reference: openlist
   include_prereleases: false
 - name: OpenPanel
   repo: stefanpejcic/openpanel
   groups:
-  - releases-41582459fc4
+  - releases-openpanel
   app_reference: openpanel
   include_prereleases: false
 - name: OpenProject
   repo: opf/openproject
   groups:
-  - releases-0d043b4fb5a
+  - releases-openproject
   app_reference: openproject
   include_prereleases: false
 - name: OpenReader
   repo: richardr1126/openreader
   groups:
-  - releases-0e03fb0b3f7
+  - releases-openreader
   app_reference: openreader
   include_prereleases: false
 - name: Openreads
   repo: mateusz-bak/openreads
   groups:
-  - releases-0828e64cd52
+  - releases-openreads
   app_reference: openreads
   include_prereleases: false
 - name: OpenSign
   repo: opensignlabs/opensign
   groups:
-  - releases-90346c70452
+  - releases-opensign
   app_reference: opensign
   include_prereleases: false
 - name: OpenSpeedTest
   repo: openspeedtest/speed-test
   groups:
-  - releases-d89c7125a81
+  - releases-openspeedtest
   app_reference: openspeedtest
   include_prereleases: false
 - name: OpenTogetherTube
   repo: dyc3/opentogethertube
   groups:
-  - releases-93894a01045
+  - releases-opentogethertube
   app_reference: opentogethertube
   include_prereleases: false
 - name: OpenUEM
   repo: open-uem/openuem-console
   groups:
-  - releases-ccb741087a5
+  - releases-openuem
   app_reference: openuem
   include_prereleases: false
 - name: OpenVPN
   repo: openvpn/openvpn
   groups:
-  - releases-5ec43f63353
+  - releases-openvpn
   app_reference: openvpn
   include_prereleases: false
 - name: Operately
   repo: operately/operately
   groups:
-  - releases-9bebfad04a7
+  - releases-operately
   app_reference: operately
   include_prereleases: false
 - name: Operational
   repo: operational-co/operational.co
   groups:
-  - releases-7ef415af318
+  - releases-operational
   app_reference: operational
   include_prereleases: false
 - name: OpnForm
   repo: opnform/opnform
   groups:
-  - releases-03e02244b24
+  - releases-opnform
   app_reference: opnform
   include_prereleases: false
 - name: OPNsense
   repo: opnsense/core
   groups:
-  - releases-c6e6bb6177d
+  - releases-opnsense
   app_reference: opnsense
   include_prereleases: false
 - name: Orcah Studio
   repo: iliashad/orcah-studio
   groups:
-  - releases-af9cb065f29
+  - releases-orcah-studio
   app_reference: orcah-studio
   include_prereleases: false
 - name: Organizr
   repo: causefx/organizr
   groups:
-  - releases-118f5cff7c2
+  - releases-organizr
   app_reference: organizr
   include_prereleases: false
 - name: OrigamiVault
   repo: origamivault/origamivault
   groups:
-  - releases-c1e1fffac27
+  - releases-origamivault
   app_reference: origamivault
   include_prereleases: false
 - name: osTicket
   repo: osticket/osticket
   groups:
-  - releases-3335776d261
+  - releases-osticket
   app_reference: osticket
   include_prereleases: false
 - name: OTS
   repo: luzifer/ots
   groups:
-  - releases-1803ac9158f
+  - releases-ots
   app_reference: ots
   include_prereleases: false
 - name: Outline
   repo: outline/outline
   groups:
-  - releases-b94fee2bbef
+  - releases-outline
   app_reference: outline
   include_prereleases: false
 - name: Overleaf
   repo: overleaf/overleaf
   groups:
-  - releases-8b8226eb274
+  - releases-overleaf
   app_reference: overleaf
   include_prereleases: false
 - name: OvertChat
   repo: yoloyash/overtchat
   groups:
-  - releases-1a5fde3f2c9
+  - releases-overtchat
   app_reference: overtchat
   include_prereleases: false
 - name: Ovumcy
   repo: ovumcy/ovumcy-web
   groups:
-  - releases-72f6cc804e0
+  - releases-ovumcy
   app_reference: ovumcy
   include_prereleases: false
 - name: Owncast
   repo: owncast/owncast
   groups:
-  - releases-0219b2f4d48
+  - releases-owncast
   app_reference: owncast
   include_prereleases: false
 - name: ownCloud
   repo: owncloud/core
   groups:
-  - releases-0a39cda56db
+  - releases-owncloud
   app_reference: owncloud
   include_prereleases: false
 - name: ownCloud Infinite Scale
   repo: owncloud/ocis
   groups:
-  - releases-ae776612f76
+  - releases-owncloud-infinite-scale
   app_reference: owncloud-infinite-scale
   include_prereleases: false
 - name: OwnTracks Frontend
   repo: owntracks/frontend
   groups:
-  - releases-6c03935e047
+  - releases-owntracks-frontend
   app_reference: owntracks-frontend
   include_prereleases: false
 - name: OwnTracks Recorder
   repo: owntracks/recorder
   groups:
-  - releases-264c5905454
+  - releases-owntracks-recorder
   app_reference: owntracks-recorder
   include_prereleases: false
 - name: OxiCloud
   repo: atalayalabs/oxicloud
   groups:
-  - releases-2a87d5cdd34
+  - releases-oxicloud
   app_reference: oxicloud
   include_prereleases: false
 - name: Oxker
   repo: mrjackwills/oxker
   groups:
-  - releases-30136ecac29
+  - releases-oxker
   app_reference: oxker
   include_prereleases: false
 - name: Oxynote
   repo: oxynote/oxynote
   groups:
-  - releases-1ed99515f16
+  - releases-oxynote
   app_reference: oxynote
   include_prereleases: false
 - name: Paaster
   repo: wardpearce/paaster
   groups:
-  - releases-6625c2dab8e
+  - releases-paaster
   app_reference: paaster
   include_prereleases: false
 - name: PairDrop
   repo: schlagmichdoch/pairdrop
   groups:
-  - releases-f1ef883b041
+  - releases-pairdrop
   app_reference: pairdrop
   include_prereleases: false
 - name: Paperless AI
   repo: clusterzx/paperless-ai
   groups:
-  - releases-06383e96d8a
+  - releases-paperless-ai
   app_reference: paperless-ai
   include_prereleases: false
 - name: Paperless-ngx
   repo: paperless-ngx/paperless-ngx
   groups:
-  - releases-4c3476b2867
+  - releases-paperless-ngx
   app_reference: paperless-ngx
   include_prereleases: false
 - name: Papermark
   repo: papermark/papermark
   groups:
-  - releases-9d6f128b71f
+  - releases-papermark
   app_reference: papermark
   include_prereleases: false
 - name: Papermerge
   repo: papermerge/papermerge-core
   groups:
-  - releases-3a0318cf5ef
+  - releases-papermerge
   app_reference: papermerge
   include_prereleases: false
 - name: Papra
   repo: papra-hq/papra
   groups:
-  - releases-5c4a3e654f9
+  - releases-papra
   app_reference: papra
   include_prereleases: false
 - name: Parseable
   repo: parseablehq/parseable
   groups:
-  - releases-52fa03230b5
+  - releases-parseable
   app_reference: parseable
   include_prereleases: false
 - name: Passbolt
   repo: passbolt/passbolt_api
   groups:
-  - releases-4866cbfb7b2
+  - releases-passbolt
   app_reference: passbolt
   include_prereleases: false
 - name: Password Pusher
   repo: pglombardo/passwordpusher
   groups:
-  - releases-24d3ab38460
+  - releases-password-pusher
   app_reference: password-pusher
   include_prereleases: false
 - name: PASTA
   repo: cglatot/pasta
   groups:
-  - releases-c8430987188
+  - releases-pasta
   app_reference: pasta
   include_prereleases: false
 - name: Pastefy
   repo: interaapps/pastefy
   groups:
-  - releases-7dab7b2e3ea
+  - releases-pastefy
   app_reference: pastefy
   include_prereleases: false
 - name: PatchMon
   repo: patchmon/patchmon
   groups:
-  - releases-64641425ff9
+  - releases-patchmon
   app_reference: patchmon
   include_prereleases: false
 - name: Payload
   repo: payloadcms/payload
   groups:
-  - releases-86d9752c20a
+  - releases-payload
   app_reference: payload
   include_prereleases: false
 - name: PeaNUT
   repo: brandawg93/peanut
   groups:
-  - releases-bed3fb775f0
+  - releases-peanut
   app_reference: peanut
   include_prereleases: false
 - name: Peekaping
   repo: 0xfurai/peekaping
   groups:
-  - releases-532aba8fc3a
+  - releases-peekaping
   app_reference: peekaping
   include_prereleases: false
 - name: PeerTube
   repo: chocobozzz/peertube
   groups:
-  - releases-bd248128266
+  - releases-peertube
   app_reference: peertube
   include_prereleases: false
 - name: Pelican Panel
   repo: pelican/panel
   groups:
-  - releases-60880ffd052
+  - releases-pelican-panel
   app_reference: pelican-panel
   include_prereleases: false
 - name: Penpot
   repo: penpot/penpot
   groups:
-  - releases-41040433856
+  - releases-penpot
   app_reference: penpot
   include_prereleases: false
 - name: Pepperminty Wiki
   repo: sbrl/pepperminty-wiki
   groups:
-  - releases-b78e7bb6c7a
+  - releases-pepperminty-wiki
   app_reference: pepperminty-wiki
   include_prereleases: false
 - name: Perfice
   repo: p0lloc/perfice
   groups:
-  - releases-6ffb45ce0aa
+  - releases-perfice
   app_reference: perfice
   include_prereleases: false
 - name: Perses
   repo: perses/perses
   groups:
-  - releases-066b944909a
+  - releases-perses
   app_reference: perses
   include_prereleases: false
 - name: Personal Management System
   repo: volmarg/personal-management-system
   groups:
-  - releases-22d618dce17
+  - releases-personal-management-system
   app_reference: personal-management-system
   include_prereleases: false
 - name: Petio
   repo: petio-team/petio
   groups:
-  - releases-fb5cecffcb8
+  - releases-petio
   app_reference: petio
   include_prereleases: false
 - name: PG Back Web
   repo: eduardolat/pgbackweb
   groups:
-  - releases-87dab048c5b
+  - releases-pg-back-web
   app_reference: pg-back-web
   include_prereleases: false
 - name: pgAdmin
   repo: pgadmin-org/pgadmin4
   groups:
-  - releases-1d17d3b84b9
+  - releases-pgadmin
   app_reference: pgadmin
   include_prereleases: false
 - name: Silo
   repo: pgsty/silo
   groups:
-  - releases-56784b55172
+  - releases-pgsty-silo
   app_reference: pgsty-silo
   include_prereleases: false
 - name: Photofield
   repo: smilyorg/photofield
   groups:
-  - releases-789cf3d65ff
+  - releases-photofield
   app_reference: photofield
   include_prereleases: false
 - name: PhotoPrism
   repo: photoprism/photoprism
   groups:
-  - releases-4396dcd33b5
+  - releases-photoprism
   app_reference: photoprism
   include_prereleases: false
 - name: Photoview
   repo: photoview/photoview
   groups:
-  - releases-6149bda2389
+  - releases-photoview
   app_reference: photoview
   include_prereleases: false
 - name: phpMyAdmin
   repo: phpmyadmin/phpmyadmin
   groups:
-  - releases-5122fc934b5
+  - releases-phpmyadmin
   app_reference: phpmyadmin
   include_prereleases: false
 - name: PiGallery2
   repo: bpatrik/pigallery2
   groups:
-  - releases-b3c6d20367a
+  - releases-pigallery2
   app_reference: pigallery2
   include_prereleases: false
 - name: PigeonPod
   repo: aizhimou/pigeon-pod
   groups:
-  - releases-f723e52ab97
+  - releases-pigeonpod
   app_reference: pigeonpod
   include_prereleases: false
 - name: Pinchflat
   repo: kieraneglin/pinchflat
   groups:
-  - releases-e66adbc21ab
+  - releases-pinchflat
   app_reference: pinchflat
   include_prereleases: false
 - name: Pinchflat-ngx
   repo: thebadfella/pinchflat-ngx
   groups:
-  - releases-2ffba0e0c84
+  - releases-pinchflat-ngx
   app_reference: pinchflat-ngx
   include_prereleases: false
 - name: PinePods
   repo: madeofpendletonwool/pinepods
   groups:
-  - releases-a2d3419141d
+  - releases-pinepods
   app_reference: pinepods
   include_prereleases: false
 - name: Pingvin Share X
   repo: smp46/pingvin-share-x
   groups:
-  - releases-9befa836413
+  - releases-pingvin-share-x
   app_reference: pingvin-share-x
   include_prereleases: false
 - name: Pinkary
   repo: pinkary-project/pinkary.com
   groups:
-  - releases-e88addedd28
+  - releases-pinkary
   app_reference: pinkary
   include_prereleases: false
 - name: Pinry
   repo: pinry/pinry
   groups:
-  - releases-7baf5e206d6
+  - releases-pinry
   app_reference: pinry
   include_prereleases: false
 - name: Piped
   repo: teampiped/piped
   groups:
-  - releases-6352883cff0
+  - releases-piped
   app_reference: piped
   include_prereleases: false
 - name: Piwigo
   repo: piwigo/piwigo
   groups:
-  - releases-d2935e63ec8
+  - releases-piwigo
   app_reference: piwigo
   include_prereleases: false
 - name: Pixelfed
   repo: pixelfed/pixelfed
   groups:
-  - releases-14aef2a06ca
+  - releases-pixelfed
   app_reference: pixelfed
   include_prereleases: false
 - name: Pixelfin
   repo: nothing2obvi/pixelfin
   groups:
-  - releases-150b4dff030
+  - releases-pixelfin
   app_reference: pixelfin
   include_prereleases: false
 - name: PKVault
   repo: chnapy/pkvault
   groups:
-  - releases-e302f4762bb
+  - releases-pkvault
   app_reference: pkvault
   include_prereleases: false
 - name: PlanarAlly
   repo: kruptein/planarally
   groups:
-  - releases-4baddf1ebfb
+  - releases-planarally
   app_reference: planarally
   include_prereleases: false
 - name: Plane
   repo: makeplane/plane
   groups:
-  - releases-eec6dee53d0
+  - releases-plane
   app_reference: plane
   include_prereleases: false
 - name: Planka
   repo: plankanban/planka
   groups:
-  - releases-4edd6a0900a
+  - releases-planka
   app_reference: planka
   include_prereleases: false
 - name: Plausible
   repo: plausible/analytics
   groups:
-  - releases-b3db6ab77b3
+  - releases-plausible
   app_reference: plausible
   include_prereleases: false
 - name: PlikShare
   repo: damian-krychowski/plikshare
   groups:
-  - releases-cad3b1173da
+  - releases-plikshare
   app_reference: plikshare
   include_prereleases: false
 - name: plMail
   repo: karatektus/pl_mail
   groups:
-  - releases-edce9e07887
+  - releases-plmail
   app_reference: plmail
   include_prereleases: false
 - name: Pluton
   repo: plutonhq/pluton
   groups:
-  - releases-b18d8468c43
+  - releases-pluton
   app_reference: pluton
   include_prereleases: false
 - name: Pocket ID
   repo: pocket-id/pocket-id
   groups:
-  - releases-84448e824cc
+  - releases-pocket-id
   app_reference: pocket-id
   include_prereleases: false
 - name: PodFetch
   repo: samtv12345/podfetch
   groups:
-  - releases-cd1871a7df4
+  - releases-podfetch
   app_reference: podfetch
   include_prereleases: false
 - name: Podsync
   repo: mxpv/podsync
   groups:
-  - releases-8764ebb5f37
+  - releases-podsync
   app_reference: podsync
   include_prereleases: false
 - name: Poenskelisten
   repo: aunefyren/poenskelisten
   groups:
-  - releases-64d6d275dbf
+  - releases-poenskelisten
   app_reference: poenskelisten
   include_prereleases: false
 - name: PoeticMetric
   repo: th0th/poeticmetric
   groups:
-  - releases-c038dbe6a5c
+  - releases-poeticmetric
   app_reference: poeticmetric
   include_prereleases: false
 - name: Polaris
   repo: agersant/polaris
   groups:
-  - releases-695fff823db
+  - releases-polaris
   app_reference: polaris
   include_prereleases: false
 - name: Portabase
   repo: portabase/portabase
   groups:
-  - releases-c8f0b45244b
+  - releases-portabase
   app_reference: portabase
   include_prereleases: false
 - name: portracker
   repo: mostafa-wahied/portracker
   groups:
-  - releases-15789aa7954
+  - releases-portracker
   app_reference: portracker
   include_prereleases: false
 - name: positive-intentions Chat
   repo: positive-intentions/chat
   groups:
-  - releases-a4df93213d2
+  - releases-positive-intentions-chat
   app_reference: positive-intentions-chat
   include_prereleases: false
 - name: Postal
   repo: postalserver/postal
   groups:
-  - releases-0e01f72a731
+  - releases-postal
   app_reference: postal
   include_prereleases: false
 - name: Posterizarr
   repo: fscorrupt/posterizarr
   groups:
-  - releases-70d5bea2956
+  - releases-posterizarr
   app_reference: posterizarr
   include_prereleases: false
 - name: PostHog
   repo: posthog/posthog
   groups:
-  - releases-72c94611d2b
+  - releases-posthog
   app_reference: posthog
   include_prereleases: false
 - name: Postiz
   repo: gitroomhq/postiz-app
   groups:
-  - releases-ae97dd5275a
+  - releases-postiz
   app_reference: postiz
   include_prereleases: false
 - name: Postmarks
   repo: ckolderup/postmarks
   groups:
-  - releases-31f7cb3d895
+  - releases-postmarks
   app_reference: postmarks
   include_prereleases: false
 - name: Poznote
   repo: timothepoznanski/poznote
   groups:
-  - releases-c4de4ecc647
+  - releases-poznote
   app_reference: poznote
   include_prereleases: false
 - name: PrestaShop
   repo: prestashop/prestashop
   groups:
-  - releases-5467bc4f691
+  - releases-prestashop
   app_reference: prestashop
   include_prereleases: false
 - name: PriceBuddy
   repo: jez500/pricebuddy
   groups:
-  - releases-176401d4b60
+  - releases-pricebuddy
   app_reference: pricebuddy
   include_prereleases: false
 - name: Prismedia
   repo: pauljoda/prismedia
   groups:
-  - releases-87a2a631716
+  - releases-prismedia
   app_reference: prismedia
   include_prereleases: false
 - name: Private Captcha
   repo: privatecaptcha/privatecaptcha
   groups:
-  - releases-991798995bd
+  - releases-private-captcha
   app_reference: private-captcha
   include_prereleases: false
 - name: PrivateBin
   repo: privatebin/privatebin
   groups:
-  - releases-aa1fca3315e
+  - releases-privatebin
   app_reference: privatebin
   include_prereleases: false
 - name: Priviblur
   repo: syeopite/priviblur
   groups:
-  - releases-02d63ceb632
+  - releases-priviblur
   app_reference: priviblur
   include_prereleases: false
 - name: Profilarr
   repo: dictionarry-hub/profilarr
   groups:
-  - releases-5e7b4b1d31a
+  - releases-profilarr
   app_reference: profilarr
   include_prereleases: false
 - name: Project N.O.M.A.D.
   repo: crosstalk-solutions/project-nomad
   groups:
-  - releases-6c4167c71bb
+  - releases-project-nomad
   app_reference: project-nomad
   include_prereleases: false
 - name: ProjectSend
   repo: projectsend/projectsend
   groups:
-  - releases-fea985a7ad4
+  - releases-projectsend
   app_reference: projectsend
   include_prereleases: false
 - name: Prometheus
   repo: prometheus/prometheus
   groups:
-  - releases-fac0f8949fe
+  - releases-prometheus
   app_reference: prometheus
   include_prereleases: false
 - name: Prowlarr
   repo: prowlarr/prowlarr
   groups:
-  - releases-5b8a6caf553
+  - releases-prowlarr
   app_reference: prowlarr
   include_prereleases: false
 - name: ProxCenter
   repo: adminsyspro/proxcenter-ui
   groups:
-  - releases-bf452fd44b1
+  - releases-proxcenter
   app_reference: proxcenter
   include_prereleases: false
 - name: PruneMate
   repo: anoniemerd/prunemate
   groups:
-  - releases-f82ba39f3d9
+  - releases-prunemate
   app_reference: prunemate
   include_prereleases: false
 - name: PsiTransfer
   repo: psi-4ward/psitransfer
   groups:
-  - releases-ac0a5e0499c
+  - releases-psitransfer
   app_reference: psitransfer
   include_prereleases: false
 - name: Pterodactyl
   repo: pterodactyl/panel
   groups:
-  - releases-fc0e9e4692d
+  - releases-pterodactyl
   app_reference: pterodactyl
   include_prereleases: false
 - name: Pulsarr
   repo: jamcalli/pulsarr
   groups:
-  - releases-95eab493048
+  - releases-pulsarr
   app_reference: pulsarr
   include_prereleases: false
 - name: Pulse
   repo: rcourtman/pulse
   groups:
-  - releases-4cab439a59d
+  - releases-pulse
   app_reference: pulse
   include_prereleases: false
 - name: Puter
   repo: heyputer/puter
   groups:
-  - releases-fe1171946dc
+  - releases-puter
   app_reference: puter
   include_prereleases: false
 - name: PWgen
   repo: jocxfin/pwgen
   groups:
-  - releases-c02b10db8de
+  - releases-pwgen
   app_reference: pwgen
   include_prereleases: false
 - name: pyLoad
   repo: pyload/pyload
   groups:
-  - releases-d3cecf063db
+  - releases-pyload
   app_reference: pyload
   include_prereleases: false
 - name: qBit Manage
   repo: stuffanthings/qbit_manage
   groups:
-  - releases-bf43b273a51
+  - releases-qbit-manage
   app_reference: qbit-manage
   include_prereleases: false
 - name: qBittorrent
   repo: qbittorrent/qbittorrent
   groups:
-  - releases-e4317483dde
+  - releases-qbittorrent
   app_reference: qbittorrent
   include_prereleases: false
 - name: QuickDrop
   repo: roastslav/quickdrop
   groups:
-  - releases-874e1299b7b
+  - releases-quickdrop
   app_reference: quickdrop
   include_prereleases: false
 - name: Quickwit
   repo: quickwit-oss/quickwit
   groups:
-  - releases-02a4dd0acf3
+  - releases-quickwit
   app_reference: quickwit
   include_prereleases: false
 - name: Rachoon
   repo: ad-on-is/rachoon
   groups:
-  - releases-6784946d845
+  - releases-rachoon
   app_reference: rachoon
   include_prereleases: false
 - name: Rackpad
   repo: kobii-git/rackpad
   groups:
-  - releases-a9688f45976
+  - releases-rackpad
   app_reference: rackpad
   include_prereleases: false
 - name: Rackula
   repo: rackulalives/rackula
   groups:
-  - releases-ee94808c1ac
+  - releases-rackula
   app_reference: rackula
   include_prereleases: false
 - name: RadaRec
   repo: thewicklowwolf/radarec
   groups:
-  - releases-9c1aea0cbae
+  - releases-radarec
   app_reference: radarec
   include_prereleases: false
 - name: Radarr
   repo: radarr/radarr
   groups:
-  - releases-33c05794c77
+  - releases-radarr
   app_reference: radarr
   include_prereleases: false
 - name: Radicale
   repo: kozea/radicale
   groups:
-  - releases-2772258596b
+  - releases-radicale
   app_reference: radicale
   include_prereleases: false
 - name: Rallly
   repo: lukevella/rallly
   groups:
-  - releases-71125ff9403
+  - releases-rallly
   app_reference: rallly
   include_prereleases: false
 - name: Raneto
   repo: ryanlelek/raneto
   groups:
-  - releases-cee7887c1c6
+  - releases-raneto
   app_reference: raneto
   include_prereleases: false
 - name: Rauthy
   repo: sebadob/rauthy
   groups:
-  - releases-970ae238567
+  - releases-rauthy
   app_reference: rauthy
   include_prereleases: false
 - name: Razzia
   repo: ralex91/razzia
   groups:
-  - releases-afff465b9d9
+  - releases-razzia
   app_reference: razzia
   include_prereleases: false
 - name: Rclone
   repo: rclone/rclone
   groups:
-  - releases-5d353a5617a
+  - releases-rclone
   app_reference: rclone
   include_prereleases: false
 - name: Reactive Resume
   repo: reactive-resume/reactive-resume
   groups:
-  - releases-91343480599
+  - releases-reactive-resume
   app_reference: reactive-resume
   include_prereleases: false
 - name: ReadMeABook
   repo: kikootwo/readmeabook
   groups:
-  - releases-0867ba0bc21
+  - releases-readmeabook
   app_reference: readmeabook
   include_prereleases: false
 - name: Reaparr
   repo: reaparr/reaparr
   groups:
-  - releases-3c4adcf1b1a
+  - releases-reaparr
   app_reference: reaparr
   include_prereleases: false
 - name: Receipt Wrangler
   repo: receipt-wrangler/receipt-wrangler
   groups:
-  - releases-c86660dd6ce
+  - releases-receipt-wrangler
   app_reference: receipt-wrangler
   include_prereleases: false
 - name: RecipeSage
   repo: julianpoy/recipesage
   groups:
-  - releases-8aa85f15fb7
+  - releases-recipesage
   app_reference: recipesage
   include_prereleases: false
 - name: Recyclarr
   repo: recyclarr/recyclarr
   groups:
-  - releases-aa19bc168df
+  - releases-recyclarr
   app_reference: recyclarr
   include_prereleases: false
 - name: Redlib
   repo: redlib-org/redlib
   groups:
-  - releases-0bdd0030982
+  - releases-redlib
   app_reference: redlib
   include_prereleases: false
 - name: Reitti
   repo: dedicatedcode/reitti
   groups:
-  - releases-2dfde8d2400
+  - releases-reitti
   app_reference: reitti
   include_prereleases: false
 - name: Relaticle
   repo: relaticle/relaticle
   groups:
-  - releases-7bd5cd25af6
+  - releases-relaticle
   app_reference: relaticle
   include_prereleases: false
 - name: Requestly
   repo: requestly/requestly
   groups:
-  - releases-1584a02b346
+  - releases-requestly
   app_reference: requestly
   include_prereleases: false
 - name: restic
   repo: restic/restic
   groups:
-  - releases-2e9f546f067
+  - releases-restic
   app_reference: restic
   include_prereleases: false
 - name: Restreamer
   repo: datarhei/restreamer
   groups:
-  - releases-42f567a4215
+  - releases-restreamer
   app_reference: restreamer
   include_prereleases: false
 - name: RetroAssembly
   repo: arianrhodsandlot/retroassembly
   groups:
-  - releases-aa8ea994bd9
+  - releases-retroassembly
   app_reference: retroassembly
   include_prereleases: false
 - name: Retrom
   repo: jmberesford/retrom
   groups:
-  - releases-02be14e2705
+  - releases-retrom
   app_reference: retrom
   include_prereleases: false
 - name: Revel
   repo: letsrevel/revel-backend
   groups:
-  - releases-2f6bf6965df
+  - releases-revel
   app_reference: revel
   include_prereleases: false
 - name: Review Board
   repo: reviewboard/reviewboard
   groups:
-  - releases-d82fde06147
+  - releases-review-board
   app_reference: review-board
   include_prereleases: false
 - name: Rewindarr
   repo: raunot/rewindarr
   groups:
-  - releases-697b03dc0a1
+  - releases-rewindarr
   app_reference: rewindarr
   include_prereleases: false
 - name: Riven
   repo: rivenmedia/riven
   groups:
-  - releases-65f3fb6fe90
+  - releases-riven
   app_reference: riven
   include_prereleases: false
 - name: Rocket.Chat
   repo: rocketchat/rocket.chat
   groups:
-  - releases-99db31fb290
+  - releases-rocket-chat
   app_reference: rocket-chat
   include_prereleases: false
 - name: RomM
   repo: rommapp/romm
   groups:
-  - releases-ba08ae86d57
+  - releases-romm
   app_reference: romm
   include_prereleases: false
 - name: Rotki
   repo: rotki/rotki
   groups:
-  - releases-6e9990c42c4
+  - releases-rotki
   app_reference: rotki
   include_prereleases: false
 - name: Roundcube
   repo: roundcube/roundcubemail
   groups:
-  - releases-b78c56e0984
+  - releases-roundcube
   app_reference: roundcube
   include_prereleases: false
 - name: RSS Bridge
   repo: rss-bridge/rss-bridge
   groups:
-  - releases-5a16cc72485
+  - releases-rss-bridge
   app_reference: rss-bridge
   include_prereleases: false
 - name: RSSBox
   repo: versun/rssbox
   groups:
-  - releases-caceb592687
+  - releases-rssbox
   app_reference: rssbox
   include_prereleases: false
 - name: RSSHub
   repo: diygod/rsshub
   groups:
-  - releases-f2e6e517d5d
+  - releases-rsshub
   app_reference: rsshub
   include_prereleases: false
 - name: RSSMonster
   repo: pietheinstrengholt/rssmonster
   groups:
-  - releases-7d7ab99dd45
+  - releases-rssmonster
   app_reference: rssmonster
   include_prereleases: false
 - name: Rundeck
   repo: rundeck/rundeck
   groups:
-  - releases-d6194340481
+  - releases-rundeck
   app_reference: rundeck
   include_prereleases: false
 - name: RunsOn
   repo: runs-on/runs-on
   groups:
-  - releases-a62eaea54d7
+  - releases-runson
   app_reference: runson
   include_prereleases: false
 - name: Runtipi
   repo: runtipi/runtipi
   groups:
-  - releases-aa52ea02488
+  - releases-runtipi
   app_reference: runtipi
   include_prereleases: false
 - name: RustFS
   repo: rustfs/rustfs
   groups:
-  - releases-f6b2af99ea5
+  - releases-rustfs
   app_reference: rustfs
   include_prereleases: false
 - name: Rybbit
   repo: rybbit-io/rybbit
   groups:
-  - releases-e100a2523df
+  - releases-rybbit
   app_reference: rybbit
   include_prereleases: false
 - name: Ryot
   repo: ignisda/ryot
   groups:
-  - releases-aca1e0d492f
+  - releases-ryot
   app_reference: ryot
   include_prereleases: false
 - name: Sablier
   repo: sablierapp/sablier
   groups:
-  - releases-ec4a1e19234
+  - releases-sablier
   app_reference: sablier
   include_prereleases: false
 - name: sabre/dav
   repo: sabre-io/dav
   groups:
-  - releases-3dc46398319
+  - releases-sabre-dav
   app_reference: sabre-dav
   include_prereleases: false
 - name: Safebucket
   repo: safebucket/safebucket
   groups:
-  - releases-01ffb8e977c
+  - releases-safebucket
   app_reference: safebucket
   include_prereleases: false
 - name: SafeLine
   repo: chaitin/safeline
   groups:
-  - releases-8495ed2743f
+  - releases-safeline
   app_reference: safeline
   include_prereleases: false
 - name: Saltcorn
   repo: saltcorn/saltcorn
   groups:
-  - releases-4a1564f64e9
+  - releases-saltcorn
   app_reference: saltcorn
   include_prereleases: false
 - name: Sandstorm
   repo: sandstorm-io/sandstorm
   groups:
-  - releases-d0468a31fb5
+  - releases-sandstorm
   app_reference: sandstorm
   include_prereleases: false
 - name: Scanopy
   repo: scanopy/scanopy
   groups:
-  - releases-a3b6bb30cc6
+  - releases-scanopy
   app_reference: scanopy
   include_prereleases: false
 - name: Scholarsome
   repo: hwgilbert16/scholarsome
   groups:
-  - releases-33fe24b4b19
+  - releases-scholarsome
   app_reference: scholarsome
   include_prereleases: false
 - name: Scraparr
   repo: thecfu/scraparr
   groups:
-  - releases-fd87b2b4851
+  - releases-scraparr
   app_reference: scraparr
   include_prereleases: false
 - name: Scratch Map
   repo: ad3m3r5/scratch-map
   groups:
-  - releases-ed27e809445
+  - releases-scratch-map
   app_reference: scratch-map
   include_prereleases: false
 - name: Screenlite
   repo: screenlite/screenlite
   groups:
-  - releases-ed9e7e7bc7b
+  - releases-screenlite
   app_reference: screenlite
   include_prereleases: false
 - name: Scrob
   repo: ellite/scrob
   groups:
-  - releases-5db70cf5bda
+  - releases-scrob
   app_reference: scrob
   include_prereleases: false
 - name: Scrutiny
   repo: analogj/scrutiny
   groups:
-  - releases-0986f9fe047
+  - releases-scrutiny
   app_reference: scrutiny
   include_prereleases: false
 - name: Scrypted
   repo: koush/scrypted
   groups:
-  - releases-d2a4a6e25a9
+  - releases-scrypted
   app_reference: scrypted
   include_prereleases: false
 - name: Seafile
   repo: haiwen/seafile
   groups:
-  - releases-38954e9a457
+  - releases-seafile
   app_reference: seafile
   include_prereleases: false
 - name: Seanime
   repo: 5rahim/seanime
   groups:
-  - releases-793d3d05c61
+  - releases-seanime
   app_reference: seanime
   include_prereleases: false
 - name: SearXNG
   repo: searxng/searxng
   groups:
-  - releases-7531f4cec2b
+  - releases-searxng
   app_reference: searxng
   include_prereleases: false
 - name: SeaweedFS
   repo: seaweedfs/seaweedfs
   groups:
-  - releases-e11b9d3bdf7
+  - releases-seaweedfs
   app_reference: seaweedfs
   include_prereleases: false
 - name: Secrover
   repo: secrover/secrover
   groups:
-  - releases-c8953a79639
+  - releases-secrover
   app_reference: secrover
   include_prereleases: false
 - name: Securo
   repo: securo-finance/securo
   groups:
-  - releases-9d0edb6e004
+  - releases-securo
   app_reference: securo
   include_prereleases: false
 - name: seelf
   repo: yuukanoo/seelf
   groups:
-  - releases-dce3677b68f
+  - releases-seelf
   app_reference: seelf
   include_prereleases: false
 - name: Seerr
   repo: seerr-team/seerr
   groups:
-  - releases-45cca36c21c
+  - releases-seerr
   app_reference: seerr
   include_prereleases: false
 - name: Self-Hosted Metrics
   repo: kolapsis/shm
   groups:
-  - releases-00fd45ea71f
+  - releases-self-hosted-metrics
   app_reference: self-hosted-metrics
   include_prereleases: false
 - name: Soulbeet
   repo: terry90/soulbeet
   groups:
-  - releases-b10eb198af5
+  - releases-selfhst-1760
   app_reference: selfhst-1760
   include_prereleases: false
 - name: Semaphore
   repo: semaphoreio/semaphore
   groups:
-  - releases-c0f34f038d9
+  - releases-semaphore
   app_reference: semaphore
   include_prereleases: false
 - name: Semaphore UI
   repo: semaphoreui/semaphore
   groups:
-  - releases-0e93b2a4967
+  - releases-semaphore-ui
   app_reference: semaphore-ui
   include_prereleases: false
 - name: Sentry
   repo: getsentry/sentry
   groups:
-  - releases-971dba92ab6
+  - releases-sentry
   app_reference: sentry
   include_prereleases: false
 - name: SerpBear
   repo: towfiqi/serpbear
   groups:
-  - releases-f7668c41f62
+  - releases-serpbear
   app_reference: serpbear
   include_prereleases: false
 - name: SFTPGo
   repo: drakkan/sftpgo
   groups:
-  - releases-d53d1af6f8a
+  - releases-sftpgo
   app_reference: sftpgo
   include_prereleases: false
 - name: Shaarli
   repo: shaarli/shaarli
   groups:
-  - releases-127d6bf33dc
+  - releases-shaarli
   app_reference: shaarli
   include_prereleases: false
 - name: Shared Moments
   repo: tech-kev/sharedmoments
   groups:
-  - releases-db24c9d6599
+  - releases-shared-moments
   app_reference: shared-moments
   include_prereleases: false
 - name: Sharkord
   repo: sharkord/sharkord
   groups:
-  - releases-e4023d4df85
+  - releases-sharkord
   app_reference: sharkord
   include_prereleases: false
 - name: Sharry
   repo: eikek/sharry
   groups:
-  - releases-8d6a5345fce
+  - releases-sharry
   app_reference: sharry
   include_prereleases: false
 - name: Shelfmark
   repo: calibrain/shelfmark
   groups:
-  - releases-f2e8fb2e6f9
+  - releases-shelfmark
   app_reference: shelfmark
   include_prereleases: false
 - name: ShellHub
   repo: shellhub-io/shellhub
   groups:
-  - releases-f63969b2dbf
+  - releases-shellhub
   app_reference: shellhub
   include_prereleases: false
 - name: Shiori
   repo: go-shiori/shiori
   groups:
-  - releases-0456ee0e9a7
+  - releases-shiori
   app_reference: shiori
   include_prereleases: false
 - name: Shlink
   repo: shlinkio/shlink
   groups:
-  - releases-51d7d412973
+  - releases-shlink
   app_reference: shlink
   include_prereleases: false
 - name: Signature PDF
   repo: 24eme/signaturepdf
   groups:
-  - releases-82cbae12c6f
+  - releases-signature-pdf
   app_reference: signature-pdf
   include_prereleases: false
 - name: SigNoz
   repo: signoz/signoz
   groups:
-  - releases-aa590f7017b
+  - releases-signoz
   app_reference: signoz
   include_prereleases: false
 - name: Silex
   repo: silexlabs/silex
   groups:
-  - releases-ed623d3f746
+  - releases-silex
   app_reference: silex
   include_prereleases: false
 - name: Silicon Notes
   repo: cu/silicon
   groups:
-  - releases-f20d39651de
+  - releases-silicon-notes
   app_reference: silicon-notes
   include_prereleases: false
 - name: SilverBullet
   repo: silverbulletmd/silverbullet
   groups:
-  - releases-6baffd54cdc
+  - releases-silverbullet
   app_reference: silverbullet
   include_prereleases: false
 - name: SimpleLogin
   repo: simple-login/app
   groups:
-  - releases-65c990f6d0f
+  - releases-simplelogin
   app_reference: simplelogin
   include_prereleases: false
 - name: SimpleX Chat
   repo: simplex-chat/simplex-chat
   groups:
-  - releases-41b73ce28e7
+  - releases-simplex-chat
   app_reference: simplex-chat
   include_prereleases: false
 - name: Sink
   repo: miantiao-me/sink
   groups:
-  - releases-40118e5def7
+  - releases-sink
   app_reference: sink
   include_prereleases: false
 - name: SiYuan
   repo: siyuan-note/siyuan
   groups:
-  - releases-d7c514afc8f
+  - releases-siyuan
   app_reference: siyuan
   include_prereleases: false
 - name: SketchForge
   repo: formsmith746/sketchforge-3d
   groups:
-  - releases-7836f5484d3
+  - releases-sketchforge
   app_reference: sketchforge
   include_prereleases: false
 - name: SkySend
   repo: skyfay/skysend
   groups:
-  - releases-a42ae04e878
+  - releases-skysend
   app_reference: skysend
   include_prereleases: false
 - name: Slash
   repo: yourselfhosted/slash
   groups:
-  - releases-5217df05a84
+  - releases-slash
   app_reference: slash
   include_prereleases: false
 - name: Slink
   repo: andrii-kryvoviaz/slink
   groups:
-  - releases-4b2620d5bde
+  - releases-slink
   app_reference: slink
   include_prereleases: false
 - name: slskd
   repo: slskd/slskd
   groups:
-  - releases-c2082cc022e
+  - releases-slskd
   app_reference: slskd
   include_prereleases: false
 - name: SmokePing
   repo: oetiker/smokeping
   groups:
-  - releases-94cd79898e4
+  - releases-smokeping
   app_reference: smokeping
   include_prereleases: false
 - name: SnapOtter
   repo: snapotter-hq/snapotter
   groups:
-  - releases-eee11826aa7
+  - releases-snapotter
   app_reference: snapotter
   include_prereleases: false
 - name: SnappyMail
   repo: the-djmaze/snappymail
   groups:
-  - releases-7e2df97572e
+  - releases-snappymail
   app_reference: snappymail
   include_prereleases: false
 - name: Snikket
   repo: snikket-im/snikket-server
   groups:
-  - releases-7c1c13e7d87
+  - releases-snikket
   app_reference: snikket
   include_prereleases: false
 - name: Snipe-IT
   repo: grokability/snipe-it
   groups:
-  - releases-6fc4f9d2333
+  - releases-snipe-it
   app_reference: snipe-it
   include_prereleases: false
 - name: SolidInvoice
   repo: solidinvoice/solidinvoice
   groups:
-  - releases-62cf04eea07
+  - releases-solidinvoice
   app_reference: solidinvoice
   include_prereleases: false
 - name: solidtime
   repo: solidtime-io/solidtime
   groups:
-  - releases-a89fc125492
+  - releases-solidtime
   app_reference: solidtime
   include_prereleases: false
 - name: SonarQube
   repo: sonarsource/sonarqube
   groups:
-  - releases-8aa07f86b96
+  - releases-sonarqube
   app_reference: sonarqube
   include_prereleases: false
 - name: Sonarr
   repo: sonarr/sonarr
   groups:
-  - releases-a21f2643cd9
+  - releases-sonarr
   app_reference: sonarr
   include_prereleases: false
 - name: SonaShow
   repo: thewicklowwolf/sonashow
   groups:
-  - releases-09bb90a6c28
+  - releases-sonashow
   app_reference: sonashow
   include_prereleases: false
 - name: Sonobarr
   repo: dodelidoo-labs/sonobarr
   groups:
-  - releases-2876661322a
+  - releases-sonobarr
   app_reference: sonobarr
   include_prereleases: false
 - name: Sortarr
   repo: jaredharper1/sortarr
   groups:
-  - releases-f9645666861
+  - releases-sortarr
   app_reference: sortarr
   include_prereleases: false
 - name: Sosse
   repo: biolds/sosse
   groups:
-  - releases-7ccd90ba7f3
+  - releases-sosse
   app_reference: sosse
   include_prereleases: false
 - name: SoulSync
   repo: nezreka/soulsync
   groups:
-  - releases-0e8a839d41c
+  - releases-soulsync
   app_reference: soulsync
   include_prereleases: false
 - name: Spacebar
   repo: spacebarchat/spacebarchat
   groups:
-  - releases-2fc712d3934
+  - releases-spacebar
   app_reference: spacebar
   include_prereleases: false
 - name: Spacepad
   repo: magweter/spacepad
   groups:
-  - releases-02806bd3d0a
+  - releases-spacepad
   app_reference: spacepad
   include_prereleases: false
 - name: SparkyBudget
   repo: codewithcj/sparkybudget
   groups:
-  - releases-e36bd026173
+  - releases-sparkybudget
   app_reference: sparkybudget
   include_prereleases: false
 - name: SparkyFitness
   repo: codewithcj/sparkyfitness
   groups:
-  - releases-cbb5d43f4b5
+  - releases-sparkyfitness
   app_reference: sparkyfitness
   include_prereleases: false
 - name: Speakr
   repo: murtaza-nasir/speakr
   groups:
-  - releases-af0d97c0d97
+  - releases-speakr
   app_reference: speakr
   include_prereleases: false
 - name: Specifically Clementines
   repo: davideshay/groceries
   groups:
-  - releases-2be306e662f
+  - releases-specifically-clementines
   app_reference: specifically-clementines
   include_prereleases: false
 - name: Speedtest Tracker
   repo: alexjustesen/speedtest-tracker
   groups:
-  - releases-770d2269df8
+  - releases-speedtest-tracker
   app_reference: speedtest-tracker
   include_prereleases: false
 - name: SpendSpentSpent
   repo: lamarios/spendspentspent
   groups:
-  - releases-ce68b6262a4
+  - releases-spendspentspent
   app_reference: spendspentspent
   include_prereleases: false
 - name: Spliit
   repo: spliit-app/spliit
   groups:
-  - releases-4e4142ea07c
+  - releases-spliit
   app_reference: spliit
   include_prereleases: false
 - name: Spoolman
   repo: donkie/spoolman
   groups:
-  - releases-83dbee40005
+  - releases-spoolman
   app_reference: spoolman
   include_prereleases: false
 - name: Spotify Release List
   repo: jakubito/spotify-release-list
   groups:
-  - releases-611147d8df1
+  - releases-spotify-release-list
   app_reference: spotify-release-list
   include_prereleases: false
 - name: Sprout Track
   repo: oak-and-sprout/sprout-track
   groups:
-  - releases-987fbb4c83a
+  - releases-sprout-track
   app_reference: sprout-track
   include_prereleases: false
 - name: Sshwifty
   repo: nirui/sshwifty
   groups:
-  - releases-2572dc38dce
+  - releases-sshwifty
   app_reference: sshwifty
   include_prereleases: false
 - name: Stalwart
   repo: stalwartlabs/stalwart
   groups:
-  - releases-06ffcc5dd16
+  - releases-stalwart
   app_reference: stalwart
   include_prereleases: false
 - name: Standard Notes
   repo: standardnotes/app
   groups:
-  - releases-7323a851a43
+  - releases-standard-notes
   app_reference: standard-notes
   include_prereleases: false
 - name: Starbase 80
   repo: notclickable-jordan/starbase-80
   groups:
-  - releases-1f8cccb3a20
+  - releases-starbase-80
   app_reference: starbase-80
   include_prereleases: false
 - name: Stash
   repo: stashapp/stash
   groups:
-  - releases-1a8b67bfd8d
+  - releases-stash
   app_reference: stash
   include_prereleases: false
 - name: Statamic
   repo: statamic/cms
   groups:
-  - releases-323eaeb9980
+  - releases-statamic
   app_reference: statamic
   include_prereleases: false
 - name: Statping-ng
   repo: statping-ng/statping-ng
   groups:
-  - releases-92471ae8c6e
+  - releases-statping-ng
   app_reference: statping-ng
   include_prereleases: false
 - name: Steam Headless
   repo: steam-headless/docker-steam-headless
   groups:
-  - releases-92492d27cf1
+  - releases-steam-headless
   app_reference: steam-headless
   include_prereleases: false
 - name: StencilBox
   repo: jamesread/stencilbox
   groups:
-  - releases-fd24ebf74ac
+  - releases-stencilbox
   app_reference: stencilbox
   include_prereleases: false
 - name: step-ca
   repo: smallstep/certificates
   groups:
-  - releases-2fc318b98e1
+  - releases-step-ca
   app_reference: step-ca
   include_prereleases: false
 - name: Stirling PDF
   repo: stirling-tools/stirling-pdf
   groups:
-  - releases-7ebf70542f4
+  - releases-stirling-pdf
   app_reference: stirling-pdf
   include_prereleases: false
 - name: Stoat
   repo: stoatchat/stoatchat
   groups:
-  - releases-2cf333b22a2
+  - releases-stoat
   app_reference: stoat
   include_prereleases: false
 - name: Storybook
   repo: storybookjs/storybook
   groups:
-  - releases-33787b364d4
+  - releases-storybook
   app_reference: storybook
   include_prereleases: false
 - name: Storyden
   repo: southclaws/storyden
   groups:
-  - releases-d38948ce687
+  - releases-storyden
   app_reference: storyden
   include_prereleases: false
 - name: Streamystats
   repo: fredrikburmester/streamystats
   groups:
-  - releases-f8163d86905
+  - releases-streamystats
   app_reference: streamystats
   include_prereleases: false
 - name: Stump
   repo: stumpapp/stump
   groups:
-  - releases-ad5ff2235a6
+  - releases-stump
   app_reference: stump
   include_prereleases: false
 - name: SUB/WAVE
   repo: perminder-klair/subwave
   groups:
-  - releases-290abd1dd83
+  - releases-sub-wave
   app_reference: sub-wave
   include_prereleases: false
 - name: Subatic
   repo: orthdron/subatic
   groups:
-  - releases-abc1a8dedda
+  - releases-subatic
   app_reference: subatic
   include_prereleases: false
 - name: Subscription Manager
   repo: dh1011/subscription-manager
   groups:
-  - releases-f74bf534e3f
+  - releases-subscription-manager
   app_reference: subscription-manager
   include_prereleases: false
 - name: Subtrackr
   repo: bscott/subtrackr
   groups:
-  - releases-e30cd28577c
+  - releases-subtrackr
   app_reference: subtrackr
   include_prereleases: false
 - name: SuggestArr
   repo: giuseppe99barchetta/suggestarr
   groups:
-  - releases-2a868b1446b
+  - releases-suggestarr
   app_reference: suggestarr
   include_prereleases: false
 - name: Sunshine
   repo: sunshinestream/sunshine
   groups:
-  - releases-73fd0a08ded
+  - releases-sunshine
   app_reference: sunshine
   include_prereleases: false
 - name: Supabase
   repo: supabase/supabase
   groups:
-  - releases-7a65def0626
+  - releases-supabase
   app_reference: supabase
   include_prereleases: false
 - name: Super Productivity
   repo: super-productivity/super-productivity
   groups:
-  - releases-778cabdde28
+  - releases-super-productivity
   app_reference: super-productivity
   include_prereleases: false
 - name: Sure
   repo: we-promise/sure
   groups:
-  - releases-f2d76b67e11
+  - releases-sure-finance
   app_reference: sure-finance
   include_prereleases: false
 - name: Surmai
   repo: rohitkumbhar/surmai
   groups:
-  - releases-2c18428b7cc
+  - releases-surmai
   app_reference: surmai
   include_prereleases: false
 - name: SurveyJS
   repo: surveyjs/survey-library
   groups:
-  - releases-495c3f3f2d7
+  - releases-surveyjs
   app_reference: surveyjs
   include_prereleases: false
 - name: SWAG
   repo: linuxserver/docker-swag
   groups:
-  - releases-6f0d68ed66f
+  - releases-swag
   app_reference: swag
   include_prereleases: false
 - name: Swetrix
   repo: swetrix/swetrix
   groups:
-  - releases-56c1a9e5f26
+  - releases-swetrix
   app_reference: swetrix
   include_prereleases: false
 - name: Swing Music
   repo: swingmx/swingmusic
   groups:
-  - releases-0339337ac43
+  - releases-swing-music
   app_reference: swing-music
   include_prereleases: false
 - name: Synapse
   repo: element-hq/synapse
   groups:
-  - releases-ed0fcde5e20
+  - releases-synapse
   app_reference: synapse
   include_prereleases: false
 - name: Sync-in
   repo: sync-in/server
   groups:
-  - releases-8ffa4804361
+  - releases-sync-in
   app_reference: sync-in
   include_prereleases: false
 - name: Syncloud
   repo: syncloud/platform
   groups:
-  - releases-ade09585a12
+  - releases-syncloud
   app_reference: syncloud
   include_prereleases: false
 - name: Syncthing
   repo: syncthing/syncthing
   groups:
-  - releases-403b548621c
+  - releases-syncthing
   app_reference: syncthing
   include_prereleases: false
 - name: Tagr
   repo: suitux/tagr
   groups:
-  - releases-010636f6971
+  - releases-tagr
   app_reference: tagr
   include_prereleases: false
 - name: Tandoor Recipes
   repo: tandoorrecipes/recipes
   groups:
-  - releases-bff88543668
+  - releases-tandoor-recipes
   app_reference: tandoor-recipes
   include_prereleases: false
 - name: TapMap
   repo: olalie/tapmap
   groups:
-  - releases-d96bc318c2d
+  - releases-tapmap
   app_reference: tapmap
   include_prereleases: false
 - name: TaskTrove
   repo: dohsimpson/tasktrove
   groups:
-  - releases-ec7b620d087
+  - releases-tasktrove
   app_reference: tasktrove
   include_prereleases: false
 - name: TaskView
   repo: gimanh/taskview-community
   groups:
-  - releases-d115a07a17d
+  - releases-taskview
   app_reference: taskview
   include_prereleases: false
 - name: TasmoAdmin
   repo: tasmoadmin/tasmoadmin
   groups:
-  - releases-4de791b8a52
+  - releases-tasmoadmin
   app_reference: tasmoadmin
   include_prereleases: false
 - name: Tautulli
   repo: tautulli/tautulli
   groups:
-  - releases-45efc802f32
+  - releases-tautulli
   app_reference: tautulli
   include_prereleases: false
 - name: Tdarr
   repo: haveagitgat/tdarr
   groups:
-  - releases-9eecec0c062
+  - releases-tdarr
   app_reference: tdarr
   include_prereleases: false
 - name: Teable
   repo: teableio/teable
   groups:
-  - releases-d144e64a386
+  - releases-teable
   app_reference: teable
   include_prereleases: false
 - name: Teampass
   repo: nilsteampassnet/teampass
   groups:
-  - releases-3c3b7327f66
+  - releases-teampass
   app_reference: teampass
   include_prereleases: false
 - name: Technitium
   repo: technitiumsoftware/dnsserver
   groups:
-  - releases-5e4d5643ad2
+  - releases-technitium
   app_reference: technitium
   include_prereleases: false
 - name: Teleport
   repo: gravitational/teleport
   groups:
-  - releases-8e3f3554394
+  - releases-teleport
   app_reference: teleport
   include_prereleases: false
 - name: Tenzu
   repo: biru-scop/tenzu-back
   groups:
-  - releases-a1c56138ebe
+  - releases-tenzu
   app_reference: tenzu
   include_prereleases: false
 - name: Termix
   repo: termix-ssh/termix
   groups:
-  - releases-ba9cd26903e
+  - releases-termix
   app_reference: termix
   include_prereleases: false
 - name: TeslaMate
   repo: teslamate-org/teslamate
   groups:
-  - releases-4978e97f271
+  - releases-teslamate
   app_reference: teslamate
   include_prereleases: false
 - name: Tether
   repo: mizuchilabs/tether
   groups:
-  - releases-47534248be6
+  - releases-tether-traefik
   app_reference: tether-traefik
   include_prereleases: false
 - name: The Lounge
   repo: thelounge/thelounge
   groups:
-  - releases-1b104c695c7
+  - releases-the-lounge
   app_reference: the-lounge
   include_prereleases: false
 - name: Thrifty
   repo: tiehfood/thrifty
   groups:
-  - releases-4bf459ebcd1
+  - releases-thrifty
   app_reference: thrifty
   include_prereleases: false
 - name: Tianji
   repo: msgbyte/tianji
   groups:
-  - releases-e68aee7c8d0
+  - releases-tianji
   app_reference: tianji
   include_prereleases: false
 - name: Ticky
   repo: dkorecko/ticky
   groups:
-  - releases-674adc70614
+  - releases-ticky
   app_reference: ticky
   include_prereleases: false
 - name: TiddlyWiki
   repo: tiddlywiki/tiddlywiki5
   groups:
-  - releases-a8a40bcd063
+  - releases-tiddlywiki
   app_reference: tiddlywiki
   include_prereleases: false
 - name: Ties
   repo: raffomania/ties
   groups:
-  - releases-cc82ec49566
+  - releases-ties-link-sharing
   app_reference: ties-link-sharing
   include_prereleases: false
 - name: Timeful
   repo: schej-it/timeful
   groups:
-  - releases-c9ff960958d
+  - releases-timeful
   app_reference: timeful
   include_prereleases: false
 - name: TimeTagger
   repo: almarklein/timetagger
   groups:
-  - releases-a8cc5d2966c
+  - releases-timetagger
   app_reference: timetagger
   include_prereleases: false
 - name: TimeTracker
   repo: drytrix/timetracker
   groups:
-  - releases-98a026906c6
+  - releases-timetracker
   app_reference: timetracker
   include_prereleases: false
 - name: Tiny Tiny RSS
   repo: tt-rss/tt-rss
   groups:
-  - releases-ddaab85a197
+  - releases-tiny-tiny-rss
   app_reference: tiny-tiny-rss
   include_prereleases: false
 - name: Tinyauth
   repo: tinyauthapp/tinyauth
   groups:
-  - releases-798c4139566
+  - releases-tinyauth
   app_reference: tinyauth
   include_prereleases: false
 - name: tinyfeed
   repo: thebigroomxxl/tinyfeed
   groups:
-  - releases-2c2cb5fd9f9
+  - releases-tinyfeed
   app_reference: tinyfeed
   include_prereleases: false
 - name: tirreno
   repo: tirrenotechnologies/tirreno
   groups:
-  - releases-deedca72cfe
+  - releases-tirreno
   app_reference: tirreno
   include_prereleases: false
 - name: ToolJet
   repo: tooljet/tooljet
   groups:
-  - releases-ed308ca8a98
+  - releases-tooljet
   app_reference: tooljet
   include_prereleases: false
 - name: Traccar
   repo: traccar/traccar
   groups:
-  - releases-e2a7b817fd1
+  - releases-traccar
   app_reference: traccar
   include_prereleases: false
 - name: Tracearr
   repo: connorgallopo/tracearr
   groups:
-  - releases-e85e3f7d0f0
+  - releases-tracearr
   app_reference: tracearr
   include_prereleases: false
 - name: Traceway
   repo: tracewayapp/traceway
   groups:
-  - releases-a702d6b1a32
+  - releases-traceway
   app_reference: traceway
   include_prereleases: false
 - name: Tracktor
   repo: javedh-dev/tracktor
   groups:
-  - releases-119014811d7
+  - releases-tracktor
   app_reference: tracktor
   include_prereleases: false
 - name: TradeTally
   repo: genebo98/tradetally
   groups:
-  - releases-dea9e93938e
+  - releases-tradetally
   app_reference: tradetally
   include_prereleases: false
 - name: Traefik Manager
   repo: chr0nzz/traefik-manager
   groups:
-  - releases-9f2b65cd631
+  - releases-traefik-manager
   app_reference: traefik-manager
   include_prereleases: false
 - name: Traggo
   repo: traggo/server
   groups:
-  - releases-094d734363e
+  - releases-traggo
   app_reference: traggo
   include_prereleases: false
 - name: Trailarr
   repo: nandyalu/trailarr
   groups:
-  - releases-43c3481ac96
+  - releases-trailarr
   app_reference: trailarr
   include_prereleases: false
 - name: TraLa
   repo: dannybouwers/trala
   groups:
-  - releases-e28f45a3b11
+  - releases-trala
   app_reference: trala
   include_prereleases: false
 - name: Transfer.zip
   repo: robinkarlberg/transfer.zip-web
   groups:
-  - releases-94728df7cba
+  - releases-transfer-zip
   app_reference: transfer-zip
   include_prereleases: false
 - name: Transmute
   repo: transmute-app/transmute
   groups:
-  - releases-fd118f63f0b
+  - releases-transmute
   app_reference: transmute
   include_prereleases: false
 - name: TREK
   repo: liketrek/trek
   groups:
-  - releases-9cdd0f47476
+  - releases-trek
   app_reference: trek
   include_prereleases: false
 - name: Trilium Notes
   repo: triliumnext/trilium
   groups:
-  - releases-8198afa66da
+  - releases-trilium-notes
   app_reference: trilium-notes
   include_prereleases: false
 - name: TRIP
   repo: itskovacs/trip
   groups:
-  - releases-9edde6a255d
+  - releases-trip
   app_reference: trip
   include_prereleases: false
 - name: Tube Archivist
   repo: tubearchivist/tubearchivist
   groups:
-  - releases-8c91ce8dbda
+  - releases-tube-archivist
   app_reference: tube-archivist
   include_prereleases: false
 - name: TubeHaus
   repo: biolend83/tubehaus
   groups:
-  - releases-d6adcaff258
+  - releases-tubehaus
   app_reference: tubehaus
   include_prereleases: false
 - name: TubeSync
   repo: meeb/tubesync
   groups:
-  - releases-26ff04d88fb
+  - releases-tubesync
   app_reference: tubesync
   include_prereleases: false
 - name: Tugtainer
   repo: quenary/tugtainer
   groups:
-  - releases-4f9ccfb9537
+  - releases-tugtainer
   app_reference: tugtainer
   include_prereleases: false
 - name: Tunarr
   repo: chrisbenincasa/tunarr
   groups:
-  - releases-77fba4fa469
+  - releases-tunarr
   app_reference: tunarr
   include_prereleases: false
 - name: TVHeadend
   repo: tvheadend/tvheadend
   groups:
-  - releases-a5d1b7f9e70
+  - releases-tvheadend
   app_reference: tvheadend
   include_prereleases: false
 - name: Twenty
   repo: twentyhq/twenty
   groups:
-  - releases-fb3f0d8336f
+  - releases-twenty-crm
   app_reference: twenty-crm
   include_prereleases: false
 - name: Tymeslot
   repo: tymeslot/tymeslot
   groups:
-  - releases-82ae2d5f1e3
+  - releases-tymeslot
   app_reference: tymeslot
   include_prereleases: false
 - name: Typebot
   repo: baptistearno/typebot.io
   groups:
-  - releases-8fb80a8b651
+  - releases-typebot
   app_reference: typebot
   include_prereleases: false
 - name: Typemill
   repo: typemill/typemill
   groups:
-  - releases-921fb1ba39b
+  - releases-typemill
   app_reference: typemill
   include_prereleases: false
 - name: TypeType
   repo: typetype-video/typetype
   groups:
-  - releases-530bda9d658
+  - releases-typetype
   app_reference: typetype
   include_prereleases: false
 - name: TYPO3
   repo: typo3/typo3
   groups:
-  - releases-ec66405842e
+  - releases-typo3
   app_reference: typo3
   include_prereleases: false
 - name: Umami
   repo: umami-software/umami
   groups:
-  - releases-b5cf8b45ac5
+  - releases-umami
   app_reference: umami
   include_prereleases: false
 - name: umbrelOS
   repo: getumbrel/umbrel
   groups:
-  - releases-cf7286a2ba9
+  - releases-umbrelos
   app_reference: umbrelos
   include_prereleases: false
 - name: Unbound
   repo: nlnetlabs/unbound
   groups:
-  - releases-a4457d2f503
+  - releases-unbound
   app_reference: unbound
   include_prereleases: false
 - name: Uncloud
   repo: psviderski/uncloud
   groups:
-  - releases-543ed29b533
+  - releases-uncloud
   app_reference: uncloud
   include_prereleases: false
 - name: UniFi Voucher Site
   repo: glenndehaan/unifi-voucher-site
   groups:
-  - releases-1e885f8ab13
+  - releases-unifi-voucher-site
   app_reference: unifi-voucher-site
   include_prereleases: false
 - name: Unpackerr
   repo: unpackerr/unpackerr
   groups:
-  - releases-11bc7fe857e
+  - releases-unpackerr
   app_reference: unpackerr
   include_prereleases: false
 - name: Unraid Guardian
   repo: stephondoestech/unraid-config-guardian
   groups:
-  - releases-75f59c7b7d3
+  - releases-unraid-guardian
   app_reference: unraid-guardian
   include_prereleases: false
 - name: Unregistry
   repo: psviderski/unregistry
   groups:
-  - releases-7636f6ef701
+  - releases-unregistry
   app_reference: unregistry
   include_prereleases: false
 - name: Unsloth Studio
   repo: unslothai/unsloth
   groups:
-  - releases-54d61b33fda
+  - releases-unsloth-studio
   app_reference: unsloth-studio
   include_prereleases: false
 - name: UpSnap
   repo: seriousm4x/upsnap
   groups:
-  - releases-570885fb049
+  - releases-upsnap
   app_reference: upsnap
   include_prereleases: false
 - name: Upvote RSS
   repo: johnwarne/upvote-rss
   groups:
-  - releases-997e7ca5289
+  - releases-upvote-rss
   app_reference: upvote-rss
   include_prereleases: false
 - name: Usertour
   repo: usertour/usertour
   groups:
-  - releases-62d31b70b82
+  - releases-usertour
   app_reference: usertour
   include_prereleases: false
 - name: Valkey
   repo: valkey-io/valkey
   groups:
-  - releases-7913a9f09f7
+  - releases-valkey
   app_reference: valkey
   include_prereleases: false
 - name: Vanilla Cookbook
   repo: jt196/vanilla-cookbook
   groups:
-  - releases-4d6f71de43e
+  - releases-vanilla-cookbook
   app_reference: vanilla-cookbook
   include_prereleases: false
 - name: VaulTLS
   repo: 7ritn/vaultls
   groups:
-  - releases-b350f0a612a
+  - releases-vaultls
   app_reference: vaultls
   include_prereleases: false
 - name: Vector
   repo: vectordotdev/vector
   groups:
-  - releases-dcf2a964f85
+  - releases-vector
   app_reference: vector
   include_prereleases: false
 - name: Velld
   repo: dendianugerah/velld
   groups:
-  - releases-760be9f61f5
+  - releases-velld
   app_reference: velld
   include_prereleases: false
 - name: VerneMQ
   repo: vernemq/vernemq
   groups:
-  - releases-c74603f473a
+  - releases-vernemq
   app_reference: vernemq
   include_prereleases: false
 - name: VersityGW
   repo: versity/versitygw
   groups:
-  - releases-9d8fbce5837
+  - releases-versitygw
   app_reference: versitygw
   include_prereleases: false
 - name: VERT
   repo: vert-sh/vert
   groups:
-  - releases-b6feff60c4f
+  - releases-vert
   app_reference: vert
   include_prereleases: false
 - name: VictoriaMetrics
   repo: victoriametrics/victoriametrics
   groups:
-  - releases-52844a01c34
+  - releases-victoriametrics
   app_reference: victoriametrics
   include_prereleases: false
 - name: Vikunja
   repo: go-vikunja/vikunja
   groups:
-  - releases-7e052b63814
+  - releases-vikunja
   app_reference: vikunja
   include_prereleases: false
 - name: ViniPlay
   repo: ardoviniandrea/viniplay
   groups:
-  - releases-6bac350a984
+  - releases-viniplay
   app_reference: viniplay
   include_prereleases: false
 - name: Viseron
   repo: roflcoopter/viseron
   groups:
-  - releases-4545bbbaba0
+  - releases-viseron
   app_reference: viseron
   include_prereleases: false
 - name: Vito
   repo: vitodeploy/vito
   groups:
-  - releases-2ffbf5cf4ca
+  - releases-vito
   app_reference: vito
   include_prereleases: false
 - name: Vocard
   repo: chocomeow/vocard
   groups:
-  - releases-5e1a88fb535
+  - releases-vocard
   app_reference: vocard
   include_prereleases: false
 - name: VoidAuth
   repo: voidauth/voidauth
   groups:
-  - releases-b019aa8d54b
+  - releases-voidauth
   app_reference: voidauth
   include_prereleases: false
 - name: VoucherVault
   repo: l4rm4nd/vouchervault
   groups:
-  - releases-1755698708f
+  - releases-vouchervault
   app_reference: vouchervault
   include_prereleases: false
 - name: Coral
   repo: coralproject/talk
   groups:
-  - releases-4721fa3e1aa
+  - releases-voxmedia-coral
   app_reference: voxmedia-coral
   include_prereleases: false
 - name: VueTorrent
   repo: vuetorrent/vuetorrent
   groups:
-  - releases-a11b85b5868
+  - releases-vuetorrent
   app_reference: vuetorrent
   include_prereleases: false
 - name: Vykar
   repo: borgbase/vykar
   groups:
-  - releases-862692981d2
+  - releases-vykar
   app_reference: vykar
   include_prereleases: false
 - name: Wakapi
   repo: muety/wakapi
   groups:
-  - releases-6c33649a515
+  - releases-wakapi
   app_reference: wakapi
   include_prereleases: false
 - name: Wallabag
   repo: wallabag/wallabag
   groups:
-  - releases-e106dd51013
+  - releases-wallabag
   app_reference: wallabag
   include_prereleases: false
 - name: Wallos
   repo: ellite/wallos
   groups:
-  - releases-c09e7b99918
+  - releases-wallos
   app_reference: wallos
   include_prereleases: false
 - name: Wanderer
   repo: open-wanderer/wanderer
   groups:
-  - releases-c91c6d7c07a
+  - releases-wanderer
   app_reference: wanderer
   include_prereleases: false
 - name: Wapy.dev
   repo: meceware/wapy.dev
   groups:
-  - releases-b86eac6c8ca
+  - releases-wapy-dev
   app_reference: wapy-dev
   include_prereleases: false
 - name: Warpgate
   repo: warp-tech/warpgate
   groups:
-  - releases-0db0850ca25
+  - releases-warpgate
   app_reference: warpgate
   include_prereleases: false
 - name: Warracker
   repo: sassanix/warracker
   groups:
-  - releases-acf07d79d04
+  - releases-warracker
   app_reference: warracker
   include_prereleases: false
 - name: Wastebin
   repo: matze/wastebin
   groups:
-  - releases-66792b45ea1
+  - releases-wastebin
   app_reference: wastebin
   include_prereleases: false
 - name: Watcharr
   repo: sbondco/watcharr
   groups:
-  - releases-ab68d242034
+  - releases-watcharr
   app_reference: watcharr
   include_prereleases: false
 - name: WatchYourLAN
   repo: aceberg/watchyourlan
   groups:
-  - releases-16cb5a6d538
+  - releases-watchyourlan
   app_reference: watchyourlan
   include_prereleases: false
 - name: Web-Check
   repo: lissy93/web-check
   groups:
-  - releases-70ac1f71e11
+  - releases-web-check
   app_reference: web-check
   include_prereleases: false
 - name: WebHook Tester
   repo: tarampampam/webhook-tester
   groups:
-  - releases-6af0f3bdcb9
+  - releases-webhook-tester
   app_reference: webhook-tester
   include_prereleases: false
 - name: Weblate
   repo: weblateorg/weblate
   groups:
-  - releases-78a0752373b
+  - releases-weblate
   app_reference: weblate
   include_prereleases: false
 - name: Webmin
   repo: webmin/webmin
   groups:
-  - releases-3d6622aec58
+  - releases-webmin
   app_reference: webmin
   include_prereleases: false
 - name: WebSSH
   repo: bifrost0x/webssh
   groups:
-  - releases-905acd777f9
+  - releases-webssh
   app_reference: webssh
   include_prereleases: false
 - name: webtrees
   repo: fisharebest/webtrees
   groups:
-  - releases-5488e217432
+  - releases-webtrees
   app_reference: webtrees
   include_prereleases: false
 - name: WeKan
   repo: wekan/wekan
   groups:
-  - releases-1bd0e3c264b
+  - releases-wekan
   app_reference: wekan
   include_prereleases: false
 - name: wg-easy
   repo: wg-easy/wg-easy
   groups:
-  - releases-2d71cc0f338
+  - releases-wg-easy
   app_reference: wg-easy
   include_prereleases: false
 - name: WGDashboard
   repo: wgdashboard/wgdashboard
   groups:
-  - releases-7cfc8334d64
+  - releases-wgdashboard
   app_reference: wgdashboard
   include_prereleases: false
 - name: wger
   repo: wger-project/wger
   groups:
-  - releases-1606094497a
+  - releases-wger
   app_reference: wger
   include_prereleases: false
 - name: WhoDB
   repo: clidey/whodb
   groups:
-  - releases-8d24c17fc5f
+  - releases-whodb
   app_reference: whodb
   include_prereleases: false
 - name: Wiki-Go
   repo: leomoon-studios/wiki-go
   groups:
-  - releases-df2a671e0d4
+  - releases-wiki-go
   app_reference: wiki-go
   include_prereleases: false
 - name: Wiki.js
   repo: requarks/wiki
   groups:
-  - releases-befa767e30a
+  - releases-wiki-js
   app_reference: wiki-js
   include_prereleases: false
 - name: WikiDocs
   repo: zavy86/wikidocs
   groups:
-  - releases-69e39718b34
+  - releases-wikidocs
   app_reference: wikidocs
   include_prereleases: false
 - name: Will Be Done
   repo: will-be-done/will-be-done
   groups:
-  - releases-1a1db69c411
+  - releases-will-be-done
   app_reference: will-be-done
   include_prereleases: false
 - name: Willow
   repo: heywillow/willow
   groups:
-  - releases-a678a30b1d4
+  - releases-willow
   app_reference: willow
   include_prereleases: false
 - name: Windmill
   repo: windmill-labs/windmill
   groups:
-  - releases-02b35d55061
+  - releases-windmill
   app_reference: windmill
   include_prereleases: false
 - name: Windshift
   repo: windshiftapp/core
   groups:
-  - releases-6759c297722
+  - releases-windshift
   app_reference: windshift
   include_prereleases: false
 - name: Wingfit
   repo: itskovacs/wingfit
   groups:
-  - releases-099bd656c1d
+  - releases-wingfit
   app_reference: wingfit
   include_prereleases: false
 - name: Wiredoor
   repo: wiredoor/wiredoor
   groups:
-  - releases-36f06d8523e
+  - releases-wiredoor
   app_reference: wiredoor
   include_prereleases: false
 - name: Wizarr
   repo: wizarrrr/wizarr
   groups:
-  - releases-d0f6121ce07
+  - releases-wizarr
   app_reference: wizarr
   include_prereleases: false
 - name: WooCommerce
   repo: woocommerce/woocommerce
   groups:
-  - releases-d0737212854
+  - releases-woocommerce
   app_reference: woocommerce
   include_prereleases: false
 - name: Woodpecker CI
   repo: woodpecker-ci/woodpecker
   groups:
-  - releases-1d316a2e995
+  - releases-woodpecker-ci
   app_reference: woodpecker-ci
   include_prereleases: false
 - name: WordPress
   repo: wordpress/wordpress
   groups:
-  - releases-255f190889f
+  - releases-wordpress
   app_reference: wordpress
   include_prereleases: false
 - name: Worklenz
   repo: worklenz/worklenz
   groups:
-  - releases-b83649cdc7a
+  - releases-worklenz
   app_reference: worklenz
   include_prereleases: false
 - name: Workout.cool
   repo: snouzy/workout-cool
   groups:
-  - releases-93d0d855abe
+  - releases-workout-cool
   app_reference: workout-cool
   include_prereleases: false
 - name: Workout Tracker
   repo: jovandeginste/workout-tracker
   groups:
-  - releases-36cdb77d7c8
+  - releases-workout-tracker
   app_reference: workout-tracker
   include_prereleases: false
 - name: World Monitor
   repo: koala73/worldmonitor
   groups:
-  - releases-34365fae088
+  - releases-world-monitor
   app_reference: world-monitor
   include_prereleases: false
 - name: WriteFreely
   repo: writefreely/writefreely
   groups:
-  - releases-e8e4699c196
+  - releases-writefreely
   app_reference: writefreely
   include_prereleases: false
 - name: WUD
   repo: getwud/wud
   groups:
-  - releases-ff0cc15076d
+  - releases-wud
   app_reference: wud
   include_prereleases: false
 - name: WYGIWYH
   repo: eitchtee/wygiwyh
   groups:
-  - releases-5305f0a4110
+  - releases-wygiwyh
   app_reference: wygiwyh
   include_prereleases: false
 - name: xBackBone
   repo: sergix44/xbackbone
   groups:
-  - releases-6da382cb09d
+  - releases-xbackbone
   app_reference: xbackbone
   include_prereleases: false
 - name: Xibo
   repo: xibosignage/xibo
   groups:
-  - releases-c7a7ce10687
+  - releases-xibo
   app_reference: xibo
   include_prereleases: false
 - name: XPipe
   repo: xpipe-io/xpipe
   groups:
-  - releases-5b4eee99552
+  - releases-xpipe
   app_reference: xpipe
   include_prereleases: false
 - name: XWiki
   repo: xwiki/xwiki-platform
   groups:
-  - releases-52c6d79b2a6
+  - releases-xwiki
   app_reference: xwiki
   include_prereleases: false
 - name: xyOps
   repo: pixlcore/xyops
   groups:
-  - releases-a2c62670082
+  - releases-xyops
   app_reference: xyops
   include_prereleases: false
 - name: Yacht
   repo: selfhostedpro/yacht
   groups:
-  - releases-c0c8f7457a8
+  - releases-yacht
   app_reference: yacht
   include_prereleases: false
 - name: YAMLResume
   repo: yamlresume/yamlresume
   groups:
-  - releases-85682af6a1d
+  - releases-yamlresume
   app_reference: yamlresume
   include_prereleases: false
 - name: Yamtrack
   repo: fuzzygrim/yamtrack
   groups:
-  - releases-ebdff88c656
+  - releases-yamtrack
   app_reference: yamtrack
   include_prereleases: false
 - name: yarr
   repo: nkanaev/yarr
   groups:
-  - releases-bdb50104a9b
+  - releases-yarr
   app_reference: yarr
   include_prereleases: false
 - name: Youlag
   repo: civilblur/youlag
   groups:
-  - releases-33fabfc7a6c
+  - releases-youlag
   app_reference: youlag
   include_prereleases: false
 - name: Your Spotify
   repo: yooooomi/your_spotify
   groups:
-  - releases-e822cd55aa0
+  - releases-your-spotify
   app_reference: your-spotify
   include_prereleases: false
 - name: YOURLS
   repo: yourls/yourls
   groups:
-  - releases-6f12efdb760
+  - releases-yourls
   app_reference: yourls
   include_prereleases: false
 - name: Youtarr
   repo: dialmasterorg/youtarr
   groups:
-  - releases-8a4a2532b85
+  - releases-youtarr
   app_reference: youtarr
   include_prereleases: false
 - name: YoutubeDL-Material
   repo: tzahi12345/youtubedl-material
   groups:
-  - releases-8a8b29311cc
+  - releases-youtubedl-material
   app_reference: youtubedl-material
   include_prereleases: false
 - name: YT-DLP Web Player
   repo: matszwe02/ytdlp_web_player
   groups:
-  - releases-baf3c405e97
+  - releases-yt-dlp-web-player
   app_reference: yt-dlp-web-player
   include_prereleases: false
 - name: YT Zero
   repo: pelski/ytzero
   groups:
-  - releases-5e9bfa0773f
+  - releases-yt-zero
   app_reference: yt-zero
   include_prereleases: false
 - name: yubal
   repo: guillevc/yubal
   groups:
-  - releases-a0cc3498686
+  - releases-yubal
   app_reference: yubal
   include_prereleases: false
 - name: YunoHost
   repo: yunohost/yunohost
   groups:
-  - releases-0ecb33b3212
+  - releases-yunohost
   app_reference: yunohost
   include_prereleases: false
 - name: Yuvomi
   repo: ulsklyc/yuvomi
   groups:
-  - releases-21597c56e80
+  - releases-yuvomi
   app_reference: yuvomi
   include_prereleases: false
 - name: Z-Wave JS UI
   repo: zwave-js/zwave-js-ui
   groups:
-  - releases-b702ac8f1bc
+  - releases-z-wave-js-ui
   app_reference: z-wave-js-ui
   include_prereleases: false
 - name: Zabbix
   repo: zabbix/zabbix
   groups:
-  - releases-ed7a6acf34c
+  - releases-zabbix
   app_reference: zabbix
   include_prereleases: false
 - name: Zammad
   repo: zammad/zammad
   groups:
-  - releases-d39bb11a707
+  - releases-zammad
   app_reference: zammad
   include_prereleases: false
 - name: ZaneOps
   repo: zane-ops/zane-ops
   groups:
-  - releases-2af4d4274f8
+  - releases-zaneops
   app_reference: zaneops
   include_prereleases: false
 - name: Zen Notes
   repo: sheshbabu/zen
   groups:
-  - releases-f98efba3461
+  - releases-zen-notes
   app_reference: zen-notes
   include_prereleases: false
 - name: ZenNotes
   repo: zennotes/zennotes
   groups:
-  - releases-4e110f407af
+  - releases-zennotes
   app_reference: zennotes
   include_prereleases: false
 - name: Zensical
   repo: zensical/zensical
   groups:
-  - releases-c4181921747
+  - releases-zensical
   app_reference: zensical
   include_prereleases: false
 - name: Zerobyte
   repo: nicotsx/zerobyte
   groups:
-  - releases-c3e0bbdcb4a
+  - releases-zerobyte
   app_reference: zerobyte
   include_prereleases: false
 - name: Zigbee2MQTT
   repo: koenkk/zigbee2mqtt
   groups:
-  - releases-f516146531c
+  - releases-zigbee2mqtt
   app_reference: zigbee2mqtt
   include_prereleases: false
 - name: Ziit
   repo: 0pandadev/ziit
   groups:
-  - releases-1777a83f44d
+  - releases-ziit
   app_reference: ziit
   include_prereleases: false
 - name: ZipCaptions
   repo: jptrsn/zip-captions
   groups:
-  - releases-c96ad7963a5
+  - releases-zipcaptions
   app_reference: zipcaptions
   include_prereleases: false
 - name: Zipline
   repo: diced/zipline
   groups:
-  - releases-ecbe88eaefc
+  - releases-zipline
   app_reference: zipline
   include_prereleases: false
 - name: Zitadel
   repo: zitadel/zitadel
   groups:
-  - releases-768c7f920d6
+  - releases-zitadel
   app_reference: zitadel
   include_prereleases: false
 - name: ZoneMinder
   repo: zoneminder/zoneminder
   groups:
-  - releases-e3265258bea
+  - releases-zoneminder
   app_reference: zoneminder
   include_prereleases: false
 - name: Zoraxy
   repo: tobychui/zoraxy
   groups:
-  - releases-dac6b562bb3
+  - releases-zoraxy
   app_reference: zoraxy
   include_prereleases: false
 - name: Zot
   repo: project-zot/zot
   groups:
-  - releases-a948ff2519d
+  - releases-zot-registry
   app_reference: zot-registry
   include_prereleases: false
 - name: ZTNET
   repo: sinamics/ztnet
   groups:
-  - releases-68c2e43794e
+  - releases-ztnet
   app_reference: ztnet
   include_prereleases: false
 - name: Zulip
   repo: zulip/zulip
   groups:
-  - releases-b3eb7b10c2d
+  - releases-zulip
   app_reference: zulip
   include_prereleases: false
