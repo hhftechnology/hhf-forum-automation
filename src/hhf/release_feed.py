@@ -440,8 +440,10 @@ def _icon_bytes(entry: dict, client) -> tuple[str, bytes] | None:
 # repair and polling share this budget. It leaves room for setup, the commit, and the channel or
 # repository in flight when the deadline passes (deadlines are checked between them).
 JOB_BUDGET = 720
-# Provisioning's share when the same run also polls; the poll gets whatever is left.
+# Provisioning's share when the same run also polls, and the point by which group repair stops;
+# the poll gets whatever is left.
 PROVISION_SHARE = 360
+REPAIR_UNTIL = 480
 
 
 def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, progress=None, budget: float = 600) -> None:
@@ -546,16 +548,19 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, pr
         raise RuntimeError(f"release provisioning failed for: {", ".join(failed)}")
 
 
-def repair_groups(entries: list[dict], client, *, dry_run: bool) -> list[str]:
+def repair_groups(entries: list[dict], client, *, dry_run: bool, deadline: float | None = None) -> list[str]:
     """Give every provisioned release group its app name and, when it has none, its app icon.
 
     Groups made before the naming fix were titled "<owner/repo> releases" and the oldest ones have no
     flair. This lists the groups once (a few paged requests) and only writes the ones that differ, so it
     is cheap enough to run on every full release run. Returns the groups it could not repair."""
-    groups = {g["name"]: g for g in client.list_groups("releases-")}
+    groups = {g["name"]: g for g in client.list_groups("releases-", deadline=deadline)}
     failed = []
     icons: dict[str, tuple[str, bytes] | None] = {}
     for e in entries:
+        if deadline is not None and time.monotonic() >= deadline:
+            print("group repair deferred; continuing next full run")
+            break
         if e.get("provisioning") or not e.get("topic_id"):
             continue
         for g in e.get("groups") or [_group(e)]:
@@ -659,7 +664,7 @@ def main(argv: list[str] | None = None) -> int:
     if not args.dry_run:
         # Full runs keep group names and icons right; a failure is logged and retried next run.
         try:
-            repair_groups(entries, client, dry_run=False)
+            repair_groups(entries, client, dry_run=False, deadline=started + REPAIR_UNTIL)
         except Exception as exc:
             print(f"error: repairing release groups: {_describe(exc)}", file=sys.stderr)
     try:

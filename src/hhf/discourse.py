@@ -243,15 +243,21 @@ class DiscourseClient:
             data["group[flair_upload_id]"] = flair_upload_id
         return self.request("POST", "/admin/groups.json", data=data)["basic_group"]
 
-    def list_groups(self, prefix: str) -> list[dict]:
-        """Every group whose name starts with ``prefix``, following /groups.json pages."""
-        found: list[dict] = []
+    def list_groups(self, prefix: str, *, deadline: float | None = None) -> list[dict]:
+        """Every group whose name starts with ``prefix``, following /groups.json pages.
+
+        Stops at an empty page, at a page that adds no group it has not seen (so a server that
+        repeats its last page cannot keep it paging), or once ``deadline`` (time.monotonic) passes."""
+        found: dict[str, dict] = {}
         for page in range(1000):
-            rows = self.request("GET", "/groups.json", params={"filter": prefix, "page": page}).get("groups") or []
-            if not rows:
+            if deadline is not None and time.monotonic() >= deadline:
                 break
-            found.extend(g for g in rows if g.get("name", "").startswith(prefix))
-        return found
+            rows = self.request("GET", "/groups.json", params={"filter": prefix, "page": page}).get("groups") or []
+            new = [g for g in rows if g.get("name") and g["name"] not in found]
+            if not new:
+                break
+            found.update((g["name"], g) for g in new)
+        return [g for g in found.values() if g["name"].startswith(prefix)]
 
     def update_group(self, group_id: int, *, full_name: str | None = None, flair_upload_id: int | None = None) -> None:
         data = {}
