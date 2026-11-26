@@ -3767,346 +3767,498 @@
       "topic_id": 5763
     },
     {
+      "activated_at": "2026-11-26T14:05:48.745593+00:00",
       "app_reference": "emoncms",
+      "category_id": 411,
+      "discussion_topic_id": 5767,
       "groups": [
         "releases-emoncms"
       ],
       "include_prereleases": false,
       "name": "Emoncms",
-      "repo": "emoncms/emoncms"
+      "repo": "emoncms/emoncms",
+      "topic_id": 5766
     },
     {
+      "activated_at": "2026-11-26T14:05:56.023009+00:00",
       "app_reference": "enclosed",
+      "category_id": 412,
+      "discussion_topic_id": 5770,
       "groups": [
         "releases-enclosed"
       ],
       "include_prereleases": false,
       "name": "Enclosed",
-      "repo": "corentinth/enclosed"
+      "repo": "corentinth/enclosed",
+      "topic_id": 5769
     },
     {
+      "activated_at": "2026-11-26T14:06:02.744456+00:00",
       "app_reference": "endurain",
+      "category_id": 413,
+      "discussion_topic_id": 5773,
       "groups": [
         "releases-endurain"
       ],
       "include_prereleases": false,
       "name": "Endurain",
-      "repo": "endurain-project/endurain"
+      "repo": "endurain-project/endurain",
+      "topic_id": 5772
     },
     {
+      "activated_at": "2026-11-26T14:06:44.438919+00:00",
       "app_reference": "ente-auth",
+      "category_id": 414,
+      "discussion_topic_id": 5776,
       "groups": [
         "releases-ente-auth"
       ],
       "include_prereleases": false,
       "name": "Ente Auth",
-      "repo": "ente/ente"
+      "repo": "ente/ente",
+      "topic_id": 5775
     },
     {
+      "activated_at": "2026-11-26T14:06:51.730396+00:00",
       "app_reference": "eonvelope",
+      "category_id": 415,
+      "discussion_topic_id": 5779,
       "groups": [
         "releases-eonvelope"
       ],
       "include_prereleases": false,
       "name": "Eonvelope",
-      "repo": "dacid99/eonvelope"
+      "repo": "dacid99/eonvelope",
+      "topic_id": 5778
     },
     {
+      "activated_at": "2026-11-26T14:06:59.228691+00:00",
       "app_reference": "ergo",
+      "category_id": 416,
+      "discussion_topic_id": 5782,
       "groups": [
         "releases-ergo"
       ],
       "include_prereleases": false,
       "name": "Ergo",
-      "repo": "ergochat/ergo"
+      "repo": "ergochat/ergo",
+      "topic_id": 5781
     },
     {
+      "activated_at": "2026-11-26T14:07:06.258499+00:00",
       "app_reference": "erugo",
+      "category_id": 417,
+      "discussion_topic_id": 5785,
       "groups": [
         "releases-erugo"
       ],
       "include_prereleases": false,
       "name": "Erugo",
-      "repo": "erugooss/erugo"
+      "repo": "erugooss/erugo",
+      "topic_id": 5784
     },
     {
+      "activated_at": "2026-11-26T14:07:47.481610+00:00",
       "app_reference": "esphome",
+      "category_id": 418,
+      "discussion_topic_id": 5788,
       "groups": [
         "releases-esphome"
       ],
       "include_prereleases": false,
       "name": "ESPHome",
-      "repo": "esphome/esphome"
+      "repo": "esphome/esphome",
+      "topic_id": 5787
     },
     {
+      "activated_at": "2026-11-26T14:07:54.519285+00:00",
       "app_reference": "espocrm",
+      "category_id": 419,
+      "discussion_topic_id": 5791,
       "groups": [
         "releases-espocrm"
       ],
       "include_prereleases": false,
       "name": "EspoCRM",
-      "repo": "espocrm/espocrm"
+      "repo": "espocrm/espocrm",
+      "topic_id": 5790
     },
     {
+      "activated_at": "2026-11-26T14:08:01.992246+00:00",
       "app_reference": "etesync",
+      "category_id": 420,
+      "discussion_topic_id": 5794,
       "groups": [
         "releases-etesync"
       ],
       "include_prereleases": false,
       "name": "EteSync",
-      "repo": "etesync/server"
+      "repo": "etesync/server",
+      "topic_id": 5793
     },
     {
+      "activated_at": "2026-11-26T14:08:09.252556+00:00",
       "app_reference": "etherpad",
+      "category_id": 421,
+      "discussion_topic_id": 5797,
       "groups": [
         "releases-etherpad"
       ],
       "include_prereleases": false,
       "name": "Etherpad",
-      "repo": "ether/etherpad"
+      "repo": "ether/etherpad",
+      "topic_id": 5796
     },
     {
+      "activated_at": "2026-11-26T14:08:53.733391+00:00",
       "app_reference": "evcc",
+      "category_id": 422,
+      "discussion_topic_id": 5800,
       "groups": [
         "releases-evcc"
       ],
       "include_prereleases": false,
       "name": "evcc",
-      "repo": "evcc-io/evcc"
+      "repo": "evcc-io/evcc",
+      "topic_id": 5799
     },
     {
+      "activated_at": "2026-11-26T14:09:04.227100+00:00",
       "app_reference": "evershop",
+      "category_id": 423,
+      "discussion_topic_id": 5803,
       "groups": [
         "releases-evershop"
       ],
       "include_prereleases": false,
       "name": "EverShop",
-      "repo": "evershopcommerce/evershop"
+      "repo": "evershopcommerce/evershop",
+      "topic_id": 5802
     },
     {
+      "activated_at": "2026-11-26T14:09:15.547708+00:00",
       "app_reference": "excalidash",
+      "category_id": 424,
+      "discussion_topic_id": 5806,
       "groups": [
         "releases-excalidash"
       ],
       "include_prereleases": false,
       "name": "ExcaliDash",
-      "repo": "zimengxiong/excalidash"
+      "repo": "zimengxiong/excalidash",
+      "topic_id": 5805
     },
     {
+      "activated_at": "2026-11-26T14:09:46.715116+00:00",
       "app_reference": "excalidraw",
+      "category_id": 425,
+      "discussion_topic_id": 5809,
       "groups": [
         "releases-excalidraw"
       ],
       "include_prereleases": false,
       "name": "Excalidraw",
-      "repo": "excalidraw/excalidraw"
+      "repo": "excalidraw/excalidraw",
+      "topic_id": 5808
     },
     {
+      "activated_at": "2026-11-26T14:09:56.151140+00:00",
       "app_reference": "exercise-diary",
+      "category_id": 426,
+      "discussion_topic_id": 5812,
       "groups": [
         "releases-exercise-diary"
       ],
       "include_prereleases": false,
       "name": "Exercise Diary",
-      "repo": "aceberg/exercisediary"
+      "repo": "aceberg/exercisediary",
+      "topic_id": 5811
     },
     {
+      "activated_at": "2026-11-26T14:10:06.674410+00:00",
       "app_reference": "ezbookkeeping",
+      "category_id": 427,
+      "discussion_topic_id": 5815,
       "groups": [
         "releases-ezbookkeeping"
       ],
       "include_prereleases": false,
       "name": "ezBookkeeping",
-      "repo": "mayswind/ezbookkeeping"
+      "repo": "mayswind/ezbookkeeping",
+      "topic_id": 5814
     },
     {
+      "activated_at": "2026-11-26T14:10:18.256837+00:00",
       "app_reference": "eziwiki",
+      "category_id": 428,
+      "discussion_topic_id": 5818,
       "groups": [
         "releases-eziwiki"
       ],
       "include_prereleases": false,
       "name": "eziwiki",
-      "repo": "i3months/eziwiki"
+      "repo": "i3months/eziwiki",
+      "topic_id": 5817
     },
     {
+      "activated_at": "2026-11-26T14:10:53.346108+00:00",
       "app_reference": "fail2ban",
+      "category_id": 429,
+      "discussion_topic_id": 5821,
       "groups": [
         "releases-fail2ban"
       ],
       "include_prereleases": false,
       "name": "Fail2Ban",
-      "repo": "fail2ban/fail2ban"
+      "repo": "fail2ban/fail2ban",
+      "topic_id": 5820
     },
     {
+      "activated_at": "2026-11-26T14:11:07.800592+00:00",
       "app_reference": "faridoon",
+      "category_id": 430,
+      "discussion_topic_id": 5824,
       "groups": [
         "releases-faridoon"
       ],
       "include_prereleases": false,
       "name": "Faridoon",
-      "repo": "jamesread/faridoon"
+      "repo": "jamesread/faridoon",
+      "topic_id": 5823
     },
     {
+      "activated_at": "2026-11-26T14:11:16.214349+00:00",
       "app_reference": "faved",
+      "category_id": 431,
+      "discussion_topic_id": 5827,
       "groups": [
         "releases-faved"
       ],
       "include_prereleases": false,
       "name": "Faved",
-      "repo": "denho/faved"
+      "repo": "denho/faved",
+      "topic_id": 5826
     },
     {
+      "activated_at": "2026-11-26T14:11:23.536281+00:00",
       "app_reference": "fcaptcha",
+      "category_id": 432,
+      "discussion_topic_id": 5830,
       "groups": [
         "releases-fcaptcha"
       ],
       "include_prereleases": false,
       "name": "FCaptcha",
-      "repo": "webdecoy/fcaptcha"
+      "repo": "webdecoy/fcaptcha",
+      "topic_id": 5829
     },
     {
+      "activated_at": "2026-11-26T14:11:59.560410+00:00",
       "app_reference": "feedbin",
+      "category_id": 433,
+      "discussion_topic_id": 5833,
       "groups": [
         "releases-feedbin"
       ],
       "include_prereleases": false,
       "name": "Feedbin",
-      "repo": "feedbin/feedbin"
+      "repo": "feedbin/feedbin",
+      "topic_id": 5832
     },
     {
+      "activated_at": "2026-11-26T14:12:10.187107+00:00",
       "app_reference": "feeds-fun",
+      "category_id": 434,
+      "discussion_topic_id": 5836,
       "groups": [
         "releases-feeds-fun"
       ],
       "include_prereleases": false,
       "name": "Feeds Fun",
-      "repo": "tiendil/feeds.fun"
+      "repo": "tiendil/feeds.fun",
+      "topic_id": 5835
     },
     {
+      "activated_at": "2026-11-26T14:12:18.557702+00:00",
       "app_reference": "fenrus",
+      "category_id": 435,
+      "discussion_topic_id": 5839,
       "groups": [
         "releases-fenrus"
       ],
       "include_prereleases": false,
       "name": "Fenrus",
-      "repo": "revenz/fenrus"
+      "repo": "revenz/fenrus",
+      "topic_id": 5838
     },
     {
+      "activated_at": "2026-11-26T14:12:28.453186+00:00",
       "app_reference": "ferrishare",
+      "category_id": 436,
+      "discussion_topic_id": 5842,
       "groups": [
         "releases-ferrishare"
       ],
       "include_prereleases": false,
       "name": "FerriShare",
-      "repo": "tobiasmarschner/ferrishare"
+      "repo": "tobiasmarschner/ferrishare",
+      "topic_id": 5841
     },
     {
+      "activated_at": "2026-11-26T14:13:04.910345+00:00",
       "app_reference": "ferron",
+      "category_id": 437,
+      "discussion_topic_id": 5845,
       "groups": [
         "releases-ferron"
       ],
       "include_prereleases": false,
       "name": "Ferron",
-      "repo": "ferronweb/ferron"
+      "repo": "ferronweb/ferron",
+      "topic_id": 5844
     },
     {
+      "activated_at": "2026-11-26T14:13:13.375917+00:00",
       "app_reference": "fider",
+      "category_id": 438,
+      "discussion_topic_id": 5848,
       "groups": [
         "releases-fider"
       ],
       "include_prereleases": false,
       "name": "Fider",
-      "repo": "getfider/fider"
+      "repo": "getfider/fider",
+      "topic_id": 5847
     },
     {
+      "activated_at": "2026-11-26T14:13:21.174573+00:00",
       "app_reference": "figranium",
+      "category_id": 439,
+      "discussion_topic_id": 5851,
       "groups": [
         "releases-figranium"
       ],
       "include_prereleases": false,
       "name": "Figranium",
-      "repo": "figranium/figranium"
+      "repo": "figranium/figranium",
+      "topic_id": 5850
     },
     {
+      "activated_at": "2026-11-26T14:13:52.751778+00:00",
       "app_reference": "filebrowser-quantum",
+      "category_id": 440,
+      "discussion_topic_id": 5854,
       "groups": [
         "releases-filebrowser-quantum"
       ],
       "include_prereleases": false,
       "name": "FileBrowser Quantum",
-      "repo": "gtsteffaniak/filebrowser"
+      "repo": "gtsteffaniak/filebrowser",
+      "topic_id": 5853
     },
     {
+      "activated_at": "2026-11-26T14:14:06.661890+00:00",
       "app_reference": "filegator",
+      "category_id": 441,
+      "discussion_topic_id": 5857,
       "groups": [
         "releases-filegator"
       ],
       "include_prereleases": false,
       "name": "FileGator",
-      "repo": "filegator/filegator"
+      "repo": "filegator/filegator",
+      "topic_id": 5856
     },
     {
+      "activated_at": "2026-11-26T14:14:15.274215+00:00",
       "app_reference": "filepizza",
+      "category_id": 442,
+      "discussion_topic_id": 5860,
       "groups": [
         "releases-filepizza"
       ],
       "include_prereleases": false,
       "name": "FilePizza",
-      "repo": "kern/filepizza"
+      "repo": "kern/filepizza",
+      "topic_id": 5859
     },
     {
+      "activated_at": "2026-11-26T14:14:25.019538+00:00",
       "app_reference": "filerise",
+      "category_id": 443,
+      "discussion_topic_id": 5863,
       "groups": [
         "releases-filerise"
       ],
       "include_prereleases": false,
       "name": "FileRise",
-      "repo": "error311/filerise"
+      "repo": "error311/filerise",
+      "topic_id": 5862
     },
     {
+      "activated_at": "2026-11-26T14:14:56.889898+00:00",
       "app_reference": "filestash",
+      "category_id": 444,
+      "discussion_topic_id": 5866,
       "groups": [
         "releases-filestash"
       ],
       "include_prereleases": false,
       "name": "Filestash",
-      "repo": "mickael-kerjean/filestash"
+      "repo": "mickael-kerjean/filestash",
+      "topic_id": 5865
     },
     {
+      "activated_at": "2026-11-26T14:15:10.574094+00:00",
       "app_reference": "filesync",
+      "category_id": 445,
+      "discussion_topic_id": 5869,
       "groups": [
         "releases-filesync"
       ],
       "include_prereleases": false,
       "name": "FileSync",
-      "repo": "polius/filesync"
+      "repo": "polius/filesync",
+      "topic_id": 5868
     },
     {
+      "activated_at": "2026-11-26T14:15:19.323967+00:00",
       "app_reference": "firefly-iii",
+      "category_id": 446,
+      "discussion_topic_id": 5872,
       "groups": [
         "releases-firefly-iii"
       ],
       "include_prereleases": false,
       "name": "Firefly III",
-      "repo": "firefly-iii/firefly-iii"
+      "repo": "firefly-iii/firefly-iii",
+      "topic_id": 5871
     },
     {
+      "activated_at": "2026-11-26T14:15:26.719251+00:00",
       "app_reference": "fireshare",
+      "category_id": 447,
+      "discussion_topic_id": 5875,
       "groups": [
         "releases-fireshare"
       ],
       "include_prereleases": false,
       "name": "Fireshare",
-      "repo": "fireshare-app/fireshare"
+      "repo": "fireshare-app/fireshare",
+      "topic_id": 5874
     },
     {
+      "activated_at": "2026-11-26T14:16:01.139455+00:00",
       "app_reference": "fitbit-health-dashboard",
+      "category_id": 448,
+      "discussion_topic_id": 5878,
       "groups": [
         "releases-fitbit-health-dashboard"
       ],
       "include_prereleases": false,
       "name": "Fitbit Health Dashboard",
-      "repo": "arpanghosh8453/fitbit-grafana"
+      "repo": "arpanghosh8453/fitbit-grafana",
+      "topic_id": 5877
     },
     {
       "app_reference": "fittrackee",
