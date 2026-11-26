@@ -10928,346 +10928,498 @@
       "topic_id": 7418
     },
     {
+      "activated_at": "2026-11-26T19:48:58.403318+00:00",
       "app_reference": "reaparr",
+      "category_id": 961,
+      "discussion_topic_id": 7422,
       "groups": [
         "releases-reaparr"
       ],
       "include_prereleases": false,
       "name": "Reaparr",
-      "repo": "reaparr/reaparr"
+      "repo": "reaparr/reaparr",
+      "topic_id": 7421
     },
     {
+      "activated_at": "2026-11-26T19:49:04.754071+00:00",
       "app_reference": "receipt-wrangler",
+      "category_id": 962,
+      "discussion_topic_id": 7425,
       "groups": [
         "releases-receipt-wrangler"
       ],
       "include_prereleases": false,
       "name": "Receipt Wrangler",
-      "repo": "receipt-wrangler/receipt-wrangler"
+      "repo": "receipt-wrangler/receipt-wrangler",
+      "topic_id": 7424
     },
     {
+      "activated_at": "2026-11-26T19:49:10.809543+00:00",
       "app_reference": "recipesage",
+      "category_id": 963,
+      "discussion_topic_id": 7428,
       "groups": [
         "releases-recipesage"
       ],
       "include_prereleases": false,
       "name": "RecipeSage",
-      "repo": "julianpoy/recipesage"
+      "repo": "julianpoy/recipesage",
+      "topic_id": 7427
     },
     {
+      "activated_at": "2026-11-26T19:49:54.586419+00:00",
       "app_reference": "recyclarr",
+      "category_id": 964,
+      "discussion_topic_id": 7431,
       "groups": [
         "releases-recyclarr"
       ],
       "include_prereleases": false,
       "name": "Recyclarr",
-      "repo": "recyclarr/recyclarr"
+      "repo": "recyclarr/recyclarr",
+      "topic_id": 7430
     },
     {
+      "activated_at": "2026-11-26T19:50:00.924119+00:00",
       "app_reference": "redlib",
+      "category_id": 965,
+      "discussion_topic_id": 7434,
       "groups": [
         "releases-redlib"
       ],
       "include_prereleases": false,
       "name": "Redlib",
-      "repo": "redlib-org/redlib"
+      "repo": "redlib-org/redlib",
+      "topic_id": 7433
     },
     {
+      "activated_at": "2026-11-26T19:50:07.144449+00:00",
       "app_reference": "reitti",
+      "category_id": 966,
+      "discussion_topic_id": 7437,
       "groups": [
         "releases-reitti"
       ],
       "include_prereleases": false,
       "name": "Reitti",
-      "repo": "dedicatedcode/reitti"
+      "repo": "dedicatedcode/reitti",
+      "topic_id": 7436
     },
     {
+      "activated_at": "2026-11-26T19:50:13.152571+00:00",
       "app_reference": "relaticle",
+      "category_id": 967,
+      "discussion_topic_id": 7440,
       "groups": [
         "releases-relaticle"
       ],
       "include_prereleases": false,
       "name": "Relaticle",
-      "repo": "relaticle/relaticle"
+      "repo": "relaticle/relaticle",
+      "topic_id": 7439
     },
     {
+      "activated_at": "2026-11-26T19:50:57.314348+00:00",
       "app_reference": "requestly",
+      "category_id": 968,
+      "discussion_topic_id": 7443,
       "groups": [
         "releases-requestly"
       ],
       "include_prereleases": false,
       "name": "Requestly",
-      "repo": "requestly/requestly"
+      "repo": "requestly/requestly",
+      "topic_id": 7442
     },
     {
+      "activated_at": "2026-11-26T19:51:03.610127+00:00",
       "app_reference": "restic",
+      "category_id": 969,
+      "discussion_topic_id": 7446,
       "groups": [
         "releases-restic"
       ],
       "include_prereleases": false,
       "name": "restic",
-      "repo": "restic/restic"
+      "repo": "restic/restic",
+      "topic_id": 7445
     },
     {
+      "activated_at": "2026-11-26T19:51:09.717475+00:00",
       "app_reference": "restreamer",
+      "category_id": 970,
+      "discussion_topic_id": 7449,
       "groups": [
         "releases-restreamer"
       ],
       "include_prereleases": false,
       "name": "Restreamer",
-      "repo": "datarhei/restreamer"
+      "repo": "datarhei/restreamer",
+      "topic_id": 7448
     },
     {
+      "activated_at": "2026-11-26T19:51:53.116041+00:00",
       "app_reference": "retroassembly",
+      "category_id": 971,
+      "discussion_topic_id": 7452,
       "groups": [
         "releases-retroassembly"
       ],
       "include_prereleases": false,
       "name": "RetroAssembly",
-      "repo": "arianrhodsandlot/retroassembly"
+      "repo": "arianrhodsandlot/retroassembly",
+      "topic_id": 7451
     },
     {
+      "activated_at": "2026-11-26T19:51:59.355926+00:00",
       "app_reference": "retrom",
+      "category_id": 972,
+      "discussion_topic_id": 7455,
       "groups": [
         "releases-retrom"
       ],
       "include_prereleases": false,
       "name": "Retrom",
-      "repo": "jmberesford/retrom"
+      "repo": "jmberesford/retrom",
+      "topic_id": 7454
     },
     {
+      "activated_at": "2026-11-26T19:52:05.672170+00:00",
       "app_reference": "revel",
+      "category_id": 973,
+      "discussion_topic_id": 7458,
       "groups": [
         "releases-revel"
       ],
       "include_prereleases": false,
       "name": "Revel",
-      "repo": "letsrevel/revel-backend"
+      "repo": "letsrevel/revel-backend",
+      "topic_id": 7457
     },
     {
+      "activated_at": "2026-11-26T19:52:11.867931+00:00",
       "app_reference": "review-board",
+      "category_id": 974,
+      "discussion_topic_id": 7461,
       "groups": [
         "releases-review-board"
       ],
       "include_prereleases": false,
       "name": "Review Board",
-      "repo": "reviewboard/reviewboard"
+      "repo": "reviewboard/reviewboard",
+      "topic_id": 7460
     },
     {
+      "activated_at": "2026-11-26T19:52:55.499770+00:00",
       "app_reference": "rewindarr",
+      "category_id": 975,
+      "discussion_topic_id": 7464,
       "groups": [
         "releases-rewindarr"
       ],
       "include_prereleases": false,
       "name": "Rewindarr",
-      "repo": "raunot/rewindarr"
+      "repo": "raunot/rewindarr",
+      "topic_id": 7463
     },
     {
+      "activated_at": "2026-11-26T19:53:01.726443+00:00",
       "app_reference": "riven",
+      "category_id": 976,
+      "discussion_topic_id": 7467,
       "groups": [
         "releases-riven"
       ],
       "include_prereleases": false,
       "name": "Riven",
-      "repo": "rivenmedia/riven"
+      "repo": "rivenmedia/riven",
+      "topic_id": 7466
     },
     {
+      "activated_at": "2026-11-26T19:53:07.845666+00:00",
       "app_reference": "rocket-chat",
+      "category_id": 977,
+      "discussion_topic_id": 7470,
       "groups": [
         "releases-rocket-chat"
       ],
       "include_prereleases": false,
       "name": "Rocket.Chat",
-      "repo": "rocketchat/rocket.chat"
+      "repo": "rocketchat/rocket.chat",
+      "topic_id": 7469
     },
     {
+      "activated_at": "2026-11-26T19:53:14.136683+00:00",
       "app_reference": "romm",
+      "category_id": 978,
+      "discussion_topic_id": 7473,
       "groups": [
         "releases-romm"
       ],
       "include_prereleases": false,
       "name": "RomM",
-      "repo": "rommapp/romm"
+      "repo": "rommapp/romm",
+      "topic_id": 7472
     },
     {
+      "activated_at": "2026-11-26T19:53:57.240074+00:00",
       "app_reference": "rotki",
+      "category_id": 979,
+      "discussion_topic_id": 7476,
       "groups": [
         "releases-rotki"
       ],
       "include_prereleases": false,
       "name": "Rotki",
-      "repo": "rotki/rotki"
+      "repo": "rotki/rotki",
+      "topic_id": 7475
     },
     {
+      "activated_at": "2026-11-26T19:54:03.594729+00:00",
       "app_reference": "roundcube",
+      "category_id": 980,
+      "discussion_topic_id": 7479,
       "groups": [
         "releases-roundcube"
       ],
       "include_prereleases": false,
       "name": "Roundcube",
-      "repo": "roundcube/roundcubemail"
+      "repo": "roundcube/roundcubemail",
+      "topic_id": 7478
     },
     {
+      "activated_at": "2026-11-26T19:54:09.724654+00:00",
       "app_reference": "rss-bridge",
+      "category_id": 981,
+      "discussion_topic_id": 7482,
       "groups": [
         "releases-rss-bridge"
       ],
       "include_prereleases": false,
       "name": "RSS Bridge",
-      "repo": "rss-bridge/rss-bridge"
+      "repo": "rss-bridge/rss-bridge",
+      "topic_id": 7481
     },
     {
+      "activated_at": "2026-11-26T19:54:15.773592+00:00",
       "app_reference": "rssbox",
+      "category_id": 982,
+      "discussion_topic_id": 7485,
       "groups": [
         "releases-rssbox"
       ],
       "include_prereleases": false,
       "name": "RSSBox",
-      "repo": "versun/rssbox"
+      "repo": "versun/rssbox",
+      "topic_id": 7484
     },
     {
+      "activated_at": "2026-11-26T19:54:59.011531+00:00",
       "app_reference": "rsshub",
+      "category_id": 983,
+      "discussion_topic_id": 7488,
       "groups": [
         "releases-rsshub"
       ],
       "include_prereleases": false,
       "name": "RSSHub",
-      "repo": "diygod/rsshub"
+      "repo": "diygod/rsshub",
+      "topic_id": 7487
     },
     {
+      "activated_at": "2026-11-26T19:55:05.167248+00:00",
       "app_reference": "rssmonster",
+      "category_id": 984,
+      "discussion_topic_id": 7491,
       "groups": [
         "releases-rssmonster"
       ],
       "include_prereleases": false,
       "name": "RSSMonster",
-      "repo": "pietheinstrengholt/rssmonster"
+      "repo": "pietheinstrengholt/rssmonster",
+      "topic_id": 7490
     },
     {
+      "activated_at": "2026-11-26T19:55:11.303408+00:00",
       "app_reference": "rundeck",
+      "category_id": 985,
+      "discussion_topic_id": 7494,
       "groups": [
         "releases-rundeck"
       ],
       "include_prereleases": false,
       "name": "Rundeck",
-      "repo": "rundeck/rundeck"
+      "repo": "rundeck/rundeck",
+      "topic_id": 7493
     },
     {
+      "activated_at": "2026-11-26T19:55:55.172948+00:00",
       "app_reference": "runson",
+      "category_id": 986,
+      "discussion_topic_id": 7497,
       "groups": [
         "releases-runson"
       ],
       "include_prereleases": false,
       "name": "RunsOn",
-      "repo": "runs-on/runs-on"
+      "repo": "runs-on/runs-on",
+      "topic_id": 7496
     },
     {
+      "activated_at": "2026-11-26T19:56:01.385430+00:00",
       "app_reference": "runtipi",
+      "category_id": 987,
+      "discussion_topic_id": 7500,
       "groups": [
         "releases-runtipi"
       ],
       "include_prereleases": false,
       "name": "Runtipi",
-      "repo": "runtipi/runtipi"
+      "repo": "runtipi/runtipi",
+      "topic_id": 7499
     },
     {
+      "activated_at": "2026-11-26T19:56:07.638692+00:00",
       "app_reference": "rustfs",
+      "category_id": 988,
+      "discussion_topic_id": 7503,
       "groups": [
         "releases-rustfs"
       ],
       "include_prereleases": false,
       "name": "RustFS",
-      "repo": "rustfs/rustfs"
+      "repo": "rustfs/rustfs",
+      "topic_id": 7502
     },
     {
+      "activated_at": "2026-11-26T19:56:13.795253+00:00",
       "app_reference": "rybbit",
+      "category_id": 989,
+      "discussion_topic_id": 7506,
       "groups": [
         "releases-rybbit"
       ],
       "include_prereleases": false,
       "name": "Rybbit",
-      "repo": "rybbit-io/rybbit"
+      "repo": "rybbit-io/rybbit",
+      "topic_id": 7505
     },
     {
+      "activated_at": "2026-11-26T19:56:57.778593+00:00",
       "app_reference": "ryot",
+      "category_id": 990,
+      "discussion_topic_id": 7509,
       "groups": [
         "releases-ryot"
       ],
       "include_prereleases": false,
       "name": "Ryot",
-      "repo": "ignisda/ryot"
+      "repo": "ignisda/ryot",
+      "topic_id": 7508
     },
     {
+      "activated_at": "2026-11-26T19:57:04.039893+00:00",
       "app_reference": "sablier",
+      "category_id": 991,
+      "discussion_topic_id": 7512,
       "groups": [
         "releases-sablier"
       ],
       "include_prereleases": false,
       "name": "Sablier",
-      "repo": "sablierapp/sablier"
+      "repo": "sablierapp/sablier",
+      "topic_id": 7511
     },
     {
+      "activated_at": "2026-11-26T19:57:09.983412+00:00",
       "app_reference": "sabre-dav",
+      "category_id": 992,
+      "discussion_topic_id": 7515,
       "groups": [
         "releases-sabre-dav"
       ],
       "include_prereleases": false,
       "name": "sabre/dav",
-      "repo": "sabre-io/dav"
+      "repo": "sabre-io/dav",
+      "topic_id": 7514
     },
     {
+      "activated_at": "2026-11-26T19:57:15.900043+00:00",
       "app_reference": "safebucket",
+      "category_id": 993,
+      "discussion_topic_id": 7518,
       "groups": [
         "releases-safebucket"
       ],
       "include_prereleases": false,
       "name": "Safebucket",
-      "repo": "safebucket/safebucket"
+      "repo": "safebucket/safebucket",
+      "topic_id": 7517
     },
     {
+      "activated_at": "2026-11-26T19:57:59.918977+00:00",
       "app_reference": "safeline",
+      "category_id": 994,
+      "discussion_topic_id": 7521,
       "groups": [
         "releases-safeline"
       ],
       "include_prereleases": false,
       "name": "SafeLine",
-      "repo": "chaitin/safeline"
+      "repo": "chaitin/safeline",
+      "topic_id": 7520
     },
     {
+      "activated_at": "2026-11-26T19:58:06.469972+00:00",
       "app_reference": "saltcorn",
+      "category_id": 995,
+      "discussion_topic_id": 7524,
       "groups": [
         "releases-saltcorn"
       ],
       "include_prereleases": false,
       "name": "Saltcorn",
-      "repo": "saltcorn/saltcorn"
+      "repo": "saltcorn/saltcorn",
+      "topic_id": 7523
     },
     {
+      "activated_at": "2026-11-26T19:58:12.825812+00:00",
       "app_reference": "sandstorm",
+      "category_id": 996,
+      "discussion_topic_id": 7527,
       "groups": [
         "releases-sandstorm"
       ],
       "include_prereleases": false,
       "name": "Sandstorm",
-      "repo": "sandstorm-io/sandstorm"
+      "repo": "sandstorm-io/sandstorm",
+      "topic_id": 7526
     },
     {
+      "activated_at": "2026-11-26T19:58:19.073117+00:00",
       "app_reference": "scanopy",
+      "category_id": 997,
+      "discussion_topic_id": 7530,
       "groups": [
         "releases-scanopy"
       ],
       "include_prereleases": false,
       "name": "Scanopy",
-      "repo": "scanopy/scanopy"
+      "repo": "scanopy/scanopy",
+      "topic_id": 7529
     },
     {
+      "activated_at": "2026-11-26T19:59:02.329065+00:00",
       "app_reference": "scholarsome",
+      "category_id": 998,
+      "discussion_topic_id": 7533,
       "groups": [
         "releases-scholarsome"
       ],
       "include_prereleases": false,
       "name": "Scholarsome",
-      "repo": "hwgilbert16/scholarsome"
+      "repo": "hwgilbert16/scholarsome",
+      "topic_id": 7532
     },
     {
       "app_reference": "scraparr",
