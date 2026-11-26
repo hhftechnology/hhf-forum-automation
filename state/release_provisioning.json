@@ -8941,346 +8941,498 @@
       "topic_id": 6962
     },
     {
+      "activated_at": "2026-11-26T18:34:02.352005+00:00",
       "app_reference": "odoo",
+      "category_id": 809,
+      "discussion_topic_id": 6966,
       "groups": [
         "releases-odoo"
       ],
       "include_prereleases": false,
       "name": "Odoo",
-      "repo": "odoo/odoo"
+      "repo": "odoo/odoo",
+      "topic_id": 6965
     },
     {
+      "activated_at": "2026-11-26T18:34:09.171025+00:00",
       "app_reference": "olivetin",
+      "category_id": 810,
+      "discussion_topic_id": 6969,
       "groups": [
         "releases-olivetin"
       ],
       "include_prereleases": false,
       "name": "OliveTin",
-      "repo": "olivetin/olivetin"
+      "repo": "olivetin/olivetin",
+      "topic_id": 6968
     },
     {
+      "activated_at": "2026-11-26T18:34:16.159580+00:00",
       "app_reference": "ombi",
+      "category_id": 811,
+      "discussion_topic_id": 6972,
       "groups": [
         "releases-ombi"
       ],
       "include_prereleases": false,
       "name": "Ombi",
-      "repo": "ombi-app/ombi"
+      "repo": "ombi-app/ombi",
+      "topic_id": 6971
     },
     {
+      "activated_at": "2026-11-26T18:34:56.944768+00:00",
       "app_reference": "omnitools",
+      "category_id": 812,
+      "discussion_topic_id": 6975,
       "groups": [
         "releases-omnitools"
       ],
       "include_prereleases": false,
       "name": "OmniTools",
-      "repo": "iib0011/omni-tools"
+      "repo": "iib0011/omni-tools",
+      "topic_id": 6974
     },
     {
+      "activated_at": "2026-11-26T18:35:05.543506+00:00",
       "app_reference": "onedev",
+      "category_id": 813,
+      "discussion_topic_id": 6978,
       "groups": [
         "releases-onedev"
       ],
       "include_prereleases": false,
       "name": "OneDev",
-      "repo": "theonedev/onedev"
+      "repo": "theonedev/onedev",
+      "topic_id": 6977
     },
     {
+      "activated_at": "2026-11-26T18:35:12.435305+00:00",
       "app_reference": "oneuptime",
+      "category_id": 814,
+      "discussion_topic_id": 6981,
       "groups": [
         "releases-oneuptime"
       ],
       "include_prereleases": false,
       "name": "OneUptime",
-      "repo": "oneuptime/oneuptime"
+      "repo": "oneuptime/oneuptime",
+      "topic_id": 6980
     },
     {
+      "activated_at": "2026-11-26T18:35:19.259557+00:00",
       "app_reference": "ontime",
+      "category_id": 815,
+      "discussion_topic_id": 6984,
       "groups": [
         "releases-ontime"
       ],
       "include_prereleases": false,
       "name": "Ontime",
-      "repo": "cpvalente/ontime"
+      "repo": "cpvalente/ontime",
+      "topic_id": 6983
     },
     {
+      "activated_at": "2026-11-26T18:36:00.411798+00:00",
       "app_reference": "onwatch",
+      "category_id": 816,
+      "discussion_topic_id": 6987,
       "groups": [
         "releases-onwatch"
       ],
       "include_prereleases": false,
       "name": "onWatch",
-      "repo": "onllm-dev/onwatch"
+      "repo": "onllm-dev/onwatch",
+      "topic_id": 6986
     },
     {
+      "activated_at": "2026-11-26T18:36:08.230348+00:00",
       "app_reference": "open-archiver",
+      "category_id": 817,
+      "discussion_topic_id": 6990,
       "groups": [
         "releases-open-archiver"
       ],
       "include_prereleases": false,
       "name": "Open Archiver",
-      "repo": "logiclabs-ou/openarchiver"
+      "repo": "logiclabs-ou/openarchiver",
+      "topic_id": 6989
     },
     {
+      "activated_at": "2026-11-26T18:36:14.856803+00:00",
       "app_reference": "open-dronelog",
+      "category_id": 818,
+      "discussion_topic_id": 6993,
       "groups": [
         "releases-open-dronelog"
       ],
       "include_prereleases": false,
       "name": "Open DroneLog",
-      "repo": "arpanghosh8453/open-dronelog"
+      "repo": "arpanghosh8453/open-dronelog",
+      "topic_id": 6992
     },
     {
+      "activated_at": "2026-11-26T18:36:21.483848+00:00",
       "app_reference": "open-webui",
+      "category_id": 819,
+      "discussion_topic_id": 6996,
       "groups": [
         "releases-open-webui"
       ],
       "include_prereleases": false,
       "name": "Open WebUI",
-      "repo": "open-webui/open-webui"
+      "repo": "open-webui/open-webui",
+      "topic_id": 6995
     },
     {
+      "activated_at": "2026-11-26T18:37:02.170626+00:00",
       "app_reference": "openbao",
+      "category_id": 820,
+      "discussion_topic_id": 6999,
       "groups": [
         "releases-openbao"
       ],
       "include_prereleases": false,
       "name": "OpenBao",
-      "repo": "openbao/openbao"
+      "repo": "openbao/openbao",
+      "topic_id": 6998
     },
     {
+      "activated_at": "2026-11-26T18:37:11.070516+00:00",
       "app_reference": "openbudgeteer",
+      "category_id": 821,
+      "discussion_topic_id": 7002,
       "groups": [
         "releases-openbudgeteer"
       ],
       "include_prereleases": false,
       "name": "OpenBudgeteer",
-      "repo": "theaxelander/openbudgeteer"
+      "repo": "theaxelander/openbudgeteer",
+      "topic_id": 7001
     },
     {
+      "activated_at": "2026-11-26T18:37:17.776962+00:00",
       "app_reference": "openchangelog",
+      "category_id": 822,
+      "discussion_topic_id": 7005,
       "groups": [
         "releases-openchangelog"
       ],
       "include_prereleases": false,
       "name": "Openchangelog",
-      "repo": "jonashiltl/openchangelog"
+      "repo": "jonashiltl/openchangelog",
+      "topic_id": 7004
     },
     {
+      "activated_at": "2026-11-26T18:37:57.174210+00:00",
       "app_reference": "openclaw",
+      "category_id": 823,
+      "discussion_topic_id": 7008,
       "groups": [
         "releases-openclaw"
       ],
       "include_prereleases": false,
       "name": "OpenClaw",
-      "repo": "openclaw/openclaw"
+      "repo": "openclaw/openclaw",
+      "topic_id": 7007
     },
     {
+      "activated_at": "2026-11-26T18:38:05.384392+00:00",
       "app_reference": "opencloud",
+      "category_id": 824,
+      "discussion_topic_id": 7011,
       "groups": [
         "releases-opencloud"
       ],
       "include_prereleases": false,
       "name": "OpenCloud",
-      "repo": "opencloud-eu/opencloud"
+      "repo": "opencloud-eu/opencloud",
+      "topic_id": 7010
     },
     {
+      "activated_at": "2026-11-26T18:38:13.398425+00:00",
       "app_reference": "opencut",
+      "category_id": 825,
+      "discussion_topic_id": 7014,
       "groups": [
         "releases-opencut"
       ],
       "include_prereleases": false,
       "name": "OpenCut",
-      "repo": "opencut-app/opencut"
+      "repo": "opencut-app/opencut",
+      "topic_id": 7013
     },
     {
+      "activated_at": "2026-11-26T18:38:19.874908+00:00",
       "app_reference": "openemr",
+      "category_id": 826,
+      "discussion_topic_id": 7017,
       "groups": [
         "releases-openemr"
       ],
       "include_prereleases": false,
       "name": "OpenEMR",
-      "repo": "openemr/openemr"
+      "repo": "openemr/openemr",
+      "topic_id": 7016
     },
     {
+      "activated_at": "2026-11-26T18:39:00.408424+00:00",
       "app_reference": "opengist",
+      "category_id": 827,
+      "discussion_topic_id": 7020,
       "groups": [
         "releases-opengist"
       ],
       "include_prereleases": false,
       "name": "Opengist",
-      "repo": "thomiceli/opengist"
+      "repo": "thomiceli/opengist",
+      "topic_id": 7019
     },
     {
+      "activated_at": "2026-11-26T18:39:08.627020+00:00",
       "app_reference": "openlist",
+      "category_id": 828,
+      "discussion_topic_id": 7023,
       "groups": [
         "releases-openlist"
       ],
       "include_prereleases": false,
       "name": "OpenList",
-      "repo": "openlistteam/openlist"
+      "repo": "openlistteam/openlist",
+      "topic_id": 7022
     },
     {
+      "activated_at": "2026-11-26T18:39:15.295880+00:00",
       "app_reference": "openpanel",
+      "category_id": 829,
+      "discussion_topic_id": 7026,
       "groups": [
         "releases-openpanel"
       ],
       "include_prereleases": false,
       "name": "OpenPanel",
-      "repo": "stefanpejcic/openpanel"
+      "repo": "stefanpejcic/openpanel",
+      "topic_id": 7025
     },
     {
+      "activated_at": "2026-11-26T18:39:21.982412+00:00",
       "app_reference": "openproject",
+      "category_id": 830,
+      "discussion_topic_id": 7029,
       "groups": [
         "releases-openproject"
       ],
       "include_prereleases": false,
       "name": "OpenProject",
-      "repo": "opf/openproject"
+      "repo": "opf/openproject",
+      "topic_id": 7028
     },
     {
+      "activated_at": "2026-11-26T18:40:02.765259+00:00",
       "app_reference": "openreader",
+      "category_id": 831,
+      "discussion_topic_id": 7032,
       "groups": [
         "releases-openreader"
       ],
       "include_prereleases": false,
       "name": "OpenReader",
-      "repo": "richardr1126/openreader"
+      "repo": "richardr1126/openreader",
+      "topic_id": 7031
     },
     {
+      "activated_at": "2026-11-26T18:40:10.999075+00:00",
       "app_reference": "openreads",
+      "category_id": 832,
+      "discussion_topic_id": 7035,
       "groups": [
         "releases-openreads"
       ],
       "include_prereleases": false,
       "name": "Openreads",
-      "repo": "mateusz-bak/openreads"
+      "repo": "mateusz-bak/openreads",
+      "topic_id": 7034
     },
     {
+      "activated_at": "2026-11-26T18:40:17.741473+00:00",
       "app_reference": "opensign",
+      "category_id": 833,
+      "discussion_topic_id": 7038,
       "groups": [
         "releases-opensign"
       ],
       "include_prereleases": false,
       "name": "OpenSign",
-      "repo": "opensignlabs/opensign"
+      "repo": "opensignlabs/opensign",
+      "topic_id": 7037
     },
     {
+      "activated_at": "2026-11-26T18:40:24.913752+00:00",
       "app_reference": "openspeedtest",
+      "category_id": 834,
+      "discussion_topic_id": 7041,
       "groups": [
         "releases-openspeedtest"
       ],
       "include_prereleases": false,
       "name": "OpenSpeedTest",
-      "repo": "openspeedtest/speed-test"
+      "repo": "openspeedtest/speed-test",
+      "topic_id": 7040
     },
     {
+      "activated_at": "2026-11-26T18:41:05.667650+00:00",
       "app_reference": "opentogethertube",
+      "category_id": 835,
+      "discussion_topic_id": 7044,
       "groups": [
         "releases-opentogethertube"
       ],
       "include_prereleases": false,
       "name": "OpenTogetherTube",
-      "repo": "dyc3/opentogethertube"
+      "repo": "dyc3/opentogethertube",
+      "topic_id": 7043
     },
     {
+      "activated_at": "2026-11-26T18:41:13.509522+00:00",
       "app_reference": "openuem",
+      "category_id": 836,
+      "discussion_topic_id": 7047,
       "groups": [
         "releases-openuem"
       ],
       "include_prereleases": false,
       "name": "OpenUEM",
-      "repo": "open-uem/openuem-console"
+      "repo": "open-uem/openuem-console",
+      "topic_id": 7046
     },
     {
+      "activated_at": "2026-11-26T18:41:20.032990+00:00",
       "app_reference": "openvpn",
+      "category_id": 837,
+      "discussion_topic_id": 7050,
       "groups": [
         "releases-openvpn"
       ],
       "include_prereleases": false,
       "name": "OpenVPN",
-      "repo": "openvpn/openvpn"
+      "repo": "openvpn/openvpn",
+      "topic_id": 7049
     },
     {
+      "activated_at": "2026-11-26T18:42:01.327346+00:00",
       "app_reference": "operately",
+      "category_id": 838,
+      "discussion_topic_id": 7053,
       "groups": [
         "releases-operately"
       ],
       "include_prereleases": false,
       "name": "Operately",
-      "repo": "operately/operately"
+      "repo": "operately/operately",
+      "topic_id": 7052
     },
     {
+      "activated_at": "2026-11-26T18:42:08.241989+00:00",
       "app_reference": "operational",
+      "category_id": 839,
+      "discussion_topic_id": 7056,
       "groups": [
         "releases-operational"
       ],
       "include_prereleases": false,
       "name": "Operational",
-      "repo": "operational-co/operational.co"
+      "repo": "operational-co/operational.co",
+      "topic_id": 7055
     },
     {
+      "activated_at": "2026-11-26T18:42:16.151543+00:00",
       "app_reference": "opnform",
+      "category_id": 840,
+      "discussion_topic_id": 7059,
       "groups": [
         "releases-opnform"
       ],
       "include_prereleases": false,
       "name": "OpnForm",
-      "repo": "opnform/opnform"
+      "repo": "opnform/opnform",
+      "topic_id": 7058
     },
     {
+      "activated_at": "2026-11-26T18:42:22.726856+00:00",
       "app_reference": "opnsense",
+      "category_id": 841,
+      "discussion_topic_id": 7062,
       "groups": [
         "releases-opnsense"
       ],
       "include_prereleases": false,
       "name": "OPNsense",
-      "repo": "opnsense/core"
+      "repo": "opnsense/core",
+      "topic_id": 7061
     },
     {
+      "activated_at": "2026-11-26T18:43:03.728743+00:00",
       "app_reference": "orcah-studio",
+      "category_id": 842,
+      "discussion_topic_id": 7065,
       "groups": [
         "releases-orcah-studio"
       ],
       "include_prereleases": false,
       "name": "Orcah Studio",
-      "repo": "iliashad/orcah-studio"
+      "repo": "iliashad/orcah-studio",
+      "topic_id": 7064
     },
     {
+      "activated_at": "2026-11-26T18:43:10.477408+00:00",
       "app_reference": "organizr",
+      "category_id": 843,
+      "discussion_topic_id": 7068,
       "groups": [
         "releases-organizr"
       ],
       "include_prereleases": false,
       "name": "Organizr",
-      "repo": "causefx/organizr"
+      "repo": "causefx/organizr",
+      "topic_id": 7067
     },
     {
+      "activated_at": "2026-11-26T18:43:18.571028+00:00",
       "app_reference": "origamivault",
+      "category_id": 844,
+      "discussion_topic_id": 7071,
       "groups": [
         "releases-origamivault"
       ],
       "include_prereleases": false,
       "name": "OrigamiVault",
-      "repo": "origamivault/origamivault"
+      "repo": "origamivault/origamivault",
+      "topic_id": 7070
     },
     {
+      "activated_at": "2026-11-26T18:43:25.408085+00:00",
       "app_reference": "osticket",
+      "category_id": 845,
+      "discussion_topic_id": 7074,
       "groups": [
         "releases-osticket"
       ],
       "include_prereleases": false,
       "name": "osTicket",
-      "repo": "osticket/osticket"
+      "repo": "osticket/osticket",
+      "topic_id": 7073
     },
     {
+      "activated_at": "2026-11-26T18:44:06.256832+00:00",
       "app_reference": "ots",
+      "category_id": 846,
+      "discussion_topic_id": 7077,
       "groups": [
         "releases-ots"
       ],
       "include_prereleases": false,
       "name": "OTS",
-      "repo": "luzifer/ots"
+      "repo": "luzifer/ots",
+      "topic_id": 7076
     },
     {
       "app_reference": "outline",
