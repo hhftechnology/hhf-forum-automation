@@ -10697,6 +10697,386 @@
       "name": "Vykar",
       "repo": "borgbase/vykar",
       "topic_id": 8102
+    },
+    {
+      "category_id": 1189,
+      "discussion_topic_id": 8106,
+      "groups": [
+        "releases-wakapi"
+      ],
+      "name": "Wakapi",
+      "repo": "muety/wakapi",
+      "topic_id": 8105
+    },
+    {
+      "category_id": 1190,
+      "discussion_topic_id": 8109,
+      "groups": [
+        "releases-wallabag"
+      ],
+      "name": "Wallabag",
+      "repo": "wallabag/wallabag",
+      "topic_id": 8108
+    },
+    {
+      "category_id": 1191,
+      "discussion_topic_id": 8112,
+      "groups": [
+        "releases-wallos"
+      ],
+      "name": "Wallos",
+      "repo": "ellite/wallos",
+      "topic_id": 8111
+    },
+    {
+      "category_id": 1192,
+      "discussion_topic_id": 8115,
+      "groups": [
+        "releases-wanderer"
+      ],
+      "name": "Wanderer",
+      "repo": "open-wanderer/wanderer",
+      "topic_id": 8114
+    },
+    {
+      "category_id": 1193,
+      "discussion_topic_id": 8118,
+      "groups": [
+        "releases-wapy-dev"
+      ],
+      "name": "Wapy.dev",
+      "repo": "meceware/wapy.dev",
+      "topic_id": 8117
+    },
+    {
+      "category_id": 1194,
+      "discussion_topic_id": 8121,
+      "groups": [
+        "releases-warpgate"
+      ],
+      "name": "Warpgate",
+      "repo": "warp-tech/warpgate",
+      "topic_id": 8120
+    },
+    {
+      "category_id": 1195,
+      "discussion_topic_id": 8124,
+      "groups": [
+        "releases-warracker"
+      ],
+      "name": "Warracker",
+      "repo": "sassanix/warracker",
+      "topic_id": 8123
+    },
+    {
+      "category_id": 1196,
+      "discussion_topic_id": 8127,
+      "groups": [
+        "releases-wastebin"
+      ],
+      "name": "Wastebin",
+      "repo": "matze/wastebin",
+      "topic_id": 8126
+    },
+    {
+      "category_id": 1197,
+      "discussion_topic_id": 8130,
+      "groups": [
+        "releases-watcharr"
+      ],
+      "name": "Watcharr",
+      "repo": "sbondco/watcharr",
+      "topic_id": 8129
+    },
+    {
+      "category_id": 1198,
+      "discussion_topic_id": 8133,
+      "groups": [
+        "releases-watchyourlan"
+      ],
+      "name": "WatchYourLAN",
+      "repo": "aceberg/watchyourlan",
+      "topic_id": 8132
+    },
+    {
+      "category_id": 1199,
+      "discussion_topic_id": 8136,
+      "groups": [
+        "releases-web-check"
+      ],
+      "name": "Web-Check",
+      "repo": "lissy93/web-check",
+      "topic_id": 8135
+    },
+    {
+      "category_id": 1200,
+      "discussion_topic_id": 8139,
+      "groups": [
+        "releases-webhook-tester"
+      ],
+      "name": "WebHook Tester",
+      "repo": "tarampampam/webhook-tester",
+      "topic_id": 8138
+    },
+    {
+      "category_id": 1201,
+      "discussion_topic_id": 8142,
+      "groups": [
+        "releases-weblate"
+      ],
+      "name": "Weblate",
+      "repo": "weblateorg/weblate",
+      "topic_id": 8141
+    },
+    {
+      "category_id": 1202,
+      "discussion_topic_id": 8145,
+      "groups": [
+        "releases-webmin"
+      ],
+      "name": "Webmin",
+      "repo": "webmin/webmin",
+      "topic_id": 8144
+    },
+    {
+      "category_id": 1203,
+      "discussion_topic_id": 8148,
+      "groups": [
+        "releases-webssh"
+      ],
+      "name": "WebSSH",
+      "repo": "bifrost0x/webssh",
+      "topic_id": 8147
+    },
+    {
+      "category_id": 1204,
+      "discussion_topic_id": 8151,
+      "groups": [
+        "releases-webtrees"
+      ],
+      "name": "webtrees",
+      "repo": "fisharebest/webtrees",
+      "topic_id": 8150
+    },
+    {
+      "category_id": 1205,
+      "discussion_topic_id": 8154,
+      "groups": [
+        "releases-wekan"
+      ],
+      "name": "WeKan",
+      "repo": "wekan/wekan",
+      "topic_id": 8153
+    },
+    {
+      "category_id": 1206,
+      "discussion_topic_id": 8157,
+      "groups": [
+        "releases-wg-easy"
+      ],
+      "name": "wg-easy",
+      "repo": "wg-easy/wg-easy",
+      "topic_id": 8156
+    },
+    {
+      "category_id": 1207,
+      "discussion_topic_id": 8160,
+      "groups": [
+        "releases-wgdashboard"
+      ],
+      "name": "WGDashboard",
+      "repo": "wgdashboard/wgdashboard",
+      "topic_id": 8159
+    },
+    {
+      "category_id": 1208,
+      "discussion_topic_id": 8163,
+      "groups": [
+        "releases-wger"
+      ],
+      "name": "wger",
+      "repo": "wger-project/wger",
+      "topic_id": 8162
+    },
+    {
+      "category_id": 1209,
+      "discussion_topic_id": 8166,
+      "groups": [
+        "releases-whodb"
+      ],
+      "name": "WhoDB",
+      "repo": "clidey/whodb",
+      "topic_id": 8165
+    },
+    {
+      "category_id": 1210,
+      "discussion_topic_id": 8169,
+      "groups": [
+        "releases-wiki-go"
+      ],
+      "name": "Wiki-Go",
+      "repo": "leomoon-studios/wiki-go",
+      "topic_id": 8168
+    },
+    {
+      "category_id": 1211,
+      "discussion_topic_id": 8172,
+      "groups": [
+        "releases-wiki-js"
+      ],
+      "name": "Wiki.js",
+      "repo": "requarks/wiki",
+      "topic_id": 8171
+    },
+    {
+      "category_id": 1212,
+      "discussion_topic_id": 8175,
+      "groups": [
+        "releases-wikidocs"
+      ],
+      "name": "WikiDocs",
+      "repo": "zavy86/wikidocs",
+      "topic_id": 8174
+    },
+    {
+      "category_id": 1213,
+      "discussion_topic_id": 8178,
+      "groups": [
+        "releases-will-be-done"
+      ],
+      "name": "Will Be Done",
+      "repo": "will-be-done/will-be-done",
+      "topic_id": 8177
+    },
+    {
+      "category_id": 1214,
+      "discussion_topic_id": 8181,
+      "groups": [
+        "releases-willow"
+      ],
+      "name": "Willow",
+      "repo": "heywillow/willow",
+      "topic_id": 8180
+    },
+    {
+      "category_id": 1215,
+      "discussion_topic_id": 8184,
+      "groups": [
+        "releases-windmill"
+      ],
+      "name": "Windmill",
+      "repo": "windmill-labs/windmill",
+      "topic_id": 8183
+    },
+    {
+      "category_id": 1216,
+      "discussion_topic_id": 8187,
+      "groups": [
+        "releases-windshift"
+      ],
+      "name": "Windshift",
+      "repo": "windshiftapp/core",
+      "topic_id": 8186
+    },
+    {
+      "category_id": 1217,
+      "discussion_topic_id": 8190,
+      "groups": [
+        "releases-wingfit"
+      ],
+      "name": "Wingfit",
+      "repo": "itskovacs/wingfit",
+      "topic_id": 8189
+    },
+    {
+      "category_id": 1218,
+      "discussion_topic_id": 8193,
+      "groups": [
+        "releases-wiredoor"
+      ],
+      "name": "Wiredoor",
+      "repo": "wiredoor/wiredoor",
+      "topic_id": 8192
+    },
+    {
+      "category_id": 1219,
+      "discussion_topic_id": 8196,
+      "groups": [
+        "releases-wizarr"
+      ],
+      "name": "Wizarr",
+      "repo": "wizarrrr/wizarr",
+      "topic_id": 8195
+    },
+    {
+      "category_id": 1220,
+      "discussion_topic_id": 8199,
+      "groups": [
+        "releases-woocommerce"
+      ],
+      "name": "WooCommerce",
+      "repo": "woocommerce/woocommerce",
+      "topic_id": 8198
+    },
+    {
+      "category_id": 1221,
+      "discussion_topic_id": 8202,
+      "groups": [
+        "releases-woodpecker-ci"
+      ],
+      "name": "Woodpecker CI",
+      "repo": "woodpecker-ci/woodpecker",
+      "topic_id": 8201
+    },
+    {
+      "category_id": 1222,
+      "discussion_topic_id": 8205,
+      "groups": [
+        "releases-wordpress"
+      ],
+      "name": "WordPress",
+      "repo": "wordpress/wordpress",
+      "topic_id": 8204
+    },
+    {
+      "category_id": 1223,
+      "discussion_topic_id": 8208,
+      "groups": [
+        "releases-worklenz"
+      ],
+      "name": "Worklenz",
+      "repo": "worklenz/worklenz",
+      "topic_id": 8207
+    },
+    {
+      "category_id": 1224,
+      "discussion_topic_id": 8211,
+      "groups": [
+        "releases-workout-cool"
+      ],
+      "name": "Workout.cool",
+      "repo": "snouzy/workout-cool",
+      "topic_id": 8210
+    },
+    {
+      "category_id": 1225,
+      "discussion_topic_id": 8214,
+      "groups": [
+        "releases-workout-tracker"
+      ],
+      "name": "Workout Tracker",
+      "repo": "jovandeginste/workout-tracker",
+      "topic_id": 8213
+    },
+    {
+      "category_id": 1226,
+      "discussion_topic_id": 8217,
+      "groups": [
+        "releases-world-monitor"
+      ],
+      "name": "World Monitor",
+      "repo": "koala73/worldmonitor",
+      "topic_id": 8216
     }
   ]
 }
