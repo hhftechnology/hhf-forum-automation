@@ -13398,346 +13398,498 @@
       "topic_id": 7988
     },
     {
+      "activated_at": "2026-11-26T20:55:40.925626+00:00",
       "app_reference": "tvheadend",
+      "category_id": 1151,
+      "discussion_topic_id": 7992,
       "groups": [
         "releases-tvheadend"
       ],
       "include_prereleases": false,
       "name": "TVHeadend",
-      "repo": "tvheadend/tvheadend"
+      "repo": "tvheadend/tvheadend",
+      "topic_id": 7991
     },
     {
+      "activated_at": "2026-11-26T20:55:48.023518+00:00",
       "app_reference": "twenty-crm",
+      "category_id": 1152,
+      "discussion_topic_id": 7995,
       "groups": [
         "releases-twenty-crm"
       ],
       "include_prereleases": false,
       "name": "Twenty",
-      "repo": "twentyhq/twenty"
+      "repo": "twentyhq/twenty",
+      "topic_id": 7994
     },
     {
+      "activated_at": "2026-11-26T20:55:55.192019+00:00",
       "app_reference": "tymeslot",
+      "category_id": 1153,
+      "discussion_topic_id": 7998,
       "groups": [
         "releases-tymeslot"
       ],
       "include_prereleases": false,
       "name": "Tymeslot",
-      "repo": "tymeslot/tymeslot"
+      "repo": "tymeslot/tymeslot",
+      "topic_id": 7997
     },
     {
+      "activated_at": "2026-11-26T20:56:35.852478+00:00",
       "app_reference": "typebot",
+      "category_id": 1154,
+      "discussion_topic_id": 8001,
       "groups": [
         "releases-typebot"
       ],
       "include_prereleases": false,
       "name": "Typebot",
-      "repo": "baptistearno/typebot.io"
+      "repo": "baptistearno/typebot.io",
+      "topic_id": 8000
     },
     {
+      "activated_at": "2026-11-26T20:56:42.851625+00:00",
       "app_reference": "typemill",
+      "category_id": 1155,
+      "discussion_topic_id": 8004,
       "groups": [
         "releases-typemill"
       ],
       "include_prereleases": false,
       "name": "Typemill",
-      "repo": "typemill/typemill"
+      "repo": "typemill/typemill",
+      "topic_id": 8003
     },
     {
+      "activated_at": "2026-11-26T20:56:49.721246+00:00",
       "app_reference": "typetype",
+      "category_id": 1156,
+      "discussion_topic_id": 8007,
       "groups": [
         "releases-typetype"
       ],
       "include_prereleases": false,
       "name": "TypeType",
-      "repo": "typetype-video/typetype"
+      "repo": "typetype-video/typetype",
+      "topic_id": 8006
     },
     {
+      "activated_at": "2026-11-26T20:56:58.074054+00:00",
       "app_reference": "typo3",
+      "category_id": 1157,
+      "discussion_topic_id": 8010,
       "groups": [
         "releases-typo3"
       ],
       "include_prereleases": false,
       "name": "TYPO3",
-      "repo": "typo3/typo3"
+      "repo": "typo3/typo3",
+      "topic_id": 8009
     },
     {
+      "activated_at": "2026-11-26T20:57:37.458605+00:00",
       "app_reference": "umami",
+      "category_id": 1158,
+      "discussion_topic_id": 8013,
       "groups": [
         "releases-umami"
       ],
       "include_prereleases": false,
       "name": "Umami",
-      "repo": "umami-software/umami"
+      "repo": "umami-software/umami",
+      "topic_id": 8012
     },
     {
+      "activated_at": "2026-11-26T20:57:45.730181+00:00",
       "app_reference": "umbrelos",
+      "category_id": 1159,
+      "discussion_topic_id": 8016,
       "groups": [
         "releases-umbrelos"
       ],
       "include_prereleases": false,
       "name": "umbrelOS",
-      "repo": "getumbrel/umbrel"
+      "repo": "getumbrel/umbrel",
+      "topic_id": 8015
     },
     {
+      "activated_at": "2026-11-26T20:57:52.642485+00:00",
       "app_reference": "unbound",
+      "category_id": 1160,
+      "discussion_topic_id": 8019,
       "groups": [
         "releases-unbound"
       ],
       "include_prereleases": false,
       "name": "Unbound",
-      "repo": "nlnetlabs/unbound"
+      "repo": "nlnetlabs/unbound",
+      "topic_id": 8018
     },
     {
+      "activated_at": "2026-11-26T20:58:33.210755+00:00",
       "app_reference": "uncloud",
+      "category_id": 1161,
+      "discussion_topic_id": 8022,
       "groups": [
         "releases-uncloud"
       ],
       "include_prereleases": false,
       "name": "Uncloud",
-      "repo": "psviderski/uncloud"
+      "repo": "psviderski/uncloud",
+      "topic_id": 8021
     },
     {
+      "activated_at": "2026-11-26T20:58:40.312537+00:00",
       "app_reference": "unifi-voucher-site",
+      "category_id": 1162,
+      "discussion_topic_id": 8025,
       "groups": [
         "releases-unifi-voucher-site"
       ],
       "include_prereleases": false,
       "name": "UniFi Voucher Site",
-      "repo": "glenndehaan/unifi-voucher-site"
+      "repo": "glenndehaan/unifi-voucher-site",
+      "topic_id": 8024
     },
     {
+      "activated_at": "2026-11-26T20:58:48.617346+00:00",
       "app_reference": "unpackerr",
+      "category_id": 1163,
+      "discussion_topic_id": 8028,
       "groups": [
         "releases-unpackerr"
       ],
       "include_prereleases": false,
       "name": "Unpackerr",
-      "repo": "unpackerr/unpackerr"
+      "repo": "unpackerr/unpackerr",
+      "topic_id": 8027
     },
     {
+      "activated_at": "2026-11-26T20:58:55.523786+00:00",
       "app_reference": "unraid-guardian",
+      "category_id": 1164,
+      "discussion_topic_id": 8031,
       "groups": [
         "releases-unraid-guardian"
       ],
       "include_prereleases": false,
       "name": "Unraid Guardian",
-      "repo": "stephondoestech/unraid-config-guardian"
+      "repo": "stephondoestech/unraid-config-guardian",
+      "topic_id": 8030
     },
     {
+      "activated_at": "2026-11-26T20:59:35.525078+00:00",
       "app_reference": "unregistry",
+      "category_id": 1165,
+      "discussion_topic_id": 8034,
       "groups": [
         "releases-unregistry"
       ],
       "include_prereleases": false,
       "name": "Unregistry",
-      "repo": "psviderski/unregistry"
+      "repo": "psviderski/unregistry",
+      "topic_id": 8033
     },
     {
+      "activated_at": "2026-11-26T20:59:44.118307+00:00",
       "app_reference": "unsloth-studio",
+      "category_id": 1166,
+      "discussion_topic_id": 8037,
       "groups": [
         "releases-unsloth-studio"
       ],
       "include_prereleases": false,
       "name": "Unsloth Studio",
-      "repo": "unslothai/unsloth"
+      "repo": "unslothai/unsloth",
+      "topic_id": 8036
     },
     {
+      "activated_at": "2026-11-26T20:59:51.096578+00:00",
       "app_reference": "upsnap",
+      "category_id": 1167,
+      "discussion_topic_id": 8040,
       "groups": [
         "releases-upsnap"
       ],
       "include_prereleases": false,
       "name": "UpSnap",
-      "repo": "seriousm4x/upsnap"
+      "repo": "seriousm4x/upsnap",
+      "topic_id": 8039
     },
     {
+      "activated_at": "2026-11-26T20:59:59.290165+00:00",
       "app_reference": "upvote-rss",
+      "category_id": 1168,
+      "discussion_topic_id": 8043,
       "groups": [
         "releases-upvote-rss"
       ],
       "include_prereleases": false,
       "name": "Upvote RSS",
-      "repo": "johnwarne/upvote-rss"
+      "repo": "johnwarne/upvote-rss",
+      "topic_id": 8042
     },
     {
+      "activated_at": "2026-11-26T21:00:37.686002+00:00",
       "app_reference": "usertour",
+      "category_id": 1169,
+      "discussion_topic_id": 8046,
       "groups": [
         "releases-usertour"
       ],
       "include_prereleases": false,
       "name": "Usertour",
-      "repo": "usertour/usertour"
+      "repo": "usertour/usertour",
+      "topic_id": 8045
     },
     {
+      "activated_at": "2026-11-26T21:00:46.222184+00:00",
       "app_reference": "valkey",
+      "category_id": 1170,
+      "discussion_topic_id": 8049,
       "groups": [
         "releases-valkey"
       ],
       "include_prereleases": false,
       "name": "Valkey",
-      "repo": "valkey-io/valkey"
+      "repo": "valkey-io/valkey",
+      "topic_id": 8048
     },
     {
+      "activated_at": "2026-11-26T21:00:53.171660+00:00",
       "app_reference": "vanilla-cookbook",
+      "category_id": 1171,
+      "discussion_topic_id": 8052,
       "groups": [
         "releases-vanilla-cookbook"
       ],
       "include_prereleases": false,
       "name": "Vanilla Cookbook",
-      "repo": "jt196/vanilla-cookbook"
+      "repo": "jt196/vanilla-cookbook",
+      "topic_id": 8051
     },
     {
+      "activated_at": "2026-11-26T21:01:02.674031+00:00",
       "app_reference": "vaultls",
+      "category_id": 1172,
+      "discussion_topic_id": 8055,
       "groups": [
         "releases-vaultls"
       ],
       "include_prereleases": false,
       "name": "VaulTLS",
-      "repo": "7ritn/vaultls"
+      "repo": "7ritn/vaultls",
+      "topic_id": 8054
     },
     {
+      "activated_at": "2026-11-26T21:01:42.443706+00:00",
       "app_reference": "vector",
+      "category_id": 1173,
+      "discussion_topic_id": 8058,
       "groups": [
         "releases-vector"
       ],
       "include_prereleases": false,
       "name": "Vector",
-      "repo": "vectordotdev/vector"
+      "repo": "vectordotdev/vector",
+      "topic_id": 8057
     },
     {
+      "activated_at": "2026-11-26T21:01:49.479016+00:00",
       "app_reference": "velld",
+      "category_id": 1174,
+      "discussion_topic_id": 8061,
       "groups": [
         "releases-velld"
       ],
       "include_prereleases": false,
       "name": "Velld",
-      "repo": "dendianugerah/velld"
+      "repo": "dendianugerah/velld",
+      "topic_id": 8060
     },
     {
+      "activated_at": "2026-11-26T21:01:56.500594+00:00",
       "app_reference": "vernemq",
+      "category_id": 1175,
+      "discussion_topic_id": 8064,
       "groups": [
         "releases-vernemq"
       ],
       "include_prereleases": false,
       "name": "VerneMQ",
-      "repo": "vernemq/vernemq"
+      "repo": "vernemq/vernemq",
+      "topic_id": 8063
     },
     {
+      "activated_at": "2026-11-26T21:02:36.626222+00:00",
       "app_reference": "versitygw",
+      "category_id": 1176,
+      "discussion_topic_id": 8067,
       "groups": [
         "releases-versitygw"
       ],
       "include_prereleases": false,
       "name": "VersityGW",
-      "repo": "versity/versitygw"
+      "repo": "versity/versitygw",
+      "topic_id": 8066
     },
     {
+      "activated_at": "2026-11-26T21:02:45.410662+00:00",
       "app_reference": "vert",
+      "category_id": 1177,
+      "discussion_topic_id": 8070,
       "groups": [
         "releases-vert"
       ],
       "include_prereleases": false,
       "name": "VERT",
-      "repo": "vert-sh/vert"
+      "repo": "vert-sh/vert",
+      "topic_id": 8069
     },
     {
+      "activated_at": "2026-11-26T21:02:52.429896+00:00",
       "app_reference": "victoriametrics",
+      "category_id": 1178,
+      "discussion_topic_id": 8073,
       "groups": [
         "releases-victoriametrics"
       ],
       "include_prereleases": false,
       "name": "VictoriaMetrics",
-      "repo": "victoriametrics/victoriametrics"
+      "repo": "victoriametrics/victoriametrics",
+      "topic_id": 8072
     },
     {
+      "activated_at": "2026-11-26T21:02:59.374200+00:00",
       "app_reference": "vikunja",
+      "category_id": 1179,
+      "discussion_topic_id": 8076,
       "groups": [
         "releases-vikunja"
       ],
       "include_prereleases": false,
       "name": "Vikunja",
-      "repo": "go-vikunja/vikunja"
+      "repo": "go-vikunja/vikunja",
+      "topic_id": 8075
     },
     {
+      "activated_at": "2026-11-26T21:03:39.237068+00:00",
       "app_reference": "viniplay",
+      "category_id": 1180,
+      "discussion_topic_id": 8079,
       "groups": [
         "releases-viniplay"
       ],
       "include_prereleases": false,
       "name": "ViniPlay",
-      "repo": "ardoviniandrea/viniplay"
+      "repo": "ardoviniandrea/viniplay",
+      "topic_id": 8078
     },
     {
+      "activated_at": "2026-11-26T21:03:47.916586+00:00",
       "app_reference": "viseron",
+      "category_id": 1181,
+      "discussion_topic_id": 8082,
       "groups": [
         "releases-viseron"
       ],
       "include_prereleases": false,
       "name": "Viseron",
-      "repo": "roflcoopter/viseron"
+      "repo": "roflcoopter/viseron",
+      "topic_id": 8081
     },
     {
+      "activated_at": "2026-11-26T21:03:55.089760+00:00",
       "app_reference": "vito",
+      "category_id": 1182,
+      "discussion_topic_id": 8085,
       "groups": [
         "releases-vito"
       ],
       "include_prereleases": false,
       "name": "Vito",
-      "repo": "vitodeploy/vito"
+      "repo": "vitodeploy/vito",
+      "topic_id": 8084
     },
     {
+      "activated_at": "2026-11-26T21:04:01.923009+00:00",
       "app_reference": "vocard",
+      "category_id": 1183,
+      "discussion_topic_id": 8088,
       "groups": [
         "releases-vocard"
       ],
       "include_prereleases": false,
       "name": "Vocard",
-      "repo": "chocomeow/vocard"
+      "repo": "chocomeow/vocard",
+      "topic_id": 8087
     },
     {
+      "activated_at": "2026-11-26T21:04:42.187828+00:00",
       "app_reference": "voidauth",
+      "category_id": 1184,
+      "discussion_topic_id": 8091,
       "groups": [
         "releases-voidauth"
       ],
       "include_prereleases": false,
       "name": "VoidAuth",
-      "repo": "voidauth/voidauth"
+      "repo": "voidauth/voidauth",
+      "topic_id": 8090
     },
     {
+      "activated_at": "2026-11-26T21:04:50.218346+00:00",
       "app_reference": "vouchervault",
+      "category_id": 1185,
+      "discussion_topic_id": 8094,
       "groups": [
         "releases-vouchervault"
       ],
       "include_prereleases": false,
       "name": "VoucherVault",
-      "repo": "l4rm4nd/vouchervault"
+      "repo": "l4rm4nd/vouchervault",
+      "topic_id": 8093
     },
     {
+      "activated_at": "2026-11-26T21:04:57.036986+00:00",
       "app_reference": "voxmedia-coral",
+      "category_id": 1186,
+      "discussion_topic_id": 8097,
       "groups": [
         "releases-voxmedia-coral"
       ],
       "include_prereleases": false,
       "name": "Coral",
-      "repo": "coralproject/talk"
+      "repo": "coralproject/talk",
+      "topic_id": 8096
     },
     {
+      "activated_at": "2026-11-26T21:05:05.224826+00:00",
       "app_reference": "vuetorrent",
+      "category_id": 1187,
+      "discussion_topic_id": 8100,
       "groups": [
         "releases-vuetorrent"
       ],
       "include_prereleases": false,
       "name": "VueTorrent",
-      "repo": "vuetorrent/vuetorrent"
+      "repo": "vuetorrent/vuetorrent",
+      "topic_id": 8099
     },
     {
+      "activated_at": "2026-11-26T21:05:45.737695+00:00",
       "app_reference": "vykar",
+      "category_id": 1188,
+      "discussion_topic_id": 8103,
       "groups": [
         "releases-vykar"
       ],
       "include_prereleases": false,
       "name": "Vykar",
-      "repo": "borgbase/vykar"
+      "repo": "borgbase/vykar",
+      "topic_id": 8102
     },
     {
       "app_reference": "wakapi",
