@@ -7,6 +7,8 @@ in an exception message / repr.
 
 from __future__ import annotations
 
+import json
+
 import logging
 import mimetypes
 import os
@@ -26,6 +28,13 @@ class DiscourseError(RuntimeError):
     def __init__(self, status: int, method: str, path: str, body: str = ""):
         super().__init__(f"{method} {path} -> HTTP {status}: {body[:300]}")
         self.status = status
+        self.method, self.path = method, path
+        try:
+            errors = json.loads(body).get("errors") or []
+        except (ValueError, AttributeError):
+            errors = []
+        # Discourse's own validation messages ("Title has already been used"), never the request.
+        self.errors = "; ".join(str(e) for e in errors if isinstance(e, str))[:200]
 
 
 class _ReleaseHeadingLinks(HTMLParser):
