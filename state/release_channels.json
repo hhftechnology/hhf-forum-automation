@@ -1037,6 +1037,376 @@
       "name": "Black Candy",
       "repo": "blackcandy-org/blackcandy",
       "topic_id": 5199
+    },
+    {
+      "category_id": 224,
+      "discussion_topic_id": 5203,
+      "groups": [
+        "releases-blinko"
+      ],
+      "name": "Blinko",
+      "repo": "blinkospace/blinko",
+      "topic_id": 5202
+    },
+    {
+      "category_id": 225,
+      "discussion_topic_id": 5206,
+      "groups": [
+        "releases-blocky"
+      ],
+      "name": "Blocky",
+      "repo": "0xerr0r/blocky",
+      "topic_id": 5205
+    },
+    {
+      "category_id": 226,
+      "discussion_topic_id": 5209,
+      "groups": [
+        "releases-bookhaven"
+      ],
+      "name": "BookHaven",
+      "repo": "hrbingr/bookhaven",
+      "topic_id": 5208
+    },
+    {
+      "category_id": 227,
+      "discussion_topic_id": 5212,
+      "groups": [
+        "releases-bookheaven"
+      ],
+      "name": "BookHeaven",
+      "repo": "bookheaven/bookheaven.server",
+      "topic_id": 5211
+    },
+    {
+      "category_id": 228,
+      "discussion_topic_id": 5215,
+      "groups": [
+        "releases-booklogr"
+      ],
+      "name": "BookLogr",
+      "repo": "mozzo1000/booklogr",
+      "topic_id": 5214
+    },
+    {
+      "category_id": 229,
+      "discussion_topic_id": 5218,
+      "groups": [
+        "releases-bookwyrm"
+      ],
+      "name": "BookWyrm",
+      "repo": "bookwyrm-social/bookwyrm",
+      "topic_id": 5217
+    },
+    {
+      "category_id": 230,
+      "discussion_topic_id": 5221,
+      "groups": [
+        "releases-borg"
+      ],
+      "name": "Borg",
+      "repo": "borgbackup/borg",
+      "topic_id": 5220
+    },
+    {
+      "category_id": 231,
+      "discussion_topic_id": 5224,
+      "groups": [
+        "releases-borg-backup-server"
+      ],
+      "name": "Borg Backup Server",
+      "repo": "marcpope/borgbackupserver",
+      "topic_id": 5223
+    },
+    {
+      "category_id": 232,
+      "discussion_topic_id": 5227,
+      "groups": [
+        "releases-borg-ui"
+      ],
+      "name": "Borg UI",
+      "repo": "karanhudia/borg-ui",
+      "topic_id": 5226
+    },
+    {
+      "category_id": 233,
+      "discussion_topic_id": 5230,
+      "groups": [
+        "releases-boxarr"
+      ],
+      "name": "Boxarr",
+      "repo": "iongpt/boxarr",
+      "topic_id": 5229
+    },
+    {
+      "category_id": 234,
+      "discussion_topic_id": 5233,
+      "groups": [
+        "releases-bracket"
+      ],
+      "name": "Bracket",
+      "repo": "evroon/bracket",
+      "topic_id": 5232
+    },
+    {
+      "category_id": 235,
+      "discussion_topic_id": 5236,
+      "groups": [
+        "releases-brainrotguard"
+      ],
+      "name": "BrainRotGuard",
+      "repo": "ghjj123/brainrotguard",
+      "topic_id": 5235
+    },
+    {
+      "category_id": 236,
+      "discussion_topic_id": 5239,
+      "groups": [
+        "releases-broadcastchannel"
+      ],
+      "name": "BroadcastChannel",
+      "repo": "miantiao-me/broadcastchannel",
+      "topic_id": 5238
+    },
+    {
+      "category_id": 237,
+      "discussion_topic_id": 5242,
+      "groups": [
+        "releases-budget-board"
+      ],
+      "name": "Budget Board",
+      "repo": "teelur/budget-board",
+      "topic_id": 5241
+    },
+    {
+      "category_id": 238,
+      "discussion_topic_id": 5245,
+      "groups": [
+        "releases-budgetbee"
+      ],
+      "name": "BudgetBee",
+      "repo": "budgetbee/budgetbee",
+      "topic_id": 5244
+    },
+    {
+      "category_id": 239,
+      "discussion_topic_id": 5248,
+      "groups": [
+        "releases-budibase"
+      ],
+      "name": "Budibase",
+      "repo": "budibase/budibase",
+      "topic_id": 5247
+    },
+    {
+      "category_id": 240,
+      "discussion_topic_id": 5251,
+      "groups": [
+        "releases-bugsink"
+      ],
+      "name": "Bugsink",
+      "repo": "bugsink/bugsink",
+      "topic_id": 5250
+    },
+    {
+      "category_id": 241,
+      "discussion_topic_id": 5254,
+      "groups": [
+        "releases-bulwark"
+      ],
+      "name": "Bulwark",
+      "repo": "bulwarkmail/webmail",
+      "topic_id": 5253
+    },
+    {
+      "category_id": 242,
+      "discussion_topic_id": 5257,
+      "groups": [
+        "releases-bunkerm"
+      ],
+      "name": "BunkerM",
+      "repo": "bunkeriot/bunkerm",
+      "topic_id": 5256
+    },
+    {
+      "category_id": 243,
+      "discussion_topic_id": 5260,
+      "groups": [
+        "releases-bunkerweb"
+      ],
+      "name": "BunkerWeb",
+      "repo": "bunkerity/bunkerweb",
+      "topic_id": 5259
+    },
+    {
+      "category_id": 244,
+      "discussion_topic_id": 5263,
+      "groups": [
+        "releases-bytestash"
+      ],
+      "name": "ByteStash",
+      "repo": "jordan-dalby/bytestash",
+      "topic_id": 5262
+    },
+    {
+      "category_id": 245,
+      "discussion_topic_id": 5266,
+      "groups": [
+        "releases-cachet"
+      ],
+      "name": "Cachet",
+      "repo": "cachethq/cachet",
+      "topic_id": 5265
+    },
+    {
+      "category_id": 246,
+      "discussion_topic_id": 5269,
+      "groups": [
+        "releases-caddymanager"
+      ],
+      "name": "CaddyManager",
+      "repo": "caddymanager/caddymanager",
+      "topic_id": 5268
+    },
+    {
+      "category_id": 247,
+      "discussion_topic_id": 5272,
+      "groups": [
+        "releases-cadvisor"
+      ],
+      "name": "cAdvisor",
+      "repo": "google/cadvisor",
+      "topic_id": 5271
+    },
+    {
+      "category_id": 248,
+      "discussion_topic_id": 5275,
+      "groups": [
+        "releases-cal-com"
+      ],
+      "name": "Cal.com",
+      "repo": "calcom/cal.diy",
+      "topic_id": 5274
+    },
+    {
+      "category_id": 249,
+      "discussion_topic_id": 5278,
+      "groups": [
+        "releases-cal-rs"
+      ],
+      "name": "Cal.rs",
+      "repo": "olivierlambert/calrs",
+      "topic_id": 5277
+    },
+    {
+      "category_id": 250,
+      "discussion_topic_id": 5281,
+      "groups": [
+        "releases-calagopus"
+      ],
+      "name": "Calagopus",
+      "repo": "calagopus/panel",
+      "topic_id": 5280
+    },
+    {
+      "category_id": 251,
+      "discussion_topic_id": 5284,
+      "groups": [
+        "releases-calibre-web"
+      ],
+      "name": "Calibre-Web",
+      "repo": "janeczku/calibre-web",
+      "topic_id": 5283
+    },
+    {
+      "category_id": 252,
+      "discussion_topic_id": 5288,
+      "groups": [
+        "releases-calibre-web-automated"
+      ],
+      "name": "Calibre-Web Automated",
+      "repo": "crocodilestick/calibre-web-automated",
+      "topic_id": 5286
+    },
+    {
+      "category_id": 253,
+      "discussion_topic_id": 5291,
+      "groups": [
+        "releases-calino"
+      ],
+      "name": "Calino",
+      "repo": "ivan-malinovski/calino",
+      "topic_id": 5290
+    },
+    {
+      "category_id": 254,
+      "discussion_topic_id": 5294,
+      "groups": [
+        "releases-calorific"
+      ],
+      "name": "Calorific",
+      "repo": "xdpirate/calorific",
+      "topic_id": 5293
+    },
+    {
+      "category_id": 255,
+      "discussion_topic_id": 5297,
+      "groups": [
+        "releases-canine"
+      ],
+      "name": "Canine",
+      "repo": "caninehq/canine",
+      "topic_id": 5296
+    },
+    {
+      "category_id": 256,
+      "discussion_topic_id": 5300,
+      "groups": [
+        "releases-cap-captcha"
+      ],
+      "name": "Cap",
+      "repo": "tiagozip/cap",
+      "topic_id": 5299
+    },
+    {
+      "category_id": 257,
+      "discussion_topic_id": 5303,
+      "groups": [
+        "releases-caprover"
+      ],
+      "name": "CapRover",
+      "repo": "caprover/caprover",
+      "topic_id": 5302
+    },
+    {
+      "category_id": 258,
+      "discussion_topic_id": 5306,
+      "groups": [
+        "releases-cardinal-media-server"
+      ],
+      "name": "Cardinal Media Server",
+      "repo": "cardinalapps/self-hosted",
+      "topic_id": 5305
+    },
+    {
+      "category_id": 259,
+      "discussion_topic_id": 5309,
+      "groups": [
+        "releases-casdoor"
+      ],
+      "name": "Casdoor",
+      "repo": "casdoor/casdoor",
+      "topic_id": 5308
+    },
+    {
+      "category_id": 260,
+      "discussion_topic_id": 5312,
+      "groups": [
+        "releases-castopod"
+      ],
+      "name": "Castopod",
+      "repo": "ad-aures/castopod",
+      "topic_id": 5311
     }
   ]
 }
