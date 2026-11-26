@@ -7212,67 +7212,95 @@
       "topic_id": 6560
     },
     {
+      "activated_at": "2026-11-26T15:48:46.265604+00:00",
       "app_reference": "mail-in-a-box",
+      "category_id": 676,
+      "discussion_topic_id": 6564,
       "groups": [
         "releases-mail-in-a-box"
       ],
       "include_prereleases": false,
       "name": "Mail-in-a-Box",
-      "repo": "mail-in-a-box/mailinabox"
+      "repo": "mail-in-a-box/mailinabox",
+      "topic_id": 6563
     },
     {
+      "activated_at": "2026-11-26T15:48:52.622182+00:00",
       "app_reference": "mailcow",
+      "category_id": 677,
+      "discussion_topic_id": 6567,
       "groups": [
         "releases-mailcow"
       ],
       "include_prereleases": false,
       "name": "Mailcow",
-      "repo": "mailcow/mailcow-dockerized"
+      "repo": "mailcow/mailcow-dockerized",
+      "topic_id": 6566
     },
     {
+      "activated_at": "2026-11-26T15:48:58.894082+00:00",
       "app_reference": "maildev",
+      "category_id": 678,
+      "discussion_topic_id": 6570,
       "groups": [
         "releases-maildev"
       ],
       "include_prereleases": false,
       "name": "MailDev",
-      "repo": "maildev/maildev"
+      "repo": "maildev/maildev",
+      "topic_id": 6569
     },
     {
+      "activated_at": "2026-11-26T15:49:41.967287+00:00",
       "app_reference": "mailflow-sh",
+      "category_id": 679,
+      "discussion_topic_id": 6573,
       "groups": [
         "releases-mailflow-sh"
       ],
       "include_prereleases": false,
       "name": "MailFlow",
-      "repo": "maathimself/mailflow"
+      "repo": "maathimself/mailflow",
+      "topic_id": 6572
     },
     {
+      "activated_at": "2026-11-26T15:49:48.413085+00:00",
       "app_reference": "mailpit",
+      "category_id": 680,
+      "discussion_topic_id": 6576,
       "groups": [
         "releases-mailpit"
       ],
       "include_prereleases": false,
       "name": "Mailpit",
-      "repo": "axllent/mailpit"
+      "repo": "axllent/mailpit",
+      "topic_id": 6575
     },
     {
+      "activated_at": "2026-11-26T15:49:54.581160+00:00",
       "app_reference": "mailrise",
+      "category_id": 681,
+      "discussion_topic_id": 6579,
       "groups": [
         "releases-mailrise"
       ],
       "include_prereleases": false,
       "name": "Mailrise",
-      "repo": "yoryan/mailrise"
+      "repo": "yoryan/mailrise",
+      "topic_id": 6578
     },
     {
+      "activated_at": "2026-11-26T15:50:01.151741+00:00",
       "app_reference": "mailu",
+      "category_id": 682,
+      "discussion_topic_id": 6582,
       "groups": [
         "releases-mailu"
       ],
       "include_prereleases": false,
       "name": "Mailu",
-      "repo": "mailu/mailu"
+      "repo": "mailu/mailu",
+      "topic_id": 6581
     },
     {
       "app_reference": "maintainerr",
@@ -7281,250 +7309,359 @@
       ],
       "include_prereleases": false,
       "name": "Maintainerr",
+      "provisioning": true,
+      "provisioning_error": "ReadTimeout",
       "repo": "maintainerr/maintainerr"
     },
     {
+      "activated_at": "2026-11-26T15:51:16.456728+00:00",
       "app_reference": "maintenant",
+      "category_id": 683,
+      "discussion_topic_id": 6585,
       "groups": [
         "releases-maintenant"
       ],
       "include_prereleases": false,
       "name": "Maintenant",
-      "repo": "kolapsis/maintenant"
+      "repo": "kolapsis/maintenant",
+      "topic_id": 6584
     },
     {
+      "activated_at": "2026-11-26T15:51:22.611336+00:00",
       "app_reference": "maloja",
+      "category_id": 684,
+      "discussion_topic_id": 6588,
       "groups": [
         "releases-maloja"
       ],
       "include_prereleases": false,
       "name": "Maloja",
-      "repo": "krateng/maloja"
+      "repo": "krateng/maloja",
+      "topic_id": 6587
     },
     {
+      "activated_at": "2026-11-26T15:51:28.750546+00:00",
       "app_reference": "manage-my-damn-life",
+      "category_id": 685,
+      "discussion_topic_id": 6591,
       "groups": [
         "releases-manage-my-damn-life"
       ],
       "include_prereleases": false,
       "name": "Manage My Damn Life",
-      "repo": "intri-in/manage-my-damn-life-nextjs"
+      "repo": "intri-in/manage-my-damn-life-nextjs",
+      "topic_id": 6590
     },
     {
+      "activated_at": "2026-11-26T15:52:33.162973+00:00",
       "app_reference": "manifest",
+      "category_id": 686,
+      "discussion_topic_id": 6594,
       "groups": [
         "releases-manifest"
       ],
       "include_prereleases": false,
       "name": "Manifest",
-      "repo": "mnfst/llm-gateway"
+      "repo": "mnfst/llm-gateway",
+      "topic_id": 6593
     },
     {
+      "activated_at": "2026-11-26T15:52:39.637130+00:00",
       "app_reference": "many-notes",
+      "category_id": 687,
+      "discussion_topic_id": 6597,
       "groups": [
         "releases-many-notes"
       ],
       "include_prereleases": false,
       "name": "Many Notes",
-      "repo": "brufdev/many-notes"
+      "repo": "brufdev/many-notes",
+      "topic_id": 6596
     },
     {
+      "activated_at": "2026-11-26T15:52:45.846620+00:00",
       "app_reference": "manyfold",
+      "category_id": 688,
+      "discussion_topic_id": 6600,
       "groups": [
         "releases-manyfold"
       ],
       "include_prereleases": false,
       "name": "Manyfold",
-      "repo": "manyfold3d/manyfold"
+      "repo": "manyfold3d/manyfold",
+      "topic_id": 6599
     },
     {
+      "activated_at": "2026-11-26T15:52:52.010951+00:00",
       "app_reference": "marreta",
+      "category_id": 689,
+      "discussion_topic_id": 6603,
       "groups": [
         "releases-marreta"
       ],
       "include_prereleases": false,
       "name": "Marreta",
-      "repo": "manualdousuario/marreta"
+      "repo": "manualdousuario/marreta",
+      "topic_id": 6602
     },
     {
       "app_reference": "mastodon",
+      "category_id": 690,
       "groups": [
         "releases-mastodon"
       ],
       "include_prereleases": false,
       "name": "Mastodon",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "mastodon/mastodon"
     },
     {
+      "activated_at": "2026-11-26T15:53:54.617666+00:00",
       "app_reference": "materialious",
+      "category_id": 691,
+      "discussion_topic_id": 6607,
       "groups": [
         "releases-materialious"
       ],
       "include_prereleases": false,
       "name": "Materialious",
-      "repo": "materialious/materialious"
+      "repo": "materialious/materialious",
+      "topic_id": 6606
     },
     {
+      "activated_at": "2026-11-26T15:54:00.980219+00:00",
       "app_reference": "mathesar",
+      "category_id": 692,
+      "discussion_topic_id": 6610,
       "groups": [
         "releases-mathesar"
       ],
       "include_prereleases": false,
       "name": "Mathesar",
-      "repo": "mathesar-foundation/mathesar"
+      "repo": "mathesar-foundation/mathesar",
+      "topic_id": 6609
     },
     {
+      "activated_at": "2026-11-26T15:54:07.344937+00:00",
       "app_reference": "matomo",
+      "category_id": 693,
+      "discussion_topic_id": 6613,
       "groups": [
         "releases-matomo"
       ],
       "include_prereleases": false,
       "name": "Matomo",
-      "repo": "matomo-org/matomo"
+      "repo": "matomo-org/matomo",
+      "topic_id": 6612
     },
     {
+      "activated_at": "2026-11-26T15:54:49.293562+00:00",
       "app_reference": "mattermost",
+      "category_id": 694,
+      "discussion_topic_id": 6616,
       "groups": [
         "releases-mattermost"
       ],
       "include_prereleases": false,
       "name": "Mattermost",
-      "repo": "mattermost/mattermost"
+      "repo": "mattermost/mattermost",
+      "topic_id": 6615
     },
     {
+      "activated_at": "2026-11-26T15:54:56.908043+00:00",
       "app_reference": "mautic",
+      "category_id": 695,
+      "discussion_topic_id": 6619,
       "groups": [
         "releases-mautic"
       ],
       "include_prereleases": false,
       "name": "Mautic",
-      "repo": "mautic/mautic"
+      "repo": "mautic/mautic",
+      "topic_id": 6618
     },
     {
+      "activated_at": "2026-11-26T15:55:03.078158+00:00",
       "app_reference": "maxun",
+      "category_id": 696,
+      "discussion_topic_id": 6622,
       "groups": [
         "releases-maxun"
       ],
       "include_prereleases": false,
       "name": "Maxun",
-      "repo": "getmaxun/maxun"
+      "repo": "getmaxun/maxun",
+      "topic_id": 6621
     },
     {
+      "activated_at": "2026-11-26T15:55:10.142026+00:00",
       "app_reference": "mazanoke",
+      "category_id": 697,
+      "discussion_topic_id": 6625,
       "groups": [
         "releases-mazanoke"
       ],
       "include_prereleases": false,
       "name": "Mazanoke",
-      "repo": "civilblur/mazanoke"
+      "repo": "civilblur/mazanoke",
+      "topic_id": 6624
     },
     {
+      "activated_at": "2026-11-26T15:55:53.262078+00:00",
       "app_reference": "mbin",
+      "category_id": 698,
+      "discussion_topic_id": 6628,
       "groups": [
         "releases-mbin"
       ],
       "include_prereleases": false,
       "name": "Mbin",
-      "repo": "mbinorg/mbin"
+      "repo": "mbinorg/mbin",
+      "topic_id": 6627
     },
     {
+      "activated_at": "2026-11-26T15:55:59.763563+00:00",
       "app_reference": "mealie",
+      "category_id": 699,
+      "discussion_topic_id": 6631,
       "groups": [
         "releases-mealie"
       ],
       "include_prereleases": false,
       "name": "Mealie",
-      "repo": "mealie-recipes/mealie"
+      "repo": "mealie-recipes/mealie",
+      "topic_id": 6630
     },
     {
+      "activated_at": "2026-11-26T15:56:05.989944+00:00",
       "app_reference": "medama",
+      "category_id": 700,
+      "discussion_topic_id": 6634,
       "groups": [
         "releases-medama"
       ],
       "include_prereleases": false,
       "name": "Medama",
-      "repo": "medama-io/medama"
+      "repo": "medama-io/medama",
+      "topic_id": 6633
     },
     {
+      "activated_at": "2026-11-26T15:56:12.112962+00:00",
       "app_reference": "medassist",
+      "category_id": 701,
+      "discussion_topic_id": 6637,
       "groups": [
         "releases-medassist"
       ],
       "include_prereleases": false,
       "name": "MedAssist",
-      "repo": "njic/medassist"
+      "repo": "njic/medassist",
+      "topic_id": 6636
     },
     {
+      "activated_at": "2026-11-26T15:56:55.231832+00:00",
       "app_reference": "medialyze",
+      "category_id": 702,
+      "discussion_topic_id": 6640,
       "groups": [
         "releases-medialyze"
       ],
       "include_prereleases": false,
       "name": "MediaLyze",
-      "repo": "frederikemmer/medialyze"
+      "repo": "frederikemmer/medialyze",
+      "topic_id": 6639
     },
     {
+      "activated_at": "2026-11-26T15:57:01.333568+00:00",
       "app_reference": "mediamanager",
+      "category_id": 703,
+      "discussion_topic_id": 6643,
       "groups": [
         "releases-mediamanager"
       ],
       "include_prereleases": false,
       "name": "MediaManager",
-      "repo": "maxdorninger/mediamanager"
+      "repo": "maxdorninger/mediamanager",
+      "topic_id": 6642
     },
     {
+      "activated_at": "2026-11-26T15:57:08.720613+00:00",
       "app_reference": "medikeep",
+      "category_id": 704,
+      "discussion_topic_id": 6646,
       "groups": [
         "releases-medikeep"
       ],
       "include_prereleases": false,
       "name": "MediKeep",
-      "repo": "afairgiant/medikeep"
+      "repo": "afairgiant/medikeep",
+      "topic_id": 6645
     },
     {
+      "activated_at": "2026-11-26T15:57:14.805297+00:00",
       "app_reference": "medusa",
+      "category_id": 705,
+      "discussion_topic_id": 6649,
       "groups": [
         "releases-medusa"
       ],
       "include_prereleases": false,
       "name": "Medusa",
-      "repo": "medusajs/medusa"
+      "repo": "medusajs/medusa",
+      "topic_id": 6648
     },
     {
+      "activated_at": "2026-11-26T15:57:58.662702+00:00",
       "app_reference": "meelo",
+      "category_id": 706,
+      "discussion_topic_id": 6652,
       "groups": [
         "releases-meelo"
       ],
       "include_prereleases": false,
       "name": "Meelo",
-      "repo": "arthi-chaud/meelo"
+      "repo": "arthi-chaud/meelo",
+      "topic_id": 6651
     },
     {
+      "activated_at": "2026-11-26T15:58:04.834114+00:00",
       "app_reference": "meerkat-crm",
+      "category_id": 707,
+      "discussion_topic_id": 6655,
       "groups": [
         "releases-meerkat-crm"
       ],
       "include_prereleases": false,
       "name": "Meerkat CRM",
-      "repo": "meerkatcrm/meerkat-crm"
+      "repo": "meerkatcrm/meerkat-crm",
+      "topic_id": 6654
     },
     {
+      "activated_at": "2026-11-26T15:58:11.039745+00:00",
       "app_reference": "meetable",
+      "category_id": 708,
+      "discussion_topic_id": 6658,
       "groups": [
         "releases-meetable"
       ],
       "include_prereleases": false,
       "name": "Meetable",
-      "repo": "aaronpk/meetable"
+      "repo": "aaronpk/meetable",
+      "topic_id": 6657
     },
     {
+      "activated_at": "2026-11-26T15:58:53.967908+00:00",
       "app_reference": "meilisearch",
+      "category_id": 709,
+      "discussion_topic_id": 6661,
       "groups": [
         "releases-meilisearch"
       ],
       "include_prereleases": false,
       "name": "Meilisearch",
-      "repo": "meilisearch/meilisearch"
+      "repo": "meilisearch/meilisearch",
+      "topic_id": 6660
     },
     {
       "app_reference": "melody-auth",
