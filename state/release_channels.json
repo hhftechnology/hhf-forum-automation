@@ -4437,6 +4437,386 @@
       "name": "Infisical",
       "repo": "infisical/infisical",
       "topic_id": 6219
+    },
+    {
+      "category_id": 563,
+      "discussion_topic_id": 6223,
+      "groups": [
+        "releases-influxdb"
+      ],
+      "name": "InfluxDB",
+      "repo": "influxdata/influxdb",
+      "topic_id": 6222
+    },
+    {
+      "category_id": 564,
+      "discussion_topic_id": 6226,
+      "groups": [
+        "releases-inventree"
+      ],
+      "name": "InvenTree",
+      "repo": "inventree/inventree",
+      "topic_id": 6225
+    },
+    {
+      "category_id": 565,
+      "discussion_topic_id": 6229,
+      "groups": [
+        "releases-investbrain"
+      ],
+      "name": "Investbrain",
+      "repo": "investbrainapp/investbrain",
+      "topic_id": 6228
+    },
+    {
+      "category_id": 566,
+      "discussion_topic_id": 6232,
+      "groups": [
+        "releases-invidious"
+      ],
+      "name": "Invidious",
+      "repo": "iv-org/invidious",
+      "topic_id": 6231
+    },
+    {
+      "category_id": 567,
+      "discussion_topic_id": 6235,
+      "groups": [
+        "releases-invio"
+      ],
+      "name": "Invio",
+      "repo": "kittendevv/invio",
+      "topic_id": 6234
+    },
+    {
+      "category_id": 568,
+      "discussion_topic_id": 6238,
+      "groups": [
+        "releases-invoice-builder"
+      ],
+      "name": "Invoice Builder",
+      "repo": "piratuks/invoice-builder",
+      "topic_id": 6237
+    },
+    {
+      "category_id": 569,
+      "discussion_topic_id": 6241,
+      "groups": [
+        "releases-invoice-ninja"
+      ],
+      "name": "Invoice Ninja",
+      "repo": "invoiceninja/invoiceninja",
+      "topic_id": 6240
+    },
+    {
+      "category_id": 570,
+      "discussion_topic_id": 6244,
+      "groups": [
+        "releases-invoiceplane"
+      ],
+      "name": "InvoicePlane",
+      "repo": "invoiceplane/invoiceplane",
+      "topic_id": 6243
+    },
+    {
+      "category_id": 571,
+      "discussion_topic_id": 6247,
+      "groups": [
+        "releases-invoicerr"
+      ],
+      "name": "Invoicerr",
+      "repo": "invoicerr-app/invoicerr",
+      "topic_id": 6246
+    },
+    {
+      "category_id": 572,
+      "discussion_topic_id": 6250,
+      "groups": [
+        "releases-invoiceshelf"
+      ],
+      "name": "InvoiceShelf",
+      "repo": "invoiceshelf/invoiceshelf",
+      "topic_id": 6249
+    },
+    {
+      "category_id": 573,
+      "discussion_topic_id": 6253,
+      "groups": [
+        "releases-ironcalc"
+      ],
+      "name": "IronCalc",
+      "repo": "ironcalc/ironcalc",
+      "topic_id": 6252
+    },
+    {
+      "category_id": 574,
+      "discussion_topic_id": 6256,
+      "groups": [
+        "releases-it-tools"
+      ],
+      "name": "IT Tools",
+      "repo": "corentinth/it-tools",
+      "topic_id": 6255
+    },
+    {
+      "category_id": 575,
+      "discussion_topic_id": 6259,
+      "groups": [
+        "releases-jackett"
+      ],
+      "name": "Jackett",
+      "repo": "jackett/jackett",
+      "topic_id": 6258
+    },
+    {
+      "category_id": 576,
+      "discussion_topic_id": 6262,
+      "groups": [
+        "releases-jellyfin-rewind"
+      ],
+      "name": "Jellyfin Rewind",
+      "repo": "chaphasilor/jellyfin-rewind",
+      "topic_id": 6261
+    },
+    {
+      "category_id": 577,
+      "discussion_topic_id": 6265,
+      "groups": [
+        "releases-jellystat"
+      ],
+      "name": "Jellystat",
+      "repo": "cyfershepard/jellystat",
+      "topic_id": 6264
+    },
+    {
+      "category_id": 578,
+      "discussion_topic_id": 6268,
+      "groups": [
+        "releases-jellyswarrm"
+      ],
+      "name": "Jellyswarrm",
+      "repo": "llukas22/jellyswarrm",
+      "topic_id": 6267
+    },
+    {
+      "category_id": 579,
+      "discussion_topic_id": 6271,
+      "groups": [
+        "releases-jellysweep"
+      ],
+      "name": "Jellysweep",
+      "repo": "jon4hz/jellysweep",
+      "topic_id": 6270
+    },
+    {
+      "category_id": 580,
+      "discussion_topic_id": 6274,
+      "groups": [
+        "releases-jelu"
+      ],
+      "name": "Jelu",
+      "repo": "bayang/jelu",
+      "topic_id": 6273
+    },
+    {
+      "category_id": 581,
+      "discussion_topic_id": 6277,
+      "groups": [
+        "releases-jitsi-meet"
+      ],
+      "name": "Jitsi Meet",
+      "repo": "jitsi/jitsi-meet",
+      "topic_id": 6276
+    },
+    {
+      "category_id": 582,
+      "discussion_topic_id": 6280,
+      "groups": [
+        "releases-joplin"
+      ],
+      "name": "Joplin",
+      "repo": "laurent22/joplin",
+      "topic_id": 6279
+    },
+    {
+      "category_id": 583,
+      "discussion_topic_id": 6283,
+      "groups": [
+        "releases-jotty"
+      ],
+      "name": "Jotty",
+      "repo": "fccview/jotty",
+      "topic_id": 6282
+    },
+    {
+      "category_id": 584,
+      "discussion_topic_id": 6286,
+      "groups": [
+        "releases-journiv"
+      ],
+      "name": "Journiv",
+      "repo": "journiv/journiv-app",
+      "topic_id": 6285
+    },
+    {
+      "category_id": 585,
+      "discussion_topic_id": 6289,
+      "groups": [
+        "releases-k7"
+      ],
+      "name": "K7",
+      "repo": "kaybi-gh/k7",
+      "topic_id": 6288
+    },
+    {
+      "category_id": 586,
+      "discussion_topic_id": 6292,
+      "groups": [
+        "releases-kan"
+      ],
+      "name": "Kan",
+      "repo": "kanbn/kan",
+      "topic_id": 6291
+    },
+    {
+      "category_id": 587,
+      "discussion_topic_id": 6295,
+      "groups": [
+        "releases-kanba"
+      ],
+      "name": "Kanba",
+      "repo": "kanba-co/kanba",
+      "topic_id": 6294
+    },
+    {
+      "category_id": 588,
+      "discussion_topic_id": 6298,
+      "groups": [
+        "releases-kanboard"
+      ],
+      "name": "Kanboard",
+      "repo": "kanboard/kanboard",
+      "topic_id": 6297
+    },
+    {
+      "category_id": 589,
+      "discussion_topic_id": 6301,
+      "groups": [
+        "releases-kaneo"
+      ],
+      "name": "Kaneo",
+      "repo": "usekaneo/kaneo",
+      "topic_id": 6300
+    },
+    {
+      "category_id": 590,
+      "discussion_topic_id": 6304,
+      "groups": [
+        "releases-kanidm"
+      ],
+      "name": "Kanidm",
+      "repo": "kanidm/kanidm",
+      "topic_id": 6303
+    },
+    {
+      "category_id": 591,
+      "discussion_topic_id": 6307,
+      "groups": [
+        "releases-kapowarr"
+      ],
+      "name": "Kapowarr",
+      "repo": "casvt/kapowarr",
+      "topic_id": 6306
+    },
+    {
+      "category_id": 592,
+      "discussion_topic_id": 6310,
+      "groups": [
+        "releases-karakeep"
+      ],
+      "name": "Karakeep",
+      "repo": "karakeep-app/karakeep",
+      "topic_id": 6309
+    },
+    {
+      "category_id": 593,
+      "discussion_topic_id": 6313,
+      "groups": [
+        "releases-kasm-workspaces"
+      ],
+      "name": "Kasm Workspaces",
+      "repo": "kasmtech/kasmvnc",
+      "topic_id": 6312
+    },
+    {
+      "category_id": 594,
+      "discussion_topic_id": 6316,
+      "groups": [
+        "releases-kavita"
+      ],
+      "name": "Kavita",
+      "repo": "kareadita/kavita",
+      "topic_id": 6315
+    },
+    {
+      "category_id": 595,
+      "discussion_topic_id": 6319,
+      "groups": [
+        "releases-keepassxc"
+      ],
+      "name": "KeePassXC",
+      "repo": "keepassxreboot/keepassxc",
+      "topic_id": 6318
+    },
+    {
+      "category_id": 596,
+      "discussion_topic_id": 6322,
+      "groups": [
+        "releases-keeper"
+      ],
+      "name": "Keeper",
+      "repo": "ridafkih/keeper.sh",
+      "topic_id": 6321
+    },
+    {
+      "category_id": 597,
+      "discussion_topic_id": 6325,
+      "groups": [
+        "releases-keila"
+      ],
+      "name": "Keila",
+      "repo": "pentacent/keila",
+      "topic_id": 6324
+    },
+    {
+      "category_id": 598,
+      "discussion_topic_id": 6328,
+      "groups": [
+        "releases-kener"
+      ],
+      "name": "Kener",
+      "repo": "rajnandan1/kener",
+      "topic_id": 6327
+    },
+    {
+      "category_id": 599,
+      "discussion_topic_id": 6331,
+      "groups": [
+        "releases-kept-notes"
+      ],
+      "name": "Kept",
+      "repo": "ericerkz/kept",
+      "topic_id": 6330
+    },
+    {
+      "category_id": 600,
+      "discussion_topic_id": 6334,
+      "groups": [
+        "releases-kestra"
+      ],
+      "name": "Kestra",
+      "repo": "kestra-io/kestra",
+      "topic_id": 6333
     }
   ]
 }

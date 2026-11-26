@@ -5743,346 +5743,498 @@
       "topic_id": 6219
     },
     {
+      "activated_at": "2026-11-26T15:06:05.099077+00:00",
       "app_reference": "influxdb",
+      "category_id": 563,
+      "discussion_topic_id": 6223,
       "groups": [
         "releases-influxdb"
       ],
       "include_prereleases": false,
       "name": "InfluxDB",
-      "repo": "influxdata/influxdb"
+      "repo": "influxdata/influxdb",
+      "topic_id": 6222
     },
     {
+      "activated_at": "2026-11-26T15:06:12.236055+00:00",
       "app_reference": "inventree",
+      "category_id": 564,
+      "discussion_topic_id": 6226,
       "groups": [
         "releases-inventree"
       ],
       "include_prereleases": false,
       "name": "InvenTree",
-      "repo": "inventree/inventree"
+      "repo": "inventree/inventree",
+      "topic_id": 6225
     },
     {
+      "activated_at": "2026-11-26T15:06:19.393941+00:00",
       "app_reference": "investbrain",
+      "category_id": 565,
+      "discussion_topic_id": 6229,
       "groups": [
         "releases-investbrain"
       ],
       "include_prereleases": false,
       "name": "Investbrain",
-      "repo": "investbrainapp/investbrain"
+      "repo": "investbrainapp/investbrain",
+      "topic_id": 6228
     },
     {
+      "activated_at": "2026-11-26T15:07:00.116963+00:00",
       "app_reference": "invidious",
+      "category_id": 566,
+      "discussion_topic_id": 6232,
       "groups": [
         "releases-invidious"
       ],
       "include_prereleases": false,
       "name": "Invidious",
-      "repo": "iv-org/invidious"
+      "repo": "iv-org/invidious",
+      "topic_id": 6231
     },
     {
+      "activated_at": "2026-11-26T15:07:07.369226+00:00",
       "app_reference": "invio",
+      "category_id": 567,
+      "discussion_topic_id": 6235,
       "groups": [
         "releases-invio"
       ],
       "include_prereleases": false,
       "name": "Invio",
-      "repo": "kittendevv/invio"
+      "repo": "kittendevv/invio",
+      "topic_id": 6234
     },
     {
+      "activated_at": "2026-11-26T15:07:14.329271+00:00",
       "app_reference": "invoice-builder",
+      "category_id": 568,
+      "discussion_topic_id": 6238,
       "groups": [
         "releases-invoice-builder"
       ],
       "include_prereleases": false,
       "name": "Invoice Builder",
-      "repo": "piratuks/invoice-builder"
+      "repo": "piratuks/invoice-builder",
+      "topic_id": 6237
     },
     {
+      "activated_at": "2026-11-26T15:07:21.559391+00:00",
       "app_reference": "invoice-ninja",
+      "category_id": 569,
+      "discussion_topic_id": 6241,
       "groups": [
         "releases-invoice-ninja"
       ],
       "include_prereleases": false,
       "name": "Invoice Ninja",
-      "repo": "invoiceninja/invoiceninja"
+      "repo": "invoiceninja/invoiceninja",
+      "topic_id": 6240
     },
     {
+      "activated_at": "2026-11-26T15:08:02.317950+00:00",
       "app_reference": "invoiceplane",
+      "category_id": 570,
+      "discussion_topic_id": 6244,
       "groups": [
         "releases-invoiceplane"
       ],
       "include_prereleases": false,
       "name": "InvoicePlane",
-      "repo": "invoiceplane/invoiceplane"
+      "repo": "invoiceplane/invoiceplane",
+      "topic_id": 6243
     },
     {
+      "activated_at": "2026-11-26T15:08:09.541317+00:00",
       "app_reference": "invoicerr",
+      "category_id": 571,
+      "discussion_topic_id": 6247,
       "groups": [
         "releases-invoicerr"
       ],
       "include_prereleases": false,
       "name": "Invoicerr",
-      "repo": "invoicerr-app/invoicerr"
+      "repo": "invoicerr-app/invoicerr",
+      "topic_id": 6246
     },
     {
+      "activated_at": "2026-11-26T15:08:16.565210+00:00",
       "app_reference": "invoiceshelf",
+      "category_id": 572,
+      "discussion_topic_id": 6250,
       "groups": [
         "releases-invoiceshelf"
       ],
       "include_prereleases": false,
       "name": "InvoiceShelf",
-      "repo": "invoiceshelf/invoiceshelf"
+      "repo": "invoiceshelf/invoiceshelf",
+      "topic_id": 6249
     },
     {
+      "activated_at": "2026-11-26T15:08:23.604649+00:00",
       "app_reference": "ironcalc",
+      "category_id": 573,
+      "discussion_topic_id": 6253,
       "groups": [
         "releases-ironcalc"
       ],
       "include_prereleases": false,
       "name": "IronCalc",
-      "repo": "ironcalc/ironcalc"
+      "repo": "ironcalc/ironcalc",
+      "topic_id": 6252
     },
     {
+      "activated_at": "2026-11-26T15:09:04.487171+00:00",
       "app_reference": "it-tools",
+      "category_id": 574,
+      "discussion_topic_id": 6256,
       "groups": [
         "releases-it-tools"
       ],
       "include_prereleases": false,
       "name": "IT Tools",
-      "repo": "corentinth/it-tools"
+      "repo": "corentinth/it-tools",
+      "topic_id": 6255
     },
     {
+      "activated_at": "2026-11-26T15:09:11.752863+00:00",
       "app_reference": "jackett",
+      "category_id": 575,
+      "discussion_topic_id": 6259,
       "groups": [
         "releases-jackett"
       ],
       "include_prereleases": false,
       "name": "Jackett",
-      "repo": "jackett/jackett"
+      "repo": "jackett/jackett",
+      "topic_id": 6258
     },
     {
+      "activated_at": "2026-11-26T15:09:18.623038+00:00",
       "app_reference": "jellyfin-rewind",
+      "category_id": 576,
+      "discussion_topic_id": 6262,
       "groups": [
         "releases-jellyfin-rewind"
       ],
       "include_prereleases": false,
       "name": "Jellyfin Rewind",
-      "repo": "chaphasilor/jellyfin-rewind"
+      "repo": "chaphasilor/jellyfin-rewind",
+      "topic_id": 6261
     },
     {
+      "activated_at": "2026-11-26T15:10:00.117171+00:00",
       "app_reference": "jellystat",
+      "category_id": 577,
+      "discussion_topic_id": 6265,
       "groups": [
         "releases-jellystat"
       ],
       "include_prereleases": false,
       "name": "Jellystat",
-      "repo": "cyfershepard/jellystat"
+      "repo": "cyfershepard/jellystat",
+      "topic_id": 6264
     },
     {
+      "activated_at": "2026-11-26T15:10:07.600052+00:00",
       "app_reference": "jellyswarrm",
+      "category_id": 578,
+      "discussion_topic_id": 6268,
       "groups": [
         "releases-jellyswarrm"
       ],
       "include_prereleases": false,
       "name": "Jellyswarrm",
-      "repo": "llukas22/jellyswarrm"
+      "repo": "llukas22/jellyswarrm",
+      "topic_id": 6267
     },
     {
+      "activated_at": "2026-11-26T15:10:14.698247+00:00",
       "app_reference": "jellysweep",
+      "category_id": 579,
+      "discussion_topic_id": 6271,
       "groups": [
         "releases-jellysweep"
       ],
       "include_prereleases": false,
       "name": "Jellysweep",
-      "repo": "jon4hz/jellysweep"
+      "repo": "jon4hz/jellysweep",
+      "topic_id": 6270
     },
     {
+      "activated_at": "2026-11-26T15:10:21.726006+00:00",
       "app_reference": "jelu",
+      "category_id": 580,
+      "discussion_topic_id": 6274,
       "groups": [
         "releases-jelu"
       ],
       "include_prereleases": false,
       "name": "Jelu",
-      "repo": "bayang/jelu"
+      "repo": "bayang/jelu",
+      "topic_id": 6273
     },
     {
+      "activated_at": "2026-11-26T15:11:02.026223+00:00",
       "app_reference": "jitsi-meet",
+      "category_id": 581,
+      "discussion_topic_id": 6277,
       "groups": [
         "releases-jitsi-meet"
       ],
       "include_prereleases": false,
       "name": "Jitsi Meet",
-      "repo": "jitsi/jitsi-meet"
+      "repo": "jitsi/jitsi-meet",
+      "topic_id": 6276
     },
     {
+      "activated_at": "2026-11-26T15:11:09.553031+00:00",
       "app_reference": "joplin",
+      "category_id": 582,
+      "discussion_topic_id": 6280,
       "groups": [
         "releases-joplin"
       ],
       "include_prereleases": false,
       "name": "Joplin",
-      "repo": "laurent22/joplin"
+      "repo": "laurent22/joplin",
+      "topic_id": 6279
     },
     {
+      "activated_at": "2026-11-26T15:11:16.713712+00:00",
       "app_reference": "jotty",
+      "category_id": 583,
+      "discussion_topic_id": 6283,
       "groups": [
         "releases-jotty"
       ],
       "include_prereleases": false,
       "name": "Jotty",
-      "repo": "fccview/jotty"
+      "repo": "fccview/jotty",
+      "topic_id": 6282
     },
     {
+      "activated_at": "2026-11-26T15:11:23.905130+00:00",
       "app_reference": "journiv",
+      "category_id": 584,
+      "discussion_topic_id": 6286,
       "groups": [
         "releases-journiv"
       ],
       "include_prereleases": false,
       "name": "Journiv",
-      "repo": "journiv/journiv-app"
+      "repo": "journiv/journiv-app",
+      "topic_id": 6285
     },
     {
+      "activated_at": "2026-11-26T15:12:04.305077+00:00",
       "app_reference": "k7",
+      "category_id": 585,
+      "discussion_topic_id": 6289,
       "groups": [
         "releases-k7"
       ],
       "include_prereleases": false,
       "name": "K7",
-      "repo": "kaybi-gh/k7"
+      "repo": "kaybi-gh/k7",
+      "topic_id": 6288
     },
     {
+      "activated_at": "2026-11-26T15:12:11.472628+00:00",
       "app_reference": "kan",
+      "category_id": 586,
+      "discussion_topic_id": 6292,
       "groups": [
         "releases-kan"
       ],
       "include_prereleases": false,
       "name": "Kan",
-      "repo": "kanbn/kan"
+      "repo": "kanbn/kan",
+      "topic_id": 6291
     },
     {
+      "activated_at": "2026-11-26T15:12:19.761114+00:00",
       "app_reference": "kanba",
+      "category_id": 587,
+      "discussion_topic_id": 6295,
       "groups": [
         "releases-kanba"
       ],
       "include_prereleases": false,
       "name": "Kanba",
-      "repo": "kanba-co/kanba"
+      "repo": "kanba-co/kanba",
+      "topic_id": 6294
     },
     {
+      "activated_at": "2026-11-26T15:12:26.865784+00:00",
       "app_reference": "kanboard",
+      "category_id": 588,
+      "discussion_topic_id": 6298,
       "groups": [
         "releases-kanboard"
       ],
       "include_prereleases": false,
       "name": "Kanboard",
-      "repo": "kanboard/kanboard"
+      "repo": "kanboard/kanboard",
+      "topic_id": 6297
     },
     {
+      "activated_at": "2026-11-26T15:13:07.057038+00:00",
       "app_reference": "kaneo",
+      "category_id": 589,
+      "discussion_topic_id": 6301,
       "groups": [
         "releases-kaneo"
       ],
       "include_prereleases": false,
       "name": "Kaneo",
-      "repo": "usekaneo/kaneo"
+      "repo": "usekaneo/kaneo",
+      "topic_id": 6300
     },
     {
+      "activated_at": "2026-11-26T15:13:15.502230+00:00",
       "app_reference": "kanidm",
+      "category_id": 590,
+      "discussion_topic_id": 6304,
       "groups": [
         "releases-kanidm"
       ],
       "include_prereleases": false,
       "name": "Kanidm",
-      "repo": "kanidm/kanidm"
+      "repo": "kanidm/kanidm",
+      "topic_id": 6303
     },
     {
+      "activated_at": "2026-11-26T15:13:22.611395+00:00",
       "app_reference": "kapowarr",
+      "category_id": 591,
+      "discussion_topic_id": 6307,
       "groups": [
         "releases-kapowarr"
       ],
       "include_prereleases": false,
       "name": "Kapowarr",
-      "repo": "casvt/kapowarr"
+      "repo": "casvt/kapowarr",
+      "topic_id": 6306
     },
     {
+      "activated_at": "2026-11-26T15:14:02.642065+00:00",
       "app_reference": "karakeep",
+      "category_id": 592,
+      "discussion_topic_id": 6310,
       "groups": [
         "releases-karakeep"
       ],
       "include_prereleases": false,
       "name": "Karakeep",
-      "repo": "karakeep-app/karakeep"
+      "repo": "karakeep-app/karakeep",
+      "topic_id": 6309
     },
     {
+      "activated_at": "2026-11-26T15:14:10.343434+00:00",
       "app_reference": "kasm-workspaces",
+      "category_id": 593,
+      "discussion_topic_id": 6313,
       "groups": [
         "releases-kasm-workspaces"
       ],
       "include_prereleases": false,
       "name": "Kasm Workspaces",
-      "repo": "kasmtech/kasmvnc"
+      "repo": "kasmtech/kasmvnc",
+      "topic_id": 6312
     },
     {
+      "activated_at": "2026-11-26T15:14:17.389714+00:00",
       "app_reference": "kavita",
+      "category_id": 594,
+      "discussion_topic_id": 6316,
       "groups": [
         "releases-kavita"
       ],
       "include_prereleases": false,
       "name": "Kavita",
-      "repo": "kareadita/kavita"
+      "repo": "kareadita/kavita",
+      "topic_id": 6315
     },
     {
+      "activated_at": "2026-11-26T15:14:25.750309+00:00",
       "app_reference": "keepassxc",
+      "category_id": 595,
+      "discussion_topic_id": 6319,
       "groups": [
         "releases-keepassxc"
       ],
       "include_prereleases": false,
       "name": "KeePassXC",
-      "repo": "keepassxreboot/keepassxc"
+      "repo": "keepassxreboot/keepassxc",
+      "topic_id": 6318
     },
     {
+      "activated_at": "2026-11-26T15:15:06.068005+00:00",
       "app_reference": "keeper",
+      "category_id": 596,
+      "discussion_topic_id": 6322,
       "groups": [
         "releases-keeper"
       ],
       "include_prereleases": false,
       "name": "Keeper",
-      "repo": "ridafkih/keeper.sh"
+      "repo": "ridafkih/keeper.sh",
+      "topic_id": 6321
     },
     {
+      "activated_at": "2026-11-26T15:15:13.472055+00:00",
       "app_reference": "keila",
+      "category_id": 597,
+      "discussion_topic_id": 6325,
       "groups": [
         "releases-keila"
       ],
       "include_prereleases": false,
       "name": "Keila",
-      "repo": "pentacent/keila"
+      "repo": "pentacent/keila",
+      "topic_id": 6324
     },
     {
+      "activated_at": "2026-11-26T15:15:20.588647+00:00",
       "app_reference": "kener",
+      "category_id": 598,
+      "discussion_topic_id": 6328,
       "groups": [
         "releases-kener"
       ],
       "include_prereleases": false,
       "name": "Kener",
-      "repo": "rajnandan1/kener"
+      "repo": "rajnandan1/kener",
+      "topic_id": 6327
     },
     {
+      "activated_at": "2026-11-26T15:15:29.164650+00:00",
       "app_reference": "kept-notes",
+      "category_id": 599,
+      "discussion_topic_id": 6331,
       "groups": [
         "releases-kept-notes"
       ],
       "include_prereleases": false,
       "name": "Kept",
-      "repo": "ericerkz/kept"
+      "repo": "ericerkz/kept",
+      "topic_id": 6330
     },
     {
+      "activated_at": "2026-11-26T15:16:08.384086+00:00",
       "app_reference": "kestra",
+      "category_id": 600,
+      "discussion_topic_id": 6334,
       "groups": [
         "releases-kestra"
       ],
       "include_prereleases": false,
       "name": "Kestra",
-      "repo": "kestra-io/kestra"
+      "repo": "kestra-io/kestra",
+      "topic_id": 6333
     },
     {
       "app_reference": "keycloak",
