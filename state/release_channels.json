@@ -5197,6 +5197,376 @@
       "name": "Lidarr",
       "repo": "lidarr/lidarr",
       "topic_id": 6447
+    },
+    {
+      "category_id": 639,
+      "discussion_topic_id": 6451,
+      "groups": [
+        "releases-lidify"
+      ],
+      "name": "Lidify",
+      "repo": "thewicklowwolf/lidify",
+      "topic_id": 6450
+    },
+    {
+      "category_id": 640,
+      "discussion_topic_id": 6454,
+      "groups": [
+        "releases-limesurvey"
+      ],
+      "name": "LimeSurvey",
+      "repo": "limesurvey/limesurvey",
+      "topic_id": 6453
+    },
+    {
+      "category_id": 641,
+      "discussion_topic_id": 6457,
+      "groups": [
+        "releases-lingarr"
+      ],
+      "name": "Lingarr",
+      "repo": "lingarr-translate/lingarr",
+      "topic_id": 6456
+    },
+    {
+      "category_id": 642,
+      "discussion_topic_id": 6460,
+      "groups": [
+        "releases-linguacafe"
+      ],
+      "name": "LinguaCafe",
+      "repo": "simjanos-dev/linguacafe",
+      "topic_id": 6459
+    },
+    {
+      "category_id": 643,
+      "discussion_topic_id": 6463,
+      "groups": [
+        "releases-linkace"
+      ],
+      "name": "LinkAce",
+      "repo": "kovah/linkace",
+      "topic_id": 6462
+    },
+    {
+      "category_id": 644,
+      "discussion_topic_id": 6466,
+      "groups": [
+        "releases-linkding"
+      ],
+      "name": "Linkding",
+      "repo": "sissbruecker/linkding",
+      "topic_id": 6465
+    },
+    {
+      "category_id": 645,
+      "discussion_topic_id": 6469,
+      "groups": [
+        "releases-linkstack"
+      ],
+      "name": "LinkStack",
+      "repo": "linkstackorg/linkstack",
+      "topic_id": 6468
+    },
+    {
+      "category_id": 646,
+      "discussion_topic_id": 6472,
+      "groups": [
+        "releases-linkwarden"
+      ],
+      "name": "Linkwarden",
+      "repo": "linkwarden/linkwarden",
+      "topic_id": 6471
+    },
+    {
+      "category_id": 647,
+      "discussion_topic_id": 6475,
+      "groups": [
+        "releases-linuxgsm"
+      ],
+      "name": "LinuxGSM",
+      "repo": "gameservermanagers/linuxgsm",
+      "topic_id": 6474
+    },
+    {
+      "category_id": 648,
+      "discussion_topic_id": 6478,
+      "groups": [
+        "releases-linuxserver-webtop"
+      ],
+      "name": "Webtop",
+      "repo": "linuxserver/docker-webtop",
+      "topic_id": 6477
+    },
+    {
+      "category_id": 649,
+      "discussion_topic_id": 6481,
+      "groups": [
+        "releases-listenarr"
+      ],
+      "name": "Listenarr",
+      "repo": "listenarrs/listenarr",
+      "topic_id": 6480
+    },
+    {
+      "category_id": 650,
+      "discussion_topic_id": 6484,
+      "groups": [
+        "releases-listmonk"
+      ],
+      "name": "listmonk",
+      "repo": "knadh/listmonk",
+      "topic_id": 6483
+    },
+    {
+      "category_id": 651,
+      "discussion_topic_id": 6487,
+      "groups": [
+        "releases-litlyx"
+      ],
+      "name": "Litlyx",
+      "repo": "litlyx/litlyx",
+      "topic_id": 6486
+    },
+    {
+      "category_id": 652,
+      "discussion_topic_id": 6490,
+      "groups": [
+        "releases-littlelink"
+      ],
+      "name": "LittleLink",
+      "repo": "sethcottle/littlelink",
+      "topic_id": 6489
+    },
+    {
+      "category_id": 653,
+      "discussion_topic_id": 6493,
+      "groups": [
+        "releases-live-blog"
+      ],
+      "name": "Live Blog",
+      "repo": "liveblog/liveblog",
+      "topic_id": 6492
+    },
+    {
+      "category_id": 654,
+      "discussion_topic_id": 6496,
+      "groups": [
+        "releases-livebook"
+      ],
+      "name": "Livebook",
+      "repo": "livebook-dev/livebook",
+      "topic_id": 6495
+    },
+    {
+      "category_id": 655,
+      "discussion_topic_id": 6499,
+      "groups": [
+        "releases-liwan"
+      ],
+      "name": "Liwan",
+      "repo": "explodingcamera/liwan",
+      "topic_id": 6498
+    },
+    {
+      "category_id": 656,
+      "discussion_topic_id": 6502,
+      "groups": [
+        "releases-lldap"
+      ],
+      "name": "LLDAP",
+      "repo": "lldap/lldap",
+      "topic_id": 6501
+    },
+    {
+      "category_id": 657,
+      "discussion_topic_id": 6505,
+      "groups": [
+        "releases-localai"
+      ],
+      "name": "LocalAI",
+      "repo": "mudler/localai",
+      "topic_id": 6504
+    },
+    {
+      "category_id": 658,
+      "discussion_topic_id": 6508,
+      "groups": [
+        "releases-localess"
+      ],
+      "name": "Localess",
+      "repo": "lessify/localess",
+      "topic_id": 6507
+    },
+    {
+      "category_id": 659,
+      "discussion_topic_id": 6511,
+      "groups": [
+        "releases-localsend"
+      ],
+      "name": "LocalSend",
+      "repo": "localsend/localsend",
+      "topic_id": 6510
+    },
+    {
+      "category_id": 660,
+      "discussion_topic_id": 6514,
+      "groups": [
+        "releases-lodestone"
+      ],
+      "name": "Lodestone",
+      "repo": "lodestone-team/lodestone",
+      "topic_id": 6513
+    },
+    {
+      "category_id": 661,
+      "discussion_topic_id": 6517,
+      "groups": [
+        "releases-logchef"
+      ],
+      "name": "Logchef",
+      "repo": "mr-karan/logchef",
+      "topic_id": 6516
+    },
+    {
+      "category_id": 662,
+      "discussion_topic_id": 6520,
+      "groups": [
+        "releases-logdy"
+      ],
+      "name": "Logdy",
+      "repo": "logdyhq/logdy-core",
+      "topic_id": 6519
+    },
+    {
+      "category_id": 663,
+      "discussion_topic_id": 6523,
+      "groups": [
+        "releases-logforge"
+      ],
+      "name": "LogForge",
+      "repo": "log-forge/logforge",
+      "topic_id": 6522
+    },
+    {
+      "category_id": 664,
+      "discussion_topic_id": 6526,
+      "groups": [
+        "releases-loggifly"
+      ],
+      "name": "LoggiFly",
+      "repo": "clemcer/loggifly",
+      "topic_id": 6525
+    },
+    {
+      "category_id": 665,
+      "discussion_topic_id": 6529,
+      "groups": [
+        "releases-logseq"
+      ],
+      "name": "Logseq",
+      "repo": "logseq/logseq",
+      "topic_id": 6528
+    },
+    {
+      "category_id": 666,
+      "discussion_topic_id": 6532,
+      "groups": [
+        "releases-logto"
+      ],
+      "name": "Logto",
+      "repo": "logto-io/logto",
+      "topic_id": 6531
+    },
+    {
+      "category_id": 667,
+      "discussion_topic_id": 6535,
+      "groups": [
+        "releases-loki"
+      ],
+      "name": "Loki",
+      "repo": "grafana/loki",
+      "topic_id": 6534
+    },
+    {
+      "category_id": 668,
+      "discussion_topic_id": 6538,
+      "groups": [
+        "releases-loops"
+      ],
+      "name": "Loops",
+      "repo": "joinloops/loops-server",
+      "topic_id": 6537
+    },
+    {
+      "category_id": 669,
+      "discussion_topic_id": 6541,
+      "groups": [
+        "releases-lubelogger"
+      ],
+      "name": "LubeLogger",
+      "repo": "hargata/lubelog",
+      "topic_id": 6540
+    },
+    {
+      "category_id": 670,
+      "discussion_topic_id": 6544,
+      "groups": [
+        "releases-lumio"
+      ],
+      "name": "Lumio",
+      "repo": "markusthiel/lumio",
+      "topic_id": 6543
+    },
+    {
+      "category_id": 671,
+      "discussion_topic_id": 6547,
+      "groups": [
+        "releases-lunalytics"
+      ],
+      "name": "Lunalytics",
+      "repo": "ksjaay/lunalytics",
+      "topic_id": 6546
+    },
+    {
+      "category_id": 672,
+      "discussion_topic_id": 6551,
+      "groups": [
+        "releases-lyrion-music-server"
+      ],
+      "name": "Lyrion Music Server",
+      "repo": "lms-community/slimserver",
+      "topic_id": 6549
+    },
+    {
+      "category_id": 673,
+      "discussion_topic_id": 6555,
+      "groups": [
+        "releases-m3u-editor"
+      ],
+      "name": "m3u-editor",
+      "repo": "m3ue/m3u-editor",
+      "topic_id": 6554
+    },
+    {
+      "category_id": 674,
+      "discussion_topic_id": 6558,
+      "groups": [
+        "releases-mafl"
+      ],
+      "name": "Mafl",
+      "repo": "hywax/mafl",
+      "topic_id": 6557
+    },
+    {
+      "category_id": 675,
+      "discussion_topic_id": 6561,
+      "groups": [
+        "releases-mail-archiver"
+      ],
+      "name": "Mail Archiver",
+      "repo": "s1t5/mail-archiver",
+      "topic_id": 6560
     }
   ]
 }

@@ -6731,337 +6731,485 @@
       "topic_id": 6447
     },
     {
+      "activated_at": "2026-11-26T15:34:21.613729+00:00",
       "app_reference": "lidify",
+      "category_id": 639,
+      "discussion_topic_id": 6451,
       "groups": [
         "releases-lidify"
       ],
       "include_prereleases": false,
       "name": "Lidify",
-      "repo": "thewicklowwolf/lidify"
+      "repo": "thewicklowwolf/lidify",
+      "topic_id": 6450
     },
     {
+      "activated_at": "2026-11-26T15:34:28.042065+00:00",
       "app_reference": "limesurvey",
+      "category_id": 640,
+      "discussion_topic_id": 6454,
       "groups": [
         "releases-limesurvey"
       ],
       "include_prereleases": false,
       "name": "LimeSurvey",
-      "repo": "limesurvey/limesurvey"
+      "repo": "limesurvey/limesurvey",
+      "topic_id": 6453
     },
     {
+      "activated_at": "2026-11-26T15:34:34.516577+00:00",
       "app_reference": "lingarr",
+      "category_id": 641,
+      "discussion_topic_id": 6457,
       "groups": [
         "releases-lingarr"
       ],
       "include_prereleases": false,
       "name": "Lingarr",
-      "repo": "lingarr-translate/lingarr"
+      "repo": "lingarr-translate/lingarr",
+      "topic_id": 6456
     },
     {
+      "activated_at": "2026-11-26T15:35:17.151919+00:00",
       "app_reference": "linguacafe",
+      "category_id": 642,
+      "discussion_topic_id": 6460,
       "groups": [
         "releases-linguacafe"
       ],
       "include_prereleases": false,
       "name": "LinguaCafe",
-      "repo": "simjanos-dev/linguacafe"
+      "repo": "simjanos-dev/linguacafe",
+      "topic_id": 6459
     },
     {
+      "activated_at": "2026-11-26T15:35:24.153559+00:00",
       "app_reference": "linkace",
+      "category_id": 643,
+      "discussion_topic_id": 6463,
       "groups": [
         "releases-linkace"
       ],
       "include_prereleases": false,
       "name": "LinkAce",
-      "repo": "kovah/linkace"
+      "repo": "kovah/linkace",
+      "topic_id": 6462
     },
     {
+      "activated_at": "2026-11-26T15:35:30.794896+00:00",
       "app_reference": "linkding",
+      "category_id": 644,
+      "discussion_topic_id": 6466,
       "groups": [
         "releases-linkding"
       ],
       "include_prereleases": false,
       "name": "Linkding",
-      "repo": "sissbruecker/linkding"
+      "repo": "sissbruecker/linkding",
+      "topic_id": 6465
     },
     {
+      "activated_at": "2026-11-26T15:35:37.270606+00:00",
       "app_reference": "linkstack",
+      "category_id": 645,
+      "discussion_topic_id": 6469,
       "groups": [
         "releases-linkstack"
       ],
       "include_prereleases": false,
       "name": "LinkStack",
-      "repo": "linkstackorg/linkstack"
+      "repo": "linkstackorg/linkstack",
+      "topic_id": 6468
     },
     {
+      "activated_at": "2026-11-26T15:36:19.408579+00:00",
       "app_reference": "linkwarden",
+      "category_id": 646,
+      "discussion_topic_id": 6472,
       "groups": [
         "releases-linkwarden"
       ],
       "include_prereleases": false,
       "name": "Linkwarden",
-      "repo": "linkwarden/linkwarden"
+      "repo": "linkwarden/linkwarden",
+      "topic_id": 6471
     },
     {
+      "activated_at": "2026-11-26T15:36:25.690368+00:00",
       "app_reference": "linuxgsm",
+      "category_id": 647,
+      "discussion_topic_id": 6475,
       "groups": [
         "releases-linuxgsm"
       ],
       "include_prereleases": false,
       "name": "LinuxGSM",
-      "repo": "gameservermanagers/linuxgsm"
+      "repo": "gameservermanagers/linuxgsm",
+      "topic_id": 6474
     },
     {
+      "activated_at": "2026-11-26T15:36:33.094438+00:00",
       "app_reference": "linuxserver-webtop",
+      "category_id": 648,
+      "discussion_topic_id": 6478,
       "groups": [
         "releases-linuxserver-webtop"
       ],
       "include_prereleases": false,
       "name": "Webtop",
-      "repo": "linuxserver/docker-webtop"
+      "repo": "linuxserver/docker-webtop",
+      "topic_id": 6477
     },
     {
+      "activated_at": "2026-11-26T15:36:39.182616+00:00",
       "app_reference": "listenarr",
+      "category_id": 649,
+      "discussion_topic_id": 6481,
       "groups": [
         "releases-listenarr"
       ],
       "include_prereleases": false,
       "name": "Listenarr",
-      "repo": "listenarrs/listenarr"
+      "repo": "listenarrs/listenarr",
+      "topic_id": 6480
     },
     {
+      "activated_at": "2026-11-26T15:37:22.620602+00:00",
       "app_reference": "listmonk",
+      "category_id": 650,
+      "discussion_topic_id": 6484,
       "groups": [
         "releases-listmonk"
       ],
       "include_prereleases": false,
       "name": "listmonk",
-      "repo": "knadh/listmonk"
+      "repo": "knadh/listmonk",
+      "topic_id": 6483
     },
     {
+      "activated_at": "2026-11-26T15:37:28.910514+00:00",
       "app_reference": "litlyx",
+      "category_id": 651,
+      "discussion_topic_id": 6487,
       "groups": [
         "releases-litlyx"
       ],
       "include_prereleases": false,
       "name": "Litlyx",
-      "repo": "litlyx/litlyx"
+      "repo": "litlyx/litlyx",
+      "topic_id": 6486
     },
     {
+      "activated_at": "2026-11-26T15:37:35.173811+00:00",
       "app_reference": "littlelink",
+      "category_id": 652,
+      "discussion_topic_id": 6490,
       "groups": [
         "releases-littlelink"
       ],
       "include_prereleases": false,
       "name": "LittleLink",
-      "repo": "sethcottle/littlelink"
+      "repo": "sethcottle/littlelink",
+      "topic_id": 6489
     },
     {
+      "activated_at": "2026-11-26T15:38:18.178148+00:00",
       "app_reference": "live-blog",
+      "category_id": 653,
+      "discussion_topic_id": 6493,
       "groups": [
         "releases-live-blog"
       ],
       "include_prereleases": false,
       "name": "Live Blog",
-      "repo": "liveblog/liveblog"
+      "repo": "liveblog/liveblog",
+      "topic_id": 6492
     },
     {
+      "activated_at": "2026-11-26T15:38:24.984738+00:00",
       "app_reference": "livebook",
+      "category_id": 654,
+      "discussion_topic_id": 6496,
       "groups": [
         "releases-livebook"
       ],
       "include_prereleases": false,
       "name": "Livebook",
-      "repo": "livebook-dev/livebook"
+      "repo": "livebook-dev/livebook",
+      "topic_id": 6495
     },
     {
+      "activated_at": "2026-11-26T15:38:31.257902+00:00",
       "app_reference": "liwan",
+      "category_id": 655,
+      "discussion_topic_id": 6499,
       "groups": [
         "releases-liwan"
       ],
       "include_prereleases": false,
       "name": "Liwan",
-      "repo": "explodingcamera/liwan"
+      "repo": "explodingcamera/liwan",
+      "topic_id": 6498
     },
     {
+      "activated_at": "2026-11-26T15:38:37.594860+00:00",
       "app_reference": "lldap",
+      "category_id": 656,
+      "discussion_topic_id": 6502,
       "groups": [
         "releases-lldap"
       ],
       "include_prereleases": false,
       "name": "LLDAP",
-      "repo": "lldap/lldap"
+      "repo": "lldap/lldap",
+      "topic_id": 6501
     },
     {
+      "activated_at": "2026-11-26T15:39:20.510611+00:00",
       "app_reference": "localai",
+      "category_id": 657,
+      "discussion_topic_id": 6505,
       "groups": [
         "releases-localai"
       ],
       "include_prereleases": false,
       "name": "LocalAI",
-      "repo": "mudler/localai"
+      "repo": "mudler/localai",
+      "topic_id": 6504
     },
     {
+      "activated_at": "2026-11-26T15:39:26.828789+00:00",
       "app_reference": "localess",
+      "category_id": 658,
+      "discussion_topic_id": 6508,
       "groups": [
         "releases-localess"
       ],
       "include_prereleases": false,
       "name": "Localess",
-      "repo": "lessify/localess"
+      "repo": "lessify/localess",
+      "topic_id": 6507
     },
     {
+      "activated_at": "2026-11-26T15:39:34.247069+00:00",
       "app_reference": "localsend",
+      "category_id": 659,
+      "discussion_topic_id": 6511,
       "groups": [
         "releases-localsend"
       ],
       "include_prereleases": false,
       "name": "LocalSend",
-      "repo": "localsend/localsend"
+      "repo": "localsend/localsend",
+      "topic_id": 6510
     },
     {
+      "activated_at": "2026-11-26T15:39:40.487472+00:00",
       "app_reference": "lodestone",
+      "category_id": 660,
+      "discussion_topic_id": 6514,
       "groups": [
         "releases-lodestone"
       ],
       "include_prereleases": false,
       "name": "Lodestone",
-      "repo": "lodestone-team/lodestone"
+      "repo": "lodestone-team/lodestone",
+      "topic_id": 6513
     },
     {
+      "activated_at": "2026-11-26T15:40:22.694821+00:00",
       "app_reference": "logchef",
+      "category_id": 661,
+      "discussion_topic_id": 6517,
       "groups": [
         "releases-logchef"
       ],
       "include_prereleases": false,
       "name": "Logchef",
-      "repo": "mr-karan/logchef"
+      "repo": "mr-karan/logchef",
+      "topic_id": 6516
     },
     {
+      "activated_at": "2026-11-26T15:40:29.249920+00:00",
       "app_reference": "logdy",
+      "category_id": 662,
+      "discussion_topic_id": 6520,
       "groups": [
         "releases-logdy"
       ],
       "include_prereleases": false,
       "name": "Logdy",
-      "repo": "logdyhq/logdy-core"
+      "repo": "logdyhq/logdy-core",
+      "topic_id": 6519
     },
     {
+      "activated_at": "2026-11-26T15:40:35.649941+00:00",
       "app_reference": "logforge",
+      "category_id": 663,
+      "discussion_topic_id": 6523,
       "groups": [
         "releases-logforge"
       ],
       "include_prereleases": false,
       "name": "LogForge",
-      "repo": "log-forge/logforge"
+      "repo": "log-forge/logforge",
+      "topic_id": 6522
     },
     {
+      "activated_at": "2026-11-26T15:40:43.232732+00:00",
       "app_reference": "loggifly",
+      "category_id": 664,
+      "discussion_topic_id": 6526,
       "groups": [
         "releases-loggifly"
       ],
       "include_prereleases": false,
       "name": "LoggiFly",
-      "repo": "clemcer/loggifly"
+      "repo": "clemcer/loggifly",
+      "topic_id": 6525
     },
     {
+      "activated_at": "2026-11-26T15:41:25.575354+00:00",
       "app_reference": "logseq",
+      "category_id": 665,
+      "discussion_topic_id": 6529,
       "groups": [
         "releases-logseq"
       ],
       "include_prereleases": false,
       "name": "Logseq",
-      "repo": "logseq/logseq"
+      "repo": "logseq/logseq",
+      "topic_id": 6528
     },
     {
+      "activated_at": "2026-11-26T15:41:32.036549+00:00",
       "app_reference": "logto",
+      "category_id": 666,
+      "discussion_topic_id": 6532,
       "groups": [
         "releases-logto"
       ],
       "include_prereleases": false,
       "name": "Logto",
-      "repo": "logto-io/logto"
+      "repo": "logto-io/logto",
+      "topic_id": 6531
     },
     {
+      "activated_at": "2026-11-26T15:41:38.539428+00:00",
       "app_reference": "loki",
+      "category_id": 667,
+      "discussion_topic_id": 6535,
       "groups": [
         "releases-loki"
       ],
       "include_prereleases": false,
       "name": "Loki",
-      "repo": "grafana/loki"
+      "repo": "grafana/loki",
+      "topic_id": 6534
     },
     {
+      "activated_at": "2026-11-26T15:42:20.813552+00:00",
       "app_reference": "loops",
+      "category_id": 668,
+      "discussion_topic_id": 6538,
       "groups": [
         "releases-loops"
       ],
       "include_prereleases": false,
       "name": "Loops",
-      "repo": "joinloops/loops-server"
+      "repo": "joinloops/loops-server",
+      "topic_id": 6537
     },
     {
+      "activated_at": "2026-11-26T15:42:27.308480+00:00",
       "app_reference": "lubelogger",
+      "category_id": 669,
+      "discussion_topic_id": 6541,
       "groups": [
         "releases-lubelogger"
       ],
       "include_prereleases": false,
       "name": "LubeLogger",
-      "repo": "hargata/lubelog"
+      "repo": "hargata/lubelog",
+      "topic_id": 6540
     },
     {
+      "activated_at": "2026-11-26T15:42:34.668884+00:00",
       "app_reference": "lumio",
+      "category_id": 670,
+      "discussion_topic_id": 6544,
       "groups": [
         "releases-lumio"
       ],
       "include_prereleases": false,
       "name": "Lumio",
-      "repo": "markusthiel/lumio"
+      "repo": "markusthiel/lumio",
+      "topic_id": 6543
     },
     {
+      "activated_at": "2026-11-26T15:42:42.023648+00:00",
       "app_reference": "lunalytics",
+      "category_id": 671,
+      "discussion_topic_id": 6547,
       "groups": [
         "releases-lunalytics"
       ],
       "include_prereleases": false,
       "name": "Lunalytics",
-      "repo": "ksjaay/lunalytics"
+      "repo": "ksjaay/lunalytics",
+      "topic_id": 6546
     },
     {
+      "activated_at": "2026-11-26T15:43:24.636856+00:00",
       "app_reference": "lyrion-music-server",
+      "category_id": 672,
+      "discussion_topic_id": 6551,
       "groups": [
         "releases-lyrion-music-server"
       ],
       "include_prereleases": false,
       "name": "Lyrion Music Server",
-      "repo": "lms-community/slimserver"
+      "repo": "lms-community/slimserver",
+      "topic_id": 6549
     },
     {
+      "activated_at": "2026-11-26T15:43:34.051655+00:00",
       "app_reference": "m3u-editor",
+      "category_id": 673,
+      "discussion_topic_id": 6555,
       "groups": [
         "releases-m3u-editor"
       ],
       "include_prereleases": false,
       "name": "m3u-editor",
-      "repo": "m3ue/m3u-editor"
+      "repo": "m3ue/m3u-editor",
+      "topic_id": 6554
     },
     {
+      "activated_at": "2026-11-26T15:43:41.183419+00:00",
       "app_reference": "mafl",
+      "category_id": 674,
+      "discussion_topic_id": 6558,
       "groups": [
         "releases-mafl"
       ],
       "include_prereleases": false,
       "name": "Mafl",
-      "repo": "hywax/mafl"
+      "repo": "hywax/mafl",
+      "topic_id": 6557
     },
     {
+      "activated_at": "2026-11-26T15:44:20.644377+00:00",
       "app_reference": "mail-archiver",
+      "category_id": 675,
+      "discussion_topic_id": 6561,
       "groups": [
         "releases-mail-archiver"
       ],
       "include_prereleases": false,
       "name": "Mail Archiver",
-      "repo": "s1t5/mail-archiver"
+      "repo": "s1t5/mail-archiver",
+      "topic_id": 6560
     },
     {
       "app_reference": "mail-in-a-box",
