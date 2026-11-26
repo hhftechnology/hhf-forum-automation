@@ -9177,6 +9177,386 @@
       "name": "SiYuan",
       "repo": "siyuan-note/siyuan",
       "topic_id": 7646
+    },
+    {
+      "category_id": 1037,
+      "discussion_topic_id": 7650,
+      "groups": [
+        "releases-sketchforge"
+      ],
+      "name": "SketchForge",
+      "repo": "formsmith746/sketchforge-3d",
+      "topic_id": 7649
+    },
+    {
+      "category_id": 1038,
+      "discussion_topic_id": 7653,
+      "groups": [
+        "releases-skysend"
+      ],
+      "name": "SkySend",
+      "repo": "skyfay/skysend",
+      "topic_id": 7652
+    },
+    {
+      "category_id": 1039,
+      "discussion_topic_id": 7656,
+      "groups": [
+        "releases-slash"
+      ],
+      "name": "Slash",
+      "repo": "yourselfhosted/slash",
+      "topic_id": 7655
+    },
+    {
+      "category_id": 1040,
+      "discussion_topic_id": 7659,
+      "groups": [
+        "releases-slink"
+      ],
+      "name": "Slink",
+      "repo": "andrii-kryvoviaz/slink",
+      "topic_id": 7658
+    },
+    {
+      "category_id": 1041,
+      "discussion_topic_id": 7662,
+      "groups": [
+        "releases-slskd"
+      ],
+      "name": "slskd",
+      "repo": "slskd/slskd",
+      "topic_id": 7661
+    },
+    {
+      "category_id": 1042,
+      "discussion_topic_id": 7665,
+      "groups": [
+        "releases-smokeping"
+      ],
+      "name": "SmokePing",
+      "repo": "oetiker/smokeping",
+      "topic_id": 7664
+    },
+    {
+      "category_id": 1043,
+      "discussion_topic_id": 7668,
+      "groups": [
+        "releases-snapotter"
+      ],
+      "name": "SnapOtter",
+      "repo": "snapotter-hq/snapotter",
+      "topic_id": 7667
+    },
+    {
+      "category_id": 1044,
+      "discussion_topic_id": 7671,
+      "groups": [
+        "releases-snappymail"
+      ],
+      "name": "SnappyMail",
+      "repo": "the-djmaze/snappymail",
+      "topic_id": 7670
+    },
+    {
+      "category_id": 1045,
+      "discussion_topic_id": 7674,
+      "groups": [
+        "releases-snikket"
+      ],
+      "name": "Snikket",
+      "repo": "snikket-im/snikket-server",
+      "topic_id": 7673
+    },
+    {
+      "category_id": 1046,
+      "discussion_topic_id": 7677,
+      "groups": [
+        "releases-snipe-it"
+      ],
+      "name": "Snipe-IT",
+      "repo": "grokability/snipe-it",
+      "topic_id": 7676
+    },
+    {
+      "category_id": 1047,
+      "discussion_topic_id": 7680,
+      "groups": [
+        "releases-solidinvoice"
+      ],
+      "name": "SolidInvoice",
+      "repo": "solidinvoice/solidinvoice",
+      "topic_id": 7679
+    },
+    {
+      "category_id": 1048,
+      "discussion_topic_id": 7683,
+      "groups": [
+        "releases-solidtime"
+      ],
+      "name": "solidtime",
+      "repo": "solidtime-io/solidtime",
+      "topic_id": 7682
+    },
+    {
+      "category_id": 1049,
+      "discussion_topic_id": 7686,
+      "groups": [
+        "releases-sonarqube"
+      ],
+      "name": "SonarQube",
+      "repo": "sonarsource/sonarqube",
+      "topic_id": 7685
+    },
+    {
+      "category_id": 1050,
+      "discussion_topic_id": 7689,
+      "groups": [
+        "releases-sonarr"
+      ],
+      "name": "Sonarr",
+      "repo": "sonarr/sonarr",
+      "topic_id": 7688
+    },
+    {
+      "category_id": 1051,
+      "discussion_topic_id": 7692,
+      "groups": [
+        "releases-sonashow"
+      ],
+      "name": "SonaShow",
+      "repo": "thewicklowwolf/sonashow",
+      "topic_id": 7691
+    },
+    {
+      "category_id": 1052,
+      "discussion_topic_id": 7695,
+      "groups": [
+        "releases-sonobarr"
+      ],
+      "name": "Sonobarr",
+      "repo": "dodelidoo-labs/sonobarr",
+      "topic_id": 7694
+    },
+    {
+      "category_id": 1053,
+      "discussion_topic_id": 7698,
+      "groups": [
+        "releases-sortarr"
+      ],
+      "name": "Sortarr",
+      "repo": "jaredharper1/sortarr",
+      "topic_id": 7697
+    },
+    {
+      "category_id": 1054,
+      "discussion_topic_id": 7701,
+      "groups": [
+        "releases-sosse"
+      ],
+      "name": "Sosse",
+      "repo": "biolds/sosse",
+      "topic_id": 7700
+    },
+    {
+      "category_id": 1055,
+      "discussion_topic_id": 7704,
+      "groups": [
+        "releases-soulsync"
+      ],
+      "name": "SoulSync",
+      "repo": "nezreka/soulsync",
+      "topic_id": 7703
+    },
+    {
+      "category_id": 1056,
+      "discussion_topic_id": 7707,
+      "groups": [
+        "releases-spacebar"
+      ],
+      "name": "Spacebar",
+      "repo": "spacebarchat/spacebarchat",
+      "topic_id": 7706
+    },
+    {
+      "category_id": 1057,
+      "discussion_topic_id": 7710,
+      "groups": [
+        "releases-spacepad"
+      ],
+      "name": "Spacepad",
+      "repo": "magweter/spacepad",
+      "topic_id": 7709
+    },
+    {
+      "category_id": 1058,
+      "discussion_topic_id": 7713,
+      "groups": [
+        "releases-sparkybudget"
+      ],
+      "name": "SparkyBudget",
+      "repo": "codewithcj/sparkybudget",
+      "topic_id": 7712
+    },
+    {
+      "category_id": 1059,
+      "discussion_topic_id": 7716,
+      "groups": [
+        "releases-sparkyfitness"
+      ],
+      "name": "SparkyFitness",
+      "repo": "codewithcj/sparkyfitness",
+      "topic_id": 7715
+    },
+    {
+      "category_id": 1060,
+      "discussion_topic_id": 7719,
+      "groups": [
+        "releases-speakr"
+      ],
+      "name": "Speakr",
+      "repo": "murtaza-nasir/speakr",
+      "topic_id": 7718
+    },
+    {
+      "category_id": 1061,
+      "discussion_topic_id": 7722,
+      "groups": [
+        "releases-specifically-clementines"
+      ],
+      "name": "Specifically Clementines",
+      "repo": "davideshay/groceries",
+      "topic_id": 7721
+    },
+    {
+      "category_id": 1062,
+      "discussion_topic_id": 7725,
+      "groups": [
+        "releases-speedtest-tracker"
+      ],
+      "name": "Speedtest Tracker",
+      "repo": "alexjustesen/speedtest-tracker",
+      "topic_id": 7724
+    },
+    {
+      "category_id": 1063,
+      "discussion_topic_id": 7728,
+      "groups": [
+        "releases-spendspentspent"
+      ],
+      "name": "SpendSpentSpent",
+      "repo": "lamarios/spendspentspent",
+      "topic_id": 7727
+    },
+    {
+      "category_id": 1064,
+      "discussion_topic_id": 7731,
+      "groups": [
+        "releases-spliit"
+      ],
+      "name": "Spliit",
+      "repo": "spliit-app/spliit",
+      "topic_id": 7730
+    },
+    {
+      "category_id": 1065,
+      "discussion_topic_id": 7734,
+      "groups": [
+        "releases-spoolman"
+      ],
+      "name": "Spoolman",
+      "repo": "donkie/spoolman",
+      "topic_id": 7733
+    },
+    {
+      "category_id": 1066,
+      "discussion_topic_id": 7737,
+      "groups": [
+        "releases-spotify-release-list"
+      ],
+      "name": "Spotify Release List",
+      "repo": "jakubito/spotify-release-list",
+      "topic_id": 7736
+    },
+    {
+      "category_id": 1067,
+      "discussion_topic_id": 7740,
+      "groups": [
+        "releases-sprout-track"
+      ],
+      "name": "Sprout Track",
+      "repo": "oak-and-sprout/sprout-track",
+      "topic_id": 7739
+    },
+    {
+      "category_id": 1068,
+      "discussion_topic_id": 7743,
+      "groups": [
+        "releases-sshwifty"
+      ],
+      "name": "Sshwifty",
+      "repo": "nirui/sshwifty",
+      "topic_id": 7742
+    },
+    {
+      "category_id": 1069,
+      "discussion_topic_id": 7746,
+      "groups": [
+        "releases-stalwart"
+      ],
+      "name": "Stalwart",
+      "repo": "stalwartlabs/stalwart",
+      "topic_id": 7745
+    },
+    {
+      "category_id": 1070,
+      "discussion_topic_id": 7749,
+      "groups": [
+        "releases-standard-notes"
+      ],
+      "name": "Standard Notes",
+      "repo": "standardnotes/app",
+      "topic_id": 7748
+    },
+    {
+      "category_id": 1071,
+      "discussion_topic_id": 7752,
+      "groups": [
+        "releases-starbase-80"
+      ],
+      "name": "Starbase 80",
+      "repo": "notclickable-jordan/starbase-80",
+      "topic_id": 7751
+    },
+    {
+      "category_id": 1072,
+      "discussion_topic_id": 7755,
+      "groups": [
+        "releases-stash"
+      ],
+      "name": "Stash",
+      "repo": "stashapp/stash",
+      "topic_id": 7754
+    },
+    {
+      "category_id": 1073,
+      "discussion_topic_id": 7758,
+      "groups": [
+        "releases-statamic"
+      ],
+      "name": "Statamic",
+      "repo": "statamic/cms",
+      "topic_id": 7757
+    },
+    {
+      "category_id": 1074,
+      "discussion_topic_id": 7761,
+      "groups": [
+        "releases-statping-ng"
+      ],
+      "name": "Statping-ng",
+      "repo": "statping-ng/statping-ng",
+      "topic_id": 7760
     }
   ]
 }
