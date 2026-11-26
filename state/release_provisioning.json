@@ -1,6 +1,7 @@
 {
   "releases": [
     {
+      "app_reference": "pangolin",
       "category_id": 116,
       "groups": [
         "releases-pangolin"
@@ -16,6 +17,7 @@
       "groups": [
         "releases-newt"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "Newt",
       "parent": "Pangolin Releases",
@@ -27,6 +29,7 @@
       "groups": [
         "releases-gerbil"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "Gerbil",
       "parent": "Pangolin Releases",
@@ -38,6 +41,7 @@
       "groups": [
         "releases-badger"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "Badger",
       "parent": "Pangolin Releases",
@@ -49,6 +53,7 @@
       "groups": [
         "releases-olm"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "Olm",
       "parent": "Pangolin Releases",
@@ -60,6 +65,7 @@
       "groups": [
         "releases-pg-cli"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "CLI",
       "parent": "Pangolin Releases",
@@ -71,6 +77,7 @@
       "groups": [
         "releases-android"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "Android",
       "parent": "Pangolin Releases",
@@ -82,6 +89,7 @@
       "groups": [
         "releases-ios"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "iOS",
       "parent": "Pangolin Releases",
@@ -94,6 +102,7 @@
       "groups": [
         "releases-macos"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "macOS",
       "parent": "Pangolin Releases",
@@ -106,6 +115,7 @@
       "groups": [
         "releases-windows"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "Windows",
       "parent": "Pangolin Releases",
@@ -118,6 +128,7 @@
       "groups": [
         "releases-linux"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "Linux",
       "parent": "Pangolin Releases",
@@ -130,6 +141,7 @@
       "groups": [
         "releases-helm"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "Helm charts",
       "parent": "Pangolin Releases",
@@ -141,6 +153,7 @@
       "groups": [
         "releases-pg-node"
       ],
+      "icon_app": "pangolin",
       "include_prereleases": false,
       "name": "Pangolin Node",
       "parent": "Pangolin Releases",
@@ -148,6 +161,7 @@
       "topic_id": 4834
     },
     {
+      "app_reference": "traefik",
       "category_id": 130,
       "groups": [
         "releases-traefik"
@@ -158,6 +172,7 @@
       "topic_id": 4837
     },
     {
+      "app_reference": "coolify",
       "category_id": 131,
       "groups": [
         "releases-coolify"
@@ -168,6 +183,7 @@
       "topic_id": 4839
     },
     {
+      "app_reference": "n8n",
       "category_id": 132,
       "groups": [
         "releases-n8n"
@@ -179,6 +195,7 @@
       "topic_id": 4841
     },
     {
+      "app_reference": "crowdsec",
       "category_id": 133,
       "groups": [
         "releases-crowdsec"
@@ -189,6 +206,7 @@
       "topic_id": 4843
     },
     {
+      "app_reference": "caddy",
       "category_id": 134,
       "groups": [
         "releases-caddy"
@@ -199,6 +217,7 @@
       "topic_id": 4845
     },
     {
+      "app_reference": "authentik",
       "category_id": 135,
       "groups": [
         "releases-authentik"
@@ -209,6 +228,7 @@
       "topic_id": 4847
     },
     {
+      "app_reference": "authelia",
       "category_id": 136,
       "groups": [
         "releases-authelia"
@@ -219,6 +239,7 @@
       "topic_id": 4849
     },
     {
+      "app_reference": "portainer",
       "category_id": 137,
       "groups": [
         "releases-portainer"
@@ -229,6 +250,7 @@
       "topic_id": 4851
     },
     {
+      "app_reference": "uptime-kuma",
       "category_id": 138,
       "groups": [
         "releases-uptime-kuma"
@@ -239,6 +261,7 @@
       "topic_id": 4853
     },
     {
+      "app_reference": "immich",
       "category_id": 139,
       "groups": [
         "releases-immich"
@@ -249,6 +272,7 @@
       "topic_id": 4855
     },
     {
+      "app_reference": "jellyfin",
       "category_id": 140,
       "groups": [
         "releases-jellyfin"
@@ -259,6 +283,7 @@
       "topic_id": 4857
     },
     {
+      "app_reference": "home-assistant",
       "category_id": 141,
       "groups": [
         "releases-hass"
@@ -269,6 +294,7 @@
       "topic_id": 4859
     },
     {
+      "app_reference": "adguard-home",
       "category_id": 142,
       "groups": [
         "releases-adguard"
@@ -279,6 +305,7 @@
       "topic_id": 4861
     },
     {
+      "app_reference": "pi-hole",
       "category_id": 143,
       "groups": [
         "releases-pihole"
@@ -299,6 +326,7 @@
       "topic_id": 4865
     },
     {
+      "app_reference": "vaultwarden",
       "category_id": 145,
       "groups": [
         "releases-vaultwarden"
@@ -309,6 +337,7 @@
       "topic_id": 4867
     },
     {
+      "app_reference": "nginx-proxy-manager",
       "category_id": 146,
       "groups": [
         "releases-npm"
@@ -812,346 +841,498 @@
       "topic_id": 5085
     },
     {
+      "activated_at": "2026-11-26T05:03:41.293818+00:00",
       "app_reference": "asciinema",
+      "category_id": 186,
+      "discussion_topic_id": 5089,
       "groups": [
         "releases-c989a1519b1"
       ],
       "include_prereleases": false,
       "name": "Asciinema",
-      "repo": "asciinema/asciinema"
+      "repo": "asciinema/asciinema",
+      "topic_id": 5088
     },
     {
+      "activated_at": "2026-11-26T05:03:49.164025+00:00",
       "app_reference": "atheos",
+      "category_id": 187,
+      "discussion_topic_id": 5092,
       "groups": [
         "releases-0430c3649eb"
       ],
       "include_prereleases": false,
       "name": "Atheos",
-      "repo": "atheos/atheos"
+      "repo": "atheos/atheos",
+      "topic_id": 5091
     },
     {
+      "activated_at": "2026-11-26T05:03:56.474157+00:00",
       "app_reference": "atlas-cmms",
+      "category_id": 188,
+      "discussion_topic_id": 5095,
       "groups": [
         "releases-141d5e02672"
       ],
       "include_prereleases": false,
       "name": "Atlas CMMS",
-      "repo": "grashjs/cmms"
+      "repo": "grashjs/cmms",
+      "topic_id": 5094
     },
     {
+      "activated_at": "2026-11-26T05:04:35.341159+00:00",
       "app_reference": "atlas-network",
+      "category_id": 189,
+      "discussion_topic_id": 5098,
       "groups": [
         "releases-42366b03930"
       ],
       "include_prereleases": false,
       "name": "Atlas",
-      "repo": "karam-ajaj/atlas"
+      "repo": "karam-ajaj/atlas",
+      "topic_id": 5097
     },
     {
+      "activated_at": "2026-11-26T05:04:44.048220+00:00",
       "app_reference": "atomic-crm",
+      "category_id": 190,
+      "discussion_topic_id": 5101,
       "groups": [
         "releases-fed5afb27b3"
       ],
       "include_prereleases": false,
       "name": "Atomic CRM",
-      "repo": "marmelab/atomic-crm"
+      "repo": "marmelab/atomic-crm",
+      "topic_id": 5100
     },
     {
+      "activated_at": "2026-11-26T05:04:51.519170+00:00",
       "app_reference": "atuin",
+      "category_id": 191,
+      "discussion_topic_id": 5104,
       "groups": [
         "releases-2973df6e855"
       ],
       "include_prereleases": false,
       "name": "Atuin",
-      "repo": "atuinsh/atuin"
+      "repo": "atuinsh/atuin",
+      "topic_id": 5103
     },
     {
+      "activated_at": "2026-11-26T05:04:58.715274+00:00",
       "app_reference": "audiobookrequest",
+      "category_id": 192,
+      "discussion_topic_id": 5107,
       "groups": [
         "releases-0dc2df11b88"
       ],
       "include_prereleases": false,
       "name": "AudioBookRequest",
-      "repo": "markbeep/audiobookrequest"
+      "repo": "markbeep/audiobookrequest",
+      "topic_id": 5106
     },
     {
+      "activated_at": "2026-11-26T05:05:38.697414+00:00",
       "app_reference": "audiobookshelf",
+      "category_id": 193,
+      "discussion_topic_id": 5110,
       "groups": [
         "releases-de0d43036df"
       ],
       "include_prereleases": false,
       "name": "AudioBookshelf",
-      "repo": "advplyr/audiobookshelf"
+      "repo": "advplyr/audiobookshelf",
+      "topic_id": 5109
     },
     {
+      "activated_at": "2026-11-26T05:05:47.394361+00:00",
       "app_reference": "audiosilo",
+      "category_id": 194,
+      "discussion_topic_id": 5113,
       "groups": [
         "releases-42c900f4891"
       ],
       "include_prereleases": false,
       "name": "AudioSilo",
-      "repo": "kodestar/audiosilo-server"
+      "repo": "kodestar/audiosilo-server",
+      "topic_id": 5112
     },
     {
+      "activated_at": "2026-11-26T05:05:54.629167+00:00",
       "app_reference": "aureus",
+      "category_id": 195,
+      "discussion_topic_id": 5116,
       "groups": [
         "releases-a3451fc6a59"
       ],
       "include_prereleases": false,
       "name": "Aureus",
-      "repo": "aureuserp/aureuserp"
+      "repo": "aureuserp/aureuserp",
+      "topic_id": 5115
     },
     {
+      "activated_at": "2026-11-26T05:06:32.343038+00:00",
       "app_reference": "aurral",
+      "category_id": 196,
+      "discussion_topic_id": 5119,
       "groups": [
         "releases-f1dd50ff1fd"
       ],
       "include_prereleases": false,
       "name": "Aurral",
-      "repo": "lklynet/aurral"
+      "repo": "lklynet/aurral",
+      "topic_id": 5118
     },
     {
+      "activated_at": "2026-11-26T05:06:41.556149+00:00",
       "app_reference": "authgear",
+      "category_id": 197,
+      "discussion_topic_id": 5122,
       "groups": [
         "releases-10a7e8d7720"
       ],
       "include_prereleases": false,
       "name": "Authgear",
-      "repo": "authgear/authgear-server"
+      "repo": "authgear/authgear-server",
+      "topic_id": 5121
     },
     {
+      "activated_at": "2026-11-26T05:06:50.163506+00:00",
       "app_reference": "authportal",
+      "category_id": 198,
+      "discussion_topic_id": 5125,
       "groups": [
         "releases-df3e5d28049"
       ],
       "include_prereleases": false,
       "name": "AuthPortal",
-      "repo": "modom-ofn/auth-portal"
+      "repo": "modom-ofn/auth-portal",
+      "topic_id": 5124
     },
     {
+      "activated_at": "2026-11-26T05:06:57.447142+00:00",
       "app_reference": "auto-mcs",
+      "category_id": 199,
+      "discussion_topic_id": 5128,
       "groups": [
         "releases-84357767f77"
       ],
       "include_prereleases": false,
       "name": "auto-mcs",
-      "repo": "macarooni-man/auto-mcs"
+      "repo": "macarooni-man/auto-mcs",
+      "topic_id": 5127
     },
     {
+      "activated_at": "2026-11-26T05:07:34.449449+00:00",
       "app_reference": "autobrr",
+      "category_id": 200,
+      "discussion_topic_id": 5131,
       "groups": [
         "releases-f0ede91763c"
       ],
       "include_prereleases": false,
       "name": "autobrr",
-      "repo": "autobrr/autobrr"
+      "repo": "autobrr/autobrr",
+      "topic_id": 5130
     },
     {
+      "activated_at": "2026-11-26T05:07:44.415869+00:00",
       "app_reference": "automad",
+      "category_id": 201,
+      "discussion_topic_id": 5134,
       "groups": [
         "releases-e25be54b4d6"
       ],
       "include_prereleases": false,
       "name": "Automad",
-      "repo": "marcantondahmen/automad"
+      "repo": "marcantondahmen/automad",
+      "topic_id": 5133
     },
     {
+      "activated_at": "2026-11-26T05:07:53.092893+00:00",
       "app_reference": "azuracast",
+      "category_id": 202,
+      "discussion_topic_id": 5137,
       "groups": [
         "releases-d2d972e837f"
       ],
       "include_prereleases": false,
       "name": "AzuraCast",
-      "repo": "azuracast/azuracast"
+      "repo": "azuracast/azuracast",
+      "topic_id": 5136
     },
     {
+      "activated_at": "2026-11-26T05:08:00.426908+00:00",
       "app_reference": "baby-buddy",
+      "category_id": 203,
+      "discussion_topic_id": 5140,
       "groups": [
         "releases-c3e4825595a"
       ],
       "include_prereleases": false,
       "name": "Baby Buddy",
-      "repo": "babybuddy/babybuddy"
+      "repo": "babybuddy/babybuddy",
+      "topic_id": 5139
     },
     {
+      "activated_at": "2026-11-26T05:08:37.599567+00:00",
       "app_reference": "backrest",
+      "category_id": 204,
+      "discussion_topic_id": 5143,
       "groups": [
         "releases-31cdb43b798"
       ],
       "include_prereleases": false,
       "name": "Backrest",
-      "repo": "garethgeorge/backrest"
+      "repo": "garethgeorge/backrest",
+      "topic_id": 5142
     },
     {
+      "activated_at": "2026-11-26T05:08:47.039392+00:00",
       "app_reference": "backuppc",
+      "category_id": 205,
+      "discussion_topic_id": 5146,
       "groups": [
         "releases-44e7c5de867"
       ],
       "include_prereleases": false,
       "name": "BackupPC",
-      "repo": "backuppc/backuppc"
+      "repo": "backuppc/backuppc",
+      "topic_id": 5145
     },
     {
+      "activated_at": "2026-11-26T05:08:55.685269+00:00",
       "app_reference": "baikal",
+      "category_id": 206,
+      "discussion_topic_id": 5149,
       "groups": [
         "releases-b4e90023c6d"
       ],
       "include_prereleases": false,
       "name": "Baikal",
-      "repo": "sabre-io/baikal"
+      "repo": "sabre-io/baikal",
+      "topic_id": 5148
     },
     {
+      "activated_at": "2026-11-26T05:09:03.035231+00:00",
       "app_reference": "bar-assistant",
+      "category_id": 207,
+      "discussion_topic_id": 5152,
       "groups": [
         "releases-fd985070d87"
       ],
       "include_prereleases": false,
       "name": "Bar Assistant",
-      "repo": "karlomikus/bar-assistant"
+      "repo": "karlomikus/bar-assistant",
+      "topic_id": 5151
     },
     {
+      "activated_at": "2026-11-26T05:09:41.717154+00:00",
       "app_reference": "baserow",
+      "category_id": 208,
+      "discussion_topic_id": 5155,
       "groups": [
         "releases-5ecadbcbea3"
       ],
       "include_prereleases": false,
       "name": "Baserow",
-      "repo": "baserow/baserow"
+      "repo": "baserow/baserow",
+      "topic_id": 5154
     },
     {
+      "activated_at": "2026-11-26T05:09:48.964689+00:00",
       "app_reference": "basic-memory",
+      "category_id": 209,
+      "discussion_topic_id": 5158,
       "groups": [
         "releases-2c8e788ca8d"
       ],
       "include_prereleases": false,
       "name": "Basic Memory",
-      "repo": "basicmachines-co/basic-memory"
+      "repo": "basicmachines-co/basic-memory",
+      "topic_id": 5157
     },
     {
+      "activated_at": "2026-11-26T05:09:57.650895+00:00",
       "app_reference": "bazarr",
+      "category_id": 210,
+      "discussion_topic_id": 5161,
       "groups": [
         "releases-3762e774a24"
       ],
       "include_prereleases": false,
       "name": "Bazarr",
-      "repo": "morpheus65535/bazarr"
+      "repo": "morpheus65535/bazarr",
+      "topic_id": 5160
     },
     {
+      "activated_at": "2026-11-26T05:10:34.668397+00:00",
       "app_reference": "beaver-habit-tracker",
+      "category_id": 211,
+      "discussion_topic_id": 5164,
       "groups": [
         "releases-04626316a6c"
       ],
       "include_prereleases": false,
       "name": "Beaver Habit Tracker",
-      "repo": "daya0576/beaverhabits"
+      "repo": "daya0576/beaverhabits",
+      "topic_id": 5163
     },
     {
+      "activated_at": "2026-11-26T05:10:44.674261+00:00",
       "app_reference": "bentopdf",
+      "category_id": 212,
+      "discussion_topic_id": 5167,
       "groups": [
         "releases-9ce3a359d72"
       ],
       "include_prereleases": false,
       "name": "BentoPDF",
-      "repo": "alam00000/bentopdf"
+      "repo": "alam00000/bentopdf",
+      "topic_id": 5166
     },
     {
+      "activated_at": "2026-11-26T05:10:53.227632+00:00",
       "app_reference": "beszel",
+      "category_id": 213,
+      "discussion_topic_id": 5170,
       "groups": [
         "releases-6ee9e31aa54"
       ],
       "include_prereleases": false,
       "name": "Beszel",
-      "repo": "henrygd/beszel"
+      "repo": "henrygd/beszel",
+      "topic_id": 5169
     },
     {
+      "activated_at": "2026-11-26T05:11:00.689028+00:00",
       "app_reference": "bewcloud",
+      "category_id": 214,
+      "discussion_topic_id": 5173,
       "groups": [
         "releases-afbeebcd191"
       ],
       "include_prereleases": false,
       "name": "bewCloud",
-      "repo": "bewcloud/bewcloud"
+      "repo": "bewcloud/bewcloud",
+      "topic_id": 5172
     },
     {
+      "activated_at": "2026-11-26T05:11:38.786999+00:00",
       "app_reference": "biblioreads",
+      "category_id": 215,
+      "discussion_topic_id": 5176,
       "groups": [
         "releases-47f1bd37195"
       ],
       "include_prereleases": false,
       "name": "BiblioReads",
-      "repo": "nesaku/biblioreads"
+      "repo": "nesaku/biblioreads",
+      "topic_id": 5175
     },
     {
+      "activated_at": "2026-11-26T05:11:46.845871+00:00",
       "app_reference": "bichon",
+      "category_id": 216,
+      "discussion_topic_id": 5179,
       "groups": [
         "releases-f08c489c3dc"
       ],
       "include_prereleases": false,
       "name": "Bichon",
-      "repo": "rustmailer/bichon"
+      "repo": "rustmailer/bichon",
+      "topic_id": 5178
     },
     {
+      "activated_at": "2026-11-26T05:11:55.800559+00:00",
       "app_reference": "bigbluebutton",
+      "category_id": 217,
+      "discussion_topic_id": 5182,
       "groups": [
         "releases-f7b3eab372a"
       ],
       "include_prereleases": false,
       "name": "BigBlueButton",
-      "repo": "bigbluebutton/bigbluebutton"
+      "repo": "bigbluebutton/bigbluebutton",
+      "topic_id": 5181
     },
     {
+      "activated_at": "2026-11-26T05:12:03.381894+00:00",
       "app_reference": "bigcapital",
+      "category_id": 218,
+      "discussion_topic_id": 5185,
       "groups": [
         "releases-8dac9e6f95c"
       ],
       "include_prereleases": false,
       "name": "Bigcapital",
-      "repo": "bigcapitalhq/bigcapital"
+      "repo": "bigcapitalhq/bigcapital",
+      "topic_id": 5184
     },
     {
+      "activated_at": "2026-11-26T05:12:41.247233+00:00",
       "app_reference": "birdnet-analyzer",
+      "category_id": 219,
+      "discussion_topic_id": 5188,
       "groups": [
         "releases-75944476f3a"
       ],
       "include_prereleases": false,
       "name": "BirdNET-Analyzer",
-      "repo": "birdnet-team/birdnet-analyzer"
+      "repo": "birdnet-team/birdnet-analyzer",
+      "topic_id": 5187
     },
     {
+      "activated_at": "2026-11-26T05:12:48.843459+00:00",
       "app_reference": "bitmagnet",
+      "category_id": 220,
+      "discussion_topic_id": 5191,
       "groups": [
         "releases-0fddaf076f6"
       ],
       "include_prereleases": false,
       "name": "Bitmagnet",
-      "repo": "bitmagnet-io/bitmagnet"
+      "repo": "bitmagnet-io/bitmagnet",
+      "topic_id": 5190
     },
     {
+      "activated_at": "2026-11-26T05:12:57.535174+00:00",
       "app_reference": "bitwarden",
+      "category_id": 221,
+      "discussion_topic_id": 5194,
       "groups": [
         "releases-454cc5865a4"
       ],
       "include_prereleases": false,
       "name": "Bitwarden",
-      "repo": "bitwarden/server"
+      "repo": "bitwarden/server",
+      "topic_id": 5193
     },
     {
+      "activated_at": "2026-11-26T05:13:06.291777+00:00",
       "app_reference": "bknd",
+      "category_id": 222,
+      "discussion_topic_id": 5197,
       "groups": [
         "releases-8a3a9b221e7"
       ],
       "include_prereleases": false,
       "name": "bknd",
-      "repo": "bknd-io/bknd"
+      "repo": "bknd-io/bknd",
+      "topic_id": 5196
     },
     {
+      "activated_at": "2026-11-26T05:13:44.563028+00:00",
       "app_reference": "black-candy",
+      "category_id": 223,
+      "discussion_topic_id": 5200,
       "groups": [
         "releases-ec712d4d8d5"
       ],
       "include_prereleases": false,
       "name": "Black Candy",
-      "repo": "blackcandy-org/blackcandy"
+      "repo": "blackcandy-org/blackcandy",
+      "topic_id": 5199
     },
     {
       "app_reference": "blinko",
