@@ -222,6 +222,19 @@ class DiscourseClient:
             page += 1
         return list(seen.values())
 
+    def find_category(self, name: str, parent_category_id: int) -> dict | None:
+        """The subcategory of ``parent_category_id`` named exactly ``name``, or None.
+
+        list_categories() does not see every subcategory once a parent has hundreds of them, so a
+        category a timed-out run created can be missing from it; this asks the server directly."""
+        found = self.request("GET", "/categories/search.json",
+                             params={"term": name, "parent_category_id": parent_category_id,
+                                     "include_subcategories": "true", "limit": 50})
+        for c in (found or {}).get("categories") or []:
+            if c.get("name") == name and c.get("parent_category_id") == parent_category_id:
+                return c
+        return None
+
     def create_category(
         self, name: str, parent_category_id: int | None = None, *, create_post_groups: list[str] | None = None
     ) -> dict:

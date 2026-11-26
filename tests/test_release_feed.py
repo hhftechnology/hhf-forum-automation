@@ -382,6 +382,7 @@ def test_bootstrap_multiple_parents_and_titles():
 
         def list_categories(self):
             return self.cats
+        def find_category(self, name, parent_category_id): return None
 
         def create_category(self, name, parent_category_id=None, *, create_post_groups=None):
             c = {"id": 100 + len(self.cats), "name": name, "parent_category_id": parent_category_id}
@@ -563,6 +564,7 @@ def test_new_channel_creates_group_with_flair_and_open_discussion(monkeypatch):
             self.calls = []
 
         def list_categories(self): return []
+        def find_category(self, name, parent_category_id): return None
         def create_category(self, name, parent_category_id=None, *, create_post_groups=None):
             row = {"id": 10 + len(self.calls), "name": name, "parent_category_id": parent_category_id,
                    "create_post_groups": create_post_groups}
@@ -605,6 +607,7 @@ def test_bootstrap_retry_reuses_partial_category_and_release_topic(monkeypatch):
             self.fail_status_once = True
 
         def list_categories(self): return self.categories
+        def find_category(self, name, parent_category_id): return None
         def get_group(self, name): return self.groups.get(name)
         def ensure_group(self, name, title, *, flair_upload_id=None):
             self.groups[name] = {"id": len(self.groups) + 1, "flair_upload_id": flair_upload_id}
@@ -690,6 +693,7 @@ def test_new_group_is_created_with_the_app_name(monkeypatch):
 
     class Provisioner:
         def list_categories(self): return []
+        def find_category(self, name, parent_category_id): return None
         def create_category(self, name, parent_category_id=None, *, create_post_groups=None):
             return {"id": 10, "name": name, "parent_category_id": parent_category_id}
         def mute_categories_by_default(self, ids): pass
