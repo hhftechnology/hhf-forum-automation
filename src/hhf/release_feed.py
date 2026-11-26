@@ -95,6 +95,20 @@ def _title(e: dict) -> str:
     return f"{e['repo']} {_sub(e)} releases" if split else f"{e['repo']} releases"
 
 
+def group_title(e: dict) -> str:
+    """The release group's display name: the app's name, never the repo path.
+
+    Channels under a product parent ("Pangolin Releases") carry the product too, so "Newt" reads
+    "Pangolin Newt releases" and "Pangolin Node" stays "Pangolin Node releases"."""
+    name = " ".join(_sub(e).split())
+    product = _parent(e).strip()
+    if product.casefold().endswith(" releases"):
+        product = product[: -len(" releases")].strip()
+    if _parent(e) != PARENT_NAME and product and not name.casefold().startswith(product.casefold()):
+        name = f"{product} {name}"
+    return f"{name} releases"
+
+
 def _group(e: dict) -> str:
     groups = e.get("groups") or []
     return groups[0] if groups else "releases-" + re.sub(r"[^a-z0-9_-]", "-", str(_sub(e)).lower())[:11].strip("-")
@@ -161,14 +175,18 @@ def validate(entries: list[dict], *, require_icon: bool = True) -> None:
             not isinstance(e["app_reference"], str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9-]{1,63}", e["app_reference"])
         ):
             raise ValueError(f"invalid app_reference in {key(e)}")
+        if e.get("icon_app") is not None and (
+            not isinstance(e["icon_app"], str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9-]{1,63}", e["icon_app"])
+        ):
+            raise ValueError(f"invalid icon_app in {key(e)}")
         if e.get("icon_url") is not None:
             if not isinstance(e["icon_url"], str):
                 raise ValueError(f"icon_url must use a trusted HTTPS host in {key(e)}")
             _icon_url(e["icon_url"], key(e))
         if require_icon and (not e.get("category_id") or not e.get("topic_id")) and not (
-            e.get("app_reference") or e.get("icon_url")
+            e.get("app_reference") or e.get("icon_url") or e.get("icon_app")
         ):
-            raise ValueError(f"new release channel {key(e)} requires app_reference or icon_url")
+            raise ValueError(f"new release channel {key(e)} requires app_reference, icon_app or icon_url")
 
 
 def _load_channels(path: Path) -> list[dict]:
@@ -356,10 +374,11 @@ def _icon_url(url: str, entry_key: str) -> str:
 def _icon_bytes(entry: dict, client) -> tuple[str, bytes] | None:
     if entry.get("icon_url"):
         url = entry["icon_url"]
-    elif entry.get("app_reference"):
-        icon_url = client.get_app_icon(entry["app_reference"])
+    elif entry.get("app_reference") or entry.get("icon_app"):
+        reference = entry.get("app_reference") or entry["icon_app"]
+        icon_url = client.get_app_icon(reference)
         if not icon_url:
-            raise ValueError(f"catalogue app {entry['app_reference']} has no approved icon")
+            raise ValueError(f"catalogue app {reference} has no approved icon")
         url = icon_url
     else:
         return None
@@ -401,7 +420,7 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, pr
             print(f"would ensure category {pn} (everyone read-only, staff create)")
             print(f"would ensure {pn}/{name} + closed pinned topic '{_title(e)}'")
             for g in groups:
-                print(f"would ensure public group '{g}' and set it to Watching on {pn}/{name}")
+                print(f"would ensure public group '{g}' ({group_title(e)}) and set it to Watching on {pn}/{name}")
             print(f"would create discussion topic in {pn}/{name}")
         print("would mute newly created categories by default")
         return
@@ -430,7 +449,7 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, pr
                 if not existing_groups[g]:
                     icon = icons.get(key(e))
                     upload_id = client.upload_file(icon[0], icon[1], upload_type="group_flair")["id"] if icon else None
-                    existing_groups[g] = client.ensure_group(g, title, flair_upload_id=upload_id)
+                    existing_groups[g] = client.ensure_group(g, group_title(e), flair_upload_id=upload_id)
             new_channel = not e.get("topic_id")
             unmapped_channel = not e.get("category_id") and new_channel
             parent = parents[pn]
@@ -478,9 +497,55 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, pr
             failed.append(key(e))
             if progress:
                 progress()
-            print(f"error: provisioning {key(e)}: {type(exc).__name__}", file=sys.stderr)
+            print(f"error: provisioning {key(e)}: {_describe(exc)}", file=sys.stderr)
     if failed:
         raise RuntimeError(f"release provisioning failed for: {", ".join(failed)}")
+
+
+def repair_groups(entries: list[dict], client, *, dry_run: bool) -> list[str]:
+    """Give every provisioned release group its app name and, when it has none, its app icon.
+
+    Groups made before the naming fix were titled "<owner/repo> releases" and the oldest ones have no
+    flair. This lists the groups once (a few paged requests) and only writes the ones that differ, so it
+    is cheap enough to run on every full release run. Returns the groups it could not repair."""
+    groups = {g["name"]: g for g in client.list_groups("releases-")}
+    failed = []
+    icons: dict[str, tuple[str, bytes] | None] = {}
+    for e in entries:
+        if e.get("provisioning") or not e.get("topic_id"):
+            continue
+        for g in e.get("groups") or [_group(e)]:
+            group = groups.get(g)
+            if not group:
+                continue
+            changes: dict = {}
+            if group.get("full_name") != group_title(e):
+                changes["full_name"] = group_title(e)
+            needs_icon = not group.get("flair_url") and (e.get("icon_url") or e.get("app_reference") or e.get("icon_app"))
+            if not changes and not needs_icon:
+                continue
+            if dry_run:
+                print(f"would repair group {g}: {changes or ''}{' + icon' if needs_icon else ''}")
+                continue
+            try:
+                if needs_icon:
+                    if key(e) not in icons:
+                        icons[key(e)] = _icon_bytes(e, client)
+                    icon = icons[key(e)]
+                    if icon:
+                        changes["flair_upload_id"] = client.upload_file(icon[0], icon[1], upload_type="group_flair")["id"]
+                if changes:
+                    client.update_group(group["id"], **changes)
+                    print(f"repaired group {g}: {', '.join(changes)}")
+            except Exception as exc:  # one bad icon must not stop the other repairs
+                failed.append(g)
+                print(f"error: repairing group {g}: {_describe(exc)}", file=sys.stderr)
+    return failed
+
+
+def _describe(exc: Exception) -> str:
+    status = getattr(exc, "status", None) or getattr(exc, "status_code", None)
+    return f"{type(exc).__name__} {status}" if status else type(exc).__name__
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -492,6 +557,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--state", type=Path, default=ROOT / "state" / "releases.json")
     ap.add_argument("--channels", type=Path, default=ROOT / "state" / "release_channels.json")
     ap.add_argument("--provision-limit", type=int, default=50)
+    ap.add_argument("--repair-groups", action="store_true",
+                    help="only fix release group names and missing icons, then exit")
     ap.add_argument("--continue-poll", action="store_true", help="resume an unfinished polling cycle during provisioning runs")
     args = ap.parse_args(argv)
     if not 1 <= args.provision_limit <= 50:
@@ -512,6 +579,12 @@ def main(argv: list[str] | None = None) -> int:
         print(f"validated {len(entries)} release channels")
         return 0
     client = None if args.dry_run else DiscourseClient()
+    if args.repair_groups:
+        if args.dry_run:
+            print("dry run: group repair needs the forum; nothing done")
+            return 0
+        failed = repair_groups(entries, client, dry_run=False)
+        return 1 if failed else 0
     def progress():
         save_json(progress_path, {"releases": entries})
         _save_channels(args.channels, [entry for entry in entries if not entry.get("provisioning")])
@@ -530,6 +603,12 @@ def main(argv: list[str] | None = None) -> int:
         if provisioning_error:
             raise provisioning_error
         return 0
+    if not args.dry_run:
+        # Full runs keep group names and icons right; a failure is logged and retried next run.
+        try:
+            repair_groups(entries, client, dry_run=False)
+        except Exception as exc:
+            print(f"error: repairing release groups: {_describe(exc)}", file=sys.stderr)
     try:
         ready = [entry for entry in entries if entry.get("topic_id") and not entry.get("provisioning")]
         run(ready, state, client, dry_run=args.dry_run,

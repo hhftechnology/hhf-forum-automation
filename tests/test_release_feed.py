@@ -434,7 +434,7 @@ def test_new_channel_requires_approved_icon_source():
         rf.validate([{"repo": "o/r"}])
         raise AssertionError("new channel without icon accepted")
     except ValueError as exc:
-        assert "app_reference or icon_url" in str(exc)
+        assert "app_reference, icon_app or icon_url" in str(exc)
     rf.validate([{"repo": "o/r", "app_reference": "sample-app"}])
 
 
@@ -664,3 +664,125 @@ def test_validate_rejects_bad_group_and_duplicate_key(tmp_path):
         raise AssertionError("main accepted a bad config")
     except ValueError:
         pass
+
+
+def test_group_title_uses_the_app_name_not_the_repo():
+    assert rf.group_title({"repo": "agregarr/agregarr", "name": "Agregarr"}) == "Agregarr releases"
+    assert rf.group_title({"repo": "o/some-repo"}) == "some-repo releases"
+    pangolin = {"repo": "fosrl/pangolin", "name": "Pangolin", "parent": "Pangolin Releases"}
+    assert rf.group_title(pangolin) == "Pangolin releases"
+    assert rf.group_title({**pangolin, "repo": "fosrl/pangolin-node", "name": "Pangolin Node"}) == "Pangolin Node releases"
+    assert rf.group_title({"repo": "fosrl/newt", "name": "Newt", "parent": "Pangolin Releases"}) == "Pangolin Newt releases"
+    assert rf.group_title({"repo": "fosrl/apple", "name": "iOS", "parent": "Pangolin Releases",
+                           "tag_prefix": "ios-"}) == "Pangolin iOS releases"
+
+
+def test_every_configured_group_title_names_the_app():
+    entries = yaml.safe_load((rf.ROOT / "config" / "releases.yml").read_text(encoding="utf-8"))["releases"]
+    for e in entries:
+        title = rf.group_title(e)
+        assert title.endswith(" releases") and not title.startswith(f"{e['repo']} "), title
+
+
+def test_new_group_is_created_with_the_app_name(monkeypatch):
+    created = {}
+
+    class Provisioner:
+        def list_categories(self): return []
+        def create_category(self, name, parent_category_id=None, *, create_post_groups=None):
+            return {"id": 10, "name": name, "parent_category_id": parent_category_id}
+        def mute_categories_by_default(self, ids): pass
+        def find_topic_by_title(self, category_id, title): return None
+        def create_topic(self, **kw): return {"topic_id": 20 + len(created)}
+        def set_topic_status(self, *a): pass
+        def get_group(self, name): return None
+        def upload_file(self, *a, **kw): return {"id": 99}
+        def ensure_group(self, name, title, *, flair_upload_id=None):
+            created[name] = title
+        def watch_category_for_group(self, *a): pass
+
+    monkeypatch.setattr(rf, "_icon_bytes", lambda entry, client: ("x.png", b"png"))
+    rf.bootstrap([{"repo": "agregarr/agregarr", "name": "Agregarr", "app_reference": "agregarr",
+                   "groups": ["releases-2658b0b9b69"]}], Provisioner(), dry_run=False)
+    assert created == {"releases-2658b0b9b69": "Agregarr releases"}
+
+
+class GroupRepairClient:
+    def __init__(self, groups):
+        self.groups = groups
+        self.updates = []
+        self.uploads = []
+
+    def list_groups(self, prefix): return self.groups
+    def get_app_icon(self, reference): return f"https://r2.hhf.technology/{reference}.webp"
+    def upload_file(self, filename, content, upload_type):
+        self.uploads.append((filename, upload_type))
+        return {"id": 77}
+    def update_group(self, group_id, **changes): self.updates.append((group_id, changes))
+
+
+def test_repair_groups_renames_and_adds_missing_icons(monkeypatch):
+    monkeypatch.setattr(rf, "_icon_bytes", lambda entry, client: ("i.webp", b"img"))
+    client = GroupRepairClient([
+        {"id": 1, "name": "releases-agr", "full_name": "agregarr/agregarr releases", "flair_url": "https://x/a.webp"},
+        {"id": 2, "name": "releases-newt", "full_name": "fosrl/newt releases", "flair_url": None},
+        {"id": 3, "name": "releases-ok", "full_name": "Fine releases", "flair_url": "https://x/f.webp"},
+        {"id": 4, "name": "releases-tail", "full_name": "tailscale/tailscale releases", "flair_url": None},
+    ])
+    entries = [
+        {"repo": "agregarr/agregarr", "name": "Agregarr", "groups": ["releases-agr"], "topic_id": 5},
+        {"repo": "fosrl/newt", "name": "Newt", "parent": "Pangolin Releases", "groups": ["releases-newt"],
+         "topic_id": 6, "icon_app": "pangolin"},
+        {"repo": "o/fine", "name": "Fine", "groups": ["releases-ok"], "topic_id": 7},
+        {"repo": "tailscale/tailscale", "name": "Tailscale", "groups": ["releases-tail"], "topic_id": 8},
+        {"repo": "o/pending", "name": "Pending", "groups": ["releases-pending"], "provisioning": True},
+    ]
+    assert rf.repair_groups(entries, client, dry_run=False) == []
+    assert client.updates == [
+        (1, {"full_name": "Agregarr releases"}),
+        (2, {"full_name": "Pangolin Newt releases", "flair_upload_id": 77}),
+        (4, {"full_name": "Tailscale releases"}),
+    ]
+    assert client.uploads == [("i.webp", "group_flair")]
+
+
+def test_repair_groups_keeps_going_after_a_bad_icon(monkeypatch):
+    def broken(entry, client):
+        raise ValueError("no icon")
+
+    monkeypatch.setattr(rf, "_icon_bytes", broken)
+    client = GroupRepairClient([
+        {"id": 1, "name": "releases-a", "full_name": "o/a releases", "flair_url": None},
+        {"id": 2, "name": "releases-b", "full_name": "o/b releases", "flair_url": "https://x/b.webp"},
+    ])
+    entries = [
+        {"repo": "o/a", "name": "A", "groups": ["releases-a"], "topic_id": 1, "app_reference": "a"},
+        {"repo": "o/b", "name": "B", "groups": ["releases-b"], "topic_id": 2},
+    ]
+    assert rf.repair_groups(entries, client, dry_run=False) == ["releases-a"]
+    assert client.updates == [(2, {"full_name": "B releases"})]
+
+
+def test_icon_app_supplies_only_the_icon():
+    rf.validate([{"repo": "fosrl/newt", "icon_app": "pangolin"}])
+    with pytest.raises(ValueError, match="icon_app"):
+        rf.validate([{"repo": "fosrl/newt", "icon_app": "bad ref!"}])
+
+
+def test_list_and_update_groups():
+    sent = []
+
+    def handler(req):
+        sent.append((req.method, str(req.url), req.content.decode()))
+        if req.method == "GET":
+            page = dict(req.url.params)["page"]
+            rows = {"0": [{"name": "releases-a"}, {"name": "staff"}], "1": [{"name": "releases-b"}]}.get(page, [])
+            return httpx.Response(200, json={"groups": rows})
+        return httpx.Response(200, json={"success": "OK"})
+
+    client = make_client(handler)
+    assert [g["name"] for g in client.list_groups("releases-")] == ["releases-a", "releases-b"]
+    client.update_group(9, full_name="A releases", flair_upload_id=3)
+    method, url, body = sent[-1]
+    assert method == "PUT" and url.endswith("/groups/9.json")
+    assert "group%5Bfull_name%5D=A+releases" in body and "group%5Bflair_upload_id%5D=3" in body
