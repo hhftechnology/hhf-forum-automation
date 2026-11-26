@@ -831,3 +831,11 @@ def test_describe_names_the_failing_request_and_discourse_message():
     assert rf._describe(exc) == "DiscourseError 422 on POST /posts.json: Title has already been used"
     assert rf._describe(DiscourseError(500, "GET", "/x.json", "<html>")) == "DiscourseError 500 on GET /x.json"
     assert rf._describe(ValueError("boom")) == "ValueError"
+
+
+def test_discourse_error_ignores_malformed_errors_field():
+    from hhf.discourse import DiscourseError
+
+    assert DiscourseError(422, "POST", "/p.json", '{"errors": 1}').errors == ""
+    assert DiscourseError(422, "POST", "/p.json", '{"errors": "bad"}').errors == ""
+    assert DiscourseError(422, "POST", "/p.json", '["x"]').errors == ""

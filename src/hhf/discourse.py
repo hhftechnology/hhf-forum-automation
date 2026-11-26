@@ -33,6 +33,8 @@ class DiscourseError(RuntimeError):
             errors = json.loads(body).get("errors") or []
         except (ValueError, AttributeError):
             errors = []
+        if not isinstance(errors, list):
+            errors = []
         # Discourse's own validation messages ("Title has already been used"), never the request.
         self.errors = "; ".join(str(e) for e in errors if isinstance(e, str))[:200]
 
