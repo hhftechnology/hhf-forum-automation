@@ -2167,6 +2167,376 @@
       "name": "DBackup",
       "repo": "skyfay/dbackup",
       "topic_id": 5538
+    },
+    {
+      "category_id": 336,
+      "discussion_topic_id": 5542,
+      "groups": [
+        "releases-dbgate"
+      ],
+      "name": "DbGate",
+      "repo": "dbgate/dbgate",
+      "topic_id": 5541
+    },
+    {
+      "category_id": 337,
+      "discussion_topic_id": 5545,
+      "groups": [
+        "releases-ddclient"
+      ],
+      "name": "ddclient",
+      "repo": "ddclient/ddclient",
+      "topic_id": 5544
+    },
+    {
+      "category_id": 338,
+      "discussion_topic_id": 5548,
+      "groups": [
+        "releases-ddns-updater"
+      ],
+      "name": "DDNS Updater",
+      "repo": "qdm12/ddns-updater",
+      "topic_id": 5547
+    },
+    {
+      "category_id": 339,
+      "discussion_topic_id": 5551,
+      "groups": [
+        "releases-decypharr"
+      ],
+      "name": "Decypharr",
+      "repo": "sirrobot01/decypharr",
+      "topic_id": 5550
+    },
+    {
+      "category_id": 340,
+      "discussion_topic_id": 5554,
+      "groups": [
+        "releases-defguard"
+      ],
+      "name": "Defguard",
+      "repo": "defguard/defguard",
+      "topic_id": 5553
+    },
+    {
+      "category_id": 341,
+      "discussion_topic_id": 5557,
+      "groups": [
+        "releases-deft"
+      ],
+      "name": "Deft",
+      "repo": "maneek21/deft",
+      "topic_id": 5556
+    },
+    {
+      "category_id": 342,
+      "discussion_topic_id": 5560,
+      "groups": [
+        "releases-degoog"
+      ],
+      "name": "degoog",
+      "repo": "degoog-org/degoog",
+      "topic_id": 5559
+    },
+    {
+      "category_id": 343,
+      "discussion_topic_id": 5563,
+      "groups": [
+        "releases-deployrr"
+      ],
+      "name": "Deployrr",
+      "repo": "simplehomelab/deployrr",
+      "topic_id": 5562
+    },
+    {
+      "category_id": 344,
+      "discussion_topic_id": 5566,
+      "groups": [
+        "releases-directus"
+      ],
+      "name": "Directus",
+      "repo": "directus/directus",
+      "topic_id": 5565
+    },
+    {
+      "category_id": 345,
+      "discussion_topic_id": 5569,
+      "groups": [
+        "releases-discourse"
+      ],
+      "name": "Discourse",
+      "repo": "discourse/discourse",
+      "topic_id": 5568
+    },
+    {
+      "category_id": 346,
+      "discussion_topic_id": 5572,
+      "groups": [
+        "releases-diskover"
+      ],
+      "name": "Diskover",
+      "repo": "diskoverdata/diskover-community",
+      "topic_id": 5571
+    },
+    {
+      "category_id": 347,
+      "discussion_topic_id": 5575,
+      "groups": [
+        "releases-dispatcharr"
+      ],
+      "name": "Dispatcharr",
+      "repo": "dispatcharr/dispatcharr",
+      "topic_id": 5574
+    },
+    {
+      "category_id": 348,
+      "discussion_topic_id": 5578,
+      "groups": [
+        "releases-dittofeed"
+      ],
+      "name": "Dittofeed",
+      "repo": "dittofeed/dittofeed",
+      "topic_id": 5577
+    },
+    {
+      "category_id": 349,
+      "discussion_topic_id": 5581,
+      "groups": [
+        "releases-diun"
+      ],
+      "name": "Diun",
+      "repo": "crazy-max/diun",
+      "topic_id": 5580
+    },
+    {
+      "category_id": 350,
+      "discussion_topic_id": 5584,
+      "groups": [
+        "releases-diyhue"
+      ],
+      "name": "diyHue",
+      "repo": "diyhue/diyhue",
+      "topic_id": 5583
+    },
+    {
+      "category_id": 351,
+      "discussion_topic_id": 5587,
+      "groups": [
+        "releases-docassemble"
+      ],
+      "name": "Docassemble",
+      "repo": "jhpyle/docassemble",
+      "topic_id": 5586
+    },
+    {
+      "category_id": 352,
+      "discussion_topic_id": 5590,
+      "groups": [
+        "releases-dock-dploy"
+      ],
+      "name": "Dock-Dploy",
+      "repo": "hhftechnology/dock-dploy",
+      "topic_id": 5589
+    },
+    {
+      "category_id": 353,
+      "discussion_topic_id": 5593,
+      "groups": [
+        "releases-dockcheck"
+      ],
+      "name": "Dockcheck",
+      "repo": "mag37/dockcheck",
+      "topic_id": 5592
+    },
+    {
+      "category_id": 354,
+      "discussion_topic_id": 5596,
+      "groups": [
+        "releases-docker-registry-browser"
+      ],
+      "name": "Docker Registry Browser",
+      "repo": "klausmeyer/docker-registry-browser",
+      "topic_id": 5595
+    },
+    {
+      "category_id": 355,
+      "discussion_topic_id": 5599,
+      "groups": [
+        "releases-docker-socket-proxy"
+      ],
+      "name": "Docker Socket Proxy",
+      "repo": "tecnativa/docker-socket-proxy",
+      "topic_id": 5598
+    },
+    {
+      "category_id": 356,
+      "discussion_topic_id": 5602,
+      "groups": [
+        "releases-docker-volume-backup"
+      ],
+      "name": "Docker Volume Backup",
+      "repo": "offen/docker-volume-backup",
+      "topic_id": 5601
+    },
+    {
+      "category_id": 357,
+      "discussion_topic_id": 5605,
+      "groups": [
+        "releases-dockerizalo"
+      ],
+      "name": "Dockerizalo",
+      "repo": "undernightcore/dockerizalo",
+      "topic_id": 5604
+    },
+    {
+      "category_id": 358,
+      "discussion_topic_id": 5608,
+      "groups": [
+        "releases-dockflare"
+      ],
+      "name": "DockFlare",
+      "repo": "chrispybacon-dev/dockflare",
+      "topic_id": 5607
+    },
+    {
+      "category_id": 359,
+      "discussion_topic_id": 5611,
+      "groups": [
+        "releases-dockge"
+      ],
+      "name": "Dockge",
+      "repo": "louislam/dockge",
+      "topic_id": 5610
+    },
+    {
+      "category_id": 360,
+      "discussion_topic_id": 5614,
+      "groups": [
+        "releases-dockhand"
+      ],
+      "name": "Dockhand",
+      "repo": "finsys/dockhand",
+      "topic_id": 5613
+    },
+    {
+      "category_id": 361,
+      "discussion_topic_id": 5617,
+      "groups": [
+        "releases-docking-station"
+      ],
+      "name": "Docking Station",
+      "repo": "loolzzz/docking-station",
+      "topic_id": 5616
+    },
+    {
+      "category_id": 362,
+      "discussion_topic_id": 5620,
+      "groups": [
+        "releases-dockman"
+      ],
+      "name": "Dockman",
+      "repo": "ra341/dockman",
+      "topic_id": 5619
+    },
+    {
+      "category_id": 363,
+      "discussion_topic_id": 5623,
+      "groups": [
+        "releases-dockpeek"
+      ],
+      "name": "Dockpeek",
+      "repo": "dockpeek/dockpeek",
+      "topic_id": 5622
+    },
+    {
+      "category_id": 364,
+      "discussion_topic_id": 5626,
+      "groups": [
+        "releases-dockstarter"
+      ],
+      "name": "DockSTARTer",
+      "repo": "ghostwriters/dockstarter",
+      "topic_id": 5625
+    },
+    {
+      "category_id": 365,
+      "discussion_topic_id": 5629,
+      "groups": [
+        "releases-docktail"
+      ],
+      "name": "DockTail",
+      "repo": "marvinvr/docktail",
+      "topic_id": 5628
+    },
+    {
+      "category_id": 366,
+      "discussion_topic_id": 5632,
+      "groups": [
+        "releases-dockwatch"
+      ],
+      "name": "Dockwatch",
+      "repo": "notifiarr/dockwatch",
+      "topic_id": 5631
+    },
+    {
+      "category_id": 367,
+      "discussion_topic_id": 5635,
+      "groups": [
+        "releases-docmost"
+      ],
+      "name": "Docmost",
+      "repo": "docmost/docmost",
+      "topic_id": 5634
+    },
+    {
+      "category_id": 368,
+      "discussion_topic_id": 5638,
+      "groups": [
+        "releases-doco-cd"
+      ],
+      "name": "Doco-CD",
+      "repo": "kimdre/doco-cd",
+      "topic_id": 5637
+    },
+    {
+      "category_id": 369,
+      "discussion_topic_id": 5641,
+      "groups": [
+        "releases-docs-collaboration"
+      ],
+      "name": "Docs",
+      "repo": "suitenumerique/docs",
+      "topic_id": 5640
+    },
+    {
+      "category_id": 370,
+      "discussion_topic_id": 5644,
+      "groups": [
+        "releases-docspell"
+      ],
+      "name": "Docspell",
+      "repo": "eikek/docspell",
+      "topic_id": 5643
+    },
+    {
+      "category_id": 371,
+      "discussion_topic_id": 5647,
+      "groups": [
+        "releases-documenso"
+      ],
+      "name": "Documenso",
+      "repo": "documenso/documenso",
+      "topic_id": 5646
+    },
+    {
+      "category_id": 372,
+      "discussion_topic_id": 5650,
+      "groups": [
+        "releases-docusaurus"
+      ],
+      "name": "Docusaurus",
+      "repo": "meta/docusaurus",
+      "topic_id": 5649
     }
   ]
 }

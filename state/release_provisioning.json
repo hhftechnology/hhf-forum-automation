@@ -2792,337 +2792,485 @@
       "topic_id": 5538
     },
     {
+      "activated_at": "2026-11-26T10:24:50.485396+00:00",
       "app_reference": "dbgate",
+      "category_id": 336,
+      "discussion_topic_id": 5542,
       "groups": [
         "releases-dbgate"
       ],
       "include_prereleases": false,
       "name": "DbGate",
-      "repo": "dbgate/dbgate"
+      "repo": "dbgate/dbgate",
+      "topic_id": 5541
     },
     {
+      "activated_at": "2026-11-26T10:24:57.721135+00:00",
       "app_reference": "ddclient",
+      "category_id": 337,
+      "discussion_topic_id": 5545,
       "groups": [
         "releases-ddclient"
       ],
       "include_prereleases": false,
       "name": "ddclient",
-      "repo": "ddclient/ddclient"
+      "repo": "ddclient/ddclient",
+      "topic_id": 5544
     },
     {
+      "activated_at": "2026-11-26T10:25:05.143041+00:00",
       "app_reference": "ddns-updater",
+      "category_id": 338,
+      "discussion_topic_id": 5548,
       "groups": [
         "releases-ddns-updater"
       ],
       "include_prereleases": false,
       "name": "DDNS Updater",
-      "repo": "qdm12/ddns-updater"
+      "repo": "qdm12/ddns-updater",
+      "topic_id": 5547
     },
     {
+      "activated_at": "2026-11-26T10:25:44.875000+00:00",
       "app_reference": "decypharr",
+      "category_id": 339,
+      "discussion_topic_id": 5551,
       "groups": [
         "releases-decypharr"
       ],
       "include_prereleases": false,
       "name": "Decypharr",
-      "repo": "sirrobot01/decypharr"
+      "repo": "sirrobot01/decypharr",
+      "topic_id": 5550
     },
     {
+      "activated_at": "2026-11-26T10:25:53.427636+00:00",
       "app_reference": "defguard",
+      "category_id": 340,
+      "discussion_topic_id": 5554,
       "groups": [
         "releases-defguard"
       ],
       "include_prereleases": false,
       "name": "Defguard",
-      "repo": "defguard/defguard"
+      "repo": "defguard/defguard",
+      "topic_id": 5553
     },
     {
+      "activated_at": "2026-11-26T10:26:00.726465+00:00",
       "app_reference": "deft",
+      "category_id": 341,
+      "discussion_topic_id": 5557,
       "groups": [
         "releases-deft"
       ],
       "include_prereleases": false,
       "name": "Deft",
-      "repo": "maneek21/deft"
+      "repo": "maneek21/deft",
+      "topic_id": 5556
     },
     {
+      "activated_at": "2026-11-26T10:26:09.243531+00:00",
       "app_reference": "degoog",
+      "category_id": 342,
+      "discussion_topic_id": 5560,
       "groups": [
         "releases-degoog"
       ],
       "include_prereleases": false,
       "name": "degoog",
-      "repo": "degoog-org/degoog"
+      "repo": "degoog-org/degoog",
+      "topic_id": 5559
     },
     {
+      "activated_at": "2026-11-26T10:26:48.737229+00:00",
       "app_reference": "deployrr",
+      "category_id": 343,
+      "discussion_topic_id": 5563,
       "groups": [
         "releases-deployrr"
       ],
       "include_prereleases": false,
       "name": "Deployrr",
-      "repo": "simplehomelab/deployrr"
+      "repo": "simplehomelab/deployrr",
+      "topic_id": 5562
     },
     {
+      "activated_at": "2026-11-26T10:26:56.762396+00:00",
       "app_reference": "directus",
+      "category_id": 344,
+      "discussion_topic_id": 5566,
       "groups": [
         "releases-directus"
       ],
       "include_prereleases": false,
       "name": "Directus",
-      "repo": "directus/directus"
+      "repo": "directus/directus",
+      "topic_id": 5565
     },
     {
+      "activated_at": "2026-11-26T10:27:03.738433+00:00",
       "app_reference": "discourse",
+      "category_id": 345,
+      "discussion_topic_id": 5569,
       "groups": [
         "releases-discourse"
       ],
       "include_prereleases": false,
       "name": "Discourse",
-      "repo": "discourse/discourse"
+      "repo": "discourse/discourse",
+      "topic_id": 5568
     },
     {
+      "activated_at": "2026-11-26T10:27:12.127119+00:00",
       "app_reference": "diskover",
+      "category_id": 346,
+      "discussion_topic_id": 5572,
       "groups": [
         "releases-diskover"
       ],
       "include_prereleases": false,
       "name": "Diskover",
-      "repo": "diskoverdata/diskover-community"
+      "repo": "diskoverdata/diskover-community",
+      "topic_id": 5571
     },
     {
+      "activated_at": "2026-11-26T10:27:57.464881+00:00",
       "app_reference": "dispatcharr",
+      "category_id": 347,
+      "discussion_topic_id": 5575,
       "groups": [
         "releases-dispatcharr"
       ],
       "include_prereleases": false,
       "name": "Dispatcharr",
-      "repo": "dispatcharr/dispatcharr"
+      "repo": "dispatcharr/dispatcharr",
+      "topic_id": 5574
     },
     {
+      "activated_at": "2026-11-26T10:28:06.095541+00:00",
       "app_reference": "dittofeed",
+      "category_id": 348,
+      "discussion_topic_id": 5578,
       "groups": [
         "releases-dittofeed"
       ],
       "include_prereleases": false,
       "name": "Dittofeed",
-      "repo": "dittofeed/dittofeed"
+      "repo": "dittofeed/dittofeed",
+      "topic_id": 5577
     },
     {
+      "activated_at": "2026-11-26T10:28:13.960904+00:00",
       "app_reference": "diun",
+      "category_id": 349,
+      "discussion_topic_id": 5581,
       "groups": [
         "releases-diun"
       ],
       "include_prereleases": false,
       "name": "Diun",
-      "repo": "crazy-max/diun"
+      "repo": "crazy-max/diun",
+      "topic_id": 5580
     },
     {
+      "activated_at": "2026-11-26T10:28:46.284180+00:00",
       "app_reference": "diyhue",
+      "category_id": 350,
+      "discussion_topic_id": 5584,
       "groups": [
         "releases-diyhue"
       ],
       "include_prereleases": false,
       "name": "diyHue",
-      "repo": "diyhue/diyhue"
+      "repo": "diyhue/diyhue",
+      "topic_id": 5583
     },
     {
+      "activated_at": "2026-11-26T10:29:00.160831+00:00",
       "app_reference": "docassemble",
+      "category_id": 351,
+      "discussion_topic_id": 5587,
       "groups": [
         "releases-docassemble"
       ],
       "include_prereleases": false,
       "name": "Docassemble",
-      "repo": "jhpyle/docassemble"
+      "repo": "jhpyle/docassemble",
+      "topic_id": 5586
     },
     {
+      "activated_at": "2026-11-26T10:29:09.757993+00:00",
       "app_reference": "dock-dploy",
+      "category_id": 352,
+      "discussion_topic_id": 5590,
       "groups": [
         "releases-dock-dploy"
       ],
       "include_prereleases": false,
       "name": "Dock-Dploy",
-      "repo": "hhftechnology/dock-dploy"
+      "repo": "hhftechnology/dock-dploy",
+      "topic_id": 5589
     },
     {
+      "activated_at": "2026-11-26T10:29:17.619117+00:00",
       "app_reference": "dockcheck",
+      "category_id": 353,
+      "discussion_topic_id": 5593,
       "groups": [
         "releases-dockcheck"
       ],
       "include_prereleases": false,
       "name": "Dockcheck",
-      "repo": "mag37/dockcheck"
+      "repo": "mag37/dockcheck",
+      "topic_id": 5592
     },
     {
+      "activated_at": "2026-11-26T10:29:55.364254+00:00",
       "app_reference": "docker-registry-browser",
+      "category_id": 354,
+      "discussion_topic_id": 5596,
       "groups": [
         "releases-docker-registry-browser"
       ],
       "include_prereleases": false,
       "name": "Docker Registry Browser",
-      "repo": "klausmeyer/docker-registry-browser"
+      "repo": "klausmeyer/docker-registry-browser",
+      "topic_id": 5595
     },
     {
+      "activated_at": "2026-11-26T10:30:03.355586+00:00",
       "app_reference": "docker-socket-proxy",
+      "category_id": 355,
+      "discussion_topic_id": 5599,
       "groups": [
         "releases-docker-socket-proxy"
       ],
       "include_prereleases": false,
       "name": "Docker Socket Proxy",
-      "repo": "tecnativa/docker-socket-proxy"
+      "repo": "tecnativa/docker-socket-proxy",
+      "topic_id": 5598
     },
     {
+      "activated_at": "2026-11-26T10:30:28.233204+00:00",
       "app_reference": "docker-volume-backup",
+      "category_id": 356,
+      "discussion_topic_id": 5602,
       "groups": [
         "releases-docker-volume-backup"
       ],
       "include_prereleases": false,
       "name": "Docker Volume Backup",
-      "repo": "offen/docker-volume-backup"
+      "repo": "offen/docker-volume-backup",
+      "topic_id": 5601
     },
     {
+      "activated_at": "2026-11-26T10:30:36.517981+00:00",
       "app_reference": "dockerizalo",
+      "category_id": 357,
+      "discussion_topic_id": 5605,
       "groups": [
         "releases-dockerizalo"
       ],
       "include_prereleases": false,
       "name": "Dockerizalo",
-      "repo": "undernightcore/dockerizalo"
+      "repo": "undernightcore/dockerizalo",
+      "topic_id": 5604
     },
     {
+      "activated_at": "2026-11-26T10:30:57.950137+00:00",
       "app_reference": "dockflare",
+      "category_id": 358,
+      "discussion_topic_id": 5608,
       "groups": [
         "releases-dockflare"
       ],
       "include_prereleases": false,
       "name": "DockFlare",
-      "repo": "chrispybacon-dev/dockflare"
+      "repo": "chrispybacon-dev/dockflare",
+      "topic_id": 5607
     },
     {
+      "activated_at": "2026-11-26T10:31:08.655742+00:00",
       "app_reference": "dockge",
+      "category_id": 359,
+      "discussion_topic_id": 5611,
       "groups": [
         "releases-dockge"
       ],
       "include_prereleases": false,
       "name": "Dockge",
-      "repo": "louislam/dockge"
+      "repo": "louislam/dockge",
+      "topic_id": 5610
     },
     {
+      "activated_at": "2026-11-26T10:31:30.566518+00:00",
       "app_reference": "dockhand",
+      "category_id": 360,
+      "discussion_topic_id": 5614,
       "groups": [
         "releases-dockhand"
       ],
       "include_prereleases": false,
       "name": "Dockhand",
-      "repo": "finsys/dockhand"
+      "repo": "finsys/dockhand",
+      "topic_id": 5613
     },
     {
+      "activated_at": "2026-11-26T10:31:51.551572+00:00",
       "app_reference": "docking-station",
+      "category_id": 361,
+      "discussion_topic_id": 5617,
       "groups": [
         "releases-docking-station"
       ],
       "include_prereleases": false,
       "name": "Docking Station",
-      "repo": "loolzzz/docking-station"
+      "repo": "loolzzz/docking-station",
+      "topic_id": 5616
     },
     {
+      "activated_at": "2026-11-26T10:32:03.807340+00:00",
       "app_reference": "dockman",
+      "category_id": 362,
+      "discussion_topic_id": 5620,
       "groups": [
         "releases-dockman"
       ],
       "include_prereleases": false,
       "name": "Dockman",
-      "repo": "ra341/dockman"
+      "repo": "ra341/dockman",
+      "topic_id": 5619
     },
     {
+      "activated_at": "2026-11-26T10:32:12.454066+00:00",
       "app_reference": "dockpeek",
+      "category_id": 363,
+      "discussion_topic_id": 5623,
       "groups": [
         "releases-dockpeek"
       ],
       "include_prereleases": false,
       "name": "Dockpeek",
-      "repo": "dockpeek/dockpeek"
+      "repo": "dockpeek/dockpeek",
+      "topic_id": 5622
     },
     {
+      "activated_at": "2026-11-26T10:32:35.245476+00:00",
       "app_reference": "dockstarter",
+      "category_id": 364,
+      "discussion_topic_id": 5626,
       "groups": [
         "releases-dockstarter"
       ],
       "include_prereleases": false,
       "name": "DockSTARTer",
-      "repo": "ghostwriters/dockstarter"
+      "repo": "ghostwriters/dockstarter",
+      "topic_id": 5625
     },
     {
+      "activated_at": "2026-11-26T10:32:55.262182+00:00",
       "app_reference": "docktail",
+      "category_id": 365,
+      "discussion_topic_id": 5629,
       "groups": [
         "releases-docktail"
       ],
       "include_prereleases": false,
       "name": "DockTail",
-      "repo": "marvinvr/docktail"
+      "repo": "marvinvr/docktail",
+      "topic_id": 5628
     },
     {
+      "activated_at": "2026-11-26T10:33:07.276500+00:00",
       "app_reference": "dockwatch",
+      "category_id": 366,
+      "discussion_topic_id": 5632,
       "groups": [
         "releases-dockwatch"
       ],
       "include_prereleases": false,
       "name": "Dockwatch",
-      "repo": "notifiarr/dockwatch"
+      "repo": "notifiarr/dockwatch",
+      "topic_id": 5631
     },
     {
+      "activated_at": "2026-11-26T10:33:16.570902+00:00",
       "app_reference": "docmost",
+      "category_id": 367,
+      "discussion_topic_id": 5635,
       "groups": [
         "releases-docmost"
       ],
       "include_prereleases": false,
       "name": "Docmost",
-      "repo": "docmost/docmost"
+      "repo": "docmost/docmost",
+      "topic_id": 5634
     },
     {
+      "activated_at": "2026-11-26T10:33:47.829514+00:00",
       "app_reference": "doco-cd",
+      "category_id": 368,
+      "discussion_topic_id": 5638,
       "groups": [
         "releases-doco-cd"
       ],
       "include_prereleases": false,
       "name": "Doco-CD",
-      "repo": "kimdre/doco-cd"
+      "repo": "kimdre/doco-cd",
+      "topic_id": 5637
     },
     {
+      "activated_at": "2026-11-26T10:34:01.091784+00:00",
       "app_reference": "docs-collaboration",
+      "category_id": 369,
+      "discussion_topic_id": 5641,
       "groups": [
         "releases-docs-collaboration"
       ],
       "include_prereleases": false,
       "name": "Docs",
-      "repo": "suitenumerique/docs"
+      "repo": "suitenumerique/docs",
+      "topic_id": 5640
     },
     {
+      "activated_at": "2026-11-26T10:34:10.727976+00:00",
       "app_reference": "docspell",
+      "category_id": 370,
+      "discussion_topic_id": 5644,
       "groups": [
         "releases-docspell"
       ],
       "include_prereleases": false,
       "name": "Docspell",
-      "repo": "eikek/docspell"
+      "repo": "eikek/docspell",
+      "topic_id": 5643
     },
     {
+      "activated_at": "2026-11-26T10:34:32.074436+00:00",
       "app_reference": "documenso",
+      "category_id": 371,
+      "discussion_topic_id": 5647,
       "groups": [
         "releases-documenso"
       ],
       "include_prereleases": false,
       "name": "Documenso",
-      "repo": "documenso/documenso"
+      "repo": "documenso/documenso",
+      "topic_id": 5646
     },
     {
+      "activated_at": "2026-11-26T10:34:52.282337+00:00",
       "app_reference": "docusaurus",
+      "category_id": 372,
+      "discussion_topic_id": 5650,
       "groups": [
         "releases-docusaurus"
       ],
       "include_prereleases": false,
       "name": "Docusaurus",
-      "repo": "meta/docusaurus"
+      "repo": "meta/docusaurus",
+      "topic_id": 5649
     },
     {
       "app_reference": "docuseal",
