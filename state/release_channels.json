@@ -2537,6 +2537,386 @@
       "name": "Docusaurus",
       "repo": "meta/docusaurus",
       "topic_id": 5649
+    },
+    {
+      "category_id": 373,
+      "discussion_topic_id": 5653,
+      "groups": [
+        "releases-docuseal"
+      ],
+      "name": "DocuSeal",
+      "repo": "docusealco/docuseal",
+      "topic_id": 5652
+    },
+    {
+      "category_id": 374,
+      "discussion_topic_id": 5656,
+      "groups": [
+        "releases-dokku"
+      ],
+      "name": "Dokku",
+      "repo": "dokku/dokku",
+      "topic_id": 5655
+    },
+    {
+      "category_id": 375,
+      "discussion_topic_id": 5659,
+      "groups": [
+        "releases-dokploy"
+      ],
+      "name": "Dokploy",
+      "repo": "dokploy/dokploy",
+      "topic_id": 5658
+    },
+    {
+      "category_id": 376,
+      "discussion_topic_id": 5662,
+      "groups": [
+        "releases-doku"
+      ],
+      "name": "Doku",
+      "repo": "amerkurev/doku",
+      "topic_id": 5661
+    },
+    {
+      "category_id": 377,
+      "discussion_topic_id": 5665,
+      "groups": [
+        "releases-dokuwiki"
+      ],
+      "name": "DokuWiki",
+      "repo": "dokuwiki/dokuwiki",
+      "topic_id": 5664
+    },
+    {
+      "category_id": 378,
+      "discussion_topic_id": 5668,
+      "groups": [
+        "releases-dolibarr"
+      ],
+      "name": "Dolibarr",
+      "repo": "dolibarr/dolibarr",
+      "topic_id": 5667
+    },
+    {
+      "category_id": 379,
+      "discussion_topic_id": 5671,
+      "groups": [
+        "releases-domain-locker"
+      ],
+      "name": "Domain Locker",
+      "repo": "lissy93/domain-locker",
+      "topic_id": 5670
+    },
+    {
+      "category_id": 380,
+      "discussion_topic_id": 5674,
+      "groups": [
+        "releases-domain-watchdog"
+      ],
+      "name": "Domain Watchdog",
+      "repo": "maelgangloff/domain-watchdog",
+      "topic_id": 5673
+    },
+    {
+      "category_id": 381,
+      "discussion_topic_id": 5677,
+      "groups": [
+        "releases-donetick"
+      ],
+      "name": "Donetick",
+      "repo": "donetick/donetick",
+      "topic_id": 5676
+    },
+    {
+      "category_id": 382,
+      "discussion_topic_id": 5680,
+      "groups": [
+        "releases-doska"
+      ],
+      "name": "Doska",
+      "repo": "romenkova/doska",
+      "topic_id": 5679
+    },
+    {
+      "category_id": 383,
+      "discussion_topic_id": 5683,
+      "groups": [
+        "releases-dovecot"
+      ],
+      "name": "Dovecot",
+      "repo": "dovecot/core",
+      "topic_id": 5682
+    },
+    {
+      "category_id": 384,
+      "discussion_topic_id": 5686,
+      "groups": [
+        "releases-downtify"
+      ],
+      "name": "Downtify",
+      "repo": "henriquesebastiao/downtify",
+      "topic_id": 5685
+    },
+    {
+      "category_id": 385,
+      "discussion_topic_id": 5689,
+      "groups": [
+        "releases-dozzle"
+      ],
+      "name": "Dozzle",
+      "repo": "amir20/dozzle",
+      "topic_id": 5688
+    },
+    {
+      "category_id": 386,
+      "discussion_topic_id": 5692,
+      "groups": [
+        "releases-draw-io"
+      ],
+      "name": "draw.io",
+      "repo": "jgraph/drawio",
+      "topic_id": 5691
+    },
+    {
+      "category_id": 387,
+      "discussion_topic_id": 5695,
+      "groups": [
+        "releases-drawdb"
+      ],
+      "name": "drawDB",
+      "repo": "drawdb-io/drawdb",
+      "topic_id": 5694
+    },
+    {
+      "category_id": 388,
+      "discussion_topic_id": 5698,
+      "groups": [
+        "releases-dreeve"
+      ],
+      "name": "Dreeve",
+      "repo": "dreeveapp/dreeve",
+      "topic_id": 5697
+    },
+    {
+      "category_id": 389,
+      "discussion_topic_id": 5701,
+      "groups": [
+        "releases-dribdat"
+      ],
+      "name": "Dribdat",
+      "repo": "dribdat/dribdat",
+      "topic_id": 5700
+    },
+    {
+      "category_id": 390,
+      "discussion_topic_id": 5704,
+      "groups": [
+        "releases-drivebase"
+      ],
+      "name": "Drivebase",
+      "repo": "drivebase/drivebase",
+      "topic_id": 5703
+    },
+    {
+      "category_id": 391,
+      "discussion_topic_id": 5707,
+      "groups": [
+        "releases-drop"
+      ],
+      "name": "Drop",
+      "repo": "drop-oss/drop",
+      "topic_id": 5706
+    },
+    {
+      "category_id": 392,
+      "discussion_topic_id": 5710,
+      "groups": [
+        "releases-droppedneedle"
+      ],
+      "name": "DroppedNeedle",
+      "repo": "droppedneedle/droppedneedle",
+      "topic_id": 5709
+    },
+    {
+      "category_id": 393,
+      "discussion_topic_id": 5713,
+      "groups": [
+        "releases-dub"
+      ],
+      "name": "Dub",
+      "repo": "dubinc/dub.link",
+      "topic_id": 5712
+    },
+    {
+      "category_id": 394,
+      "discussion_topic_id": 5716,
+      "groups": [
+        "releases-dufs"
+      ],
+      "name": "Dufs",
+      "repo": "sigoden/dufs",
+      "topic_id": 5715
+    },
+    {
+      "category_id": 395,
+      "discussion_topic_id": 5719,
+      "groups": [
+        "releases-dumbassets"
+      ],
+      "name": "DumbAssets",
+      "repo": "dumbwareio/dumbassets",
+      "topic_id": 5718
+    },
+    {
+      "category_id": 396,
+      "discussion_topic_id": 5722,
+      "groups": [
+        "releases-dumbbudget"
+      ],
+      "name": "DumbBudget",
+      "repo": "dumbwareio/dumbbudget",
+      "topic_id": 5721
+    },
+    {
+      "category_id": 397,
+      "discussion_topic_id": 5725,
+      "groups": [
+        "releases-dumbdo"
+      ],
+      "name": "DumbDo",
+      "repo": "dumbwareio/dumbdo",
+      "topic_id": 5724
+    },
+    {
+      "category_id": 398,
+      "discussion_topic_id": 5728,
+      "groups": [
+        "releases-dumbdrop"
+      ],
+      "name": "DumbDrop",
+      "repo": "dumbwareio/dumbdrop",
+      "topic_id": 5727
+    },
+    {
+      "category_id": 399,
+      "discussion_topic_id": 5731,
+      "groups": [
+        "releases-dumbkan"
+      ],
+      "name": "DumbKan",
+      "repo": "dumbwareio/dumbkan",
+      "topic_id": 5730
+    },
+    {
+      "category_id": 400,
+      "discussion_topic_id": 5734,
+      "groups": [
+        "releases-dumbpad"
+      ],
+      "name": "DumbPad",
+      "repo": "dumbwareio/dumbpad",
+      "topic_id": 5733
+    },
+    {
+      "category_id": 401,
+      "discussion_topic_id": 5737,
+      "groups": [
+        "releases-dumbwhois"
+      ],
+      "name": "DumbWhoIs",
+      "repo": "dumbwareio/dumbwhois",
+      "topic_id": 5736
+    },
+    {
+      "category_id": 402,
+      "discussion_topic_id": 5740,
+      "groups": [
+        "releases-duplicacy"
+      ],
+      "name": "Duplicacy",
+      "repo": "gilbertchen/duplicacy",
+      "topic_id": 5739
+    },
+    {
+      "category_id": 403,
+      "discussion_topic_id": 5743,
+      "groups": [
+        "releases-duplicati"
+      ],
+      "name": "Duplicati",
+      "repo": "duplicati/duplicati",
+      "topic_id": 5742
+    },
+    {
+      "category_id": 404,
+      "discussion_topic_id": 5746,
+      "groups": [
+        "releases-dvinyl"
+      ],
+      "name": "DVinyl",
+      "repo": "kyonew/dvinyl",
+      "topic_id": 5745
+    },
+    {
+      "category_id": 405,
+      "discussion_topic_id": 5749,
+      "groups": [
+        "releases-dweebui"
+      ],
+      "name": "DweebUI",
+      "repo": "lllllllillllllillll/dweebui",
+      "topic_id": 5748
+    },
+    {
+      "category_id": 406,
+      "discussion_topic_id": 5752,
+      "groups": [
+        "releases-dynacat"
+      ],
+      "name": "Dynacat",
+      "repo": "panonim/dynacat",
+      "topic_id": 5751
+    },
+    {
+      "category_id": 407,
+      "discussion_topic_id": 5755,
+      "groups": [
+        "releases-easy-appointments"
+      ],
+      "name": "Easy!Appointments",
+      "repo": "alextselegidis/easyappointments",
+      "topic_id": 5754
+    },
+    {
+      "category_id": 408,
+      "discussion_topic_id": 5758,
+      "groups": [
+        "releases-ech0"
+      ],
+      "name": "Ech0",
+      "repo": "lin-snow/ech0",
+      "topic_id": 5757
+    },
+    {
+      "category_id": 409,
+      "discussion_topic_id": 5761,
+      "groups": [
+        "releases-edentext"
+      ],
+      "name": "EdenText",
+      "repo": "stffnb/edentext",
+      "topic_id": 5760
+    },
+    {
+      "category_id": 410,
+      "discussion_topic_id": 5764,
+      "groups": [
+        "releases-eigenfocus"
+      ],
+      "name": "Eigenfocus",
+      "repo": "eigenfocus/eigenfocus",
+      "topic_id": 5763
     }
   ]
 }

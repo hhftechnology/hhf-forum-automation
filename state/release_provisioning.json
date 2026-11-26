@@ -3273,346 +3273,498 @@
       "topic_id": 5649
     },
     {
+      "activated_at": "2026-11-26T11:03:35.400037+00:00",
       "app_reference": "docuseal",
+      "category_id": 373,
+      "discussion_topic_id": 5653,
       "groups": [
         "releases-docuseal"
       ],
       "include_prereleases": false,
       "name": "DocuSeal",
-      "repo": "docusealco/docuseal"
+      "repo": "docusealco/docuseal",
+      "topic_id": 5652
     },
     {
+      "activated_at": "2026-11-26T11:03:42.172855+00:00",
       "app_reference": "dokku",
+      "category_id": 374,
+      "discussion_topic_id": 5656,
       "groups": [
         "releases-dokku"
       ],
       "include_prereleases": false,
       "name": "Dokku",
-      "repo": "dokku/dokku"
+      "repo": "dokku/dokku",
+      "topic_id": 5655
     },
     {
+      "activated_at": "2026-11-26T11:03:48.276320+00:00",
       "app_reference": "dokploy",
+      "category_id": 375,
+      "discussion_topic_id": 5659,
       "groups": [
         "releases-dokploy"
       ],
       "include_prereleases": false,
       "name": "Dokploy",
-      "repo": "dokploy/dokploy"
+      "repo": "dokploy/dokploy",
+      "topic_id": 5658
     },
     {
+      "activated_at": "2026-11-26T11:04:30.154453+00:00",
       "app_reference": "doku",
+      "category_id": 376,
+      "discussion_topic_id": 5662,
       "groups": [
         "releases-doku"
       ],
       "include_prereleases": false,
       "name": "Doku",
-      "repo": "amerkurev/doku"
+      "repo": "amerkurev/doku",
+      "topic_id": 5661
     },
     {
+      "activated_at": "2026-11-26T11:04:37.555095+00:00",
       "app_reference": "dokuwiki",
+      "category_id": 377,
+      "discussion_topic_id": 5665,
       "groups": [
         "releases-dokuwiki"
       ],
       "include_prereleases": false,
       "name": "DokuWiki",
-      "repo": "dokuwiki/dokuwiki"
+      "repo": "dokuwiki/dokuwiki",
+      "topic_id": 5664
     },
     {
+      "activated_at": "2026-11-26T11:04:43.707840+00:00",
       "app_reference": "dolibarr",
+      "category_id": 378,
+      "discussion_topic_id": 5668,
       "groups": [
         "releases-dolibarr"
       ],
       "include_prereleases": false,
       "name": "Dolibarr",
-      "repo": "dolibarr/dolibarr"
+      "repo": "dolibarr/dolibarr",
+      "topic_id": 5667
     },
     {
+      "activated_at": "2026-11-26T11:04:50.865327+00:00",
       "app_reference": "domain-locker",
+      "category_id": 379,
+      "discussion_topic_id": 5671,
       "groups": [
         "releases-domain-locker"
       ],
       "include_prereleases": false,
       "name": "Domain Locker",
-      "repo": "lissy93/domain-locker"
+      "repo": "lissy93/domain-locker",
+      "topic_id": 5670
     },
     {
+      "activated_at": "2026-11-26T11:05:33.879002+00:00",
       "app_reference": "domain-watchdog",
+      "category_id": 380,
+      "discussion_topic_id": 5674,
       "groups": [
         "releases-domain-watchdog"
       ],
       "include_prereleases": false,
       "name": "Domain Watchdog",
-      "repo": "maelgangloff/domain-watchdog"
+      "repo": "maelgangloff/domain-watchdog",
+      "topic_id": 5673
     },
     {
+      "activated_at": "2026-11-26T11:05:39.825374+00:00",
       "app_reference": "donetick",
+      "category_id": 381,
+      "discussion_topic_id": 5677,
       "groups": [
         "releases-donetick"
       ],
       "include_prereleases": false,
       "name": "Donetick",
-      "repo": "donetick/donetick"
+      "repo": "donetick/donetick",
+      "topic_id": 5676
     },
     {
+      "activated_at": "2026-11-26T11:05:47.059966+00:00",
       "app_reference": "doska",
+      "category_id": 382,
+      "discussion_topic_id": 5680,
       "groups": [
         "releases-doska"
       ],
       "include_prereleases": false,
       "name": "Doska",
-      "repo": "romenkova/doska"
+      "repo": "romenkova/doska",
+      "topic_id": 5679
     },
     {
+      "activated_at": "2026-11-26T11:05:53.422974+00:00",
       "app_reference": "dovecot",
+      "category_id": 383,
+      "discussion_topic_id": 5683,
       "groups": [
         "releases-dovecot"
       ],
       "include_prereleases": false,
       "name": "Dovecot",
-      "repo": "dovecot/core"
+      "repo": "dovecot/core",
+      "topic_id": 5682
     },
     {
+      "activated_at": "2026-11-26T11:06:35.737905+00:00",
       "app_reference": "downtify",
+      "category_id": 384,
+      "discussion_topic_id": 5686,
       "groups": [
         "releases-downtify"
       ],
       "include_prereleases": false,
       "name": "Downtify",
-      "repo": "henriquesebastiao/downtify"
+      "repo": "henriquesebastiao/downtify",
+      "topic_id": 5685
     },
     {
+      "activated_at": "2026-11-26T11:06:42.922602+00:00",
       "app_reference": "dozzle",
+      "category_id": 385,
+      "discussion_topic_id": 5689,
       "groups": [
         "releases-dozzle"
       ],
       "include_prereleases": false,
       "name": "Dozzle",
-      "repo": "amir20/dozzle"
+      "repo": "amir20/dozzle",
+      "topic_id": 5688
     },
     {
+      "activated_at": "2026-11-26T11:06:49.206574+00:00",
       "app_reference": "draw-io",
+      "category_id": 386,
+      "discussion_topic_id": 5692,
       "groups": [
         "releases-draw-io"
       ],
       "include_prereleases": false,
       "name": "draw.io",
-      "repo": "jgraph/drawio"
+      "repo": "jgraph/drawio",
+      "topic_id": 5691
     },
     {
+      "activated_at": "2026-11-26T11:07:30.788919+00:00",
       "app_reference": "drawdb",
+      "category_id": 387,
+      "discussion_topic_id": 5695,
       "groups": [
         "releases-drawdb"
       ],
       "include_prereleases": false,
       "name": "drawDB",
-      "repo": "drawdb-io/drawdb"
+      "repo": "drawdb-io/drawdb",
+      "topic_id": 5694
     },
     {
+      "activated_at": "2026-11-26T11:07:38.292504+00:00",
       "app_reference": "dreeve",
+      "category_id": 388,
+      "discussion_topic_id": 5698,
       "groups": [
         "releases-dreeve"
       ],
       "include_prereleases": false,
       "name": "Dreeve",
-      "repo": "dreeveapp/dreeve"
+      "repo": "dreeveapp/dreeve",
+      "topic_id": 5697
     },
     {
+      "activated_at": "2026-11-26T11:07:45.931061+00:00",
       "app_reference": "dribdat",
+      "category_id": 389,
+      "discussion_topic_id": 5701,
       "groups": [
         "releases-dribdat"
       ],
       "include_prereleases": false,
       "name": "Dribdat",
-      "repo": "dribdat/dribdat"
+      "repo": "dribdat/dribdat",
+      "topic_id": 5700
     },
     {
+      "activated_at": "2026-11-26T11:07:52.149886+00:00",
       "app_reference": "drivebase",
+      "category_id": 390,
+      "discussion_topic_id": 5704,
       "groups": [
         "releases-drivebase"
       ],
       "include_prereleases": false,
       "name": "Drivebase",
-      "repo": "drivebase/drivebase"
+      "repo": "drivebase/drivebase",
+      "topic_id": 5703
     },
     {
+      "activated_at": "2026-11-26T11:08:33.993263+00:00",
       "app_reference": "drop",
+      "category_id": 391,
+      "discussion_topic_id": 5707,
       "groups": [
         "releases-drop"
       ],
       "include_prereleases": false,
       "name": "Drop",
-      "repo": "drop-oss/drop"
+      "repo": "drop-oss/drop",
+      "topic_id": 5706
     },
     {
+      "activated_at": "2026-11-26T11:08:40.427031+00:00",
       "app_reference": "droppedneedle",
+      "category_id": 392,
+      "discussion_topic_id": 5710,
       "groups": [
         "releases-droppedneedle"
       ],
       "include_prereleases": false,
       "name": "DroppedNeedle",
-      "repo": "droppedneedle/droppedneedle"
+      "repo": "droppedneedle/droppedneedle",
+      "topic_id": 5709
     },
     {
+      "activated_at": "2026-11-26T11:08:48.426654+00:00",
       "app_reference": "dub",
+      "category_id": 393,
+      "discussion_topic_id": 5713,
       "groups": [
         "releases-dub"
       ],
       "include_prereleases": false,
       "name": "Dub",
-      "repo": "dubinc/dub.link"
+      "repo": "dubinc/dub.link",
+      "topic_id": 5712
     },
     {
+      "activated_at": "2026-11-26T11:08:54.761201+00:00",
       "app_reference": "dufs",
+      "category_id": 394,
+      "discussion_topic_id": 5716,
       "groups": [
         "releases-dufs"
       ],
       "include_prereleases": false,
       "name": "Dufs",
-      "repo": "sigoden/dufs"
+      "repo": "sigoden/dufs",
+      "topic_id": 5715
     },
     {
+      "activated_at": "2026-11-26T11:09:36.411934+00:00",
       "app_reference": "dumbassets",
+      "category_id": 395,
+      "discussion_topic_id": 5719,
       "groups": [
         "releases-dumbassets"
       ],
       "include_prereleases": false,
       "name": "DumbAssets",
-      "repo": "dumbwareio/dumbassets"
+      "repo": "dumbwareio/dumbassets",
+      "topic_id": 5718
     },
     {
+      "activated_at": "2026-11-26T11:09:43.717890+00:00",
       "app_reference": "dumbbudget",
+      "category_id": 396,
+      "discussion_topic_id": 5722,
       "groups": [
         "releases-dumbbudget"
       ],
       "include_prereleases": false,
       "name": "DumbBudget",
-      "repo": "dumbwareio/dumbbudget"
+      "repo": "dumbwareio/dumbbudget",
+      "topic_id": 5721
     },
     {
+      "activated_at": "2026-11-26T11:09:50.890734+00:00",
       "app_reference": "dumbdo",
+      "category_id": 397,
+      "discussion_topic_id": 5725,
       "groups": [
         "releases-dumbdo"
       ],
       "include_prereleases": false,
       "name": "DumbDo",
-      "repo": "dumbwareio/dumbdo"
+      "repo": "dumbwareio/dumbdo",
+      "topic_id": 5724
     },
     {
+      "activated_at": "2026-11-26T11:09:56.851648+00:00",
       "app_reference": "dumbdrop",
+      "category_id": 398,
+      "discussion_topic_id": 5728,
       "groups": [
         "releases-dumbdrop"
       ],
       "include_prereleases": false,
       "name": "DumbDrop",
-      "repo": "dumbwareio/dumbdrop"
+      "repo": "dumbwareio/dumbdrop",
+      "topic_id": 5727
     },
     {
+      "activated_at": "2026-11-26T11:10:38.523964+00:00",
       "app_reference": "dumbkan",
+      "category_id": 399,
+      "discussion_topic_id": 5731,
       "groups": [
         "releases-dumbkan"
       ],
       "include_prereleases": false,
       "name": "DumbKan",
-      "repo": "dumbwareio/dumbkan"
+      "repo": "dumbwareio/dumbkan",
+      "topic_id": 5730
     },
     {
+      "activated_at": "2026-11-26T11:10:46.255946+00:00",
       "app_reference": "dumbpad",
+      "category_id": 400,
+      "discussion_topic_id": 5734,
       "groups": [
         "releases-dumbpad"
       ],
       "include_prereleases": false,
       "name": "DumbPad",
-      "repo": "dumbwareio/dumbpad"
+      "repo": "dumbwareio/dumbpad",
+      "topic_id": 5733
     },
     {
+      "activated_at": "2026-11-26T11:10:53.401402+00:00",
       "app_reference": "dumbwhois",
+      "category_id": 401,
+      "discussion_topic_id": 5737,
       "groups": [
         "releases-dumbwhois"
       ],
       "include_prereleases": false,
       "name": "DumbWhoIs",
-      "repo": "dumbwareio/dumbwhois"
+      "repo": "dumbwareio/dumbwhois",
+      "topic_id": 5736
     },
     {
+      "activated_at": "2026-11-26T11:11:33.557899+00:00",
       "app_reference": "duplicacy",
+      "category_id": 402,
+      "discussion_topic_id": 5740,
       "groups": [
         "releases-duplicacy"
       ],
       "include_prereleases": false,
       "name": "Duplicacy",
-      "repo": "gilbertchen/duplicacy"
+      "repo": "gilbertchen/duplicacy",
+      "topic_id": 5739
     },
     {
+      "activated_at": "2026-11-26T11:11:41.252434+00:00",
       "app_reference": "duplicati",
+      "category_id": 403,
+      "discussion_topic_id": 5743,
       "groups": [
         "releases-duplicati"
       ],
       "include_prereleases": false,
       "name": "Duplicati",
-      "repo": "duplicati/duplicati"
+      "repo": "duplicati/duplicati",
+      "topic_id": 5742
     },
     {
+      "activated_at": "2026-11-26T11:11:50.191694+00:00",
       "app_reference": "dvinyl",
+      "category_id": 404,
+      "discussion_topic_id": 5746,
       "groups": [
         "releases-dvinyl"
       ],
       "include_prereleases": false,
       "name": "DVinyl",
-      "repo": "kyonew/dvinyl"
+      "repo": "kyonew/dvinyl",
+      "topic_id": 5745
     },
     {
+      "activated_at": "2026-11-26T11:11:56.707634+00:00",
       "app_reference": "dweebui",
+      "category_id": 405,
+      "discussion_topic_id": 5749,
       "groups": [
         "releases-dweebui"
       ],
       "include_prereleases": false,
       "name": "DweebUI",
-      "repo": "lllllllillllllillll/dweebui"
+      "repo": "lllllllillllllillll/dweebui",
+      "topic_id": 5748
     },
     {
+      "activated_at": "2026-11-26T11:12:36.900971+00:00",
       "app_reference": "dynacat",
+      "category_id": 406,
+      "discussion_topic_id": 5752,
       "groups": [
         "releases-dynacat"
       ],
       "include_prereleases": false,
       "name": "Dynacat",
-      "repo": "panonim/dynacat"
+      "repo": "panonim/dynacat",
+      "topic_id": 5751
     },
     {
+      "activated_at": "2026-11-26T11:12:43.482763+00:00",
       "app_reference": "easy-appointments",
+      "category_id": 407,
+      "discussion_topic_id": 5755,
       "groups": [
         "releases-easy-appointments"
       ],
       "include_prereleases": false,
       "name": "Easy!Appointments",
-      "repo": "alextselegidis/easyappointments"
+      "repo": "alextselegidis/easyappointments",
+      "topic_id": 5754
     },
     {
+      "activated_at": "2026-11-26T11:12:52.286220+00:00",
       "app_reference": "ech0",
+      "category_id": 408,
+      "discussion_topic_id": 5758,
       "groups": [
         "releases-ech0"
       ],
       "include_prereleases": false,
       "name": "Ech0",
-      "repo": "lin-snow/ech0"
+      "repo": "lin-snow/ech0",
+      "topic_id": 5757
     },
     {
+      "activated_at": "2026-11-26T11:12:59.377232+00:00",
       "app_reference": "edentext",
+      "category_id": 409,
+      "discussion_topic_id": 5761,
       "groups": [
         "releases-edentext"
       ],
       "include_prereleases": false,
       "name": "EdenText",
-      "repo": "stffnb/edentext"
+      "repo": "stffnb/edentext",
+      "topic_id": 5760
     },
     {
+      "activated_at": "2026-11-26T11:13:38.527289+00:00",
       "app_reference": "eigenfocus",
+      "category_id": 410,
+      "discussion_topic_id": 5764,
       "groups": [
         "releases-eigenfocus"
       ],
       "include_prereleases": false,
       "name": "Eigenfocus",
-      "repo": "eigenfocus/eigenfocus"
+      "repo": "eigenfocus/eigenfocus",
+      "topic_id": 5763
     },
     {
       "app_reference": "emoncms",
