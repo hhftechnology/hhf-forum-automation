@@ -7,6 +7,7 @@ only staff can reply in closed topics).
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -95,13 +96,34 @@ def _title(e: dict) -> str:
     return f"{e['repo']} {_sub(e)} releases" if split else f"{e['repo']} releases"
 
 
+def _plain(text: str) -> str:
+    """Letters, digits, hyphens and single spaces only: "8mb.local" -> "8mblocal"."""
+    return " ".join(re.sub(r"[^A-Za-z0-9 -]", "", str(text)).split()).strip(" -")
+
+
+def group_handle(reference: str, repo: str, tag_prefix: str | None, taken: dict, max_len: int = 36) -> str:
+    """"releases-<app reference>" in lowercase letters, digits and hyphens; mirrors the catalogue
+    plugin's ReleaseOnboarding.group_handle. A reference longer than the forum's name limit, or a
+    name another channel holds, gets four hex characters of the channel digest instead."""
+    channel = (repo.lower(), tag_prefix or "")
+    digest = hashlib.sha256(f"{channel[0]}#{channel[1]}".encode()).hexdigest()
+    room = min(max(max_len, 15), 60) - len("releases-")
+    slug = re.sub(r"[^a-z0-9]+", "-", reference.lower()).strip("-")
+    if not slug:
+        return "releases-" + digest[:11]
+    full = "releases-" + slug
+    if len(slug) <= room and taken.get(full, channel) == channel:
+        return full
+    return "releases-" + slug[: room - 5].rstrip("-") + "-" + digest[:4]
+
+
 def group_title(e: dict) -> str:
     """The release group's display name: the app's name, never the repo path.
 
     Channels under a product parent ("Pangolin Releases") carry the product too, so "Newt" reads
     "Pangolin Newt releases" and "Pangolin Node" stays "Pangolin Node releases"."""
-    name = " ".join(_sub(e).split())
-    product = _parent(e).strip()
+    name = _plain(_sub(e)) or _plain(e["repo"].split("/")[-1].replace(".", "-")) or "Project"
+    product = _plain(_parent(e))
     if product.casefold().endswith(" releases"):
         product = product[: -len(" releases")].strip()
     if _parent(e) != PARENT_NAME and product and not name.casefold().startswith(product.casefold()):
@@ -158,8 +180,8 @@ def validate(entries: list[dict], *, require_icon: bool = True) -> None:
         if not isinstance(channel_groups, list) or len(channel_groups) > 20:
             raise ValueError(f"invalid groups in {key(e)}")
         for g in channel_groups:
-            if not isinstance(g, str) or not re.fullmatch(r"[a-z0-9_-]{1,20}", g):
-                raise ValueError(f"invalid group name {g!r} in {key(e)}: use 1-20 chars of [a-z0-9_-]")
+            if not isinstance(g, str) or not re.fullmatch(r"[a-z0-9_-]{1,60}", g):
+                raise ValueError(f"invalid group name {g!r} in {key(e)}: use 1-60 chars of [a-z0-9_-]")
             if (not e.get("category_id") or not e.get("topic_id")) and not re.fullmatch(r"releases-[a-z0-9_-]+", g):
                 raise ValueError(f"new release group {g!r} in {key(e)} must start with 'releases-' and a slug")
             if g in groups:
