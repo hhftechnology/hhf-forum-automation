@@ -4261,346 +4261,498 @@
       "topic_id": 5877
     },
     {
+      "activated_at": "2026-11-26T14:20:51.234493+00:00",
       "app_reference": "fittrackee",
+      "category_id": 449,
+      "discussion_topic_id": 5881,
       "groups": [
         "releases-fittrackee"
       ],
       "include_prereleases": false,
       "name": "FitTrackee",
-      "repo": "samr1/fittrackee"
+      "repo": "samr1/fittrackee",
+      "topic_id": 5880
     },
     {
+      "activated_at": "2026-11-26T14:21:05.465691+00:00",
       "app_reference": "fizzy",
+      "category_id": 450,
+      "discussion_topic_id": 5884,
       "groups": [
         "releases-fizzy"
       ],
       "include_prereleases": false,
       "name": "Fizzy",
-      "repo": "basecamp/fizzy"
+      "repo": "basecamp/fizzy",
+      "topic_id": 5883
     },
     {
+      "activated_at": "2026-11-26T14:21:15.369368+00:00",
       "app_reference": "fladder",
+      "category_id": 451,
+      "discussion_topic_id": 5887,
       "groups": [
         "releases-fladder"
       ],
       "include_prereleases": false,
       "name": "Fladder",
-      "repo": "donutware/fladder"
+      "repo": "donutware/fladder",
+      "topic_id": 5886
     },
     {
+      "activated_at": "2026-11-26T14:21:52.430350+00:00",
       "app_reference": "flaresolverr",
+      "category_id": 452,
+      "discussion_topic_id": 5890,
       "groups": [
         "releases-flaresolverr"
       ],
       "include_prereleases": false,
       "name": "FlareSolverr",
-      "repo": "flaresolverr/flaresolverr"
+      "repo": "flaresolverr/flaresolverr",
+      "topic_id": 5889
     },
     {
+      "activated_at": "2026-11-26T14:22:02.577507+00:00",
       "app_reference": "flarum",
+      "category_id": 453,
+      "discussion_topic_id": 5893,
       "groups": [
         "releases-flarum"
       ],
       "include_prereleases": false,
       "name": "Flarum",
-      "repo": "flarum/flarum"
+      "repo": "flarum/flarum",
+      "topic_id": 5892
     },
     {
+      "activated_at": "2026-11-26T14:22:10.181458+00:00",
       "app_reference": "flashpaper",
+      "category_id": 454,
+      "discussion_topic_id": 5896,
       "groups": [
         "releases-flashpaper"
       ],
       "include_prereleases": false,
       "name": "FlashPaper",
-      "repo": "andrewpaglusch/flashpaper"
+      "repo": "andrewpaglusch/flashpaper",
+      "topic_id": 5895
     },
     {
+      "activated_at": "2026-11-26T14:22:20.545142+00:00",
       "app_reference": "flatnotes",
+      "category_id": 455,
+      "discussion_topic_id": 5899,
       "groups": [
         "releases-flatnotes"
       ],
       "include_prereleases": false,
       "name": "Flatnotes",
-      "repo": "dullage/flatnotes"
+      "repo": "dullage/flatnotes",
+      "topic_id": 5898
     },
     {
+      "activated_at": "2026-11-26T14:22:57.553718+00:00",
       "app_reference": "fli-so",
+      "category_id": 456,
+      "discussion_topic_id": 5902,
       "groups": [
         "releases-fli-so"
       ],
       "include_prereleases": false,
       "name": "Fli.so",
-      "repo": "thisuxhq/fli.so"
+      "repo": "thisuxhq/fli.so",
+      "topic_id": 5901
     },
     {
+      "activated_at": "2026-11-26T14:23:06.665673+00:00",
       "app_reference": "flood",
+      "category_id": 457,
+      "discussion_topic_id": 5905,
       "groups": [
         "releases-flood"
       ],
       "include_prereleases": false,
       "name": "Flood",
-      "repo": "jesec/flood"
+      "repo": "jesec/flood",
+      "topic_id": 5904
     },
     {
+      "activated_at": "2026-11-26T14:23:14.086045+00:00",
       "app_reference": "flow-like",
+      "category_id": 458,
+      "discussion_topic_id": 5908,
       "groups": [
         "releases-flow-like"
       ],
       "include_prereleases": false,
       "name": "Flow-Like",
-      "repo": "rheosoph/flow-like"
+      "repo": "rheosoph/flow-like",
+      "topic_id": 5907
     },
     {
+      "activated_at": "2026-11-26T14:23:24.778117+00:00",
       "app_reference": "fluidcalendar",
+      "category_id": 459,
+      "discussion_topic_id": 5911,
       "groups": [
         "releases-fluidcalendar"
       ],
       "include_prereleases": false,
       "name": "FluidCalendar",
-      "repo": "dotnetfactory/fluid-calendar"
+      "repo": "dotnetfactory/fluid-calendar",
+      "topic_id": 5910
     },
     {
+      "activated_at": "2026-11-26T14:24:00.511104+00:00",
       "app_reference": "fluxer",
+      "category_id": 460,
+      "discussion_topic_id": 5914,
       "groups": [
         "releases-fluxer"
       ],
       "include_prereleases": false,
       "name": "Fluxer",
-      "repo": "fluxerapp/fluxer"
+      "repo": "fluxerapp/fluxer",
+      "topic_id": 5913
     },
     {
+      "activated_at": "2026-11-26T14:24:08.748374+00:00",
       "app_reference": "foldergram",
+      "category_id": 461,
+      "discussion_topic_id": 5917,
       "groups": [
         "releases-foldergram"
       ],
       "include_prereleases": false,
       "name": "Foldergram",
-      "repo": "foldergram/foldergram"
+      "repo": "foldergram/foldergram",
+      "topic_id": 5916
     },
     {
+      "activated_at": "2026-11-26T14:24:18.139981+00:00",
       "app_reference": "folderhost",
+      "category_id": 462,
+      "discussion_topic_id": 5920,
       "groups": [
         "releases-folderhost"
       ],
       "include_prereleases": false,
       "name": "FolderHost",
-      "repo": "mertjsx/folderhost"
+      "repo": "mertjsx/folderhost",
+      "topic_id": 5919
     },
     {
+      "activated_at": "2026-11-26T14:24:46.001001+00:00",
       "app_reference": "formbricks",
+      "category_id": 463,
+      "discussion_topic_id": 5923,
       "groups": [
         "releases-formbricks"
       ],
       "include_prereleases": false,
       "name": "Formbricks",
-      "repo": "formbricks/formbricks"
+      "repo": "formbricks/formbricks",
+      "topic_id": 5922
     },
     {
+      "activated_at": "2026-11-26T14:25:03.158657+00:00",
       "app_reference": "forms-md",
+      "category_id": 464,
+      "discussion_topic_id": 5926,
       "groups": [
         "releases-forms-md"
       ],
       "include_prereleases": false,
       "name": "Forms.md",
-      "repo": "formsmd/formsmd"
+      "repo": "formsmd/formsmd",
+      "topic_id": 5925
     },
     {
+      "activated_at": "2026-11-26T14:25:15.413727+00:00",
       "app_reference": "foundry-virtual-tabletop",
+      "category_id": 465,
+      "discussion_topic_id": 5929,
       "groups": [
         "releases-foundry-virtual-tabletop"
       ],
       "include_prereleases": false,
       "name": "Foundry Virtual Tabletop",
-      "repo": "foundryvtt/foundryvtt"
+      "repo": "foundryvtt/foundryvtt",
+      "topic_id": 5928
     },
     {
+      "activated_at": "2026-11-26T14:25:24.886153+00:00",
       "app_reference": "frappe-erpnext",
+      "category_id": 466,
+      "discussion_topic_id": 5932,
       "groups": [
         "releases-frappe-erpnext"
       ],
       "include_prereleases": false,
       "name": "ERPNext",
-      "repo": "frappe/erpnext"
+      "repo": "frappe/erpnext",
+      "topic_id": 5931
     },
     {
+      "activated_at": "2026-11-26T14:25:54.156560+00:00",
       "app_reference": "freescout",
+      "category_id": 467,
+      "discussion_topic_id": 5935,
       "groups": [
         "releases-freescout"
       ],
       "include_prereleases": false,
       "name": "FreeScout",
-      "repo": "freescout-help-desk/freescout"
+      "repo": "freescout-help-desk/freescout",
+      "topic_id": 5934
     },
     {
+      "activated_at": "2026-11-26T14:26:06.750789+00:00",
       "app_reference": "freshrss",
+      "category_id": 468,
+      "discussion_topic_id": 5938,
       "groups": [
         "releases-freshrss"
       ],
       "include_prereleases": false,
       "name": "FreshRSS",
-      "repo": "freshrss/freshrss"
+      "repo": "freshrss/freshrss",
+      "topic_id": 5937
     },
     {
+      "activated_at": "2026-11-26T14:26:18.444189+00:00",
       "app_reference": "friendica",
+      "category_id": 469,
+      "discussion_topic_id": 5941,
       "groups": [
         "releases-friendica"
       ],
       "include_prereleases": false,
       "name": "Friendica",
-      "repo": "friendica/friendica"
+      "repo": "friendica/friendica",
+      "topic_id": 5940
     },
     {
+      "activated_at": "2026-11-26T14:26:27.526722+00:00",
       "app_reference": "frigate",
+      "category_id": 470,
+      "discussion_topic_id": 5944,
       "groups": [
         "releases-frigate"
       ],
       "include_prereleases": false,
       "name": "Frigate",
-      "repo": "blakeblackshear/frigate"
+      "repo": "blakeblackshear/frigate",
+      "topic_id": 5943
     },
     {
+      "activated_at": "2026-11-26T14:26:59.607049+00:00",
       "app_reference": "frigate-notify",
+      "category_id": 471,
+      "discussion_topic_id": 5947,
       "groups": [
         "releases-frigate-notify"
       ],
       "include_prereleases": false,
       "name": "Frigate-Notify",
-      "repo": "0x2142/frigate-notify"
+      "repo": "0x2142/frigate-notify",
+      "topic_id": 5946
     },
     {
+      "activated_at": "2026-11-26T14:27:09.601607+00:00",
       "app_reference": "ftpgrab",
+      "category_id": 472,
+      "discussion_topic_id": 5950,
       "groups": [
         "releases-ftpgrab"
       ],
       "include_prereleases": false,
       "name": "FTPGrab",
-      "repo": "crazy-max/ftpgrab"
+      "repo": "crazy-max/ftpgrab",
+      "topic_id": 5949
     },
     {
+      "activated_at": "2026-11-26T14:27:21.487229+00:00",
       "app_reference": "fusion-rss",
+      "category_id": 473,
+      "discussion_topic_id": 5953,
       "groups": [
         "releases-fusion-rss"
       ],
       "include_prereleases": false,
       "name": "Fusion",
-      "repo": "0x2e/fusion"
+      "repo": "0x2e/fusion",
+      "topic_id": 5952
     },
     {
+      "activated_at": "2026-11-26T14:27:30.378814+00:00",
       "app_reference": "fussel",
+      "category_id": 474,
+      "discussion_topic_id": 5956,
       "groups": [
         "releases-fussel"
       ],
       "include_prereleases": false,
       "name": "Fussel",
-      "repo": "cbenning/fussel"
+      "repo": "cbenning/fussel",
+      "topic_id": 5955
     },
     {
+      "activated_at": "2026-11-26T14:28:04.211410+00:00",
       "app_reference": "games-on-whales",
+      "category_id": 475,
+      "discussion_topic_id": 5959,
       "groups": [
         "releases-games-on-whales"
       ],
       "include_prereleases": false,
       "name": "Games on Whales",
-      "repo": "games-on-whales/wolf"
+      "repo": "games-on-whales/wolf",
+      "topic_id": 5958
     },
     {
+      "activated_at": "2026-11-26T14:28:16.289776+00:00",
       "app_reference": "gamevault",
+      "category_id": 476,
+      "discussion_topic_id": 5962,
       "groups": [
         "releases-gamevault"
       ],
       "include_prereleases": false,
       "name": "GameVault",
-      "repo": "phalcode/gamevault-app"
+      "repo": "phalcode/gamevault-app",
+      "topic_id": 5961
     },
     {
+      "activated_at": "2026-11-26T14:28:24.698618+00:00",
       "app_reference": "gameyfin",
+      "category_id": 477,
+      "discussion_topic_id": 5965,
       "groups": [
         "releases-gameyfin"
       ],
       "include_prereleases": false,
       "name": "Gameyfin",
-      "repo": "gameyfin/gameyfin"
+      "repo": "gameyfin/gameyfin",
+      "topic_id": 5964
     },
     {
+      "activated_at": "2026-11-26T14:28:53.969725+00:00",
       "app_reference": "ganymede",
+      "category_id": 478,
+      "discussion_topic_id": 5968,
       "groups": [
         "releases-ganymede"
       ],
       "include_prereleases": false,
       "name": "Ganymede",
-      "repo": "zibbp/ganymede"
+      "repo": "zibbp/ganymede",
+      "topic_id": 5967
     },
     {
+      "activated_at": "2026-11-26T14:29:11.060440+00:00",
       "app_reference": "garage",
+      "category_id": 479,
+      "discussion_topic_id": 5971,
       "groups": [
         "releases-garage"
       ],
       "include_prereleases": false,
       "name": "Garage",
-      "repo": "deuxfleurs-org/garage"
+      "repo": "deuxfleurs-org/garage",
+      "topic_id": 5970
     },
     {
+      "activated_at": "2026-11-26T14:29:19.060078+00:00",
       "app_reference": "garmin-grafana",
+      "category_id": 480,
+      "discussion_topic_id": 5974,
       "groups": [
         "releases-garmin-grafana"
       ],
       "include_prereleases": false,
       "name": "Garmin Grafana",
-      "repo": "arpanghosh8453/garmin-grafana"
+      "repo": "arpanghosh8453/garmin-grafana",
+      "topic_id": 5973
     },
     {
+      "activated_at": "2026-11-26T14:29:28.917194+00:00",
       "app_reference": "gaseous",
+      "category_id": 481,
+      "discussion_topic_id": 5977,
       "groups": [
         "releases-gaseous"
       ],
       "include_prereleases": false,
       "name": "Gaseous",
-      "repo": "gaseous-project/gaseous-server"
+      "repo": "gaseous-project/gaseous-server",
+      "topic_id": 5976
     },
     {
+      "activated_at": "2026-11-26T14:29:57.836167+00:00",
       "app_reference": "gathio",
+      "category_id": 482,
+      "discussion_topic_id": 5980,
       "groups": [
         "releases-gathio"
       ],
       "include_prereleases": false,
       "name": "Gathio",
-      "repo": "lowercasename/gathio"
+      "repo": "lowercasename/gathio",
+      "topic_id": 5979
     },
     {
+      "activated_at": "2026-11-26T14:30:13.477354+00:00",
       "app_reference": "gatus",
+      "category_id": 483,
+      "discussion_topic_id": 5983,
       "groups": [
         "releases-gatus"
       ],
       "include_prereleases": false,
       "name": "Gatus",
-      "repo": "twin/gatus"
+      "repo": "twin/gatus",
+      "topic_id": 5982
     },
     {
+      "activated_at": "2026-11-26T14:30:22.924437+00:00",
       "app_reference": "geopulse",
+      "category_id": 484,
+      "discussion_topic_id": 5986,
       "groups": [
         "releases-geopulse"
       ],
       "include_prereleases": false,
       "name": "GeoPulse",
-      "repo": "tess1o/geopulse"
+      "repo": "tess1o/geopulse",
+      "topic_id": 5985
     },
     {
+      "activated_at": "2026-11-26T14:30:32.495301+00:00",
       "app_reference": "gerbera",
+      "category_id": 485,
+      "discussion_topic_id": 5989,
       "groups": [
         "releases-gerbera"
       ],
       "include_prereleases": false,
       "name": "Gerbera",
-      "repo": "gerbera/gerbera"
+      "repo": "gerbera/gerbera",
+      "topic_id": 5988
     },
     {
+      "activated_at": "2026-11-26T14:31:06.783351+00:00",
       "app_reference": "ghost",
+      "category_id": 486,
+      "discussion_topic_id": 5992,
       "groups": [
         "releases-ghost"
       ],
       "include_prereleases": false,
       "name": "Ghost",
-      "repo": "tryghost/ghost"
+      "repo": "tryghost/ghost",
+      "topic_id": 5991
     },
     {
       "app_reference": "ghostfolio",
