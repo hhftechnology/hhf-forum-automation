@@ -9929,40 +9929,56 @@
       "topic_id": 7190
     },
     {
+      "activated_at": "2026-11-26T19:17:07.237067+00:00",
       "app_reference": "pgsty-silo",
+      "category_id": 885,
+      "discussion_topic_id": 7194,
       "groups": [
         "releases-pgsty-silo"
       ],
       "include_prereleases": false,
       "name": "Silo",
-      "repo": "pgsty/silo"
+      "repo": "pgsty/silo",
+      "topic_id": 7193
     },
     {
+      "activated_at": "2026-11-26T19:17:13.492005+00:00",
       "app_reference": "photofield",
+      "category_id": 886,
+      "discussion_topic_id": 7197,
       "groups": [
         "releases-photofield"
       ],
       "include_prereleases": false,
       "name": "Photofield",
-      "repo": "smilyorg/photofield"
+      "repo": "smilyorg/photofield",
+      "topic_id": 7196
     },
     {
+      "activated_at": "2026-11-26T19:17:19.550943+00:00",
       "app_reference": "photoprism",
+      "category_id": 887,
+      "discussion_topic_id": 7200,
       "groups": [
         "releases-photoprism"
       ],
       "include_prereleases": false,
       "name": "PhotoPrism",
-      "repo": "photoprism/photoprism"
+      "repo": "photoprism/photoprism",
+      "topic_id": 7199
     },
     {
+      "activated_at": "2026-11-26T19:18:02.371904+00:00",
       "app_reference": "photoview",
+      "category_id": 888,
+      "discussion_topic_id": 7203,
       "groups": [
         "releases-photoview"
       ],
       "include_prereleases": false,
       "name": "Photoview",
-      "repo": "photoview/photoview"
+      "repo": "photoview/photoview",
+      "topic_id": 7202
     },
     {
       "app_reference": "phpmyadmin",
@@ -9971,313 +9987,451 @@
       ],
       "include_prereleases": false,
       "name": "phpMyAdmin",
+      "provisioning": true,
+      "provisioning_error": "HTTPStatusError",
       "repo": "phpmyadmin/phpmyadmin"
     },
     {
+      "activated_at": "2026-11-26T19:18:10.829537+00:00",
       "app_reference": "pigallery2",
+      "category_id": 889,
+      "discussion_topic_id": 7206,
       "groups": [
         "releases-pigallery2"
       ],
       "include_prereleases": false,
       "name": "PiGallery2",
-      "repo": "bpatrik/pigallery2"
+      "repo": "bpatrik/pigallery2",
+      "topic_id": 7205
     },
     {
+      "activated_at": "2026-11-26T19:18:16.956028+00:00",
       "app_reference": "pigeonpod",
+      "category_id": 890,
+      "discussion_topic_id": 7209,
       "groups": [
         "releases-pigeonpod"
       ],
       "include_prereleases": false,
       "name": "PigeonPod",
-      "repo": "aizhimou/pigeon-pod"
+      "repo": "aizhimou/pigeon-pod",
+      "topic_id": 7208
     },
     {
+      "activated_at": "2026-11-26T19:18:23.010517+00:00",
       "app_reference": "pinchflat",
+      "category_id": 891,
+      "discussion_topic_id": 7212,
       "groups": [
         "releases-pinchflat"
       ],
       "include_prereleases": false,
       "name": "Pinchflat",
-      "repo": "kieraneglin/pinchflat"
+      "repo": "kieraneglin/pinchflat",
+      "topic_id": 7211
     },
     {
+      "activated_at": "2026-11-26T19:19:05.355777+00:00",
       "app_reference": "pinchflat-ngx",
+      "category_id": 892,
+      "discussion_topic_id": 7215,
       "groups": [
         "releases-pinchflat-ngx"
       ],
       "include_prereleases": false,
       "name": "Pinchflat-ngx",
-      "repo": "thebadfella/pinchflat-ngx"
+      "repo": "thebadfella/pinchflat-ngx",
+      "topic_id": 7214
     },
     {
+      "activated_at": "2026-11-26T19:19:12.507587+00:00",
       "app_reference": "pinepods",
+      "category_id": 893,
+      "discussion_topic_id": 7218,
       "groups": [
         "releases-pinepods"
       ],
       "include_prereleases": false,
       "name": "PinePods",
-      "repo": "madeofpendletonwool/pinepods"
+      "repo": "madeofpendletonwool/pinepods",
+      "topic_id": 7217
     },
     {
+      "activated_at": "2026-11-26T19:19:19.514454+00:00",
       "app_reference": "pingvin-share-x",
+      "category_id": 894,
+      "discussion_topic_id": 7221,
       "groups": [
         "releases-pingvin-share-x"
       ],
       "include_prereleases": false,
       "name": "Pingvin Share X",
-      "repo": "smp46/pingvin-share-x"
+      "repo": "smp46/pingvin-share-x",
+      "topic_id": 7220
     },
     {
+      "activated_at": "2026-11-26T19:20:01.080570+00:00",
       "app_reference": "pinkary",
+      "category_id": 895,
+      "discussion_topic_id": 7224,
       "groups": [
         "releases-pinkary"
       ],
       "include_prereleases": false,
       "name": "Pinkary",
-      "repo": "pinkary-project/pinkary.com"
+      "repo": "pinkary-project/pinkary.com",
+      "topic_id": 7223
     },
     {
+      "activated_at": "2026-11-26T19:20:09.109657+00:00",
       "app_reference": "pinry",
+      "category_id": 896,
+      "discussion_topic_id": 7227,
       "groups": [
         "releases-pinry"
       ],
       "include_prereleases": false,
       "name": "Pinry",
-      "repo": "pinry/pinry"
+      "repo": "pinry/pinry",
+      "topic_id": 7226
     },
     {
+      "activated_at": "2026-11-26T19:20:15.444247+00:00",
       "app_reference": "piped",
+      "category_id": 897,
+      "discussion_topic_id": 7230,
       "groups": [
         "releases-piped"
       ],
       "include_prereleases": false,
       "name": "Piped",
-      "repo": "teampiped/piped"
+      "repo": "teampiped/piped",
+      "topic_id": 7229
     },
     {
+      "activated_at": "2026-11-26T19:20:21.823987+00:00",
       "app_reference": "piwigo",
+      "category_id": 898,
+      "discussion_topic_id": 7233,
       "groups": [
         "releases-piwigo"
       ],
       "include_prereleases": false,
       "name": "Piwigo",
-      "repo": "piwigo/piwigo"
+      "repo": "piwigo/piwigo",
+      "topic_id": 7232
     },
     {
+      "activated_at": "2026-11-26T19:21:02.675005+00:00",
       "app_reference": "pixelfed",
+      "category_id": 899,
+      "discussion_topic_id": 7236,
       "groups": [
         "releases-pixelfed"
       ],
       "include_prereleases": false,
       "name": "Pixelfed",
-      "repo": "pixelfed/pixelfed"
+      "repo": "pixelfed/pixelfed",
+      "topic_id": 7235
     },
     {
+      "activated_at": "2026-11-26T19:21:11.137434+00:00",
       "app_reference": "pixelfin",
+      "category_id": 900,
+      "discussion_topic_id": 7239,
       "groups": [
         "releases-pixelfin"
       ],
       "include_prereleases": false,
       "name": "Pixelfin",
-      "repo": "nothing2obvi/pixelfin"
+      "repo": "nothing2obvi/pixelfin",
+      "topic_id": 7238
     },
     {
+      "activated_at": "2026-11-26T19:21:18.126424+00:00",
       "app_reference": "pkvault",
+      "category_id": 901,
+      "discussion_topic_id": 7242,
       "groups": [
         "releases-pkvault"
       ],
       "include_prereleases": false,
       "name": "PKVault",
-      "repo": "chnapy/pkvault"
+      "repo": "chnapy/pkvault",
+      "topic_id": 7241
     },
     {
+      "activated_at": "2026-11-26T19:21:24.122772+00:00",
       "app_reference": "planarally",
+      "category_id": 902,
+      "discussion_topic_id": 7245,
       "groups": [
         "releases-planarally"
       ],
       "include_prereleases": false,
       "name": "PlanarAlly",
-      "repo": "kruptein/planarally"
+      "repo": "kruptein/planarally",
+      "topic_id": 7244
     },
     {
+      "activated_at": "2026-11-26T19:22:06.110809+00:00",
       "app_reference": "plane",
+      "category_id": 903,
+      "discussion_topic_id": 7248,
       "groups": [
         "releases-plane"
       ],
       "include_prereleases": false,
       "name": "Plane",
-      "repo": "makeplane/plane"
+      "repo": "makeplane/plane",
+      "topic_id": 7247
     },
     {
+      "activated_at": "2026-11-26T19:22:13.340591+00:00",
       "app_reference": "planka",
+      "category_id": 904,
+      "discussion_topic_id": 7251,
       "groups": [
         "releases-planka"
       ],
       "include_prereleases": false,
       "name": "Planka",
-      "repo": "plankanban/planka"
+      "repo": "plankanban/planka",
+      "topic_id": 7250
     },
     {
+      "activated_at": "2026-11-26T19:22:20.298450+00:00",
       "app_reference": "plausible",
+      "category_id": 905,
+      "discussion_topic_id": 7254,
       "groups": [
         "releases-plausible"
       ],
       "include_prereleases": false,
       "name": "Plausible",
-      "repo": "plausible/analytics"
+      "repo": "plausible/analytics",
+      "topic_id": 7253
     },
     {
+      "activated_at": "2026-11-26T19:22:26.068695+00:00",
       "app_reference": "plikshare",
+      "category_id": 906,
+      "discussion_topic_id": 7257,
       "groups": [
         "releases-plikshare"
       ],
       "include_prereleases": false,
       "name": "PlikShare",
-      "repo": "damian-krychowski/plikshare"
+      "repo": "damian-krychowski/plikshare",
+      "topic_id": 7256
     },
     {
+      "activated_at": "2026-11-26T19:23:08.109091+00:00",
       "app_reference": "plmail",
+      "category_id": 907,
+      "discussion_topic_id": 7260,
       "groups": [
         "releases-plmail"
       ],
       "include_prereleases": false,
       "name": "plMail",
-      "repo": "karatektus/pl_mail"
+      "repo": "karatektus/pl_mail",
+      "topic_id": 7259
     },
     {
+      "activated_at": "2026-11-26T19:23:15.253497+00:00",
       "app_reference": "pluton",
+      "category_id": 908,
+      "discussion_topic_id": 7263,
       "groups": [
         "releases-pluton"
       ],
       "include_prereleases": false,
       "name": "Pluton",
-      "repo": "plutonhq/pluton"
+      "repo": "plutonhq/pluton",
+      "topic_id": 7262
     },
     {
+      "activated_at": "2026-11-26T19:23:22.405604+00:00",
       "app_reference": "pocket-id",
+      "category_id": 909,
+      "discussion_topic_id": 7266,
       "groups": [
         "releases-pocket-id"
       ],
       "include_prereleases": false,
       "name": "Pocket ID",
-      "repo": "pocket-id/pocket-id"
+      "repo": "pocket-id/pocket-id",
+      "topic_id": 7265
     },
     {
+      "activated_at": "2026-11-26T19:24:03.013794+00:00",
       "app_reference": "podfetch",
+      "category_id": 910,
+      "discussion_topic_id": 7269,
       "groups": [
         "releases-podfetch"
       ],
       "include_prereleases": false,
       "name": "PodFetch",
-      "repo": "samtv12345/podfetch"
+      "repo": "samtv12345/podfetch",
+      "topic_id": 7268
     },
     {
+      "activated_at": "2026-11-26T19:24:10.727356+00:00",
       "app_reference": "podsync",
+      "category_id": 911,
+      "discussion_topic_id": 7272,
       "groups": [
         "releases-podsync"
       ],
       "include_prereleases": false,
       "name": "Podsync",
-      "repo": "mxpv/podsync"
+      "repo": "mxpv/podsync",
+      "topic_id": 7271
     },
     {
+      "activated_at": "2026-11-26T19:24:18.119385+00:00",
       "app_reference": "poenskelisten",
+      "category_id": 912,
+      "discussion_topic_id": 7275,
       "groups": [
         "releases-poenskelisten"
       ],
       "include_prereleases": false,
       "name": "Poenskelisten",
-      "repo": "aunefyren/poenskelisten"
+      "repo": "aunefyren/poenskelisten",
+      "topic_id": 7274
     },
     {
+      "activated_at": "2026-11-26T19:24:24.464378+00:00",
       "app_reference": "poeticmetric",
+      "category_id": 913,
+      "discussion_topic_id": 7278,
       "groups": [
         "releases-poeticmetric"
       ],
       "include_prereleases": false,
       "name": "PoeticMetric",
-      "repo": "th0th/poeticmetric"
+      "repo": "th0th/poeticmetric",
+      "topic_id": 7277
     },
     {
+      "activated_at": "2026-11-26T19:25:06.593653+00:00",
       "app_reference": "polaris",
+      "category_id": 914,
+      "discussion_topic_id": 7281,
       "groups": [
         "releases-polaris"
       ],
       "include_prereleases": false,
       "name": "Polaris",
-      "repo": "agersant/polaris"
+      "repo": "agersant/polaris",
+      "topic_id": 7280
     },
     {
+      "activated_at": "2026-11-26T19:25:14.456066+00:00",
       "app_reference": "portabase",
+      "category_id": 915,
+      "discussion_topic_id": 7284,
       "groups": [
         "releases-portabase"
       ],
       "include_prereleases": false,
       "name": "Portabase",
-      "repo": "portabase/portabase"
+      "repo": "portabase/portabase",
+      "topic_id": 7283
     },
     {
+      "activated_at": "2026-11-26T19:25:20.532190+00:00",
       "app_reference": "portracker",
+      "category_id": 916,
+      "discussion_topic_id": 7287,
       "groups": [
         "releases-portracker"
       ],
       "include_prereleases": false,
       "name": "portracker",
-      "repo": "mostafa-wahied/portracker"
+      "repo": "mostafa-wahied/portracker",
+      "topic_id": 7286
     },
     {
+      "activated_at": "2026-11-26T19:25:26.660339+00:00",
       "app_reference": "positive-intentions-chat",
+      "category_id": 917,
+      "discussion_topic_id": 7290,
       "groups": [
         "releases-positive-intentions-chat"
       ],
       "include_prereleases": false,
       "name": "positive-intentions Chat",
-      "repo": "positive-intentions/chat"
+      "repo": "positive-intentions/chat",
+      "topic_id": 7289
     },
     {
+      "activated_at": "2026-11-26T19:26:08.921669+00:00",
       "app_reference": "postal",
+      "category_id": 918,
+      "discussion_topic_id": 7293,
       "groups": [
         "releases-postal"
       ],
       "include_prereleases": false,
       "name": "Postal",
-      "repo": "postalserver/postal"
+      "repo": "postalserver/postal",
+      "topic_id": 7292
     },
     {
+      "activated_at": "2026-11-26T19:26:16.228561+00:00",
       "app_reference": "posterizarr",
+      "category_id": 919,
+      "discussion_topic_id": 7296,
       "groups": [
         "releases-posterizarr"
       ],
       "include_prereleases": false,
       "name": "Posterizarr",
-      "repo": "fscorrupt/posterizarr"
+      "repo": "fscorrupt/posterizarr",
+      "topic_id": 7295
     },
     {
+      "activated_at": "2026-11-26T19:26:22.551502+00:00",
       "app_reference": "posthog",
+      "category_id": 920,
+      "discussion_topic_id": 7299,
       "groups": [
         "releases-posthog"
       ],
       "include_prereleases": false,
       "name": "PostHog",
-      "repo": "posthog/posthog"
+      "repo": "posthog/posthog",
+      "topic_id": 7298
     },
     {
+      "activated_at": "2026-11-26T19:26:28.640609+00:00",
       "app_reference": "postiz",
+      "category_id": 921,
+      "discussion_topic_id": 7302,
       "groups": [
         "releases-postiz"
       ],
       "include_prereleases": false,
       "name": "Postiz",
-      "repo": "gitroomhq/postiz-app"
+      "repo": "gitroomhq/postiz-app",
+      "topic_id": 7301
     },
     {
+      "activated_at": "2026-11-26T19:27:12.111497+00:00",
       "app_reference": "postmarks",
+      "category_id": 922,
+      "discussion_topic_id": 7305,
       "groups": [
         "releases-postmarks"
       ],
       "include_prereleases": false,
       "name": "Postmarks",
-      "repo": "ckolderup/postmarks"
+      "repo": "ckolderup/postmarks",
+      "topic_id": 7304
     },
     {
       "app_reference": "poznote",
