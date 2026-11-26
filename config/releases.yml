@@ -8,6 +8,7 @@ releases:
   groups:
   - releases-pangolin
   include_prereleases: true
+  app_reference: pangolin
 - repo: fosrl/newt
   parent: Pangolin Releases
   name: Newt
@@ -16,6 +17,7 @@ releases:
   groups:
   - releases-newt
   include_prereleases: false
+  icon_app: pangolin
 - repo: fosrl/gerbil
   parent: Pangolin Releases
   name: Gerbil
@@ -24,6 +26,7 @@ releases:
   groups:
   - releases-gerbil
   include_prereleases: false
+  icon_app: pangolin
 - repo: fosrl/badger
   parent: Pangolin Releases
   name: Badger
@@ -32,6 +35,7 @@ releases:
   groups:
   - releases-badger
   include_prereleases: false
+  icon_app: pangolin
 - repo: fosrl/olm
   parent: Pangolin Releases
   name: Olm
@@ -40,6 +44,7 @@ releases:
   groups:
   - releases-olm
   include_prereleases: false
+  icon_app: pangolin
 - repo: fosrl/cli
   parent: Pangolin Releases
   name: CLI
@@ -48,6 +53,7 @@ releases:
   groups:
   - releases-pg-cli
   include_prereleases: false
+  icon_app: pangolin
 - repo: fosrl/android
   parent: Pangolin Releases
   name: Android
@@ -56,6 +62,7 @@ releases:
   groups:
   - releases-android
   include_prereleases: false
+  icon_app: pangolin
 - repo: fosrl/apple
   parent: Pangolin Releases
   name: iOS
@@ -65,6 +72,7 @@ releases:
   groups:
   - releases-ios
   include_prereleases: false
+  icon_app: pangolin
 - repo: fosrl/apple
   parent: Pangolin Releases
   name: macOS
@@ -74,6 +82,7 @@ releases:
   groups:
   - releases-macos
   include_prereleases: false
+  icon_app: pangolin
 - repo: fosrl/windows-linux
   parent: Pangolin Releases
   name: Windows
@@ -83,6 +92,7 @@ releases:
   groups:
   - releases-windows
   include_prereleases: false
+  icon_app: pangolin
 - repo: fosrl/windows-linux
   parent: Pangolin Releases
   name: Linux
@@ -92,6 +102,7 @@ releases:
   groups:
   - releases-linux
   include_prereleases: false
+  icon_app: pangolin
 - repo: fosrl/helm-charts
   parent: Pangolin Releases
   name: Helm charts
@@ -100,6 +111,7 @@ releases:
   groups:
   - releases-helm
   include_prereleases: false
+  icon_app: pangolin
 - repo: fosrl/pangolin-node
   parent: Pangolin Releases
   name: Pangolin Node
@@ -108,6 +120,7 @@ releases:
   groups:
   - releases-pg-node
   include_prereleases: false
+  icon_app: pangolin
 - repo: traefik/traefik
   name: Traefik
   category_id: 130
@@ -115,6 +128,7 @@ releases:
   groups:
   - releases-traefik
   include_prereleases: false
+  app_reference: traefik
 - repo: coollabsio/coolify
   name: Coolify
   category_id: 131
@@ -122,6 +136,7 @@ releases:
   groups:
   - releases-coolify
   include_prereleases: false
+  app_reference: coolify
 - repo: n8n-io/n8n
   name: n8n
   tag_prefix: n8n@
@@ -130,6 +145,7 @@ releases:
   groups:
   - releases-n8n
   include_prereleases: false
+  app_reference: n8n
 - repo: crowdsecurity/crowdsec
   name: CrowdSec
   category_id: 133
@@ -137,6 +153,7 @@ releases:
   groups:
   - releases-crowdsec
   include_prereleases: false
+  app_reference: crowdsec
 - repo: caddyserver/caddy
   name: Caddy
   category_id: 134
@@ -144,6 +161,7 @@ releases:
   groups:
   - releases-caddy
   include_prereleases: false
+  app_reference: caddy
 - repo: goauthentik/authentik
   name: authentik
   category_id: 135
@@ -151,6 +169,7 @@ releases:
   groups:
   - releases-authentik
   include_prereleases: false
+  app_reference: authentik
 - repo: authelia/authelia
   name: Authelia
   category_id: 136
@@ -158,6 +177,7 @@ releases:
   groups:
   - releases-authelia
   include_prereleases: false
+  app_reference: authelia
 - repo: portainer/portainer
   name: Portainer
   category_id: 137
@@ -165,6 +185,7 @@ releases:
   groups:
   - releases-portainer
   include_prereleases: false
+  app_reference: portainer
 - repo: louislam/uptime-kuma
   name: Uptime Kuma
   category_id: 138
@@ -172,6 +193,7 @@ releases:
   groups:
   - releases-uptime-kuma
   include_prereleases: false
+  app_reference: uptime-kuma
 - repo: immich-app/immich
   name: Immich
   category_id: 139
@@ -179,6 +201,7 @@ releases:
   groups:
   - releases-immich
   include_prereleases: false
+  app_reference: immich
 - repo: jellyfin/jellyfin
   name: Jellyfin
   category_id: 140
@@ -186,6 +209,7 @@ releases:
   groups:
   - releases-jellyfin
   include_prereleases: false
+  app_reference: jellyfin
 - repo: home-assistant/core
   name: Home Assistant
   category_id: 141
@@ -193,6 +217,7 @@ releases:
   groups:
   - releases-hass
   include_prereleases: false
+  app_reference: home-assistant
 - repo: AdguardTeam/AdGuardHome
   name: AdGuard Home
   category_id: 142
@@ -200,6 +225,7 @@ releases:
   groups:
   - releases-adguard
   include_prereleases: false
+  app_reference: adguard-home
 - repo: pi-hole/pi-hole
   name: Pi-hole
   category_id: 143
@@ -207,6 +233,7 @@ releases:
   groups:
   - releases-pihole
   include_prereleases: false
+  app_reference: pi-hole
 - repo: tailscale/tailscale
   name: Tailscale
   category_id: 144
@@ -221,6 +248,7 @@ releases:
   groups:
   - releases-vaultwarden
   include_prereleases: false
+  app_reference: vaultwarden
 - repo: NginxProxyManager/nginx-proxy-manager
   name: Nginx Proxy Manager
   category_id: 146
@@ -228,6 +256,7 @@ releases:
   groups:
   - releases-npm
   include_prereleases: false
+  app_reference: nginx-proxy-manager
 - name: 1Panel
   repo: 1panel-dev/1panel
   groups:
