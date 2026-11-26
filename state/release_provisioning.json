@@ -7303,15 +7303,17 @@
       "topic_id": 6581
     },
     {
+      "activated_at": "2026-11-26T16:03:49.997589+00:00",
       "app_reference": "maintainerr",
+      "category_id": 710,
+      "discussion_topic_id": 6664,
       "groups": [
         "releases-maintainerr"
       ],
       "include_prereleases": false,
       "name": "Maintainerr",
-      "provisioning": true,
-      "provisioning_error": "ReadTimeout",
-      "repo": "maintainerr/maintainerr"
+      "repo": "maintainerr/maintainerr",
+      "topic_id": 6663
     },
     {
       "activated_at": "2026-11-26T15:51:16.456728+00:00",
@@ -7405,16 +7407,17 @@
       "topic_id": 6602
     },
     {
+      "activated_at": "2026-11-26T16:03:54.159096+00:00",
       "app_reference": "mastodon",
       "category_id": 690,
+      "discussion_topic_id": 6666,
       "groups": [
         "releases-mastodon"
       ],
       "include_prereleases": false,
       "name": "Mastodon",
-      "provisioning": true,
-      "provisioning_error": "DiscourseError",
-      "repo": "mastodon/mastodon"
+      "repo": "mastodon/mastodon",
+      "topic_id": 6665
     },
     {
       "activated_at": "2026-11-26T15:53:54.617666+00:00",
@@ -7664,328 +7667,472 @@
       "topic_id": 6660
     },
     {
+      "activated_at": "2026-11-26T16:04:01.597040+00:00",
       "app_reference": "melody-auth",
+      "category_id": 711,
+      "discussion_topic_id": 6669,
       "groups": [
         "releases-melody-auth"
       ],
       "include_prereleases": false,
       "name": "Melody Auth",
-      "repo": "valuemelody/melody-auth"
+      "repo": "valuemelody/melody-auth",
+      "topic_id": 6668
     },
     {
+      "activated_at": "2026-11-26T16:04:08.583773+00:00",
       "app_reference": "meme-search",
+      "category_id": 712,
+      "discussion_topic_id": 6672,
       "groups": [
         "releases-meme-search"
       ],
       "include_prereleases": false,
       "name": "Meme Search",
-      "repo": "meme-search/meme-search"
+      "repo": "meme-search/meme-search",
+      "topic_id": 6671
     },
     {
+      "activated_at": "2026-11-26T16:04:50.430503+00:00",
       "app_reference": "memories",
+      "category_id": 713,
+      "discussion_topic_id": 6675,
       "groups": [
         "releases-memories"
       ],
       "include_prereleases": false,
       "name": "Memories",
-      "repo": "pulsejet/memories"
+      "repo": "pulsejet/memories",
+      "topic_id": 6674
     },
     {
+      "activated_at": "2026-11-26T16:04:57.346187+00:00",
       "app_reference": "memos",
+      "category_id": 714,
+      "discussion_topic_id": 6678,
       "groups": [
         "releases-memos"
       ],
       "include_prereleases": false,
       "name": "Memos",
-      "repo": "usememos/memos"
+      "repo": "usememos/memos",
+      "topic_id": 6677
     },
     {
+      "activated_at": "2026-11-26T16:05:04.411953+00:00",
       "app_reference": "memtly",
+      "category_id": 715,
+      "discussion_topic_id": 6681,
       "groups": [
         "releases-memtly"
       ],
       "include_prereleases": false,
       "name": "Memtly",
-      "repo": "memtly/memtly.community"
+      "repo": "memtly/memtly.community",
+      "topic_id": 6680
     },
     {
+      "activated_at": "2026-11-26T16:05:44.928983+00:00",
       "app_reference": "mergeable",
+      "category_id": 716,
+      "discussion_topic_id": 6684,
       "groups": [
         "releases-mergeable"
       ],
       "include_prereleases": false,
       "name": "Mergeable",
-      "repo": "pvcnt/mergeable"
+      "repo": "pvcnt/mergeable",
+      "topic_id": 6683
     },
     {
+      "activated_at": "2026-11-26T16:05:53.032165+00:00",
       "app_reference": "meshcentral",
+      "category_id": 717,
+      "discussion_topic_id": 6687,
       "groups": [
         "releases-meshcentral"
       ],
       "include_prereleases": false,
       "name": "MeshCentral",
-      "repo": "ylianst/meshcentral"
+      "repo": "ylianst/meshcentral",
+      "topic_id": 6686
     },
     {
+      "activated_at": "2026-11-26T16:05:59.918731+00:00",
       "app_reference": "meshping",
+      "category_id": 718,
+      "discussion_topic_id": 6690,
       "groups": [
         "releases-meshping"
       ],
       "include_prereleases": false,
       "name": "Meshping",
-      "repo": "svedrin/meshping"
+      "repo": "svedrin/meshping",
+      "topic_id": 6689
     },
     {
+      "activated_at": "2026-11-26T16:06:06.766855+00:00",
       "app_reference": "metabase",
+      "category_id": 719,
+      "discussion_topic_id": 6693,
       "groups": [
         "releases-metabase"
       ],
       "include_prereleases": false,
       "name": "Metabase",
-      "repo": "metabase/metabase"
+      "repo": "metabase/metabase",
+      "topic_id": 6692
     },
     {
+      "activated_at": "2026-11-26T16:06:46.954806+00:00",
       "app_reference": "metadata-remote",
+      "category_id": 720,
+      "discussion_topic_id": 6696,
       "groups": [
         "releases-metadata-remote"
       ],
       "include_prereleases": false,
       "name": "Metadata Remote",
-      "repo": "wow-signal-dev/metadata-remote"
+      "repo": "wow-signal-dev/metadata-remote",
+      "topic_id": 6695
     },
     {
+      "activated_at": "2026-11-26T16:06:55.467528+00:00",
       "app_reference": "metube",
+      "category_id": 721,
+      "discussion_topic_id": 6699,
       "groups": [
         "releases-metube"
       ],
       "include_prereleases": false,
       "name": "MeTube",
-      "repo": "alexta69/metube"
+      "repo": "alexta69/metube",
+      "topic_id": 6698
     },
     {
+      "activated_at": "2026-11-26T16:07:02.569001+00:00",
       "app_reference": "microbin",
+      "category_id": 722,
+      "discussion_topic_id": 6702,
       "groups": [
         "releases-microbin"
       ],
       "include_prereleases": false,
       "name": "MicroBin",
-      "repo": "szabodanika/microbin"
+      "repo": "szabodanika/microbin",
+      "topic_id": 6701
     },
     {
+      "activated_at": "2026-11-26T16:07:09.460522+00:00",
       "app_reference": "mindwtr",
+      "category_id": 723,
+      "discussion_topic_id": 6705,
       "groups": [
         "releases-mindwtr"
       ],
       "include_prereleases": false,
       "name": "Mindwtr",
-      "repo": "dongdongbh/mindwtr"
+      "repo": "dongdongbh/mindwtr",
+      "topic_id": 6704
     },
     {
+      "activated_at": "2026-11-26T16:07:48.791850+00:00",
       "app_reference": "mini-qr",
+      "category_id": 724,
+      "discussion_topic_id": 6708,
       "groups": [
         "releases-mini-qr"
       ],
       "include_prereleases": false,
       "name": "Mini QR",
-      "repo": "lyqht/mini-qr"
+      "repo": "lyqht/mini-qr",
+      "topic_id": 6707
     },
     {
+      "activated_at": "2026-11-26T16:07:57.992718+00:00",
       "app_reference": "miniflux",
+      "category_id": 725,
+      "discussion_topic_id": 6711,
       "groups": [
         "releases-miniflux"
       ],
       "include_prereleases": false,
       "name": "Miniflux",
-      "repo": "miniflux/v2"
+      "repo": "miniflux/v2",
+      "topic_id": 6710
     },
     {
+      "activated_at": "2026-11-26T16:08:04.998195+00:00",
       "app_reference": "miniserve",
+      "category_id": 726,
+      "discussion_topic_id": 6714,
       "groups": [
         "releases-miniserve"
       ],
       "include_prereleases": false,
       "name": "miniserve",
-      "repo": "svenstaro/miniserve"
+      "repo": "svenstaro/miniserve",
+      "topic_id": 6713
     },
     {
+      "activated_at": "2026-11-26T16:08:12.191563+00:00",
       "app_reference": "minne",
+      "category_id": 727,
+      "discussion_topic_id": 6717,
       "groups": [
         "releases-minne"
       ],
       "include_prereleases": false,
       "name": "Minne",
-      "repo": "perstarkse/minne"
+      "repo": "perstarkse/minne",
+      "topic_id": 6716
     },
     {
+      "activated_at": "2026-11-26T16:08:52.981653+00:00",
       "app_reference": "minthcm",
+      "category_id": 728,
+      "discussion_topic_id": 6720,
       "groups": [
         "releases-minthcm"
       ],
       "include_prereleases": false,
       "name": "MintHCM",
-      "repo": "minthcm/minthcm"
+      "repo": "minthcm/minthcm",
+      "topic_id": 6719
     },
     {
+      "activated_at": "2026-11-26T16:08:59.961001+00:00",
       "app_reference": "minuspod",
+      "category_id": 729,
+      "discussion_topic_id": 6723,
       "groups": [
         "releases-minuspod"
       ],
       "include_prereleases": false,
       "name": "MinusPod",
-      "repo": "ttlequals0/minuspod"
+      "repo": "ttlequals0/minuspod",
+      "topic_id": 6722
     },
     {
+      "activated_at": "2026-11-26T16:09:07.047072+00:00",
       "app_reference": "mirotalk",
+      "category_id": 730,
+      "discussion_topic_id": 6726,
       "groups": [
         "releases-mirotalk"
       ],
       "include_prereleases": false,
       "name": "MiroTalk",
-      "repo": "miroslavpejic85/mirotalk"
+      "repo": "miroslavpejic85/mirotalk",
+      "topic_id": 6725
     },
     {
+      "activated_at": "2026-11-26T16:09:46.250171+00:00",
       "app_reference": "misskey",
+      "category_id": 731,
+      "discussion_topic_id": 6729,
       "groups": [
         "releases-misskey"
       ],
       "include_prereleases": false,
       "name": "Misskey",
-      "repo": "misskey-dev/misskey"
+      "repo": "misskey-dev/misskey",
+      "topic_id": 6728
     },
     {
+      "activated_at": "2026-11-26T16:09:54.472564+00:00",
       "app_reference": "mixpost",
+      "category_id": 732,
+      "discussion_topic_id": 6732,
       "groups": [
         "releases-mixpost"
       ],
       "include_prereleases": false,
       "name": "Mixpost",
-      "repo": "inovector/mixpost"
+      "repo": "inovector/mixpost",
+      "topic_id": 6731
     },
     {
+      "activated_at": "2026-11-26T16:10:02.257014+00:00",
       "app_reference": "mkbrr",
+      "category_id": 733,
+      "discussion_topic_id": 6735,
       "groups": [
         "releases-mkbrr"
       ],
       "include_prereleases": false,
       "name": "mkbrr",
-      "repo": "autobrr/mkbrr"
+      "repo": "autobrr/mkbrr",
+      "topic_id": 6734
     },
     {
+      "activated_at": "2026-11-26T16:10:09.167673+00:00",
       "app_reference": "mkcert-web-ui",
+      "category_id": 734,
+      "discussion_topic_id": 6738,
       "groups": [
         "releases-mkcert-web-ui"
       ],
       "include_prereleases": false,
       "name": "mkcert Web UI",
-      "repo": "jeffcaldwellca/mkcertweb"
+      "repo": "jeffcaldwellca/mkcertweb",
+      "topic_id": 6737
     },
     {
+      "activated_at": "2026-11-26T16:10:49.768847+00:00",
       "app_reference": "mkdocs",
+      "category_id": 735,
+      "discussion_topic_id": 6741,
       "groups": [
         "releases-mkdocs"
       ],
       "include_prereleases": false,
       "name": "MkDocs",
-      "repo": "mkdocs/mkdocs"
+      "repo": "mkdocs/mkdocs",
+      "topic_id": 6740
     },
     {
+      "activated_at": "2026-11-26T16:10:58.058729+00:00",
       "app_reference": "mkvpriority",
+      "category_id": 736,
+      "discussion_topic_id": 6744,
       "groups": [
         "releases-mkvpriority"
       ],
       "include_prereleases": false,
       "name": "MKVPriority",
-      "repo": "kennethsible/mkvpriority"
+      "repo": "kennethsible/mkvpriority",
+      "topic_id": 6743
     },
     {
+      "activated_at": "2026-11-26T16:11:04.960327+00:00",
       "app_reference": "monetr",
+      "category_id": 737,
+      "discussion_topic_id": 6747,
       "groups": [
         "releases-monetr"
       ],
       "include_prereleases": false,
       "name": "Monetr",
-      "repo": "monetr/monetr"
+      "repo": "monetr/monetr",
+      "topic_id": 6746
     },
     {
+      "activated_at": "2026-11-26T16:11:11.788632+00:00",
       "app_reference": "monica",
+      "category_id": 738,
+      "discussion_topic_id": 6750,
       "groups": [
         "releases-monica"
       ],
       "include_prereleases": false,
       "name": "Monica",
-      "repo": "monicahq/monica"
+      "repo": "monicahq/monica",
+      "topic_id": 6749
     },
     {
+      "activated_at": "2026-11-26T16:11:52.635823+00:00",
       "app_reference": "moocup",
+      "category_id": 739,
+      "discussion_topic_id": 6753,
       "groups": [
         "releases-moocup"
       ],
       "include_prereleases": false,
       "name": "Moocup",
-      "repo": "jellydeck/moocup"
+      "repo": "jellydeck/moocup",
+      "topic_id": 6752
     },
     {
+      "activated_at": "2026-11-26T16:12:00.833705+00:00",
       "app_reference": "moodist",
+      "category_id": 740,
+      "discussion_topic_id": 6756,
       "groups": [
         "releases-moodist"
       ],
       "include_prereleases": false,
       "name": "Moodist",
-      "repo": "remvze/moodist"
+      "repo": "remvze/moodist",
+      "topic_id": 6755
     },
     {
+      "activated_at": "2026-11-26T16:12:07.760232+00:00",
       "app_reference": "moodle",
+      "category_id": 741,
+      "discussion_topic_id": 6759,
       "groups": [
         "releases-moodle"
       ],
       "include_prereleases": false,
       "name": "Moodle",
-      "repo": "moodle/moodle"
+      "repo": "moodle/moodle",
+      "topic_id": 6758
     },
     {
+      "activated_at": "2026-11-26T16:12:14.588232+00:00",
       "app_reference": "mosquitto",
+      "category_id": 742,
+      "discussion_topic_id": 6762,
       "groups": [
         "releases-mosquitto"
       ],
       "include_prereleases": false,
       "name": "Mosquitto",
-      "repo": "eclipse-mosquitto/mosquitto"
+      "repo": "eclipse-mosquitto/mosquitto",
+      "topic_id": 6761
     },
     {
+      "activated_at": "2026-11-26T16:12:55.425451+00:00",
       "app_reference": "movary",
+      "category_id": 743,
+      "discussion_topic_id": 6765,
       "groups": [
         "releases-movary"
       ],
       "include_prereleases": false,
       "name": "Movary",
-      "repo": "leepeuker/movary"
+      "repo": "leepeuker/movary",
+      "topic_id": 6764
     },
     {
+      "activated_at": "2026-11-26T16:13:03.680832+00:00",
       "app_reference": "movim",
+      "category_id": 744,
+      "discussion_topic_id": 6768,
       "groups": [
         "releases-movim"
       ],
       "include_prereleases": false,
       "name": "Movim",
-      "repo": "movim/movim"
+      "repo": "movim/movim",
+      "topic_id": 6767
     },
     {
+      "activated_at": "2026-11-26T16:13:10.514653+00:00",
       "app_reference": "mqtt-web-interface",
+      "category_id": 745,
+      "discussion_topic_id": 6771,
       "groups": [
         "releases-mqtt-web-interface"
       ],
       "include_prereleases": false,
       "name": "MQTT Web Interface",
-      "repo": "terdia/mqttui"
+      "repo": "terdia/mqttui",
+      "topic_id": 6770
     },
     {
+      "activated_at": "2026-11-26T16:13:49.111398+00:00",
       "app_reference": "multi-scrobbler",
+      "category_id": 746,
+      "discussion_topic_id": 6774,
       "groups": [
         "releases-multi-scrobbler"
       ],
       "include_prereleases": false,
       "name": "Multi-Scrobbler",
-      "repo": "foxxmd/multi-scrobbler"
+      "repo": "foxxmd/multi-scrobbler",
+      "topic_id": 6773
     },
     {
       "app_reference": "mumble",

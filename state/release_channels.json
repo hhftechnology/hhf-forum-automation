@@ -5639,6 +5639,16 @@
       "topic_id": 6581
     },
     {
+      "category_id": 710,
+      "discussion_topic_id": 6664,
+      "groups": [
+        "releases-maintainerr"
+      ],
+      "name": "Maintainerr",
+      "repo": "maintainerr/maintainerr",
+      "topic_id": 6663
+    },
+    {
       "category_id": 683,
       "discussion_topic_id": 6585,
       "groups": [
@@ -5707,6 +5717,16 @@
       "name": "Marreta",
       "repo": "manualdousuario/marreta",
       "topic_id": 6602
+    },
+    {
+      "category_id": 690,
+      "discussion_topic_id": 6666,
+      "groups": [
+        "releases-mastodon"
+      ],
+      "name": "Mastodon",
+      "repo": "mastodon/mastodon",
+      "topic_id": 6665
     },
     {
       "category_id": 691,
@@ -5897,6 +5917,366 @@
       "name": "Meilisearch",
       "repo": "meilisearch/meilisearch",
       "topic_id": 6660
+    },
+    {
+      "category_id": 711,
+      "discussion_topic_id": 6669,
+      "groups": [
+        "releases-melody-auth"
+      ],
+      "name": "Melody Auth",
+      "repo": "valuemelody/melody-auth",
+      "topic_id": 6668
+    },
+    {
+      "category_id": 712,
+      "discussion_topic_id": 6672,
+      "groups": [
+        "releases-meme-search"
+      ],
+      "name": "Meme Search",
+      "repo": "meme-search/meme-search",
+      "topic_id": 6671
+    },
+    {
+      "category_id": 713,
+      "discussion_topic_id": 6675,
+      "groups": [
+        "releases-memories"
+      ],
+      "name": "Memories",
+      "repo": "pulsejet/memories",
+      "topic_id": 6674
+    },
+    {
+      "category_id": 714,
+      "discussion_topic_id": 6678,
+      "groups": [
+        "releases-memos"
+      ],
+      "name": "Memos",
+      "repo": "usememos/memos",
+      "topic_id": 6677
+    },
+    {
+      "category_id": 715,
+      "discussion_topic_id": 6681,
+      "groups": [
+        "releases-memtly"
+      ],
+      "name": "Memtly",
+      "repo": "memtly/memtly.community",
+      "topic_id": 6680
+    },
+    {
+      "category_id": 716,
+      "discussion_topic_id": 6684,
+      "groups": [
+        "releases-mergeable"
+      ],
+      "name": "Mergeable",
+      "repo": "pvcnt/mergeable",
+      "topic_id": 6683
+    },
+    {
+      "category_id": 717,
+      "discussion_topic_id": 6687,
+      "groups": [
+        "releases-meshcentral"
+      ],
+      "name": "MeshCentral",
+      "repo": "ylianst/meshcentral",
+      "topic_id": 6686
+    },
+    {
+      "category_id": 718,
+      "discussion_topic_id": 6690,
+      "groups": [
+        "releases-meshping"
+      ],
+      "name": "Meshping",
+      "repo": "svedrin/meshping",
+      "topic_id": 6689
+    },
+    {
+      "category_id": 719,
+      "discussion_topic_id": 6693,
+      "groups": [
+        "releases-metabase"
+      ],
+      "name": "Metabase",
+      "repo": "metabase/metabase",
+      "topic_id": 6692
+    },
+    {
+      "category_id": 720,
+      "discussion_topic_id": 6696,
+      "groups": [
+        "releases-metadata-remote"
+      ],
+      "name": "Metadata Remote",
+      "repo": "wow-signal-dev/metadata-remote",
+      "topic_id": 6695
+    },
+    {
+      "category_id": 721,
+      "discussion_topic_id": 6699,
+      "groups": [
+        "releases-metube"
+      ],
+      "name": "MeTube",
+      "repo": "alexta69/metube",
+      "topic_id": 6698
+    },
+    {
+      "category_id": 722,
+      "discussion_topic_id": 6702,
+      "groups": [
+        "releases-microbin"
+      ],
+      "name": "MicroBin",
+      "repo": "szabodanika/microbin",
+      "topic_id": 6701
+    },
+    {
+      "category_id": 723,
+      "discussion_topic_id": 6705,
+      "groups": [
+        "releases-mindwtr"
+      ],
+      "name": "Mindwtr",
+      "repo": "dongdongbh/mindwtr",
+      "topic_id": 6704
+    },
+    {
+      "category_id": 724,
+      "discussion_topic_id": 6708,
+      "groups": [
+        "releases-mini-qr"
+      ],
+      "name": "Mini QR",
+      "repo": "lyqht/mini-qr",
+      "topic_id": 6707
+    },
+    {
+      "category_id": 725,
+      "discussion_topic_id": 6711,
+      "groups": [
+        "releases-miniflux"
+      ],
+      "name": "Miniflux",
+      "repo": "miniflux/v2",
+      "topic_id": 6710
+    },
+    {
+      "category_id": 726,
+      "discussion_topic_id": 6714,
+      "groups": [
+        "releases-miniserve"
+      ],
+      "name": "miniserve",
+      "repo": "svenstaro/miniserve",
+      "topic_id": 6713
+    },
+    {
+      "category_id": 727,
+      "discussion_topic_id": 6717,
+      "groups": [
+        "releases-minne"
+      ],
+      "name": "Minne",
+      "repo": "perstarkse/minne",
+      "topic_id": 6716
+    },
+    {
+      "category_id": 728,
+      "discussion_topic_id": 6720,
+      "groups": [
+        "releases-minthcm"
+      ],
+      "name": "MintHCM",
+      "repo": "minthcm/minthcm",
+      "topic_id": 6719
+    },
+    {
+      "category_id": 729,
+      "discussion_topic_id": 6723,
+      "groups": [
+        "releases-minuspod"
+      ],
+      "name": "MinusPod",
+      "repo": "ttlequals0/minuspod",
+      "topic_id": 6722
+    },
+    {
+      "category_id": 730,
+      "discussion_topic_id": 6726,
+      "groups": [
+        "releases-mirotalk"
+      ],
+      "name": "MiroTalk",
+      "repo": "miroslavpejic85/mirotalk",
+      "topic_id": 6725
+    },
+    {
+      "category_id": 731,
+      "discussion_topic_id": 6729,
+      "groups": [
+        "releases-misskey"
+      ],
+      "name": "Misskey",
+      "repo": "misskey-dev/misskey",
+      "topic_id": 6728
+    },
+    {
+      "category_id": 732,
+      "discussion_topic_id": 6732,
+      "groups": [
+        "releases-mixpost"
+      ],
+      "name": "Mixpost",
+      "repo": "inovector/mixpost",
+      "topic_id": 6731
+    },
+    {
+      "category_id": 733,
+      "discussion_topic_id": 6735,
+      "groups": [
+        "releases-mkbrr"
+      ],
+      "name": "mkbrr",
+      "repo": "autobrr/mkbrr",
+      "topic_id": 6734
+    },
+    {
+      "category_id": 734,
+      "discussion_topic_id": 6738,
+      "groups": [
+        "releases-mkcert-web-ui"
+      ],
+      "name": "mkcert Web UI",
+      "repo": "jeffcaldwellca/mkcertweb",
+      "topic_id": 6737
+    },
+    {
+      "category_id": 735,
+      "discussion_topic_id": 6741,
+      "groups": [
+        "releases-mkdocs"
+      ],
+      "name": "MkDocs",
+      "repo": "mkdocs/mkdocs",
+      "topic_id": 6740
+    },
+    {
+      "category_id": 736,
+      "discussion_topic_id": 6744,
+      "groups": [
+        "releases-mkvpriority"
+      ],
+      "name": "MKVPriority",
+      "repo": "kennethsible/mkvpriority",
+      "topic_id": 6743
+    },
+    {
+      "category_id": 737,
+      "discussion_topic_id": 6747,
+      "groups": [
+        "releases-monetr"
+      ],
+      "name": "Monetr",
+      "repo": "monetr/monetr",
+      "topic_id": 6746
+    },
+    {
+      "category_id": 738,
+      "discussion_topic_id": 6750,
+      "groups": [
+        "releases-monica"
+      ],
+      "name": "Monica",
+      "repo": "monicahq/monica",
+      "topic_id": 6749
+    },
+    {
+      "category_id": 739,
+      "discussion_topic_id": 6753,
+      "groups": [
+        "releases-moocup"
+      ],
+      "name": "Moocup",
+      "repo": "jellydeck/moocup",
+      "topic_id": 6752
+    },
+    {
+      "category_id": 740,
+      "discussion_topic_id": 6756,
+      "groups": [
+        "releases-moodist"
+      ],
+      "name": "Moodist",
+      "repo": "remvze/moodist",
+      "topic_id": 6755
+    },
+    {
+      "category_id": 741,
+      "discussion_topic_id": 6759,
+      "groups": [
+        "releases-moodle"
+      ],
+      "name": "Moodle",
+      "repo": "moodle/moodle",
+      "topic_id": 6758
+    },
+    {
+      "category_id": 742,
+      "discussion_topic_id": 6762,
+      "groups": [
+        "releases-mosquitto"
+      ],
+      "name": "Mosquitto",
+      "repo": "eclipse-mosquitto/mosquitto",
+      "topic_id": 6761
+    },
+    {
+      "category_id": 743,
+      "discussion_topic_id": 6765,
+      "groups": [
+        "releases-movary"
+      ],
+      "name": "Movary",
+      "repo": "leepeuker/movary",
+      "topic_id": 6764
+    },
+    {
+      "category_id": 744,
+      "discussion_topic_id": 6768,
+      "groups": [
+        "releases-movim"
+      ],
+      "name": "Movim",
+      "repo": "movim/movim",
+      "topic_id": 6767
+    },
+    {
+      "category_id": 745,
+      "discussion_topic_id": 6771,
+      "groups": [
+        "releases-mqtt-web-interface"
+      ],
+      "name": "MQTT Web Interface",
+      "repo": "terdia/mqttui",
+      "topic_id": 6770
+    },
+    {
+      "category_id": 746,
+      "discussion_topic_id": 6774,
+      "groups": [
+        "releases-multi-scrobbler"
+      ],
+      "name": "Multi-Scrobbler",
+      "repo": "foxxmd/multi-scrobbler",
+      "topic_id": 6773
     }
   ]
 }
