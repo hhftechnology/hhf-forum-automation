@@ -294,14 +294,29 @@ def test_category_left_by_a_timed_out_run_is_found_and_reused(monkeypatch):
 
 
 def test_find_category_matches_exact_name_under_the_parent():
+    from urllib.parse import parse_qs
     seen = []
+    pages = {"1": [{"id": 3, "name": "Mumble Server", "parent_category_id": 129},
+                   {"id": 4, "name": "Mumble", "parent_category_id": 7}],
+             "2": [{"id": 5, "name": "Mumble", "parent_category_id": 129}]}
     def handler(req):
-        seen.append(dict(req.url.params))
-        return httpx.Response(200, json={"categories": [
-            {"id": 3, "name": "Mumble Server", "parent_category_id": 129},
-            {"id": 4, "name": "Mumble", "parent_category_id": 7},
-            {"id": 5, "name": "Mumble", "parent_category_id": 129}]})
+        form = {k: v[0] for k, v in parse_qs(req.content.decode()).items()}
+        seen.append((req.method, req.url.path, form))
+        return httpx.Response(200, json={"categories": pages.get(form["page"], [])})
     client = DiscourseClient("https://forum.example", "k", transport=httpx.MockTransport(handler))
-    assert client.find_category("Mumble", 129)["id"] == 5
-    assert client.find_category("Other", 129) is None
-    assert seen[0]["term"] == "Mumble" and seen[0]["parent_category_id"] == "129"
+    assert client.find_category("Mumble", 129)["id"] == 5  # exact match on the second page
+    method, path, form = seen[0]
+    assert (method, path) == ("POST", "/categories/search.json")
+    assert form["term"] == "Mumble" and form["parent_category_id"] == "129"
+    seen.clear()
+    assert client.find_category("Other", 129) is None and len(seen) == 3  # stops at an empty page
+
+
+def test_find_topic_by_title_accepts_discourse_capitalisation():
+    topics = [{"id": 6776, "title": "Mumble-voip/mumble releases"}, {"id": 6777, "title": "Mumble-voip/mumble discussion"}]
+    client = DiscourseClient("https://forum.example", "k", transport=httpx.MockTransport(
+        lambda req: httpx.Response(200, json={"topic_list": {"topics": topics}})))
+    assert client.find_topic_by_title(747, "mumble-voip/mumble releases") == 6776
+    assert client.find_topic_by_title(747, "mumble-voip/mumble discussion") == 6777
+    topics.append({"id": 9, "title": "MUMBLE-VOIP/MUMBLE RELEASES"})  # ambiguous: no guess
+    assert client.find_topic_by_title(747, "mumble-voip/mumble releases") is None
