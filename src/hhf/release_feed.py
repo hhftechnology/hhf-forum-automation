@@ -304,7 +304,8 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
     start = next((i for i, entry in enumerate(entries) if key(entry) == cursor), 0)
     deadline = time.monotonic() + budget
     deferred = False
-    # shortcut: budget is checked between repositories; add per-request deadlines if one repository exceeds the job budget.
+    # The budget is checked between repositories and before each post; the client's own deadline
+    # stops 429 retries from sleeping past it.
     for e in entries[start:]:
         repo = key(e)
         state["polling"] = {"next": repo, "pending": True}
@@ -350,6 +351,11 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
             continue
         groups = e.get("groups") or []
         for rel in pending:
+            if not dry_run and time.monotonic() >= deadline:
+                # posts are checkpointed one by one, so the next run resumes this repo where it stopped
+                deferred = True
+                print(f"polling deferred inside {repo}; continuing next scheduled run")
+                break
             print(f"post {repo} {rel['tag']} -> topic {e['topic_id']}")
             n += 1
             if dry_run and groups:
@@ -367,6 +373,8 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
                     checkpoint()
                 if result and groups and can_notify:
                     notify(e["repo"], rel["tag"], groups, result)
+        if deferred:
+            break
     if not deferred:
         state["polling"] = {"pending": False}
     if checkpoint and not dry_run:

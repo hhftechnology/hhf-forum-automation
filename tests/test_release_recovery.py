@@ -196,3 +196,20 @@ def test_provision_only_run_keeps_the_full_provisioning_budget(tmp_path, monkeyp
     monkeypatch.setattr(rf, "run", lambda *args, **kwargs: (_ for _ in ()).throw(AssertionError("no poll")))
     assert rf.main(["--bootstrap", "--continue-poll", "--config", str(config), "--state", str(state), "--channels", str(channels)]) == 0
     assert budgets == [600]
+
+
+def test_polling_defers_inside_a_repository_and_resumes_without_reposting(monkeypatch):
+    clock = [0.0]
+    monkeypatch.setattr(rf.time, "monotonic", lambda: clock[0])
+    client, state = FakeClient(), {"last": {"o/r": "v1"}}
+    posts = client.create_post
+    def slow_post(*args, **kwargs):
+        clock[0] += 100  # each post takes 100s against a 150s budget
+        return posts(*args, **kwargs)
+    client.create_post = slow_post
+    releases_ = fetcher([rel("v4"), rel("v3"), rel("v2"), rel("v1")])
+    rf.run([ENTRY], state, client, dry_run=False, budget=150, fetch=releases_)
+    assert len(client.posts) == 2 and state["last"]["o/r"] == "v3"
+    assert state["polling"] == {"next": "o/r", "pending": True}
+    rf.run([ENTRY], state, client, dry_run=False, budget=150, fetch=releases_)
+    assert len(client.posts) == 3 and state["last"]["o/r"] == "v4" and state["polling"] == {"pending": False}
