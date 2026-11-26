@@ -644,6 +644,8 @@ def main(argv: list[str] | None = None) -> int:
         save_json(progress_path, {"releases": entries})
         _save_channels(args.channels, [entry for entry in entries if not entry.get("provisioning")])
     started = time.monotonic()
+    if client is not None:
+        client.deadline = started + JOB_BUDGET
     state = load_json(args.state)
     state.setdefault("last", {})
     polls = not args.bootstrap or (args.continue_poll and state.get("polling", {}).get("pending"))

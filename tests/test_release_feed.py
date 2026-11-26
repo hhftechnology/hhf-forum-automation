@@ -10,7 +10,7 @@ import pytest
 import yaml
 
 from hhf import release_feed as rf
-from hhf.discourse import DiscourseClient
+from hhf.discourse import DiscourseClient, DiscourseError
 from hhf.webhook import DeliveryError
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
@@ -876,3 +876,18 @@ def test_group_repair_stops_at_its_deadline(monkeypatch, capsys):
     client = Client()
     assert rf.repair_groups([entry], client, dry_run=False, deadline=50.0) == []
     assert client.updated == [] and "group repair deferred" in capsys.readouterr().out
+
+
+def test_rate_limit_is_raised_rather_than_slept_past_the_client_deadline(monkeypatch):
+    slept = []
+    client = DiscourseClient("https://forum.example", "k", sleep=slept.append, transport=httpx.MockTransport(
+        lambda req: httpx.Response(429, headers={"Retry-After": "300"})))
+    monkeypatch.setattr("hhf.discourse.time.monotonic", lambda: 100.0)
+    client.deadline = 200.0  # a 300s wait would pass it
+    with pytest.raises(DiscourseError) as err:
+        client.request("GET", "/groups.json")
+    assert err.value.status == 429 and slept == []
+    client.deadline = None
+    with pytest.raises(DiscourseError):
+        client.request("GET", "/groups.json")
+    assert slept == [300.0] * client.max_retries
