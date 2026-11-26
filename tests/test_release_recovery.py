@@ -247,3 +247,15 @@ def test_release_history_scan_stops_at_the_client_deadline(monkeypatch):
     with pytest.raises(DeadlineReached):
         client.release_urls(7)
     assert calls == ["/t/7.json"]
+
+
+def test_deadline_during_category_discovery_is_not_a_failed_run(tmp_path, monkeypatch):
+    from hhf.discourse import DeadlineReached
+    config, state, channels = tmp_path / "c.yml", tmp_path / "s.json", tmp_path / "channels.json"
+    config.write_text("releases:\n- {repo: o/new, app_reference: new-app}\n")
+    state.write_text(json.dumps({"last": {}}))
+    class Client(FakeClient):
+        def list_categories(self):
+            raise DeadlineReached(429, "GET", "/categories.json", "")
+    monkeypatch.setattr(rf, "DiscourseClient", Client)
+    assert rf.main(["--bootstrap", "--config", str(config), "--state", str(state), "--channels", str(channels)]) == 0

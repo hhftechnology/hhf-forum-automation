@@ -676,6 +676,8 @@ def main(argv: list[str] | None = None) -> int:
         bootstrap(entries, client, dry_run=args.dry_run, limit=args.provision_limit,
                   progress=None if args.dry_run else progress,
                   budget=PROVISION_SHARE if polls else 600)
+    except DeadlineReached:  # e.g. during category discovery: nothing failed, the next run resumes
+        print("provisioning deferred: forum rate limit at the run deadline; continuing next run")
     except RuntimeError as exc:
         provisioning_error = exc
     finally:
