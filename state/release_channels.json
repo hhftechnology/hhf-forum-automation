@@ -11457,6 +11457,26 @@
       "name": "Zot",
       "repo": "project-zot/zot",
       "topic_id": 8330
+    },
+    {
+      "category_id": 1265,
+      "discussion_topic_id": 8334,
+      "groups": [
+        "releases-ztnet"
+      ],
+      "name": "ZTNET",
+      "repo": "sinamics/ztnet",
+      "topic_id": 8333
+    },
+    {
+      "category_id": 1266,
+      "discussion_topic_id": 8337,
+      "groups": [
+        "releases-zulip"
+      ],
+      "name": "Zulip",
+      "repo": "zulip/zulip",
+      "topic_id": 8336
     }
   ]
 }

@@ -14880,22 +14880,30 @@
       "topic_id": 8330
     },
     {
+      "activated_at": "2026-11-26T21:39:51.505253+00:00",
       "app_reference": "ztnet",
+      "category_id": 1265,
+      "discussion_topic_id": 8334,
       "groups": [
         "releases-ztnet"
       ],
       "include_prereleases": false,
       "name": "ZTNET",
-      "repo": "sinamics/ztnet"
+      "repo": "sinamics/ztnet",
+      "topic_id": 8333
     },
     {
+      "activated_at": "2026-11-26T21:39:58.927460+00:00",
       "app_reference": "zulip",
+      "category_id": 1266,
+      "discussion_topic_id": 8337,
       "groups": [
         "releases-zulip"
       ],
       "include_prereleases": false,
       "name": "Zulip",
-      "repo": "zulip/zulip"
+      "repo": "zulip/zulip",
+      "topic_id": 8336
     }
   ]
 }
