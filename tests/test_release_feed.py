@@ -822,3 +822,20 @@ def test_rename_plan_renames_only_hashed_catalogue_groups():
     assert renames["releases-2658b0b9b69"] == "releases-agregarr"
     assert re.fullmatch(r"releases-newt-[0-9a-f]{4}", renames["releases-0123456789a"])
     assert "releases-abcdefabcde" not in renames and len(renames) == 2
+
+
+def test_describe_names_the_failing_request_and_discourse_message():
+    from hhf.discourse import DiscourseError
+
+    exc = DiscourseError(422, "POST", "/posts.json", '{"errors":["Title has already been used"]}')
+    assert rf._describe(exc) == "DiscourseError 422 on POST /posts.json: Title has already been used"
+    assert rf._describe(DiscourseError(500, "GET", "/x.json", "<html>")) == "DiscourseError 500 on GET /x.json"
+    assert rf._describe(ValueError("boom")) == "ValueError"
+
+
+def test_discourse_error_ignores_malformed_errors_field():
+    from hhf.discourse import DiscourseError
+
+    assert DiscourseError(422, "POST", "/p.json", '{"errors": 1}').errors == ""
+    assert DiscourseError(422, "POST", "/p.json", '{"errors": "bad"}').errors == ""
+    assert DiscourseError(422, "POST", "/p.json", '["x"]').errors == ""

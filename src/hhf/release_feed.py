@@ -566,8 +566,14 @@ def repair_groups(entries: list[dict], client, *, dry_run: bool) -> list[str]:
 
 
 def _describe(exc: Exception) -> str:
+    """Class, HTTP status, request line and Discourse's validation message, for the run log."""
     status = getattr(exc, "status", None) or getattr(exc, "status_code", None)
-    return f"{type(exc).__name__} {status}" if status else type(exc).__name__
+    text = f"{type(exc).__name__} {status}" if status else type(exc).__name__
+    if getattr(exc, "path", None):
+        text += f" on {exc.method} {exc.path}"
+    if getattr(exc, "errors", None):
+        text += f": {exc.errors}"
+    return text
 
 
 def main(argv: list[str] | None = None) -> int:
