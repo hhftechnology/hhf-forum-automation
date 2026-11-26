@@ -436,14 +436,22 @@ def _icon_bytes(entry: dict, client) -> tuple[str, bytes] | None:
     return f"{_group(entry)}.{extensions[content_type]}", bytes(data)
 
 
-def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, progress=None) -> None:
+# The job times out after 15 minutes and a timed-out job commits no state, so provisioning, group
+# repair and polling share this budget. It leaves room for setup, the commit, and the channel or
+# repository in flight when the deadline passes (deadlines are checked between them).
+JOB_BUDGET = 720
+# Provisioning's share when the same run also polls; the poll gets whatever is left.
+PROVISION_SHARE = 360
+
+
+def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, progress=None, budget: float = 600) -> None:
     """Idempotently provision incomplete channels and print IDs for review.
 
     New release categories are muted by default; joining a channel group turns on Watching.
     In dry-run, ``client`` is not used (may be None).
     """
     entries = [e for e in entries if not (e.get("category_id") and e.get("topic_id") and not e.get("provisioning"))][:limit]
-    deadline = time.monotonic() + 600
+    deadline = time.monotonic() + budget
     # shortcut: deadline is checked between channels; add per-request deadlines if a channel exceeds the workflow budget.
     if not entries:
         return
@@ -630,18 +638,21 @@ def main(argv: list[str] | None = None) -> int:
     def progress():
         save_json(progress_path, {"releases": entries})
         _save_channels(args.channels, [entry for entry in entries if not entry.get("provisioning")])
+    started = time.monotonic()
+    state = load_json(args.state)
+    state.setdefault("last", {})
+    polls = not args.bootstrap or (args.continue_poll and state.get("polling", {}).get("pending"))
     provisioning_error = None
     try:
         bootstrap(entries, client, dry_run=args.dry_run, limit=args.provision_limit,
-                  progress=None if args.dry_run else progress)
+                  progress=None if args.dry_run else progress,
+                  budget=PROVISION_SHARE if polls else 600)
     except RuntimeError as exc:
         provisioning_error = exc
     finally:
         if not args.dry_run:
             progress()
-    state = load_json(args.state)
-    state.setdefault("last", {})
-    if args.bootstrap and not (args.continue_poll and state.get("polling", {}).get("pending")):
+    if not polls:
         if provisioning_error:
             raise provisioning_error
         return 0
@@ -654,7 +665,8 @@ def main(argv: list[str] | None = None) -> int:
     try:
         ready = [entry for entry in entries if entry.get("topic_id") and not entry.get("provisioning")]
         run(ready, state, client, dry_run=args.dry_run,
-            checkpoint=lambda: save_json(args.state, state))
+            checkpoint=lambda: save_json(args.state, state),
+            budget=max(0.0, JOB_BUDGET - (time.monotonic() - started)))
     finally:  # keep tags of posts already made even if a later post fails
         if not args.dry_run:
             save_json(args.state, state)
