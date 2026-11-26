@@ -12904,346 +12904,498 @@
       "topic_id": 7874
     },
     {
+      "activated_at": "2026-11-26T20:40:31.395355+00:00",
       "app_reference": "teleport",
+      "category_id": 1113,
+      "discussion_topic_id": 7878,
       "groups": [
         "releases-teleport"
       ],
       "include_prereleases": false,
       "name": "Teleport",
-      "repo": "gravitational/teleport"
+      "repo": "gravitational/teleport",
+      "topic_id": 7877
     },
     {
+      "activated_at": "2026-11-26T20:40:37.490864+00:00",
       "app_reference": "tenzu",
+      "category_id": 1114,
+      "discussion_topic_id": 7881,
       "groups": [
         "releases-tenzu"
       ],
       "include_prereleases": false,
       "name": "Tenzu",
-      "repo": "biru-scop/tenzu-back"
+      "repo": "biru-scop/tenzu-back",
+      "topic_id": 7880
     },
     {
+      "activated_at": "2026-11-26T20:40:43.668366+00:00",
       "app_reference": "termix",
+      "category_id": 1115,
+      "discussion_topic_id": 7884,
       "groups": [
         "releases-termix"
       ],
       "include_prereleases": false,
       "name": "Termix",
-      "repo": "termix-ssh/termix"
+      "repo": "termix-ssh/termix",
+      "topic_id": 7883
     },
     {
+      "activated_at": "2026-11-26T20:41:27.104343+00:00",
       "app_reference": "teslamate",
+      "category_id": 1116,
+      "discussion_topic_id": 7887,
       "groups": [
         "releases-teslamate"
       ],
       "include_prereleases": false,
       "name": "TeslaMate",
-      "repo": "teslamate-org/teslamate"
+      "repo": "teslamate-org/teslamate",
+      "topic_id": 7886
     },
     {
+      "activated_at": "2026-11-26T20:41:33.345152+00:00",
       "app_reference": "tether-traefik",
+      "category_id": 1117,
+      "discussion_topic_id": 7890,
       "groups": [
         "releases-tether-traefik"
       ],
       "include_prereleases": false,
       "name": "Tether",
-      "repo": "mizuchilabs/tether"
+      "repo": "mizuchilabs/tether",
+      "topic_id": 7889
     },
     {
+      "activated_at": "2026-11-26T20:41:39.525219+00:00",
       "app_reference": "the-lounge",
+      "category_id": 1118,
+      "discussion_topic_id": 7893,
       "groups": [
         "releases-the-lounge"
       ],
       "include_prereleases": false,
       "name": "The Lounge",
-      "repo": "thelounge/thelounge"
+      "repo": "thelounge/thelounge",
+      "topic_id": 7892
     },
     {
+      "activated_at": "2026-11-26T20:41:45.561228+00:00",
       "app_reference": "thrifty",
+      "category_id": 1119,
+      "discussion_topic_id": 7896,
       "groups": [
         "releases-thrifty"
       ],
       "include_prereleases": false,
       "name": "Thrifty",
-      "repo": "tiehfood/thrifty"
+      "repo": "tiehfood/thrifty",
+      "topic_id": 7895
     },
     {
+      "activated_at": "2026-11-26T20:42:28.915309+00:00",
       "app_reference": "tianji",
+      "category_id": 1120,
+      "discussion_topic_id": 7899,
       "groups": [
         "releases-tianji"
       ],
       "include_prereleases": false,
       "name": "Tianji",
-      "repo": "msgbyte/tianji"
+      "repo": "msgbyte/tianji",
+      "topic_id": 7898
     },
     {
+      "activated_at": "2026-11-26T20:42:36.208122+00:00",
       "app_reference": "ticky",
+      "category_id": 1121,
+      "discussion_topic_id": 7902,
       "groups": [
         "releases-ticky"
       ],
       "include_prereleases": false,
       "name": "Ticky",
-      "repo": "dkorecko/ticky"
+      "repo": "dkorecko/ticky",
+      "topic_id": 7901
     },
     {
+      "activated_at": "2026-11-26T20:42:42.180306+00:00",
       "app_reference": "tiddlywiki",
+      "category_id": 1122,
+      "discussion_topic_id": 7905,
       "groups": [
         "releases-tiddlywiki"
       ],
       "include_prereleases": false,
       "name": "TiddlyWiki",
-      "repo": "tiddlywiki/tiddlywiki5"
+      "repo": "tiddlywiki/tiddlywiki5",
+      "topic_id": 7904
     },
     {
+      "activated_at": "2026-11-26T20:43:24.813288+00:00",
       "app_reference": "ties-link-sharing",
+      "category_id": 1123,
+      "discussion_topic_id": 7908,
       "groups": [
         "releases-ties-link-sharing"
       ],
       "include_prereleases": false,
       "name": "Ties",
-      "repo": "raffomania/ties"
+      "repo": "raffomania/ties",
+      "topic_id": 7907
     },
     {
+      "activated_at": "2026-11-26T20:43:31.212378+00:00",
       "app_reference": "timeful",
+      "category_id": 1124,
+      "discussion_topic_id": 7911,
       "groups": [
         "releases-timeful"
       ],
       "include_prereleases": false,
       "name": "Timeful",
-      "repo": "schej-it/timeful"
+      "repo": "schej-it/timeful",
+      "topic_id": 7910
     },
     {
+      "activated_at": "2026-11-26T20:43:38.499105+00:00",
       "app_reference": "timetagger",
+      "category_id": 1125,
+      "discussion_topic_id": 7914,
       "groups": [
         "releases-timetagger"
       ],
       "include_prereleases": false,
       "name": "TimeTagger",
-      "repo": "almarklein/timetagger"
+      "repo": "almarklein/timetagger",
+      "topic_id": 7913
     },
     {
+      "activated_at": "2026-11-26T20:43:44.477150+00:00",
       "app_reference": "timetracker",
+      "category_id": 1126,
+      "discussion_topic_id": 7917,
       "groups": [
         "releases-timetracker"
       ],
       "include_prereleases": false,
       "name": "TimeTracker",
-      "repo": "drytrix/timetracker"
+      "repo": "drytrix/timetracker",
+      "topic_id": 7916
     },
     {
+      "activated_at": "2026-11-26T20:44:26.729179+00:00",
       "app_reference": "tiny-tiny-rss",
+      "category_id": 1127,
+      "discussion_topic_id": 7920,
       "groups": [
         "releases-tiny-tiny-rss"
       ],
       "include_prereleases": false,
       "name": "Tiny Tiny RSS",
-      "repo": "tt-rss/tt-rss"
+      "repo": "tt-rss/tt-rss",
+      "topic_id": 7919
     },
     {
+      "activated_at": "2026-11-26T20:44:32.825282+00:00",
       "app_reference": "tinyauth",
+      "category_id": 1128,
+      "discussion_topic_id": 7923,
       "groups": [
         "releases-tinyauth"
       ],
       "include_prereleases": false,
       "name": "Tinyauth",
-      "repo": "tinyauthapp/tinyauth"
+      "repo": "tinyauthapp/tinyauth",
+      "topic_id": 7922
     },
     {
+      "activated_at": "2026-11-26T20:44:41.324109+00:00",
       "app_reference": "tinyfeed",
+      "category_id": 1129,
+      "discussion_topic_id": 7926,
       "groups": [
         "releases-tinyfeed"
       ],
       "include_prereleases": false,
       "name": "tinyfeed",
-      "repo": "thebigroomxxl/tinyfeed"
+      "repo": "thebigroomxxl/tinyfeed",
+      "topic_id": 7925
     },
     {
+      "activated_at": "2026-11-26T20:44:47.845338+00:00",
       "app_reference": "tirreno",
+      "category_id": 1130,
+      "discussion_topic_id": 7929,
       "groups": [
         "releases-tirreno"
       ],
       "include_prereleases": false,
       "name": "tirreno",
-      "repo": "tirrenotechnologies/tirreno"
+      "repo": "tirrenotechnologies/tirreno",
+      "topic_id": 7928
     },
     {
+      "activated_at": "2026-11-26T20:45:29.641155+00:00",
       "app_reference": "tooljet",
+      "category_id": 1131,
+      "discussion_topic_id": 7932,
       "groups": [
         "releases-tooljet"
       ],
       "include_prereleases": false,
       "name": "ToolJet",
-      "repo": "tooljet/tooljet"
+      "repo": "tooljet/tooljet",
+      "topic_id": 7931
     },
     {
+      "activated_at": "2026-11-26T20:45:35.956714+00:00",
       "app_reference": "traccar",
+      "category_id": 1132,
+      "discussion_topic_id": 7935,
       "groups": [
         "releases-traccar"
       ],
       "include_prereleases": false,
       "name": "Traccar",
-      "repo": "traccar/traccar"
+      "repo": "traccar/traccar",
+      "topic_id": 7934
     },
     {
+      "activated_at": "2026-11-26T20:45:43.356291+00:00",
       "app_reference": "tracearr",
+      "category_id": 1133,
+      "discussion_topic_id": 7938,
       "groups": [
         "releases-tracearr"
       ],
       "include_prereleases": false,
       "name": "Tracearr",
-      "repo": "connorgallopo/tracearr"
+      "repo": "connorgallopo/tracearr",
+      "topic_id": 7937
     },
     {
+      "activated_at": "2026-11-26T20:45:50.628469+00:00",
       "app_reference": "traceway",
+      "category_id": 1134,
+      "discussion_topic_id": 7941,
       "groups": [
         "releases-traceway"
       ],
       "include_prereleases": false,
       "name": "Traceway",
-      "repo": "tracewayapp/traceway"
+      "repo": "tracewayapp/traceway",
+      "topic_id": 7940
     },
     {
+      "activated_at": "2026-11-26T20:46:31.758234+00:00",
       "app_reference": "tracktor",
+      "category_id": 1135,
+      "discussion_topic_id": 7944,
       "groups": [
         "releases-tracktor"
       ],
       "include_prereleases": false,
       "name": "Tracktor",
-      "repo": "javedh-dev/tracktor"
+      "repo": "javedh-dev/tracktor",
+      "topic_id": 7943
     },
     {
+      "activated_at": "2026-11-26T20:46:37.917589+00:00",
       "app_reference": "tradetally",
+      "category_id": 1136,
+      "discussion_topic_id": 7947,
       "groups": [
         "releases-tradetally"
       ],
       "include_prereleases": false,
       "name": "TradeTally",
-      "repo": "genebo98/tradetally"
+      "repo": "genebo98/tradetally",
+      "topic_id": 7946
     },
     {
+      "activated_at": "2026-11-26T20:46:46.659709+00:00",
       "app_reference": "traefik-manager",
+      "category_id": 1137,
+      "discussion_topic_id": 7950,
       "groups": [
         "releases-traefik-manager"
       ],
       "include_prereleases": false,
       "name": "Traefik Manager",
-      "repo": "chr0nzz/traefik-manager"
+      "repo": "chr0nzz/traefik-manager",
+      "topic_id": 7949
     },
     {
+      "activated_at": "2026-11-26T20:47:28.045902+00:00",
       "app_reference": "traggo",
+      "category_id": 1138,
+      "discussion_topic_id": 7953,
       "groups": [
         "releases-traggo"
       ],
       "include_prereleases": false,
       "name": "Traggo",
-      "repo": "traggo/server"
+      "repo": "traggo/server",
+      "topic_id": 7952
     },
     {
+      "activated_at": "2026-11-26T20:47:34.215182+00:00",
       "app_reference": "trailarr",
+      "category_id": 1139,
+      "discussion_topic_id": 7956,
       "groups": [
         "releases-trailarr"
       ],
       "include_prereleases": false,
       "name": "Trailarr",
-      "repo": "nandyalu/trailarr"
+      "repo": "nandyalu/trailarr",
+      "topic_id": 7955
     },
     {
+      "activated_at": "2026-11-26T20:47:40.268123+00:00",
       "app_reference": "trala",
+      "category_id": 1140,
+      "discussion_topic_id": 7959,
       "groups": [
         "releases-trala"
       ],
       "include_prereleases": false,
       "name": "TraLa",
-      "repo": "dannybouwers/trala"
+      "repo": "dannybouwers/trala",
+      "topic_id": 7958
     },
     {
+      "activated_at": "2026-11-26T20:47:48.719292+00:00",
       "app_reference": "transfer-zip",
+      "category_id": 1141,
+      "discussion_topic_id": 7962,
       "groups": [
         "releases-transfer-zip"
       ],
       "include_prereleases": false,
       "name": "Transfer.zip",
-      "repo": "robinkarlberg/transfer.zip-web"
+      "repo": "robinkarlberg/transfer.zip-web",
+      "topic_id": 7961
     },
     {
+      "activated_at": "2026-11-26T20:48:30.229915+00:00",
       "app_reference": "transmute",
+      "category_id": 1142,
+      "discussion_topic_id": 7965,
       "groups": [
         "releases-transmute"
       ],
       "include_prereleases": false,
       "name": "Transmute",
-      "repo": "transmute-app/transmute"
+      "repo": "transmute-app/transmute",
+      "topic_id": 7964
     },
     {
+      "activated_at": "2026-11-26T20:48:36.279217+00:00",
       "app_reference": "trek",
+      "category_id": 1143,
+      "discussion_topic_id": 7968,
       "groups": [
         "releases-trek"
       ],
       "include_prereleases": false,
       "name": "TREK",
-      "repo": "liketrek/trek"
+      "repo": "liketrek/trek",
+      "topic_id": 7967
     },
     {
+      "activated_at": "2026-11-26T20:48:42.333065+00:00",
       "app_reference": "trilium-notes",
+      "category_id": 1144,
+      "discussion_topic_id": 7971,
       "groups": [
         "releases-trilium-notes"
       ],
       "include_prereleases": false,
       "name": "Trilium Notes",
-      "repo": "triliumnext/trilium"
+      "repo": "triliumnext/trilium",
+      "topic_id": 7970
     },
     {
+      "activated_at": "2026-11-26T20:48:50.778706+00:00",
       "app_reference": "trip",
+      "category_id": 1145,
+      "discussion_topic_id": 7974,
       "groups": [
         "releases-trip"
       ],
       "include_prereleases": false,
       "name": "TRIP",
-      "repo": "itskovacs/trip"
+      "repo": "itskovacs/trip",
+      "topic_id": 7973
     },
     {
+      "activated_at": "2026-11-26T20:49:32.311218+00:00",
       "app_reference": "tube-archivist",
+      "category_id": 1146,
+      "discussion_topic_id": 7977,
       "groups": [
         "releases-tube-archivist"
       ],
       "include_prereleases": false,
       "name": "Tube Archivist",
-      "repo": "tubearchivist/tubearchivist"
+      "repo": "tubearchivist/tubearchivist",
+      "topic_id": 7976
     },
     {
+      "activated_at": "2026-11-26T20:49:38.272686+00:00",
       "app_reference": "tubehaus",
+      "category_id": 1147,
+      "discussion_topic_id": 7980,
       "groups": [
         "releases-tubehaus"
       ],
       "include_prereleases": false,
       "name": "TubeHaus",
-      "repo": "biolend83/tubehaus"
+      "repo": "biolend83/tubehaus",
+      "topic_id": 7979
     },
     {
+      "activated_at": "2026-11-26T20:49:45.464500+00:00",
       "app_reference": "tubesync",
+      "category_id": 1148,
+      "discussion_topic_id": 7983,
       "groups": [
         "releases-tubesync"
       ],
       "include_prereleases": false,
       "name": "TubeSync",
-      "repo": "meeb/tubesync"
+      "repo": "meeb/tubesync",
+      "topic_id": 7982
     },
     {
+      "activated_at": "2026-11-26T20:49:52.751924+00:00",
       "app_reference": "tugtainer",
+      "category_id": 1149,
+      "discussion_topic_id": 7986,
       "groups": [
         "releases-tugtainer"
       ],
       "include_prereleases": false,
       "name": "Tugtainer",
-      "repo": "quenary/tugtainer"
+      "repo": "quenary/tugtainer",
+      "topic_id": 7985
     },
     {
+      "activated_at": "2026-11-26T20:50:34.945231+00:00",
       "app_reference": "tunarr",
+      "category_id": 1150,
+      "discussion_topic_id": 7989,
       "groups": [
         "releases-tunarr"
       ],
       "include_prereleases": false,
       "name": "Tunarr",
-      "repo": "chrisbenincasa/tunarr"
+      "repo": "chrisbenincasa/tunarr",
+      "topic_id": 7988
     },
     {
       "app_reference": "tvheadend",
