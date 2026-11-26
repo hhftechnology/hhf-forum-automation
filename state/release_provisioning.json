@@ -14386,346 +14386,498 @@
       "topic_id": 8216
     },
     {
+      "activated_at": "2026-11-26T21:25:17.322102+00:00",
       "app_reference": "writefreely",
+      "category_id": 1227,
+      "discussion_topic_id": 8220,
       "groups": [
         "releases-writefreely"
       ],
       "include_prereleases": false,
       "name": "WriteFreely",
-      "repo": "writefreely/writefreely"
+      "repo": "writefreely/writefreely",
+      "topic_id": 8219
     },
     {
+      "activated_at": "2026-11-26T21:25:24.207110+00:00",
       "app_reference": "wud",
+      "category_id": 1228,
+      "discussion_topic_id": 8223,
       "groups": [
         "releases-wud"
       ],
       "include_prereleases": false,
       "name": "WUD",
-      "repo": "getwud/wud"
+      "repo": "getwud/wud",
+      "topic_id": 8222
     },
     {
+      "activated_at": "2026-11-26T21:25:31.189739+00:00",
       "app_reference": "wygiwyh",
+      "category_id": 1229,
+      "discussion_topic_id": 8226,
       "groups": [
         "releases-wygiwyh"
       ],
       "include_prereleases": false,
       "name": "WYGIWYH",
-      "repo": "eitchtee/wygiwyh"
+      "repo": "eitchtee/wygiwyh",
+      "topic_id": 8225
     },
     {
+      "activated_at": "2026-11-26T21:26:12.790421+00:00",
       "app_reference": "xbackbone",
+      "category_id": 1230,
+      "discussion_topic_id": 8229,
       "groups": [
         "releases-xbackbone"
       ],
       "include_prereleases": false,
       "name": "xBackBone",
-      "repo": "sergix44/xbackbone"
+      "repo": "sergix44/xbackbone",
+      "topic_id": 8228
     },
     {
+      "activated_at": "2026-11-26T21:26:19.923337+00:00",
       "app_reference": "xibo",
+      "category_id": 1231,
+      "discussion_topic_id": 8232,
       "groups": [
         "releases-xibo"
       ],
       "include_prereleases": false,
       "name": "Xibo",
-      "repo": "xibosignage/xibo"
+      "repo": "xibosignage/xibo",
+      "topic_id": 8231
     },
     {
+      "activated_at": "2026-11-26T21:26:26.787947+00:00",
       "app_reference": "xpipe",
+      "category_id": 1232,
+      "discussion_topic_id": 8235,
       "groups": [
         "releases-xpipe"
       ],
       "include_prereleases": false,
       "name": "XPipe",
-      "repo": "xpipe-io/xpipe"
+      "repo": "xpipe-io/xpipe",
+      "topic_id": 8234
     },
     {
+      "activated_at": "2026-11-26T21:26:33.692193+00:00",
       "app_reference": "xwiki",
+      "category_id": 1233,
+      "discussion_topic_id": 8238,
       "groups": [
         "releases-xwiki"
       ],
       "include_prereleases": false,
       "name": "XWiki",
-      "repo": "xwiki/xwiki-platform"
+      "repo": "xwiki/xwiki-platform",
+      "topic_id": 8237
     },
     {
+      "activated_at": "2026-11-26T21:27:15.721187+00:00",
       "app_reference": "xyops",
+      "category_id": 1234,
+      "discussion_topic_id": 8241,
       "groups": [
         "releases-xyops"
       ],
       "include_prereleases": false,
       "name": "xyOps",
-      "repo": "pixlcore/xyops"
+      "repo": "pixlcore/xyops",
+      "topic_id": 8240
     },
     {
+      "activated_at": "2026-11-26T21:27:22.530803+00:00",
       "app_reference": "yacht",
+      "category_id": 1235,
+      "discussion_topic_id": 8244,
       "groups": [
         "releases-yacht"
       ],
       "include_prereleases": false,
       "name": "Yacht",
-      "repo": "selfhostedpro/yacht"
+      "repo": "selfhostedpro/yacht",
+      "topic_id": 8243
     },
     {
+      "activated_at": "2026-11-26T21:27:29.287646+00:00",
       "app_reference": "yamlresume",
+      "category_id": 1236,
+      "discussion_topic_id": 8247,
       "groups": [
         "releases-yamlresume"
       ],
       "include_prereleases": false,
       "name": "YAMLResume",
-      "repo": "yamlresume/yamlresume"
+      "repo": "yamlresume/yamlresume",
+      "topic_id": 8246
     },
     {
+      "activated_at": "2026-11-26T21:28:11.284998+00:00",
       "app_reference": "yamtrack",
+      "category_id": 1237,
+      "discussion_topic_id": 8250,
       "groups": [
         "releases-yamtrack"
       ],
       "include_prereleases": false,
       "name": "Yamtrack",
-      "repo": "fuzzygrim/yamtrack"
+      "repo": "fuzzygrim/yamtrack",
+      "topic_id": 8249
     },
     {
+      "activated_at": "2026-11-26T21:28:18.677429+00:00",
       "app_reference": "yarr",
+      "category_id": 1238,
+      "discussion_topic_id": 8253,
       "groups": [
         "releases-yarr"
       ],
       "include_prereleases": false,
       "name": "yarr",
-      "repo": "nkanaev/yarr"
+      "repo": "nkanaev/yarr",
+      "topic_id": 8252
     },
     {
+      "activated_at": "2026-11-26T21:28:25.706196+00:00",
       "app_reference": "youlag",
+      "category_id": 1239,
+      "discussion_topic_id": 8256,
       "groups": [
         "releases-youlag"
       ],
       "include_prereleases": false,
       "name": "Youlag",
-      "repo": "civilblur/youlag"
+      "repo": "civilblur/youlag",
+      "topic_id": 8255
     },
     {
+      "activated_at": "2026-11-26T21:28:32.961705+00:00",
       "app_reference": "your-spotify",
+      "category_id": 1240,
+      "discussion_topic_id": 8259,
       "groups": [
         "releases-your-spotify"
       ],
       "include_prereleases": false,
       "name": "Your Spotify",
-      "repo": "yooooomi/your_spotify"
+      "repo": "yooooomi/your_spotify",
+      "topic_id": 8258
     },
     {
+      "activated_at": "2026-11-26T21:29:13.815232+00:00",
       "app_reference": "yourls",
+      "category_id": 1241,
+      "discussion_topic_id": 8262,
       "groups": [
         "releases-yourls"
       ],
       "include_prereleases": false,
       "name": "YOURLS",
-      "repo": "yourls/yourls"
+      "repo": "yourls/yourls",
+      "topic_id": 8261
     },
     {
+      "activated_at": "2026-11-26T21:29:21.218355+00:00",
       "app_reference": "youtarr",
+      "category_id": 1242,
+      "discussion_topic_id": 8265,
       "groups": [
         "releases-youtarr"
       ],
       "include_prereleases": false,
       "name": "Youtarr",
-      "repo": "dialmasterorg/youtarr"
+      "repo": "dialmasterorg/youtarr",
+      "topic_id": 8264
     },
     {
+      "activated_at": "2026-11-26T21:29:28.121372+00:00",
       "app_reference": "youtubedl-material",
+      "category_id": 1243,
+      "discussion_topic_id": 8268,
       "groups": [
         "releases-youtubedl-material"
       ],
       "include_prereleases": false,
       "name": "YoutubeDL-Material",
-      "repo": "tzahi12345/youtubedl-material"
+      "repo": "tzahi12345/youtubedl-material",
+      "topic_id": 8267
     },
     {
+      "activated_at": "2026-11-26T21:29:34.946798+00:00",
       "app_reference": "yt-dlp-web-player",
+      "category_id": 1244,
+      "discussion_topic_id": 8271,
       "groups": [
         "releases-yt-dlp-web-player"
       ],
       "include_prereleases": false,
       "name": "YT-DLP Web Player",
-      "repo": "matszwe02/ytdlp_web_player"
+      "repo": "matszwe02/ytdlp_web_player",
+      "topic_id": 8270
     },
     {
+      "activated_at": "2026-11-26T21:30:16.691337+00:00",
       "app_reference": "yt-zero",
+      "category_id": 1245,
+      "discussion_topic_id": 8274,
       "groups": [
         "releases-yt-zero"
       ],
       "include_prereleases": false,
       "name": "YT Zero",
-      "repo": "pelski/ytzero"
+      "repo": "pelski/ytzero",
+      "topic_id": 8273
     },
     {
+      "activated_at": "2026-11-26T21:30:24.146936+00:00",
       "app_reference": "yubal",
+      "category_id": 1246,
+      "discussion_topic_id": 8277,
       "groups": [
         "releases-yubal"
       ],
       "include_prereleases": false,
       "name": "yubal",
-      "repo": "guillevc/yubal"
+      "repo": "guillevc/yubal",
+      "topic_id": 8276
     },
     {
+      "activated_at": "2026-11-26T21:30:30.949936+00:00",
       "app_reference": "yunohost",
+      "category_id": 1247,
+      "discussion_topic_id": 8280,
       "groups": [
         "releases-yunohost"
       ],
       "include_prereleases": false,
       "name": "YunoHost",
-      "repo": "yunohost/yunohost"
+      "repo": "yunohost/yunohost",
+      "topic_id": 8279
     },
     {
+      "activated_at": "2026-11-26T21:30:37.798313+00:00",
       "app_reference": "yuvomi",
+      "category_id": 1248,
+      "discussion_topic_id": 8283,
       "groups": [
         "releases-yuvomi"
       ],
       "include_prereleases": false,
       "name": "Yuvomi",
-      "repo": "ulsklyc/yuvomi"
+      "repo": "ulsklyc/yuvomi",
+      "topic_id": 8282
     },
     {
+      "activated_at": "2026-11-26T21:31:19.972225+00:00",
       "app_reference": "z-wave-js-ui",
+      "category_id": 1249,
+      "discussion_topic_id": 8286,
       "groups": [
         "releases-z-wave-js-ui"
       ],
       "include_prereleases": false,
       "name": "Z-Wave JS UI",
-      "repo": "zwave-js/zwave-js-ui"
+      "repo": "zwave-js/zwave-js-ui",
+      "topic_id": 8285
     },
     {
+      "activated_at": "2026-11-26T21:31:27.124108+00:00",
       "app_reference": "zabbix",
+      "category_id": 1250,
+      "discussion_topic_id": 8289,
       "groups": [
         "releases-zabbix"
       ],
       "include_prereleases": false,
       "name": "Zabbix",
-      "repo": "zabbix/zabbix"
+      "repo": "zabbix/zabbix",
+      "topic_id": 8288
     },
     {
+      "activated_at": "2026-11-26T21:31:34.540771+00:00",
       "app_reference": "zammad",
+      "category_id": 1251,
+      "discussion_topic_id": 8292,
       "groups": [
         "releases-zammad"
       ],
       "include_prereleases": false,
       "name": "Zammad",
-      "repo": "zammad/zammad"
+      "repo": "zammad/zammad",
+      "topic_id": 8291
     },
     {
+      "activated_at": "2026-11-26T21:32:15.572221+00:00",
       "app_reference": "zaneops",
+      "category_id": 1252,
+      "discussion_topic_id": 8295,
       "groups": [
         "releases-zaneops"
       ],
       "include_prereleases": false,
       "name": "ZaneOps",
-      "repo": "zane-ops/zane-ops"
+      "repo": "zane-ops/zane-ops",
+      "topic_id": 8294
     },
     {
+      "activated_at": "2026-11-26T21:32:22.653242+00:00",
       "app_reference": "zen-notes",
+      "category_id": 1253,
+      "discussion_topic_id": 8298,
       "groups": [
         "releases-zen-notes"
       ],
       "include_prereleases": false,
       "name": "Zen Notes",
-      "repo": "sheshbabu/zen"
+      "repo": "sheshbabu/zen",
+      "topic_id": 8297
     },
     {
+      "activated_at": "2026-11-26T21:32:29.516598+00:00",
       "app_reference": "zennotes",
+      "category_id": 1254,
+      "discussion_topic_id": 8301,
       "groups": [
         "releases-zennotes"
       ],
       "include_prereleases": false,
       "name": "ZenNotes",
-      "repo": "zennotes/zennotes"
+      "repo": "zennotes/zennotes",
+      "topic_id": 8300
     },
     {
+      "activated_at": "2026-11-26T21:32:36.304819+00:00",
       "app_reference": "zensical",
+      "category_id": 1255,
+      "discussion_topic_id": 8304,
       "groups": [
         "releases-zensical"
       ],
       "include_prereleases": false,
       "name": "Zensical",
-      "repo": "zensical/zensical"
+      "repo": "zensical/zensical",
+      "topic_id": 8303
     },
     {
+      "activated_at": "2026-11-26T21:33:18.159276+00:00",
       "app_reference": "zerobyte",
+      "category_id": 1256,
+      "discussion_topic_id": 8307,
       "groups": [
         "releases-zerobyte"
       ],
       "include_prereleases": false,
       "name": "Zerobyte",
-      "repo": "nicotsx/zerobyte"
+      "repo": "nicotsx/zerobyte",
+      "topic_id": 8306
     },
     {
+      "activated_at": "2026-11-26T21:33:25.293275+00:00",
       "app_reference": "zigbee2mqtt",
+      "category_id": 1257,
+      "discussion_topic_id": 8310,
       "groups": [
         "releases-zigbee2mqtt"
       ],
       "include_prereleases": false,
       "name": "Zigbee2MQTT",
-      "repo": "koenkk/zigbee2mqtt"
+      "repo": "koenkk/zigbee2mqtt",
+      "topic_id": 8309
     },
     {
+      "activated_at": "2026-11-26T21:33:32.244282+00:00",
       "app_reference": "ziit",
+      "category_id": 1258,
+      "discussion_topic_id": 8313,
       "groups": [
         "releases-ziit"
       ],
       "include_prereleases": false,
       "name": "Ziit",
-      "repo": "0pandadev/ziit"
+      "repo": "0pandadev/ziit",
+      "topic_id": 8312
     },
     {
+      "activated_at": "2026-11-26T21:33:40.312287+00:00",
       "app_reference": "zipcaptions",
+      "category_id": 1259,
+      "discussion_topic_id": 8316,
       "groups": [
         "releases-zipcaptions"
       ],
       "include_prereleases": false,
       "name": "ZipCaptions",
-      "repo": "jptrsn/zip-captions"
+      "repo": "jptrsn/zip-captions",
+      "topic_id": 8315
     },
     {
+      "activated_at": "2026-11-26T21:34:20.975993+00:00",
       "app_reference": "zipline",
+      "category_id": 1260,
+      "discussion_topic_id": 8319,
       "groups": [
         "releases-zipline"
       ],
       "include_prereleases": false,
       "name": "Zipline",
-      "repo": "diced/zipline"
+      "repo": "diced/zipline",
+      "topic_id": 8318
     },
     {
+      "activated_at": "2026-11-26T21:34:28.104470+00:00",
       "app_reference": "zitadel",
+      "category_id": 1261,
+      "discussion_topic_id": 8322,
       "groups": [
         "releases-zitadel"
       ],
       "include_prereleases": false,
       "name": "Zitadel",
-      "repo": "zitadel/zitadel"
+      "repo": "zitadel/zitadel",
+      "topic_id": 8321
     },
     {
+      "activated_at": "2026-11-26T21:34:34.991854+00:00",
       "app_reference": "zoneminder",
+      "category_id": 1262,
+      "discussion_topic_id": 8325,
       "groups": [
         "releases-zoneminder"
       ],
       "include_prereleases": false,
       "name": "ZoneMinder",
-      "repo": "zoneminder/zoneminder"
+      "repo": "zoneminder/zoneminder",
+      "topic_id": 8324
     },
     {
+      "activated_at": "2026-11-26T21:34:43.144801+00:00",
       "app_reference": "zoraxy",
+      "category_id": 1263,
+      "discussion_topic_id": 8328,
       "groups": [
         "releases-zoraxy"
       ],
       "include_prereleases": false,
       "name": "Zoraxy",
-      "repo": "tobychui/zoraxy"
+      "repo": "tobychui/zoraxy",
+      "topic_id": 8327
     },
     {
+      "activated_at": "2026-11-26T21:35:23.607981+00:00",
       "app_reference": "zot-registry",
+      "category_id": 1264,
+      "discussion_topic_id": 8331,
       "groups": [
         "releases-zot-registry"
       ],
       "include_prereleases": false,
       "name": "Zot",
-      "repo": "project-zot/zot"
+      "repo": "project-zot/zot",
+      "topic_id": 8330
     },
     {
       "app_reference": "ztnet",

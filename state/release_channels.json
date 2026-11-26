@@ -11077,6 +11077,386 @@
       "name": "World Monitor",
       "repo": "koala73/worldmonitor",
       "topic_id": 8216
+    },
+    {
+      "category_id": 1227,
+      "discussion_topic_id": 8220,
+      "groups": [
+        "releases-writefreely"
+      ],
+      "name": "WriteFreely",
+      "repo": "writefreely/writefreely",
+      "topic_id": 8219
+    },
+    {
+      "category_id": 1228,
+      "discussion_topic_id": 8223,
+      "groups": [
+        "releases-wud"
+      ],
+      "name": "WUD",
+      "repo": "getwud/wud",
+      "topic_id": 8222
+    },
+    {
+      "category_id": 1229,
+      "discussion_topic_id": 8226,
+      "groups": [
+        "releases-wygiwyh"
+      ],
+      "name": "WYGIWYH",
+      "repo": "eitchtee/wygiwyh",
+      "topic_id": 8225
+    },
+    {
+      "category_id": 1230,
+      "discussion_topic_id": 8229,
+      "groups": [
+        "releases-xbackbone"
+      ],
+      "name": "xBackBone",
+      "repo": "sergix44/xbackbone",
+      "topic_id": 8228
+    },
+    {
+      "category_id": 1231,
+      "discussion_topic_id": 8232,
+      "groups": [
+        "releases-xibo"
+      ],
+      "name": "Xibo",
+      "repo": "xibosignage/xibo",
+      "topic_id": 8231
+    },
+    {
+      "category_id": 1232,
+      "discussion_topic_id": 8235,
+      "groups": [
+        "releases-xpipe"
+      ],
+      "name": "XPipe",
+      "repo": "xpipe-io/xpipe",
+      "topic_id": 8234
+    },
+    {
+      "category_id": 1233,
+      "discussion_topic_id": 8238,
+      "groups": [
+        "releases-xwiki"
+      ],
+      "name": "XWiki",
+      "repo": "xwiki/xwiki-platform",
+      "topic_id": 8237
+    },
+    {
+      "category_id": 1234,
+      "discussion_topic_id": 8241,
+      "groups": [
+        "releases-xyops"
+      ],
+      "name": "xyOps",
+      "repo": "pixlcore/xyops",
+      "topic_id": 8240
+    },
+    {
+      "category_id": 1235,
+      "discussion_topic_id": 8244,
+      "groups": [
+        "releases-yacht"
+      ],
+      "name": "Yacht",
+      "repo": "selfhostedpro/yacht",
+      "topic_id": 8243
+    },
+    {
+      "category_id": 1236,
+      "discussion_topic_id": 8247,
+      "groups": [
+        "releases-yamlresume"
+      ],
+      "name": "YAMLResume",
+      "repo": "yamlresume/yamlresume",
+      "topic_id": 8246
+    },
+    {
+      "category_id": 1237,
+      "discussion_topic_id": 8250,
+      "groups": [
+        "releases-yamtrack"
+      ],
+      "name": "Yamtrack",
+      "repo": "fuzzygrim/yamtrack",
+      "topic_id": 8249
+    },
+    {
+      "category_id": 1238,
+      "discussion_topic_id": 8253,
+      "groups": [
+        "releases-yarr"
+      ],
+      "name": "yarr",
+      "repo": "nkanaev/yarr",
+      "topic_id": 8252
+    },
+    {
+      "category_id": 1239,
+      "discussion_topic_id": 8256,
+      "groups": [
+        "releases-youlag"
+      ],
+      "name": "Youlag",
+      "repo": "civilblur/youlag",
+      "topic_id": 8255
+    },
+    {
+      "category_id": 1240,
+      "discussion_topic_id": 8259,
+      "groups": [
+        "releases-your-spotify"
+      ],
+      "name": "Your Spotify",
+      "repo": "yooooomi/your_spotify",
+      "topic_id": 8258
+    },
+    {
+      "category_id": 1241,
+      "discussion_topic_id": 8262,
+      "groups": [
+        "releases-yourls"
+      ],
+      "name": "YOURLS",
+      "repo": "yourls/yourls",
+      "topic_id": 8261
+    },
+    {
+      "category_id": 1242,
+      "discussion_topic_id": 8265,
+      "groups": [
+        "releases-youtarr"
+      ],
+      "name": "Youtarr",
+      "repo": "dialmasterorg/youtarr",
+      "topic_id": 8264
+    },
+    {
+      "category_id": 1243,
+      "discussion_topic_id": 8268,
+      "groups": [
+        "releases-youtubedl-material"
+      ],
+      "name": "YoutubeDL-Material",
+      "repo": "tzahi12345/youtubedl-material",
+      "topic_id": 8267
+    },
+    {
+      "category_id": 1244,
+      "discussion_topic_id": 8271,
+      "groups": [
+        "releases-yt-dlp-web-player"
+      ],
+      "name": "YT-DLP Web Player",
+      "repo": "matszwe02/ytdlp_web_player",
+      "topic_id": 8270
+    },
+    {
+      "category_id": 1245,
+      "discussion_topic_id": 8274,
+      "groups": [
+        "releases-yt-zero"
+      ],
+      "name": "YT Zero",
+      "repo": "pelski/ytzero",
+      "topic_id": 8273
+    },
+    {
+      "category_id": 1246,
+      "discussion_topic_id": 8277,
+      "groups": [
+        "releases-yubal"
+      ],
+      "name": "yubal",
+      "repo": "guillevc/yubal",
+      "topic_id": 8276
+    },
+    {
+      "category_id": 1247,
+      "discussion_topic_id": 8280,
+      "groups": [
+        "releases-yunohost"
+      ],
+      "name": "YunoHost",
+      "repo": "yunohost/yunohost",
+      "topic_id": 8279
+    },
+    {
+      "category_id": 1248,
+      "discussion_topic_id": 8283,
+      "groups": [
+        "releases-yuvomi"
+      ],
+      "name": "Yuvomi",
+      "repo": "ulsklyc/yuvomi",
+      "topic_id": 8282
+    },
+    {
+      "category_id": 1249,
+      "discussion_topic_id": 8286,
+      "groups": [
+        "releases-z-wave-js-ui"
+      ],
+      "name": "Z-Wave JS UI",
+      "repo": "zwave-js/zwave-js-ui",
+      "topic_id": 8285
+    },
+    {
+      "category_id": 1250,
+      "discussion_topic_id": 8289,
+      "groups": [
+        "releases-zabbix"
+      ],
+      "name": "Zabbix",
+      "repo": "zabbix/zabbix",
+      "topic_id": 8288
+    },
+    {
+      "category_id": 1251,
+      "discussion_topic_id": 8292,
+      "groups": [
+        "releases-zammad"
+      ],
+      "name": "Zammad",
+      "repo": "zammad/zammad",
+      "topic_id": 8291
+    },
+    {
+      "category_id": 1252,
+      "discussion_topic_id": 8295,
+      "groups": [
+        "releases-zaneops"
+      ],
+      "name": "ZaneOps",
+      "repo": "zane-ops/zane-ops",
+      "topic_id": 8294
+    },
+    {
+      "category_id": 1253,
+      "discussion_topic_id": 8298,
+      "groups": [
+        "releases-zen-notes"
+      ],
+      "name": "Zen Notes",
+      "repo": "sheshbabu/zen",
+      "topic_id": 8297
+    },
+    {
+      "category_id": 1254,
+      "discussion_topic_id": 8301,
+      "groups": [
+        "releases-zennotes"
+      ],
+      "name": "ZenNotes",
+      "repo": "zennotes/zennotes",
+      "topic_id": 8300
+    },
+    {
+      "category_id": 1255,
+      "discussion_topic_id": 8304,
+      "groups": [
+        "releases-zensical"
+      ],
+      "name": "Zensical",
+      "repo": "zensical/zensical",
+      "topic_id": 8303
+    },
+    {
+      "category_id": 1256,
+      "discussion_topic_id": 8307,
+      "groups": [
+        "releases-zerobyte"
+      ],
+      "name": "Zerobyte",
+      "repo": "nicotsx/zerobyte",
+      "topic_id": 8306
+    },
+    {
+      "category_id": 1257,
+      "discussion_topic_id": 8310,
+      "groups": [
+        "releases-zigbee2mqtt"
+      ],
+      "name": "Zigbee2MQTT",
+      "repo": "koenkk/zigbee2mqtt",
+      "topic_id": 8309
+    },
+    {
+      "category_id": 1258,
+      "discussion_topic_id": 8313,
+      "groups": [
+        "releases-ziit"
+      ],
+      "name": "Ziit",
+      "repo": "0pandadev/ziit",
+      "topic_id": 8312
+    },
+    {
+      "category_id": 1259,
+      "discussion_topic_id": 8316,
+      "groups": [
+        "releases-zipcaptions"
+      ],
+      "name": "ZipCaptions",
+      "repo": "jptrsn/zip-captions",
+      "topic_id": 8315
+    },
+    {
+      "category_id": 1260,
+      "discussion_topic_id": 8319,
+      "groups": [
+        "releases-zipline"
+      ],
+      "name": "Zipline",
+      "repo": "diced/zipline",
+      "topic_id": 8318
+    },
+    {
+      "category_id": 1261,
+      "discussion_topic_id": 8322,
+      "groups": [
+        "releases-zitadel"
+      ],
+      "name": "Zitadel",
+      "repo": "zitadel/zitadel",
+      "topic_id": 8321
+    },
+    {
+      "category_id": 1262,
+      "discussion_topic_id": 8325,
+      "groups": [
+        "releases-zoneminder"
+      ],
+      "name": "ZoneMinder",
+      "repo": "zoneminder/zoneminder",
+      "topic_id": 8324
+    },
+    {
+      "category_id": 1263,
+      "discussion_topic_id": 8328,
+      "groups": [
+        "releases-zoraxy"
+      ],
+      "name": "Zoraxy",
+      "repo": "tobychui/zoraxy",
+      "topic_id": 8327
+    },
+    {
+      "category_id": 1264,
+      "discussion_topic_id": 8331,
+      "groups": [
+        "releases-zot-registry"
+      ],
+      "name": "Zot",
+      "repo": "project-zot/zot",
+      "topic_id": 8330
     }
   ]
 }
