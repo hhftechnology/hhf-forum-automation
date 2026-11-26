@@ -161,3 +161,55 @@ def test_retry_recognizes_release_links_after_native_heading_anchors():
     urls = client.release_urls(42)
     assert "https://github.com/o/r/releases/tag/v2" in urls
     assert "https://github.com/o/r/releases/tag/mentioned-only" not in urls
+
+
+def test_provisioning_and_polling_share_one_job_budget(tmp_path, monkeypatch):
+    # A continuation run used to provision for 600s and then poll for another 600s, overrunning the
+    # 15-minute job timeout; a timed-out job commits nothing, so every such run was lost.
+    config, state, channels = tmp_path / "c.yml", tmp_path / "s.json", tmp_path / "channels.json"
+    config.write_text("releases:\n- {repo: o/r, category_id: 1, topic_id: 42}\n")
+    state.write_text(json.dumps({"last": {"o/r": "v1"}, "polling": {"next": "o/r", "pending": True}}))
+    clock, budgets = [1000.0], {}
+    monkeypatch.setattr(rf.time, "monotonic", lambda: clock[0])
+    def provision(*args, budget, **kwargs):
+        budgets["provision"] = budget
+        clock[0] += budget  # provisioning uses its whole share
+    def poll(*args, budget, **kwargs):
+        budgets["poll"] = budget
+        return 0
+    monkeypatch.setattr(rf, "DiscourseClient", lambda: FakeClient())
+    monkeypatch.setattr(rf, "bootstrap", provision)
+    monkeypatch.setattr(rf, "repair_groups", lambda *args, **kwargs: clock.__setitem__(0, clock[0] + 60) or [])
+    monkeypatch.setattr(rf, "run", poll)
+    rf.main(["--bootstrap", "--continue-poll", "--config", str(config), "--state", str(state), "--channels", str(channels)])
+    assert budgets == {"provision": rf.PROVISION_SHARE, "poll": rf.JOB_BUDGET - rf.PROVISION_SHARE - 60}
+    assert sum(budgets.values()) + 60 <= rf.JOB_BUDGET < 15 * 60
+
+
+def test_provision_only_run_keeps_the_full_provisioning_budget(tmp_path, monkeypatch):
+    config, state, channels = tmp_path / "c.yml", tmp_path / "s.json", tmp_path / "channels.json"
+    config.write_text("releases:\n- {repo: o/r, category_id: 1, topic_id: 42}\n")
+    state.write_text(json.dumps({"last": {"o/r": "v1"}}))
+    budgets = []
+    monkeypatch.setattr(rf, "DiscourseClient", lambda: FakeClient())
+    monkeypatch.setattr(rf, "bootstrap", lambda *args, budget, **kwargs: budgets.append(budget))
+    monkeypatch.setattr(rf, "run", lambda *args, **kwargs: (_ for _ in ()).throw(AssertionError("no poll")))
+    assert rf.main(["--bootstrap", "--continue-poll", "--config", str(config), "--state", str(state), "--channels", str(channels)]) == 0
+    assert budgets == [600]
+
+
+def test_polling_defers_inside_a_repository_and_resumes_without_reposting(monkeypatch):
+    clock = [0.0]
+    monkeypatch.setattr(rf.time, "monotonic", lambda: clock[0])
+    client, state = FakeClient(), {"last": {"o/r": "v1"}}
+    posts = client.create_post
+    def slow_post(*args, **kwargs):
+        clock[0] += 100  # each post takes 100s against a 150s budget
+        return posts(*args, **kwargs)
+    client.create_post = slow_post
+    releases_ = fetcher([rel("v4"), rel("v3"), rel("v2"), rel("v1")])
+    rf.run([ENTRY], state, client, dry_run=False, budget=150, fetch=releases_)
+    assert len(client.posts) == 2 and state["last"]["o/r"] == "v3"
+    assert state["polling"] == {"next": "o/r", "pending": True}
+    rf.run([ENTRY], state, client, dry_run=False, budget=150, fetch=releases_)
+    assert len(client.posts) == 3 and state["last"]["o/r"] == "v4" and state["polling"] == {"pending": False}

@@ -10,7 +10,7 @@ import pytest
 import yaml
 
 from hhf import release_feed as rf
-from hhf.discourse import DiscourseClient
+from hhf.discourse import DiscourseClient, DiscourseError
 from hhf.webhook import DeliveryError
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
@@ -714,7 +714,7 @@ class GroupRepairClient:
         self.updates = []
         self.uploads = []
 
-    def list_groups(self, prefix): return self.groups
+    def list_groups(self, prefix, deadline=None): return self.groups
     def get_app_icon(self, reference): return f"https://r2.hhf.technology/{reference}.webp"
     def upload_file(self, filename, content, upload_type):
         self.uploads.append((filename, upload_type))
@@ -849,3 +849,45 @@ def test_titles_discourse_would_call_unclear_gain_variety():
     assert rf.discussion_title({"repo": "agregarr/agregarr"}) == "agregarr/agregarr discussion"
     assert rf.discussion_title({"repo": "odoo/odoo"}) == "odoo/odoo discussion on GitHub"
     assert len(set(rf._title({"repo": "ente/ente"}))) >= 10
+
+
+def test_list_groups_stops_when_a_page_repeats_or_the_deadline_passes(monkeypatch):
+    pages = []
+
+    def handler(req):
+        pages.append(dict(req.url.params)["page"])
+        return httpx.Response(200, json={"groups": [{"name": "releases-a"}]})  # every page the same
+
+    client = make_client(handler)
+    assert [g["name"] for g in client.list_groups("releases-")] == ["releases-a"] and pages == ["0", "1"]
+    pages.clear()
+    monkeypatch.setattr("hhf.discourse.time.monotonic", lambda: 100.0)
+    assert client.list_groups("releases-", deadline=50.0) == [] and pages == []
+
+
+def test_group_repair_stops_at_its_deadline(monkeypatch, capsys):
+    class Client:
+        updated = []
+        def list_groups(self, prefix, deadline=None):
+            return [{"id": 1, "name": "releases-a", "full_name": "old", "flair_url": "x"}]
+        def update_group(self, group_id, **changes): self.updated.append(group_id)
+    entry = {"repo": "a/a", "groups": ["releases-a"], "topic_id": 1, "app_name": "A"}
+    monkeypatch.setattr(rf.time, "monotonic", lambda: 100.0)
+    client = Client()
+    assert rf.repair_groups([entry], client, dry_run=False, deadline=50.0) == []
+    assert client.updated == [] and "group repair deferred" in capsys.readouterr().out
+
+
+def test_rate_limit_is_raised_rather_than_slept_past_the_client_deadline(monkeypatch):
+    slept = []
+    client = DiscourseClient("https://forum.example", "k", sleep=slept.append, transport=httpx.MockTransport(
+        lambda req: httpx.Response(429, headers={"Retry-After": "300"})))
+    monkeypatch.setattr("hhf.discourse.time.monotonic", lambda: 100.0)
+    client.deadline = 200.0  # a 300s wait would pass it
+    with pytest.raises(DiscourseError) as err:
+        client.request("GET", "/groups.json")
+    assert err.value.status == 429 and slept == []
+    client.deadline = None
+    with pytest.raises(DiscourseError):
+        client.request("GET", "/groups.json")
+    assert slept == [300.0] * client.max_retries

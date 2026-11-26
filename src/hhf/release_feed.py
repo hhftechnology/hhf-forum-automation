@@ -304,7 +304,8 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
     start = next((i for i, entry in enumerate(entries) if key(entry) == cursor), 0)
     deadline = time.monotonic() + budget
     deferred = False
-    # shortcut: budget is checked between repositories; add per-request deadlines if one repository exceeds the job budget.
+    # The budget is checked between repositories and before each post; the client's own deadline
+    # stops 429 retries from sleeping past it.
     for e in entries[start:]:
         repo = key(e)
         state["polling"] = {"next": repo, "pending": True}
@@ -350,6 +351,11 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
             continue
         groups = e.get("groups") or []
         for rel in pending:
+            if not dry_run and time.monotonic() >= deadline:
+                # posts are checkpointed one by one, so the next run resumes this repo where it stopped
+                deferred = True
+                print(f"polling deferred inside {repo}; continuing next scheduled run")
+                break
             print(f"post {repo} {rel['tag']} -> topic {e['topic_id']}")
             n += 1
             if dry_run and groups:
@@ -367,6 +373,8 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
                     checkpoint()
                 if result and groups and can_notify:
                     notify(e["repo"], rel["tag"], groups, result)
+        if deferred:
+            break
     if not deferred:
         state["polling"] = {"pending": False}
     if checkpoint and not dry_run:
@@ -436,14 +444,24 @@ def _icon_bytes(entry: dict, client) -> tuple[str, bytes] | None:
     return f"{_group(entry)}.{extensions[content_type]}", bytes(data)
 
 
-def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, progress=None) -> None:
+# The job times out after 15 minutes and a timed-out job commits no state, so provisioning, group
+# repair and polling share this budget. It leaves room for setup, the commit, and the channel or
+# repository in flight when the deadline passes (deadlines are checked between them).
+JOB_BUDGET = 720
+# Provisioning's share when the same run also polls, and the point by which group repair stops;
+# the poll gets whatever is left.
+PROVISION_SHARE = 360
+REPAIR_UNTIL = 480
+
+
+def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, progress=None, budget: float = 600) -> None:
     """Idempotently provision incomplete channels and print IDs for review.
 
     New release categories are muted by default; joining a channel group turns on Watching.
     In dry-run, ``client`` is not used (may be None).
     """
     entries = [e for e in entries if not (e.get("category_id") and e.get("topic_id") and not e.get("provisioning"))][:limit]
-    deadline = time.monotonic() + 600
+    deadline = time.monotonic() + budget
     # shortcut: deadline is checked between channels; add per-request deadlines if a channel exceeds the workflow budget.
     if not entries:
         return
@@ -538,16 +556,19 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, pr
         raise RuntimeError(f"release provisioning failed for: {", ".join(failed)}")
 
 
-def repair_groups(entries: list[dict], client, *, dry_run: bool) -> list[str]:
+def repair_groups(entries: list[dict], client, *, dry_run: bool, deadline: float | None = None) -> list[str]:
     """Give every provisioned release group its app name and, when it has none, its app icon.
 
     Groups made before the naming fix were titled "<owner/repo> releases" and the oldest ones have no
     flair. This lists the groups once (a few paged requests) and only writes the ones that differ, so it
     is cheap enough to run on every full release run. Returns the groups it could not repair."""
-    groups = {g["name"]: g for g in client.list_groups("releases-")}
+    groups = {g["name"]: g for g in client.list_groups("releases-", deadline=deadline)}
     failed = []
     icons: dict[str, tuple[str, bytes] | None] = {}
     for e in entries:
+        if deadline is not None and time.monotonic() >= deadline:
+            print("group repair deferred; continuing next full run")
+            break
         if e.get("provisioning") or not e.get("topic_id"):
             continue
         for g in e.get("groups") or [_group(e)]:
@@ -630,31 +651,37 @@ def main(argv: list[str] | None = None) -> int:
     def progress():
         save_json(progress_path, {"releases": entries})
         _save_channels(args.channels, [entry for entry in entries if not entry.get("provisioning")])
+    started = time.monotonic()
+    if client is not None:
+        client.deadline = started + JOB_BUDGET
+    state = load_json(args.state)
+    state.setdefault("last", {})
+    polls = not args.bootstrap or (args.continue_poll and state.get("polling", {}).get("pending"))
     provisioning_error = None
     try:
         bootstrap(entries, client, dry_run=args.dry_run, limit=args.provision_limit,
-                  progress=None if args.dry_run else progress)
+                  progress=None if args.dry_run else progress,
+                  budget=PROVISION_SHARE if polls else 600)
     except RuntimeError as exc:
         provisioning_error = exc
     finally:
         if not args.dry_run:
             progress()
-    state = load_json(args.state)
-    state.setdefault("last", {})
-    if args.bootstrap and not (args.continue_poll and state.get("polling", {}).get("pending")):
+    if not polls:
         if provisioning_error:
             raise provisioning_error
         return 0
     if not args.dry_run:
         # Full runs keep group names and icons right; a failure is logged and retried next run.
         try:
-            repair_groups(entries, client, dry_run=False)
+            repair_groups(entries, client, dry_run=False, deadline=started + REPAIR_UNTIL)
         except Exception as exc:
             print(f"error: repairing release groups: {_describe(exc)}", file=sys.stderr)
     try:
         ready = [entry for entry in entries if entry.get("topic_id") and not entry.get("provisioning")]
         run(ready, state, client, dry_run=args.dry_run,
-            checkpoint=lambda: save_json(args.state, state))
+            checkpoint=lambda: save_json(args.state, state),
+            budget=max(0.0, JOB_BUDGET - (time.monotonic() - started)))
     finally:  # keep tags of posts already made even if a later post fails
         if not args.dry_run:
             save_json(args.state, state)
