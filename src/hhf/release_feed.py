@@ -90,10 +90,24 @@ def _parent(e: dict) -> str:
     return e.get("parent") or PARENT_NAME
 
 
-def _title(e: dict) -> str:
-    """"<repo> releases"; a tag_prefix split adds the name ("fosrl/apple iOS releases") unless it only repeats the repo."""
+# Discourse refuses a title with fewer distinct characters than title_min_entropy (10 by
+# default): "Title seems unclear, most of the words contain the same letters over and over?".
+# "sonarr/sonarr releases" has 9, so such titles get " on GitHub".
+TITLE_MIN_DISTINCT = 10
+
+
+def _clear(title: str) -> str:
+    return title if len(set(title.strip())) >= TITLE_MIN_DISTINCT else f"{title} on GitHub"
+
+
+def _channel(e: dict) -> str:
+    """"<repo>"; a tag_prefix split adds the name ("fosrl/apple iOS") unless it only repeats the repo."""
     split = e.get("tag_prefix") and _sub(e).lower() != e["repo"].split("/")[-1].lower()
-    return f"{e['repo']} {_sub(e)} releases" if split else f"{e['repo']} releases"
+    return f"{e['repo']} {_sub(e)}" if split else e["repo"]
+
+
+def _title(e: dict) -> str:
+    return _clear(f"{_channel(e)} releases")
 
 
 def _plain(text: str) -> str:
@@ -378,7 +392,7 @@ def discussion_text(repo: str, groups: list[str]) -> str:
 
 
 def discussion_title(entry: dict) -> str:
-    return f"{_title(entry)[:-len(' releases')]} discussion"
+    return _clear(f"{_channel(entry)} discussion")
 
 
 def _icon_url(url: str, entry_key: str) -> str:

@@ -424,7 +424,7 @@ def test_bootstrap_multiple_parents_and_titles():
     subs = {x["name"]: x["parent_category_id"] for x in c.cats if x["parent_category_id"]}
     assert subs == {"X": parents["P1"], "y": parents[rf.PARENT_NAME], "Zed": parents["P1"]}
     assert [t[0] for t in c.topics if not t[0].endswith(" discussion")] == [
-        "a/x releases", "a/y releases", "a/z Zed releases"]
+        "a/x releases on GitHub", "a/y releases on GitHub", "a/z Zed releases"]
     # a prefix used only to skip moving tags (n8n@) does not repeat the name in the title
     assert rf._title({"repo": "n8n-io/n8n", "name": "n8n", "tag_prefix": "n8n@"}) == "n8n-io/n8n releases"
     assert c.muted and set(parents.values()) & set(c.muted)
@@ -638,7 +638,7 @@ def test_bootstrap_retry_reuses_partial_category_and_release_topic(monkeypatch):
         assert str(exc) == "release provisioning failed for: o/r"
     retried = {"repo": "o/r", "app_reference": "sample-app"}
     rf.bootstrap([retried], client, dry_run=False)
-    assert len([topic for topic in client.topics if topic["title"] == "o/r releases"]) == 1
+    assert len([topic for topic in client.topics if topic["title"] == "o/r releases on GitHub"]) == 1
     assert len([topic for topic in client.topics if topic["title"] == "o/r discussion"]) == 1
     assert retried["topic_id"] == 1 and retried["discussion_topic_id"] == 2
 
@@ -839,3 +839,13 @@ def test_discourse_error_ignores_malformed_errors_field():
     assert DiscourseError(422, "POST", "/p.json", '{"errors": 1}').errors == ""
     assert DiscourseError(422, "POST", "/p.json", '{"errors": "bad"}').errors == ""
     assert DiscourseError(422, "POST", "/p.json", '["x"]').errors == ""
+
+
+def test_titles_discourse_would_call_unclear_gain_variety():
+    # Discourse rejected "agregarr/agregarr releases" (9 distinct characters) with a 422.
+    assert rf._title({"repo": "agregarr/agregarr"}) == "agregarr/agregarr releases on GitHub"
+    assert rf._title({"repo": "sonarr/sonarr"}) == "sonarr/sonarr releases on GitHub"
+    assert rf._title({"repo": "traefik/traefik"}) == "traefik/traefik releases"
+    assert rf.discussion_title({"repo": "agregarr/agregarr"}) == "agregarr/agregarr discussion"
+    assert rf.discussion_title({"repo": "odoo/odoo"}) == "odoo/odoo discussion on GitHub"
+    assert len(set(rf._title({"repo": "ente/ente"}))) >= 10
