@@ -1407,6 +1407,386 @@
       "name": "Castopod",
       "repo": "ad-aures/castopod",
       "topic_id": 5311
+    },
+    {
+      "category_id": 261,
+      "discussion_topic_id": 5315,
+      "groups": [
+        "releases-cerbos"
+      ],
+      "name": "Cerbos",
+      "repo": "cerbos/cerbos",
+      "topic_id": 5314
+    },
+    {
+      "category_id": 262,
+      "discussion_topic_id": 5318,
+      "groups": [
+        "releases-cert-warden"
+      ],
+      "name": "Cert Warden",
+      "repo": "gregtwallace/certwarden",
+      "topic_id": 5317
+    },
+    {
+      "category_id": 263,
+      "discussion_topic_id": 5321,
+      "groups": [
+        "releases-cetusguard"
+      ],
+      "name": "CetusGuard",
+      "repo": "hectorm/cetusguard",
+      "topic_id": 5320
+    },
+    {
+      "category_id": 264,
+      "discussion_topic_id": 5324,
+      "groups": [
+        "releases-changedetection"
+      ],
+      "name": "ChangeDetection",
+      "repo": "dgtlmoon/changedetection.io",
+      "topic_id": 5323
+    },
+    {
+      "category_id": 265,
+      "discussion_topic_id": 5327,
+      "groups": [
+        "releases-chartbrew"
+      ],
+      "name": "Chartbrew",
+      "repo": "chartbrew/chartbrew",
+      "topic_id": 5326
+    },
+    {
+      "category_id": 266,
+      "discussion_topic_id": 5330,
+      "groups": [
+        "releases-chartdb"
+      ],
+      "name": "ChartDB",
+      "repo": "chartdb/chartdb",
+      "topic_id": 5329
+    },
+    {
+      "category_id": 267,
+      "discussion_topic_id": 5333,
+      "groups": [
+        "releases-chatto"
+      ],
+      "name": "Chatto",
+      "repo": "chattocorp/chatto",
+      "topic_id": 5332
+    },
+    {
+      "category_id": 268,
+      "discussion_topic_id": 5336,
+      "groups": [
+        "releases-chatwoot"
+      ],
+      "name": "Chatwoot",
+      "repo": "chatwoot/chatwoot",
+      "topic_id": 5335
+    },
+    {
+      "category_id": 269,
+      "discussion_topic_id": 5339,
+      "groups": [
+        "releases-checkcle"
+      ],
+      "name": "CheckCle",
+      "repo": "operacle/checkcle",
+      "topic_id": 5338
+    },
+    {
+      "category_id": 270,
+      "discussion_topic_id": 5342,
+      "groups": [
+        "releases-checkmate"
+      ],
+      "name": "Checkmate",
+      "repo": "bluewave-labs/checkmate",
+      "topic_id": 5341
+    },
+    {
+      "category_id": 271,
+      "discussion_topic_id": 5345,
+      "groups": [
+        "releases-chevereto"
+      ],
+      "name": "Chevereto",
+      "repo": "chevereto/chevereto",
+      "topic_id": 5344
+    },
+    {
+      "category_id": 272,
+      "discussion_topic_id": 5348,
+      "groups": [
+        "releases-chhoto-url"
+      ],
+      "name": "Chhoto URL",
+      "repo": "sintan1729/chhoto-url",
+      "topic_id": 5347
+    },
+    {
+      "category_id": 273,
+      "discussion_topic_id": 5351,
+      "groups": [
+        "releases-chibisafe"
+      ],
+      "name": "Chibisafe",
+      "repo": "chibisafe/chibisafe",
+      "topic_id": 5350
+    },
+    {
+      "category_id": 274,
+      "discussion_topic_id": 5354,
+      "groups": [
+        "releases-chitchatter"
+      ],
+      "name": "Chitchatter",
+      "repo": "jeremyckahn/chitchatter",
+      "topic_id": 5353
+    },
+    {
+      "category_id": 275,
+      "discussion_topic_id": 5357,
+      "groups": [
+        "releases-christmas-community"
+      ],
+      "name": "Christmas Community",
+      "repo": "wingysam/christmas-community",
+      "topic_id": 5356
+    },
+    {
+      "category_id": 276,
+      "discussion_topic_id": 5360,
+      "groups": [
+        "releases-chronoframe"
+      ],
+      "name": "ChronoFrame",
+      "repo": "hoshinosuzumi/chronoframe",
+      "topic_id": 5359
+    },
+    {
+      "category_id": 277,
+      "discussion_topic_id": 5363,
+      "groups": [
+        "releases-cially"
+      ],
+      "name": "Cially",
+      "repo": "cially/cially",
+      "topic_id": 5362
+    },
+    {
+      "category_id": 278,
+      "discussion_topic_id": 5366,
+      "groups": [
+        "releases-cinephage"
+      ],
+      "name": "Cinephage",
+      "repo": "cinephage/cinephage",
+      "topic_id": 5365
+    },
+    {
+      "category_id": 279,
+      "discussion_topic_id": 5369,
+      "groups": [
+        "releases-circled-me"
+      ],
+      "name": "circled.me",
+      "repo": "circled-me/server",
+      "topic_id": 5368
+    },
+    {
+      "category_id": 280,
+      "discussion_topic_id": 5372,
+      "groups": [
+        "releases-clamav"
+      ],
+      "name": "ClamAV",
+      "repo": "cisco-talos/clamav",
+      "topic_id": 5371
+    },
+    {
+      "category_id": 281,
+      "discussion_topic_id": 5375,
+      "groups": [
+        "releases-clean-slate"
+      ],
+      "name": "Clean Slate",
+      "repo": "successible/cleanslate",
+      "topic_id": 5374
+    },
+    {
+      "category_id": 282,
+      "discussion_topic_id": 5378,
+      "groups": [
+        "releases-cleanuparr"
+      ],
+      "name": "Cleanuparr",
+      "repo": "cleanuparr/cleanuparr",
+      "topic_id": 5377
+    },
+    {
+      "category_id": 283,
+      "discussion_topic_id": 5381,
+      "groups": [
+        "releases-clickhouse"
+      ],
+      "name": "ClickHouse",
+      "repo": "clickhouse/clickhouse",
+      "topic_id": 5380
+    },
+    {
+      "category_id": 284,
+      "discussion_topic_id": 5384,
+      "groups": [
+        "releases-cliparr"
+      ],
+      "name": "Cliparr",
+      "repo": "techsquidtv/cliparr",
+      "topic_id": 5383
+    },
+    {
+      "category_id": 285,
+      "discussion_topic_id": 5387,
+      "groups": [
+        "releases-clipcascade"
+      ],
+      "name": "ClipCascade",
+      "repo": "sathvik-rao/clipcascade",
+      "topic_id": 5386
+    },
+    {
+      "category_id": 286,
+      "discussion_topic_id": 5390,
+      "groups": [
+        "releases-cloud-commander"
+      ],
+      "name": "Cloud Commander",
+      "repo": "coderaiser/cloudcmd",
+      "topic_id": 5389
+    },
+    {
+      "category_id": 287,
+      "discussion_topic_id": 5393,
+      "groups": [
+        "releases-cloud-in-a-bottle"
+      ],
+      "name": "Cloud in a Bottle",
+      "repo": "cloud-in-a-bottle/cloud-in-a-bottle",
+      "topic_id": 5392
+    },
+    {
+      "category_id": 288,
+      "discussion_topic_id": 5396,
+      "groups": [
+        "releases-cloudbeaver"
+      ],
+      "name": "CloudBeaver",
+      "repo": "dbeaver/cloudbeaver",
+      "topic_id": 5395
+    },
+    {
+      "category_id": 289,
+      "discussion_topic_id": 5399,
+      "groups": [
+        "releases-cloudflared"
+      ],
+      "name": "Cloudflared",
+      "repo": "cloudflare/cloudflared",
+      "topic_id": 5398
+    },
+    {
+      "category_id": 290,
+      "discussion_topic_id": 5402,
+      "groups": [
+        "releases-cloudpanel"
+      ],
+      "name": "CloudPanel",
+      "repo": "cloudpanel-io/cloudpanel-ce",
+      "topic_id": 5401
+    },
+    {
+      "category_id": 291,
+      "discussion_topic_id": 5405,
+      "groups": [
+        "releases-cmintey-wishlist"
+      ],
+      "name": "Wishlist",
+      "repo": "cmintey/wishlist",
+      "topic_id": 5404
+    },
+    {
+      "category_id": 292,
+      "discussion_topic_id": 5408,
+      "groups": [
+        "releases-code-server"
+      ],
+      "name": "code-server",
+      "repo": "coder/code-server",
+      "topic_id": 5407
+    },
+    {
+      "category_id": 293,
+      "discussion_topic_id": 5411,
+      "groups": [
+        "releases-coder"
+      ],
+      "name": "Coder",
+      "repo": "coder/coder",
+      "topic_id": 5410
+    },
+    {
+      "category_id": 294,
+      "discussion_topic_id": 5414,
+      "groups": [
+        "releases-colanode"
+      ],
+      "name": "Colanode",
+      "repo": "colanode/colanode",
+      "topic_id": 5413
+    },
+    {
+      "category_id": 295,
+      "discussion_topic_id": 5417,
+      "groups": [
+        "releases-comic-library-utilities"
+      ],
+      "name": "Comic Library Utilities",
+      "repo": "allaboutduncan/clu-comics",
+      "topic_id": 5416
+    },
+    {
+      "category_id": 296,
+      "discussion_topic_id": 5420,
+      "groups": [
+        "releases-commafeed"
+      ],
+      "name": "CommaFeed",
+      "repo": "athou/commafeed",
+      "topic_id": 5419
+    },
+    {
+      "category_id": 297,
+      "discussion_topic_id": 5423,
+      "groups": [
+        "releases-compass-dashboard"
+      ],
+      "name": "Compass",
+      "repo": "adinhodovic/compass",
+      "topic_id": 5422
+    },
+    {
+      "category_id": 298,
+      "discussion_topic_id": 5426,
+      "groups": [
+        "releases-compose-craft"
+      ],
+      "name": "Compose Craft",
+      "repo": "composecraft/composecraft",
+      "topic_id": 5425
     }
   ]
 }
