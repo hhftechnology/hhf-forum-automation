@@ -8141,6 +8141,8 @@
       ],
       "include_prereleases": false,
       "name": "Mumble",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "mumble-voip/mumble"
     },
     {
@@ -8150,6 +8152,8 @@
       ],
       "include_prereleases": false,
       "name": "Music Assistant",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "music-assistant/server"
     },
     {
@@ -8159,6 +8163,8 @@
       ],
       "include_prereleases": false,
       "name": "Music Service",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "thijstakken/musicservice"
     },
     {
@@ -8168,6 +8174,8 @@
       ],
       "include_prereleases": false,
       "name": "MyFin",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "afaneca/myfin"
     },
     {
@@ -8177,6 +8185,8 @@
       ],
       "include_prereleases": false,
       "name": "Mylar3",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "mylarcomics/mylar3"
     },
     {
@@ -8186,6 +8196,8 @@
       ],
       "include_prereleases": false,
       "name": "MySpeed",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "gnmyt/myspeed"
     },
     {
@@ -8195,6 +8207,8 @@
       ],
       "include_prereleases": false,
       "name": "Nakama",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "heroiclabs/nakama"
     },
     {
@@ -8204,6 +8218,8 @@
       ],
       "include_prereleases": false,
       "name": "Nametag",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "mattogodoy/nametag"
     },
     {
@@ -8213,6 +8229,8 @@
       ],
       "include_prereleases": false,
       "name": "NanoClaw",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nanocoai/nanoclaw"
     },
     {
@@ -8222,6 +8240,8 @@
       ],
       "include_prereleases": false,
       "name": "Navidrome",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "navidrome/navidrome"
     },
     {
@@ -8231,6 +8251,8 @@
       ],
       "include_prereleases": false,
       "name": "Neko",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "m1k1o/neko"
     },
     {
@@ -8240,6 +8262,8 @@
       ],
       "include_prereleases": false,
       "name": "NeoDB",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "neodb-social/neodb"
     },
     {
@@ -8249,6 +8273,8 @@
       ],
       "include_prereleases": false,
       "name": "NetAlertX",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "netalertx/netalertx"
     },
     {
@@ -8258,6 +8284,8 @@
       ],
       "include_prereleases": false,
       "name": "NetBird",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "netbirdio/netbird"
     },
     {
@@ -8267,6 +8295,8 @@
       ],
       "include_prereleases": false,
       "name": "NetBox",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "netbox-community/netbox"
     },
     {
@@ -8276,6 +8306,8 @@
       ],
       "include_prereleases": false,
       "name": "Netdata",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "netdata/netdata"
     },
     {
@@ -8285,6 +8317,8 @@
       ],
       "include_prereleases": false,
       "name": "Netronome",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "autobrr/netronome"
     },
     {
@@ -8294,6 +8328,8 @@
       ],
       "include_prereleases": false,
       "name": "NewsBlur",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "samuelclay/newsblur"
     },
     {
@@ -8303,6 +8339,8 @@
       ],
       "include_prereleases": false,
       "name": "Nextcloud",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nextcloud/server"
     },
     {
@@ -8312,6 +8350,8 @@
       ],
       "include_prereleases": false,
       "name": "Nextcloud Deck",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nextcloud/deck"
     },
     {
@@ -8321,6 +8361,8 @@
       ],
       "include_prereleases": false,
       "name": "Nextcloud Forms",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nextcloud/forms"
     },
     {
@@ -8330,6 +8372,8 @@
       ],
       "include_prereleases": false,
       "name": "Nextcloud Mail",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nextcloud/mail"
     },
     {
@@ -8339,6 +8383,8 @@
       ],
       "include_prereleases": false,
       "name": "Nextcloud News",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nextcloud/news"
     },
     {
@@ -8348,6 +8394,8 @@
       ],
       "include_prereleases": false,
       "name": "Nextcloud Notes",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nextcloud/notes"
     },
     {
@@ -8357,6 +8405,8 @@
       ],
       "include_prereleases": false,
       "name": "Nextcloud Office",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nextcloud/richdocuments"
     },
     {
@@ -8366,6 +8416,8 @@
       ],
       "include_prereleases": false,
       "name": "Nextcloud Social",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "alohasocial/social"
     },
     {
@@ -8375,6 +8427,8 @@
       ],
       "include_prereleases": false,
       "name": "Nextcloud Tables",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nextcloud/tables"
     },
     {
@@ -8384,6 +8438,8 @@
       ],
       "include_prereleases": false,
       "name": "Nextcloud Talk",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nextcloud/spreed"
     },
     {
@@ -8393,6 +8449,8 @@
       ],
       "include_prereleases": false,
       "name": "Nextcloud Tasks",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nextcloud/tasks"
     },
     {
@@ -8402,6 +8460,8 @@
       ],
       "include_prereleases": false,
       "name": "Nexterm",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "gnmyt/nexterm"
     },
     {
@@ -8411,6 +8471,8 @@
       ],
       "include_prereleases": false,
       "name": "NextExplorer",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nxzai/nextexplorer"
     },
     {
@@ -8420,6 +8482,8 @@
       ],
       "include_prereleases": false,
       "name": "Nezha",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nezhahq/nezha"
     },
     {
@@ -8429,6 +8493,8 @@
       ],
       "include_prereleases": false,
       "name": "nforwardauth",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nosduco/nforwardauth"
     },
     {
@@ -8438,6 +8504,8 @@
       ],
       "include_prereleases": false,
       "name": "Nginx UI",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "0xjacky/nginx-ui"
     },
     {
@@ -8447,6 +8515,8 @@
       ],
       "include_prereleases": false,
       "name": "Nightingale",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "rzru/nightingale"
     },
     {
@@ -8456,6 +8526,8 @@
       ],
       "include_prereleases": false,
       "name": "Nimtable",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nimtable/nimtable"
     },
     {
@@ -8465,6 +8537,8 @@
       ],
       "include_prereleases": false,
       "name": "Nixopus",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nixopus/nixopus"
     },
     {
@@ -8474,115 +8548,165 @@
       ],
       "include_prereleases": false,
       "name": "NocoBase",
+      "provisioning": true,
+      "provisioning_error": "DiscourseError",
       "repo": "nocobase/nocobase"
     },
     {
+      "activated_at": "2026-11-26T16:44:36.241004+00:00",
       "app_reference": "nocodb",
+      "category_id": 785,
+      "discussion_topic_id": 6894,
       "groups": [
         "releases-nocodb"
       ],
       "include_prereleases": false,
       "name": "NocoDB",
-      "repo": "nocodb/nocodb"
+      "repo": "nocodb/nocodb",
+      "topic_id": 6893
     },
     {
+      "activated_at": "2026-11-26T16:44:44.396375+00:00",
       "app_reference": "node-red",
+      "category_id": 786,
+      "discussion_topic_id": 6897,
       "groups": [
         "releases-node-red"
       ],
       "include_prereleases": false,
       "name": "Node-RED",
-      "repo": "node-red/node-red"
+      "repo": "node-red/node-red",
+      "topic_id": 6896
     },
     {
+      "activated_at": "2026-11-26T16:45:22.798723+00:00",
       "app_reference": "nodebb",
+      "category_id": 787,
+      "discussion_topic_id": 6900,
       "groups": [
         "releases-nodebb"
       ],
       "include_prereleases": false,
       "name": "NodeBB",
-      "repo": "nodebb/nodebb"
+      "repo": "nodebb/nodebb",
+      "topic_id": 6899
     },
     {
+      "activated_at": "2026-11-26T16:45:31.054550+00:00",
       "app_reference": "nodecast-tv",
+      "category_id": 788,
+      "discussion_topic_id": 6903,
       "groups": [
         "releases-nodecast-tv"
       ],
       "include_prereleases": false,
       "name": "nodecast-tv",
-      "repo": "technomancer702/nodecast-tv"
+      "repo": "technomancer702/nodecast-tv",
+      "topic_id": 6902
     },
     {
+      "activated_at": "2026-11-26T16:45:38.937325+00:00",
       "app_reference": "nogon",
+      "category_id": 789,
+      "discussion_topic_id": 6906,
       "groups": [
         "releases-nogon"
       ],
       "include_prereleases": false,
       "name": "Nogon",
-      "repo": "asciimoo/nogon"
+      "repo": "asciimoo/nogon",
+      "topic_id": 6905
     },
     {
+      "activated_at": "2026-11-26T16:45:46.907238+00:00",
       "app_reference": "noodle-gallery",
+      "category_id": 790,
+      "discussion_topic_id": 6909,
       "groups": [
         "releases-noodle-gallery"
       ],
       "include_prereleases": false,
       "name": "Noodle Gallery",
-      "repo": "open-noodle/gallery"
+      "repo": "open-noodle/gallery",
+      "topic_id": 6908
     },
     {
+      "activated_at": "2026-11-26T16:46:26.228339+00:00",
       "app_reference": "norish",
+      "category_id": 791,
+      "discussion_topic_id": 6912,
       "groups": [
         "releases-norish"
       ],
       "include_prereleases": false,
       "name": "Norish",
-      "repo": "norish-recipes/norish"
+      "repo": "norish-recipes/norish",
+      "topic_id": 6911
     },
     {
+      "activated_at": "2026-11-26T16:46:34.158352+00:00",
       "app_reference": "note-mark",
+      "category_id": 792,
+      "discussion_topic_id": 6915,
       "groups": [
         "releases-note-mark"
       ],
       "include_prereleases": false,
       "name": "Note Mark",
-      "repo": "enchant97/note-mark"
+      "repo": "enchant97/note-mark",
+      "topic_id": 6914
     },
     {
+      "activated_at": "2026-11-26T16:46:42.061526+00:00",
       "app_reference": "notediscovery",
+      "category_id": 793,
+      "discussion_topic_id": 6918,
       "groups": [
         "releases-notediscovery"
       ],
       "include_prereleases": false,
       "name": "NoteDiscovery",
-      "repo": "gamosoft/notediscovery"
+      "repo": "gamosoft/notediscovery",
+      "topic_id": 6917
     },
     {
+      "activated_at": "2026-11-26T16:46:49.894525+00:00",
       "app_reference": "notesnook",
+      "category_id": 794,
+      "discussion_topic_id": 6921,
       "groups": [
         "releases-notesnook"
       ],
       "include_prereleases": false,
       "name": "Notesnook",
-      "repo": "streetwriters/notesnook-sync-server"
+      "repo": "streetwriters/notesnook-sync-server",
+      "topic_id": 6920
     },
     {
+      "activated_at": "2026-11-26T16:47:29.024664+00:00",
       "app_reference": "notifiarr",
+      "category_id": 795,
+      "discussion_topic_id": 6924,
       "groups": [
         "releases-notifiarr"
       ],
       "include_prereleases": false,
       "name": "Notifiarr",
-      "repo": "notifiarr/notifiarr"
+      "repo": "notifiarr/notifiarr",
+      "topic_id": 6923
     },
     {
+      "activated_at": "2026-11-26T16:47:36.819344+00:00",
       "app_reference": "notifuse",
+      "category_id": 796,
+      "discussion_topic_id": 6927,
       "groups": [
         "releases-notifuse"
       ],
       "include_prereleases": false,
       "name": "Notifuse",
-      "repo": "notifuse/notifuse"
+      "repo": "notifuse/notifuse",
+      "topic_id": 6926
     },
     {
       "app_reference": "novu",
