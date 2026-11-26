@@ -287,6 +287,376 @@
       "name": "Nginx Proxy Manager",
       "repo": "NginxProxyManager/nginx-proxy-manager",
       "topic_id": 4869
+    },
+    {
+      "category_id": 148,
+      "discussion_topic_id": 4977,
+      "groups": [
+        "releases-79054f81c28"
+      ],
+      "name": "1Panel",
+      "repo": "1panel-dev/1panel",
+      "topic_id": 4976
+    },
+    {
+      "category_id": 149,
+      "discussion_topic_id": 4980,
+      "groups": [
+        "releases-641aa6cefff"
+      ],
+      "name": "2FAuth",
+      "repo": "bubka/2fauth",
+      "topic_id": 4979
+    },
+    {
+      "category_id": 150,
+      "discussion_topic_id": 4983,
+      "groups": [
+        "releases-81be1223029"
+      ],
+      "name": "8mb.local",
+      "repo": "jms1717/8mb.local",
+      "topic_id": 4982
+    },
+    {
+      "category_id": 151,
+      "discussion_topic_id": 4986,
+      "groups": [
+        "releases-8dc970f5501"
+      ],
+      "name": "Ackee",
+      "repo": "electerious/ackee",
+      "topic_id": 4985
+    },
+    {
+      "category_id": 152,
+      "discussion_topic_id": 4989,
+      "groups": [
+        "releases-eec06aee73a"
+      ],
+      "name": "Ackify",
+      "repo": "kolapsis/ackify",
+      "topic_id": 4988
+    },
+    {
+      "category_id": 153,
+      "discussion_topic_id": 4992,
+      "groups": [
+        "releases-68bd869049a"
+      ],
+      "name": "Activepieces",
+      "repo": "activepieces/activepieces",
+      "topic_id": 4991
+    },
+    {
+      "category_id": 154,
+      "discussion_topic_id": 4995,
+      "groups": [
+        "releases-ebf74299853"
+      ],
+      "name": "Actual Budget",
+      "repo": "actualbudget/actual",
+      "topic_id": 4994
+    },
+    {
+      "category_id": 155,
+      "discussion_topic_id": 4998,
+      "groups": [
+        "releases-419574822af"
+      ],
+      "name": "AdGuardHome Sync",
+      "repo": "bakito/adguardhome-sync",
+      "topic_id": 4997
+    },
+    {
+      "category_id": 156,
+      "discussion_topic_id": 5001,
+      "groups": [
+        "releases-a501656a736"
+      ],
+      "name": "Webhook",
+      "repo": "adnanh/webhook",
+      "topic_id": 5000
+    },
+    {
+      "category_id": 157,
+      "discussion_topic_id": 5004,
+      "groups": [
+        "releases-caf1d84a9c6"
+      ],
+      "name": "AdventureLog",
+      "repo": "seanmorley15/adventurelog",
+      "topic_id": 5003
+    },
+    {
+      "category_id": 158,
+      "discussion_topic_id": 5007,
+      "groups": [
+        "releases-261d3b1b37a"
+      ],
+      "name": "AFFiNE",
+      "repo": "toeverything/affine",
+      "topic_id": 5006
+    },
+    {
+      "category_id": 160,
+      "discussion_topic_id": 5011,
+      "groups": [
+        "releases-383fc44f2a3"
+      ],
+      "name": "AirPipe",
+      "repo": "sanyam-g/airpipe",
+      "topic_id": 5010
+    },
+    {
+      "category_id": 161,
+      "discussion_topic_id": 5014,
+      "groups": [
+        "releases-e00ab8faa5c"
+      ],
+      "name": "AirTrail",
+      "repo": "johanohly/airtrail",
+      "topic_id": 5013
+    },
+    {
+      "category_id": 162,
+      "discussion_topic_id": 5017,
+      "groups": [
+        "releases-48806811172"
+      ],
+      "name": "Akaunting",
+      "repo": "akaunting/akaunting",
+      "topic_id": 5016
+    },
+    {
+      "category_id": 163,
+      "discussion_topic_id": 5020,
+      "groups": [
+        "releases-d640dde796a"
+      ],
+      "name": "Alexandrie",
+      "repo": "smaug6739/alexandrie",
+      "topic_id": 5019
+    },
+    {
+      "category_id": 164,
+      "discussion_topic_id": 5023,
+      "groups": [
+        "releases-c3a2d408cb0"
+      ],
+      "name": "AliasVault",
+      "repo": "aliasvault/aliasvault",
+      "topic_id": 5022
+    },
+    {
+      "category_id": 165,
+      "discussion_topic_id": 5026,
+      "groups": [
+        "releases-0d2d54d753f"
+      ],
+      "name": "Amnezia",
+      "repo": "amnezia-vpn/amnezia-client",
+      "topic_id": 5025
+    },
+    {
+      "category_id": 166,
+      "discussion_topic_id": 5029,
+      "groups": [
+        "releases-6f267e8cbf0"
+      ],
+      "name": "Ampache",
+      "repo": "ampache/ampache",
+      "topic_id": 5028
+    },
+    {
+      "category_id": 167,
+      "discussion_topic_id": 5032,
+      "groups": [
+        "releases-992f07224c2"
+      ],
+      "name": "Otter Wiki",
+      "repo": "redimp/otterwiki",
+      "topic_id": 5031
+    },
+    {
+      "category_id": 168,
+      "discussion_topic_id": 5035,
+      "groups": [
+        "releases-592de1ef614"
+      ],
+      "name": "Anchor",
+      "repo": "zhfahim/anchor",
+      "topic_id": 5034
+    },
+    {
+      "category_id": 169,
+      "discussion_topic_id": 5038,
+      "groups": [
+        "releases-93496f4597a"
+      ],
+      "name": "Anchr",
+      "repo": "muety/anchr",
+      "topic_id": 5037
+    },
+    {
+      "category_id": 170,
+      "discussion_topic_id": 5041,
+      "groups": [
+        "releases-89ee0b0a943"
+      ],
+      "name": "AniBridge",
+      "repo": "anibridge/anibridge",
+      "topic_id": 5040
+    },
+    {
+      "category_id": 171,
+      "discussion_topic_id": 5044,
+      "groups": [
+        "releases-ba70e0a01d7"
+      ],
+      "name": "AnonAddy",
+      "repo": "anonaddy/anonaddy",
+      "topic_id": 5043
+    },
+    {
+      "category_id": 172,
+      "discussion_topic_id": 5047,
+      "groups": [
+        "releases-168fe6c36a2"
+      ],
+      "name": "Anonymous Overflow",
+      "repo": "httpjamesm/anonymousoverflow",
+      "topic_id": 5046
+    },
+    {
+      "category_id": 173,
+      "discussion_topic_id": 5050,
+      "groups": [
+        "releases-4d5c63c1828"
+      ],
+      "name": "Ansible",
+      "repo": "ansible/ansible",
+      "topic_id": 5049
+    },
+    {
+      "category_id": 174,
+      "discussion_topic_id": 5053,
+      "groups": [
+        "releases-91143f974e6"
+      ],
+      "name": "AnyAppStart",
+      "repo": "aceberg/anyappstart",
+      "topic_id": 5052
+    },
+    {
+      "category_id": 175,
+      "discussion_topic_id": 5056,
+      "groups": [
+        "releases-cd6ba71d6f9"
+      ],
+      "name": "AnyCable",
+      "repo": "anycable/anycable",
+      "topic_id": 5055
+    },
+    {
+      "category_id": 176,
+      "discussion_topic_id": 5059,
+      "groups": [
+        "releases-5527051161d"
+      ],
+      "name": "Apache Answer",
+      "repo": "apache/answer",
+      "topic_id": 5058
+    },
+    {
+      "category_id": 177,
+      "discussion_topic_id": 5062,
+      "groups": [
+        "releases-b09a3182d69"
+      ],
+      "name": "Apache Superset",
+      "repo": "apache/superset",
+      "topic_id": 5061
+    },
+    {
+      "category_id": 178,
+      "discussion_topic_id": 5065,
+      "groups": [
+        "releases-fd27ed05c57"
+      ],
+      "name": "AppFlowy",
+      "repo": "appflowy-io/appflowy",
+      "topic_id": 5064
+    },
+    {
+      "category_id": 179,
+      "discussion_topic_id": 5068,
+      "groups": [
+        "releases-05049e1131e"
+      ],
+      "name": "Apprise",
+      "repo": "caronc/apprise",
+      "topic_id": 5067
+    },
+    {
+      "category_id": 180,
+      "discussion_topic_id": 5071,
+      "groups": [
+        "releases-b0aa9927e1d"
+      ],
+      "name": "Appsmith",
+      "repo": "appsmithorg/appsmith",
+      "topic_id": 5070
+    },
+    {
+      "category_id": 181,
+      "discussion_topic_id": 5074,
+      "groups": [
+        "releases-de0bb21f3f0"
+      ],
+      "name": "Appwrite",
+      "repo": "appwrite/appwrite",
+      "topic_id": 5073
+    },
+    {
+      "category_id": 182,
+      "discussion_topic_id": 5077,
+      "groups": [
+        "releases-a7582e38770"
+      ],
+      "name": "ARA",
+      "repo": "ansible-community/ara",
+      "topic_id": 5076
+    },
+    {
+      "category_id": 183,
+      "discussion_topic_id": 5080,
+      "groups": [
+        "releases-c7a3f66d000"
+      ],
+      "name": "Arcane",
+      "repo": "getarcaneapp/arcane",
+      "topic_id": 5079
+    },
+    {
+      "category_id": 184,
+      "discussion_topic_id": 5083,
+      "groups": [
+        "releases-dc1439ab1b4"
+      ],
+      "name": "ArchiveBox",
+      "repo": "archivebox/archivebox",
+      "topic_id": 5082
+    },
+    {
+      "category_id": 185,
+      "discussion_topic_id": 5086,
+      "groups": [
+        "releases-db2367aaf37"
+      ],
+      "name": "Argus",
+      "repo": "release-argus/argus",
+      "topic_id": 5085
     }
   ]
 }
