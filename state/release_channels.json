@@ -4057,6 +4057,386 @@
       "name": "Haptic",
       "repo": "chroxify/haptic",
       "topic_id": 6105
+    },
+    {
+      "category_id": 525,
+      "discussion_topic_id": 6109,
+      "groups": [
+        "releases-haven"
+      ],
+      "name": "Haven",
+      "repo": "ancsemi/haven",
+      "topic_id": 6108
+    },
+    {
+      "category_id": 526,
+      "discussion_topic_id": 6112,
+      "groups": [
+        "releases-headplane"
+      ],
+      "name": "Headplane",
+      "repo": "tale/headplane",
+      "topic_id": 6111
+    },
+    {
+      "category_id": 527,
+      "discussion_topic_id": 6115,
+      "groups": [
+        "releases-headscale"
+      ],
+      "name": "Headscale",
+      "repo": "juanfont/headscale",
+      "topic_id": 6114
+    },
+    {
+      "category_id": 528,
+      "discussion_topic_id": 6118,
+      "groups": [
+        "releases-healthchecks"
+      ],
+      "name": "Healthchecks",
+      "repo": "healthchecks/healthchecks",
+      "topic_id": 6117
+    },
+    {
+      "category_id": 529,
+      "discussion_topic_id": 6121,
+      "groups": [
+        "releases-healthlog"
+      ],
+      "name": "HealthLog",
+      "repo": "mbombeck/healthlog",
+      "topic_id": 6120
+    },
+    {
+      "category_id": 530,
+      "discussion_topic_id": 6124,
+      "groups": [
+        "releases-hedgedoc"
+      ],
+      "name": "HedgeDoc",
+      "repo": "hedgedoc/hedgedoc",
+      "topic_id": 6123
+    },
+    {
+      "category_id": 531,
+      "discussion_topic_id": 6127,
+      "groups": [
+        "releases-heimdall"
+      ],
+      "name": "Heimdall",
+      "repo": "linuxserver/heimdall",
+      "topic_id": 6126
+    },
+    {
+      "category_id": 532,
+      "discussion_topic_id": 6130,
+      "groups": [
+        "releases-hermesseg"
+      ],
+      "name": "HermesSEG",
+      "repo": "deeztek/hermes-secure-email-gateway",
+      "topic_id": 6129
+    },
+    {
+      "category_id": 533,
+      "discussion_topic_id": 6133,
+      "groups": [
+        "releases-heyform"
+      ],
+      "name": "HeyForm",
+      "repo": "heyform/heyform",
+      "topic_id": 6132
+    },
+    {
+      "category_id": 534,
+      "discussion_topic_id": 6136,
+      "groups": [
+        "releases-hi-events"
+      ],
+      "name": "Hi.Events",
+      "repo": "hieventsdev/hi.events",
+      "topic_id": 6135
+    },
+    {
+      "category_id": 535,
+      "discussion_topic_id": 6139,
+      "groups": [
+        "releases-hollo"
+      ],
+      "name": "Hollo",
+      "repo": "fedify-dev/hollo",
+      "topic_id": 6138
+    },
+    {
+      "category_id": 536,
+      "discussion_topic_id": 6142,
+      "groups": [
+        "releases-holyarrs"
+      ],
+      "name": "HolyArrs",
+      "repo": "holyarrs/holyarrs",
+      "topic_id": 6141
+    },
+    {
+      "category_id": 537,
+      "discussion_topic_id": 6145,
+      "groups": [
+        "releases-homarr"
+      ],
+      "name": "Homarr",
+      "repo": "homarr-labs/homarr",
+      "topic_id": 6144
+    },
+    {
+      "category_id": 538,
+      "discussion_topic_id": 6148,
+      "groups": [
+        "releases-homarr-iframes"
+      ],
+      "name": "Homarr iFrames",
+      "repo": "diogovalentte/homarr-iframes",
+      "topic_id": 6147
+    },
+    {
+      "category_id": 539,
+      "discussion_topic_id": 6151,
+      "groups": [
+        "releases-home-assistant-time-machine"
+      ],
+      "name": "HA Time Machine",
+      "repo": "saihgupr/homeassistanttimemachine",
+      "topic_id": 6150
+    },
+    {
+      "category_id": 540,
+      "discussion_topic_id": 6154,
+      "groups": [
+        "releases-homebox"
+      ],
+      "name": "Homebox",
+      "repo": "sysadminsmedia/homebox",
+      "topic_id": 6153
+    },
+    {
+      "category_id": 541,
+      "discussion_topic_id": 6157,
+      "groups": [
+        "releases-homebutler"
+      ],
+      "name": "HomeButler",
+      "repo": "higangssh/homebutler",
+      "topic_id": 6156
+    },
+    {
+      "category_id": 542,
+      "discussion_topic_id": 6160,
+      "groups": [
+        "releases-homelable"
+      ],
+      "name": "Homelable",
+      "repo": "pouzor/homelable",
+      "topic_id": 6159
+    },
+    {
+      "category_id": 543,
+      "discussion_topic_id": 6163,
+      "groups": [
+        "releases-homepage"
+      ],
+      "name": "Homepage",
+      "repo": "gethomepage/homepage",
+      "topic_id": 6162
+    },
+    {
+      "category_id": 544,
+      "discussion_topic_id": 6166,
+      "groups": [
+        "releases-homer"
+      ],
+      "name": "Homer",
+      "repo": "homer-dashboard/homer",
+      "topic_id": 6165
+    },
+    {
+      "category_id": 545,
+      "discussion_topic_id": 6169,
+      "groups": [
+        "releases-hometube"
+      ],
+      "name": "HomeTube",
+      "repo": "egalitarianmonkey/hometube",
+      "topic_id": 6168
+    },
+    {
+      "category_id": 546,
+      "discussion_topic_id": 6172,
+      "groups": [
+        "releases-honey"
+      ],
+      "name": "Honey",
+      "repo": "dani3l0/honey",
+      "topic_id": 6171
+    },
+    {
+      "category_id": 547,
+      "discussion_topic_id": 6175,
+      "groups": [
+        "releases-hoodik"
+      ],
+      "name": "Hoodik",
+      "repo": "hudikhq/hoodik",
+      "topic_id": 6174
+    },
+    {
+      "category_id": 548,
+      "discussion_topic_id": 6178,
+      "groups": [
+        "releases-hook0"
+      ],
+      "name": "Hook0",
+      "repo": "hook0/hook0",
+      "topic_id": 6177
+    },
+    {
+      "category_id": 549,
+      "discussion_topic_id": 6181,
+      "groups": [
+        "releases-hortusfox"
+      ],
+      "name": "HortusFox",
+      "repo": "danielbrendel/hortusfox-web",
+      "topic_id": 6180
+    },
+    {
+      "category_id": 550,
+      "discussion_topic_id": 6184,
+      "groups": [
+        "releases-huginn"
+      ],
+      "name": "Huginn",
+      "repo": "huginn/huginn",
+      "topic_id": 6183
+    },
+    {
+      "category_id": 551,
+      "discussion_topic_id": 6187,
+      "groups": [
+        "releases-humhub"
+      ],
+      "name": "HumHub",
+      "repo": "humhub/humhub",
+      "topic_id": 6186
+    },
+    {
+      "category_id": 552,
+      "discussion_topic_id": 6190,
+      "groups": [
+        "releases-hyvor-relay"
+      ],
+      "name": "Hyvor Relay",
+      "repo": "hyvor/relay",
+      "topic_id": 6189
+    },
+    {
+      "category_id": 553,
+      "discussion_topic_id": 6193,
+      "groups": [
+        "releases-i-librarian"
+      ],
+      "name": "I, Librarian",
+      "repo": "mkucej/i-librarian-free",
+      "topic_id": 6192
+    },
+    {
+      "category_id": 554,
+      "discussion_topic_id": 6196,
+      "groups": [
+        "releases-ideon"
+      ],
+      "name": "Ideon",
+      "repo": "3xpyth0n/ideon",
+      "topic_id": 6195
+    },
+    {
+      "category_id": 555,
+      "discussion_topic_id": 6199,
+      "groups": [
+        "releases-ignidash"
+      ],
+      "name": "Ignidash",
+      "repo": "schelskedevco/ignidash",
+      "topic_id": 6198
+    },
+    {
+      "category_id": 556,
+      "discussion_topic_id": 6202,
+      "groups": [
+        "releases-ignis"
+      ],
+      "name": "Ignis",
+      "repo": "nystik-gh/ignis",
+      "topic_id": 6201
+    },
+    {
+      "category_id": 557,
+      "discussion_topic_id": 6205,
+      "groups": [
+        "releases-imgcompress"
+      ],
+      "name": "ImgCompress",
+      "repo": "karimz1/imgcompress",
+      "topic_id": 6204
+    },
+    {
+      "category_id": 558,
+      "discussion_topic_id": 6208,
+      "groups": [
+        "releases-immich-frame"
+      ],
+      "name": "Immich-Frame",
+      "repo": "immichframe/immichframe",
+      "topic_id": 6207
+    },
+    {
+      "category_id": 559,
+      "discussion_topic_id": 6211,
+      "groups": [
+        "releases-immich-kiosk"
+      ],
+      "name": "Immich Kiosk",
+      "repo": "damongolding/immich-kiosk",
+      "topic_id": 6210
+    },
+    {
+      "category_id": 560,
+      "discussion_topic_id": 6214,
+      "groups": [
+        "releases-immich-power-tools"
+      ],
+      "name": "Immich Power Tools",
+      "repo": "immich-power-tools/immich-power-tools",
+      "topic_id": 6213
+    },
+    {
+      "category_id": 561,
+      "discussion_topic_id": 6217,
+      "groups": [
+        "releases-immich-public-proxy"
+      ],
+      "name": "Immich Public Proxy",
+      "repo": "alangrainger/immich-public-proxy",
+      "topic_id": 6216
+    },
+    {
+      "category_id": 562,
+      "discussion_topic_id": 6220,
+      "groups": [
+        "releases-infisical"
+      ],
+      "name": "Infisical",
+      "repo": "infisical/infisical",
+      "topic_id": 6219
     }
   ]
 }
