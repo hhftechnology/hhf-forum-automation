@@ -20,7 +20,7 @@
     "fosrl/pangolin-node": "1.7.0",
     "fosrl/windows-linux#linux-": "linux-0.2.0",
     "fosrl/windows-linux#windows-": "windows-0.17.0",
-    "goauthentik/authentik": "version/2026.8.6",
+    "goauthentik/authentik": "version/2026.8.7",
     "home-assistant/core": "2026.11.3",
     "immich-app/immich": "v3.4.2",
     "jellyfin/jellyfin": "v12.4",
@@ -2153,7 +2153,9 @@
         "22561359",
         "22556376",
         "22553777",
-        "452191700"
+        "452191700",
+        "458447453",
+        "458456248"
       ]
     },
     "home-assistant/core": {
