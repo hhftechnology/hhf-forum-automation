@@ -58,6 +58,11 @@ class _ReleaseHeadingLinks(HTMLParser):
             self.in_heading = False
 
 
+class DeadlineReached(DiscourseError):
+    """The run's deadline cut a request short (a 429 whose wait would pass it, or a paged read that
+    ran out of time). Callers treat it as "continue next run", not as a failure of this item."""
+
+
 class DiscourseClient:
     def __init__(
         self,
@@ -101,7 +106,7 @@ class DiscourseClient:
             if resp.status_code == 429 and attempt < self.max_retries:
                 wait = _retry_after(resp)
                 if self.deadline is not None and time.monotonic() + wait >= self.deadline:
-                    break
+                    raise DeadlineReached(resp.status_code, method, path, resp.text)
                 log.warning("429 on %s %s, sleeping %.1fs", method, path, wait)
                 self._sleep(wait)
                 continue
@@ -177,6 +182,8 @@ class DiscourseClient:
         stream = topic["post_stream"]["stream"]
         urls = set()
         for offset in range(0, len(stream), 20):
+            if self.deadline is not None and time.monotonic() >= self.deadline:
+                raise DeadlineReached(0, "GET", f"/t/{topic_id}/posts.json", "run deadline reached")
             posts = self.request("GET", f"/t/{topic_id}/posts.json",
                                  params={"post_ids[]": stream[offset:offset + 20]})["post_stream"]["posts"]
             for post in posts:

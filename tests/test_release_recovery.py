@@ -213,3 +213,49 @@ def test_polling_defers_inside_a_repository_and_resumes_without_reposting(monkey
     assert state["polling"] == {"next": "o/r", "pending": True}
     rf.run([ENTRY], state, client, dry_run=False, budget=150, fetch=releases_)
     assert len(client.posts) == 3 and state["last"]["o/r"] == "v4" and state["polling"] == {"pending": False}
+
+
+def test_forum_deadline_defers_polling_and_keeps_the_cursor():
+    from hhf.discourse import DeadlineReached
+    entries = [ENTRY, {**ENTRY, "repo": "o/s", "topic_id": 43}]
+    client, state = FakeClient(), {"last": {"o/r": "v1", "o/s": "v1"}}
+    posts, calls = client.create_post, []
+    def limited(topic_id, raw):
+        calls.append(topic_id)
+        if len(calls) == 2:
+            raise DeadlineReached(429, "POST", "/posts.json", "")
+        return posts(topic_id, raw)
+    client.create_post = limited
+    rf.run(entries, state, client, dry_run=False, fetch=fetcher([rel("v3"), rel("v2"), rel("v1")]))
+    assert len(client.posts) == 1 and state["last"]["o/r"] == "v2"
+    assert state["polling"] == {"next": "o/r", "pending": True}  # not advanced to o/s, not cleared
+    client.create_post = posts
+    rf.run(entries, state, client, dry_run=False, fetch=fetcher([rel("v3"), rel("v2"), rel("v1")]))
+    assert [p[1].count("v3") > 0 for p in client.posts].count(True) == 2  # v3 for o/r, then o/s
+    assert state["last"] == {"o/r": "v3", "o/s": "v3"} and len(client.posts) == 4
+
+
+def test_release_history_scan_stops_at_the_client_deadline(monkeypatch):
+    from hhf.discourse import DeadlineReached
+    calls = []
+    def handler(req):
+        calls.append(req.url.path)
+        return httpx.Response(200, json={"post_stream": {"stream": list(range(50))}})
+    client = DiscourseClient("https://forum.example", "k", transport=httpx.MockTransport(handler))
+    monkeypatch.setattr("hhf.discourse.time.monotonic", lambda: 100.0)
+    client.deadline = 50.0
+    with pytest.raises(DeadlineReached):
+        client.release_urls(7)
+    assert calls == ["/t/7.json"]
+
+
+def test_deadline_during_category_discovery_is_not_a_failed_run(tmp_path, monkeypatch):
+    from hhf.discourse import DeadlineReached
+    config, state, channels = tmp_path / "c.yml", tmp_path / "s.json", tmp_path / "channels.json"
+    config.write_text("releases:\n- {repo: o/new, app_reference: new-app}\n")
+    state.write_text(json.dumps({"last": {}}))
+    class Client(FakeClient):
+        def list_categories(self):
+            raise DeadlineReached(429, "GET", "/categories.json", "")
+    monkeypatch.setattr(rf, "DiscourseClient", Client)
+    assert rf.main(["--bootstrap", "--config", str(config), "--state", str(state), "--channels", str(channels)]) == 0
