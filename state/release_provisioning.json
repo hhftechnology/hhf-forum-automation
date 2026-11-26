@@ -12410,346 +12410,498 @@
       "topic_id": 7760
     },
     {
+      "activated_at": "2026-11-26T20:26:25.271301+00:00",
       "app_reference": "steam-headless",
+      "category_id": 1075,
+      "discussion_topic_id": 7764,
       "groups": [
         "releases-steam-headless"
       ],
       "include_prereleases": false,
       "name": "Steam Headless",
-      "repo": "steam-headless/docker-steam-headless"
+      "repo": "steam-headless/docker-steam-headless",
+      "topic_id": 7763
     },
     {
+      "activated_at": "2026-11-26T20:26:31.405294+00:00",
       "app_reference": "stencilbox",
+      "category_id": 1076,
+      "discussion_topic_id": 7767,
       "groups": [
         "releases-stencilbox"
       ],
       "include_prereleases": false,
       "name": "StencilBox",
-      "repo": "jamesread/stencilbox"
+      "repo": "jamesread/stencilbox",
+      "topic_id": 7766
     },
     {
+      "activated_at": "2026-11-26T20:26:37.492750+00:00",
       "app_reference": "step-ca",
+      "category_id": 1077,
+      "discussion_topic_id": 7770,
       "groups": [
         "releases-step-ca"
       ],
       "include_prereleases": false,
       "name": "step-ca",
-      "repo": "smallstep/certificates"
+      "repo": "smallstep/certificates",
+      "topic_id": 7769
     },
     {
+      "activated_at": "2026-11-26T20:27:21.352575+00:00",
       "app_reference": "stirling-pdf",
+      "category_id": 1078,
+      "discussion_topic_id": 7773,
       "groups": [
         "releases-stirling-pdf"
       ],
       "include_prereleases": false,
       "name": "Stirling PDF",
-      "repo": "stirling-tools/stirling-pdf"
+      "repo": "stirling-tools/stirling-pdf",
+      "topic_id": 7772
     },
     {
+      "activated_at": "2026-11-26T20:27:28.003659+00:00",
       "app_reference": "stoat",
+      "category_id": 1079,
+      "discussion_topic_id": 7776,
       "groups": [
         "releases-stoat"
       ],
       "include_prereleases": false,
       "name": "Stoat",
-      "repo": "stoatchat/stoatchat"
+      "repo": "stoatchat/stoatchat",
+      "topic_id": 7775
     },
     {
+      "activated_at": "2026-11-26T20:27:34.285503+00:00",
       "app_reference": "storybook",
+      "category_id": 1080,
+      "discussion_topic_id": 7779,
       "groups": [
         "releases-storybook"
       ],
       "include_prereleases": false,
       "name": "Storybook",
-      "repo": "storybookjs/storybook"
+      "repo": "storybookjs/storybook",
+      "topic_id": 7778
     },
     {
+      "activated_at": "2026-11-26T20:27:40.510410+00:00",
       "app_reference": "storyden",
+      "category_id": 1081,
+      "discussion_topic_id": 7782,
       "groups": [
         "releases-storyden"
       ],
       "include_prereleases": false,
       "name": "Storyden",
-      "repo": "southclaws/storyden"
+      "repo": "southclaws/storyden",
+      "topic_id": 7781
     },
     {
+      "activated_at": "2026-11-26T20:28:24.244699+00:00",
       "app_reference": "streamystats",
+      "category_id": 1082,
+      "discussion_topic_id": 7785,
       "groups": [
         "releases-streamystats"
       ],
       "include_prereleases": false,
       "name": "Streamystats",
-      "repo": "fredrikburmester/streamystats"
+      "repo": "fredrikburmester/streamystats",
+      "topic_id": 7784
     },
     {
+      "activated_at": "2026-11-26T20:28:30.434123+00:00",
       "app_reference": "stump",
+      "category_id": 1083,
+      "discussion_topic_id": 7788,
       "groups": [
         "releases-stump"
       ],
       "include_prereleases": false,
       "name": "Stump",
-      "repo": "stumpapp/stump"
+      "repo": "stumpapp/stump",
+      "topic_id": 7787
     },
     {
+      "activated_at": "2026-11-26T20:28:36.474971+00:00",
       "app_reference": "sub-wave",
+      "category_id": 1084,
+      "discussion_topic_id": 7791,
       "groups": [
         "releases-sub-wave"
       ],
       "include_prereleases": false,
       "name": "SUB/WAVE",
-      "repo": "perminder-klair/subwave"
+      "repo": "perminder-klair/subwave",
+      "topic_id": 7790
     },
     {
+      "activated_at": "2026-11-26T20:29:18.970089+00:00",
       "app_reference": "subatic",
+      "category_id": 1085,
+      "discussion_topic_id": 7794,
       "groups": [
         "releases-subatic"
       ],
       "include_prereleases": false,
       "name": "Subatic",
-      "repo": "orthdron/subatic"
+      "repo": "orthdron/subatic",
+      "topic_id": 7793
     },
     {
+      "activated_at": "2026-11-26T20:29:26.495211+00:00",
       "app_reference": "subscription-manager",
+      "category_id": 1086,
+      "discussion_topic_id": 7797,
       "groups": [
         "releases-subscription-manager"
       ],
       "include_prereleases": false,
       "name": "Subscription Manager",
-      "repo": "dh1011/subscription-manager"
+      "repo": "dh1011/subscription-manager",
+      "topic_id": 7796
     },
     {
+      "activated_at": "2026-11-26T20:29:32.635392+00:00",
       "app_reference": "subtrackr",
+      "category_id": 1087,
+      "discussion_topic_id": 7800,
       "groups": [
         "releases-subtrackr"
       ],
       "include_prereleases": false,
       "name": "Subtrackr",
-      "repo": "bscott/subtrackr"
+      "repo": "bscott/subtrackr",
+      "topic_id": 7799
     },
     {
+      "activated_at": "2026-11-26T20:29:38.899537+00:00",
       "app_reference": "suggestarr",
+      "category_id": 1088,
+      "discussion_topic_id": 7803,
       "groups": [
         "releases-suggestarr"
       ],
       "include_prereleases": false,
       "name": "SuggestArr",
-      "repo": "giuseppe99barchetta/suggestarr"
+      "repo": "giuseppe99barchetta/suggestarr",
+      "topic_id": 7802
     },
     {
+      "activated_at": "2026-11-26T20:30:20.317062+00:00",
       "app_reference": "sunshine",
+      "category_id": 1089,
+      "discussion_topic_id": 7806,
       "groups": [
         "releases-sunshine"
       ],
       "include_prereleases": false,
       "name": "Sunshine",
-      "repo": "sunshinestream/sunshine"
+      "repo": "sunshinestream/sunshine",
+      "topic_id": 7805
     },
     {
+      "activated_at": "2026-11-26T20:30:29.108930+00:00",
       "app_reference": "supabase",
+      "category_id": 1090,
+      "discussion_topic_id": 7809,
       "groups": [
         "releases-supabase"
       ],
       "include_prereleases": false,
       "name": "Supabase",
-      "repo": "supabase/supabase"
+      "repo": "supabase/supabase",
+      "topic_id": 7808
     },
     {
+      "activated_at": "2026-11-26T20:30:35.332658+00:00",
       "app_reference": "super-productivity",
+      "category_id": 1091,
+      "discussion_topic_id": 7812,
       "groups": [
         "releases-super-productivity"
       ],
       "include_prereleases": false,
       "name": "Super Productivity",
-      "repo": "super-productivity/super-productivity"
+      "repo": "super-productivity/super-productivity",
+      "topic_id": 7811
     },
     {
+      "activated_at": "2026-11-26T20:30:41.501175+00:00",
       "app_reference": "sure-finance",
+      "category_id": 1092,
+      "discussion_topic_id": 7815,
       "groups": [
         "releases-sure-finance"
       ],
       "include_prereleases": false,
       "name": "Sure",
-      "repo": "we-promise/sure"
+      "repo": "we-promise/sure",
+      "topic_id": 7814
     },
     {
+      "activated_at": "2026-11-26T20:31:23.622209+00:00",
       "app_reference": "surmai",
+      "category_id": 1093,
+      "discussion_topic_id": 7818,
       "groups": [
         "releases-surmai"
       ],
       "include_prereleases": false,
       "name": "Surmai",
-      "repo": "rohitkumbhar/surmai"
+      "repo": "rohitkumbhar/surmai",
+      "topic_id": 7817
     },
     {
+      "activated_at": "2026-11-26T20:31:31.256549+00:00",
       "app_reference": "surveyjs",
+      "category_id": 1094,
+      "discussion_topic_id": 7821,
       "groups": [
         "releases-surveyjs"
       ],
       "include_prereleases": false,
       "name": "SurveyJS",
-      "repo": "surveyjs/survey-library"
+      "repo": "surveyjs/survey-library",
+      "topic_id": 7820
     },
     {
+      "activated_at": "2026-11-26T20:31:37.329197+00:00",
       "app_reference": "swag",
+      "category_id": 1095,
+      "discussion_topic_id": 7824,
       "groups": [
         "releases-swag"
       ],
       "include_prereleases": false,
       "name": "SWAG",
-      "repo": "linuxserver/docker-swag"
+      "repo": "linuxserver/docker-swag",
+      "topic_id": 7823
     },
     {
+      "activated_at": "2026-11-26T20:31:43.274940+00:00",
       "app_reference": "swetrix",
+      "category_id": 1096,
+      "discussion_topic_id": 7827,
       "groups": [
         "releases-swetrix"
       ],
       "include_prereleases": false,
       "name": "Swetrix",
-      "repo": "swetrix/swetrix"
+      "repo": "swetrix/swetrix",
+      "topic_id": 7826
     },
     {
+      "activated_at": "2026-11-26T20:32:25.373669+00:00",
       "app_reference": "swing-music",
+      "category_id": 1097,
+      "discussion_topic_id": 7830,
       "groups": [
         "releases-swing-music"
       ],
       "include_prereleases": false,
       "name": "Swing Music",
-      "repo": "swingmx/swingmusic"
+      "repo": "swingmx/swingmusic",
+      "topic_id": 7829
     },
     {
+      "activated_at": "2026-11-26T20:32:32.953340+00:00",
       "app_reference": "synapse",
+      "category_id": 1098,
+      "discussion_topic_id": 7833,
       "groups": [
         "releases-synapse"
       ],
       "include_prereleases": false,
       "name": "Synapse",
-      "repo": "element-hq/synapse"
+      "repo": "element-hq/synapse",
+      "topic_id": 7832
     },
     {
+      "activated_at": "2026-11-26T20:32:39.128807+00:00",
       "app_reference": "sync-in",
+      "category_id": 1099,
+      "discussion_topic_id": 7836,
       "groups": [
         "releases-sync-in"
       ],
       "include_prereleases": false,
       "name": "Sync-in",
-      "repo": "sync-in/server"
+      "repo": "sync-in/server",
+      "topic_id": 7835
     },
     {
+      "activated_at": "2026-11-26T20:33:20.733399+00:00",
       "app_reference": "syncloud",
+      "category_id": 1100,
+      "discussion_topic_id": 7839,
       "groups": [
         "releases-syncloud"
       ],
       "include_prereleases": false,
       "name": "Syncloud",
-      "repo": "syncloud/platform"
+      "repo": "syncloud/platform",
+      "topic_id": 7838
     },
     {
+      "activated_at": "2026-11-26T20:33:28.304474+00:00",
       "app_reference": "syncthing",
+      "category_id": 1101,
+      "discussion_topic_id": 7842,
       "groups": [
         "releases-syncthing"
       ],
       "include_prereleases": false,
       "name": "Syncthing",
-      "repo": "syncthing/syncthing"
+      "repo": "syncthing/syncthing",
+      "topic_id": 7841
     },
     {
+      "activated_at": "2026-11-26T20:33:35.785191+00:00",
       "app_reference": "tagr",
+      "category_id": 1102,
+      "discussion_topic_id": 7845,
       "groups": [
         "releases-tagr"
       ],
       "include_prereleases": false,
       "name": "Tagr",
-      "repo": "suitux/tagr"
+      "repo": "suitux/tagr",
+      "topic_id": 7844
     },
     {
+      "activated_at": "2026-11-26T20:33:42.083992+00:00",
       "app_reference": "tandoor-recipes",
+      "category_id": 1103,
+      "discussion_topic_id": 7848,
       "groups": [
         "releases-tandoor-recipes"
       ],
       "include_prereleases": false,
       "name": "Tandoor Recipes",
-      "repo": "tandoorrecipes/recipes"
+      "repo": "tandoorrecipes/recipes",
+      "topic_id": 7847
     },
     {
+      "activated_at": "2026-11-26T20:34:22.980925+00:00",
       "app_reference": "tapmap",
+      "category_id": 1104,
+      "discussion_topic_id": 7851,
       "groups": [
         "releases-tapmap"
       ],
       "include_prereleases": false,
       "name": "TapMap",
-      "repo": "olalie/tapmap"
+      "repo": "olalie/tapmap",
+      "topic_id": 7850
     },
     {
+      "activated_at": "2026-11-26T20:34:30.700525+00:00",
       "app_reference": "tasktrove",
+      "category_id": 1105,
+      "discussion_topic_id": 7854,
       "groups": [
         "releases-tasktrove"
       ],
       "include_prereleases": false,
       "name": "TaskTrove",
-      "repo": "dohsimpson/tasktrove"
+      "repo": "dohsimpson/tasktrove",
+      "topic_id": 7853
     },
     {
+      "activated_at": "2026-11-26T20:34:38.019626+00:00",
       "app_reference": "taskview",
+      "category_id": 1106,
+      "discussion_topic_id": 7857,
       "groups": [
         "releases-taskview"
       ],
       "include_prereleases": false,
       "name": "TaskView",
-      "repo": "gimanh/taskview-community"
+      "repo": "gimanh/taskview-community",
+      "topic_id": 7856
     },
     {
+      "activated_at": "2026-11-26T20:34:44.073157+00:00",
       "app_reference": "tasmoadmin",
+      "category_id": 1107,
+      "discussion_topic_id": 7860,
       "groups": [
         "releases-tasmoadmin"
       ],
       "include_prereleases": false,
       "name": "TasmoAdmin",
-      "repo": "tasmoadmin/tasmoadmin"
+      "repo": "tasmoadmin/tasmoadmin",
+      "topic_id": 7859
     },
     {
+      "activated_at": "2026-11-26T20:35:25.639940+00:00",
       "app_reference": "tautulli",
+      "category_id": 1108,
+      "discussion_topic_id": 7863,
       "groups": [
         "releases-tautulli"
       ],
       "include_prereleases": false,
       "name": "Tautulli",
-      "repo": "tautulli/tautulli"
+      "repo": "tautulli/tautulli",
+      "topic_id": 7862
     },
     {
+      "activated_at": "2026-11-26T20:35:34.221294+00:00",
       "app_reference": "tdarr",
+      "category_id": 1109,
+      "discussion_topic_id": 7866,
       "groups": [
         "releases-tdarr"
       ],
       "include_prereleases": false,
       "name": "Tdarr",
-      "repo": "haveagitgat/tdarr"
+      "repo": "haveagitgat/tdarr",
+      "topic_id": 7865
     },
     {
+      "activated_at": "2026-11-26T20:35:40.240381+00:00",
       "app_reference": "teable",
+      "category_id": 1110,
+      "discussion_topic_id": 7869,
       "groups": [
         "releases-teable"
       ],
       "include_prereleases": false,
       "name": "Teable",
-      "repo": "teableio/teable"
+      "repo": "teableio/teable",
+      "topic_id": 7868
     },
     {
+      "activated_at": "2026-11-26T20:35:46.232852+00:00",
       "app_reference": "teampass",
+      "category_id": 1111,
+      "discussion_topic_id": 7872,
       "groups": [
         "releases-teampass"
       ],
       "include_prereleases": false,
       "name": "Teampass",
-      "repo": "nilsteampassnet/teampass"
+      "repo": "nilsteampassnet/teampass",
+      "topic_id": 7871
     },
     {
+      "activated_at": "2026-11-26T20:36:27.811325+00:00",
       "app_reference": "technitium",
+      "category_id": 1112,
+      "discussion_topic_id": 7875,
       "groups": [
         "releases-technitium"
       ],
       "include_prereleases": false,
       "name": "Technitium",
-      "repo": "technitiumsoftware/dnsserver"
+      "repo": "technitiumsoftware/dnsserver",
+      "topic_id": 7874
     },
     {
       "app_reference": "teleport",
