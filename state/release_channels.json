@@ -3677,6 +3677,386 @@
       "name": "Ghost",
       "repo": "tryghost/ghost",
       "topic_id": 5991
+    },
+    {
+      "category_id": 487,
+      "discussion_topic_id": 5995,
+      "groups": [
+        "releases-ghostfolio"
+      ],
+      "name": "Ghostfolio",
+      "repo": "ghostfolio/ghostfolio",
+      "topic_id": 5994
+    },
+    {
+      "category_id": 488,
+      "discussion_topic_id": 5998,
+      "groups": [
+        "releases-ghstats"
+      ],
+      "name": "ghstats",
+      "repo": "vladkens/ghstats",
+      "topic_id": 5997
+    },
+    {
+      "category_id": 489,
+      "discussion_topic_id": 6001,
+      "groups": [
+        "releases-giraffile"
+      ],
+      "name": "Giraffile",
+      "repo": "coffeetron832/giraffile",
+      "topic_id": 6000
+    },
+    {
+      "category_id": 490,
+      "discussion_topic_id": 6004,
+      "groups": [
+        "releases-gitea"
+      ],
+      "name": "Gitea",
+      "repo": "go-gitea/gitea",
+      "topic_id": 6003
+    },
+    {
+      "category_id": 491,
+      "discussion_topic_id": 6007,
+      "groups": [
+        "releases-github-release-monitor"
+      ],
+      "name": "GitHub Release Monitor",
+      "repo": "iamspido/github-release-monitor",
+      "topic_id": 6006
+    },
+    {
+      "category_id": 492,
+      "discussion_topic_id": 6010,
+      "groups": [
+        "releases-gitsave"
+      ],
+      "name": "GitSave",
+      "repo": "timwitzdam/gitsave",
+      "topic_id": 6009
+    },
+    {
+      "category_id": 493,
+      "discussion_topic_id": 6013,
+      "groups": [
+        "releases-gladys-assistant"
+      ],
+      "name": "Gladys Assistant",
+      "repo": "gladysassistant/gladys",
+      "topic_id": 6012
+    },
+    {
+      "category_id": 494,
+      "discussion_topic_id": 6016,
+      "groups": [
+        "releases-glance"
+      ],
+      "name": "Glance",
+      "repo": "glanceapp/glance",
+      "topic_id": 6015
+    },
+    {
+      "category_id": 495,
+      "discussion_topic_id": 6019,
+      "groups": [
+        "releases-glances"
+      ],
+      "name": "Glances",
+      "repo": "nicolargo/glances",
+      "topic_id": 6018
+    },
+    {
+      "category_id": 496,
+      "discussion_topic_id": 6022,
+      "groups": [
+        "releases-glauth"
+      ],
+      "name": "GLAuth",
+      "repo": "glauth/glauth",
+      "topic_id": 6021
+    },
+    {
+      "category_id": 497,
+      "discussion_topic_id": 6025,
+      "groups": [
+        "releases-global-threat-map"
+      ],
+      "name": "Global Threat Map",
+      "repo": "unicodeveloper/globalthreatmap",
+      "topic_id": 6024
+    },
+    {
+      "category_id": 498,
+      "discussion_topic_id": 6028,
+      "groups": [
+        "releases-glpi"
+      ],
+      "name": "GLPI",
+      "repo": "glpi-project/glpi",
+      "topic_id": 6027
+    },
+    {
+      "category_id": 499,
+      "discussion_topic_id": 6031,
+      "groups": [
+        "releases-gmail-cleaner"
+      ],
+      "name": "Gmail Cleaner",
+      "repo": "gururagavendra/gmail-cleaner",
+      "topic_id": 6030
+    },
+    {
+      "category_id": 500,
+      "discussion_topic_id": 6034,
+      "groups": [
+        "releases-goatcounter"
+      ],
+      "name": "GoatCounter",
+      "repo": "arp242/goatcounter",
+      "topic_id": 6033
+    },
+    {
+      "category_id": 501,
+      "discussion_topic_id": 6037,
+      "groups": [
+        "releases-goaway"
+      ],
+      "name": "GoAway",
+      "repo": "pommee/goaway",
+      "topic_id": 6036
+    },
+    {
+      "category_id": 502,
+      "discussion_topic_id": 6040,
+      "groups": [
+        "releases-gocron"
+      ],
+      "name": "GoCron",
+      "repo": "flohoss/gocron",
+      "topic_id": 6039
+    },
+    {
+      "category_id": 503,
+      "discussion_topic_id": 6043,
+      "groups": [
+        "releases-gogs"
+      ],
+      "name": "Gogs",
+      "repo": "gogs/gogs",
+      "topic_id": 6042
+    },
+    {
+      "category_id": 504,
+      "discussion_topic_id": 6046,
+      "groups": [
+        "releases-gokapi"
+      ],
+      "name": "Gokapi",
+      "repo": "forceu/gokapi",
+      "topic_id": 6045
+    },
+    {
+      "category_id": 505,
+      "discussion_topic_id": 6049,
+      "groups": [
+        "releases-gotenberg"
+      ],
+      "name": "Gotenberg",
+      "repo": "gotenberg/gotenberg",
+      "topic_id": 6048
+    },
+    {
+      "category_id": 506,
+      "discussion_topic_id": 6052,
+      "groups": [
+        "releases-gotify"
+      ],
+      "name": "Gotify",
+      "repo": "gotify/server",
+      "topic_id": 6051
+    },
+    {
+      "category_id": 507,
+      "discussion_topic_id": 6055,
+      "groups": [
+        "releases-grafana"
+      ],
+      "name": "Grafana",
+      "repo": "grafana/grafana",
+      "topic_id": 6054
+    },
+    {
+      "category_id": 508,
+      "discussion_topic_id": 6058,
+      "groups": [
+        "releases-gramps"
+      ],
+      "name": "Gramps",
+      "repo": "gramps-project/gramps",
+      "topic_id": 6057
+    },
+    {
+      "category_id": 509,
+      "discussion_topic_id": 6061,
+      "groups": [
+        "releases-gravity"
+      ],
+      "name": "Gravity",
+      "repo": "beryju/gravity",
+      "topic_id": 6060
+    },
+    {
+      "category_id": 510,
+      "discussion_topic_id": 6064,
+      "groups": [
+        "releases-graylog"
+      ],
+      "name": "Graylog",
+      "repo": "graylog2/graylog2-server",
+      "topic_id": 6063
+    },
+    {
+      "category_id": 511,
+      "discussion_topic_id": 6067,
+      "groups": [
+        "releases-grimmory"
+      ],
+      "name": "Grimmory",
+      "repo": "grimmory-tools/grimmory",
+      "topic_id": 6066
+    },
+    {
+      "category_id": 512,
+      "discussion_topic_id": 6070,
+      "groups": [
+        "releases-grimoire"
+      ],
+      "name": "Grimoire",
+      "repo": "goniszewski/grimoire",
+      "topic_id": 6069
+    },
+    {
+      "category_id": 513,
+      "discussion_topic_id": 6073,
+      "groups": [
+        "releases-grist"
+      ],
+      "name": "Grist",
+      "repo": "gristlabs/grist-core",
+      "topic_id": 6072
+    },
+    {
+      "category_id": 514,
+      "discussion_topic_id": 6076,
+      "groups": [
+        "releases-grocy"
+      ],
+      "name": "Grocy",
+      "repo": "grocy/grocy",
+      "topic_id": 6075
+    },
+    {
+      "category_id": 515,
+      "discussion_topic_id": 6079,
+      "groups": [
+        "releases-guacamole"
+      ],
+      "name": "Guacamole",
+      "repo": "apache/guacamole-server",
+      "topic_id": 6078
+    },
+    {
+      "category_id": 516,
+      "discussion_topic_id": 6082,
+      "groups": [
+        "releases-guardian-plex"
+      ],
+      "name": "Guardian",
+      "repo": "hydroshieldmkii/guardian",
+      "topic_id": 6081
+    },
+    {
+      "category_id": 517,
+      "discussion_topic_id": 6085,
+      "groups": [
+        "releases-habitat-social"
+      ],
+      "name": "Habitat",
+      "repo": "carlnewton/habitat",
+      "topic_id": 6084
+    },
+    {
+      "category_id": 518,
+      "discussion_topic_id": 6088,
+      "groups": [
+        "releases-habitica"
+      ],
+      "name": "Habitica",
+      "repo": "habitrpg/habitica",
+      "topic_id": 6087
+    },
+    {
+      "category_id": 519,
+      "discussion_topic_id": 6091,
+      "groups": [
+        "releases-habitsync"
+      ],
+      "name": "HabitSync",
+      "repo": "jofoerster/habitsync",
+      "topic_id": 6090
+    },
+    {
+      "category_id": 520,
+      "discussion_topic_id": 6094,
+      "groups": [
+        "releases-habittrove"
+      ],
+      "name": "HabitTrove",
+      "repo": "dohsimpson/habittrove",
+      "topic_id": 6093
+    },
+    {
+      "category_id": 521,
+      "discussion_topic_id": 6097,
+      "groups": [
+        "releases-hammer-editor"
+      ],
+      "name": "Hammer",
+      "repo": "darkrock-studios/hammer-editor",
+      "topic_id": 6096
+    },
+    {
+      "category_id": 522,
+      "discussion_topic_id": 6100,
+      "groups": [
+        "releases-handbrake-web"
+      ],
+      "name": "HandBrake Web",
+      "repo": "thenickoftime/handbrake-web",
+      "topic_id": 6099
+    },
+    {
+      "category_id": 523,
+      "discussion_topic_id": 6103,
+      "groups": [
+        "releases-haproxy"
+      ],
+      "name": "HAProxy",
+      "repo": "haproxy/haproxy",
+      "topic_id": 6102
+    },
+    {
+      "category_id": 524,
+      "discussion_topic_id": 6106,
+      "groups": [
+        "releases-haptic"
+      ],
+      "name": "Haptic",
+      "repo": "chroxify/haptic",
+      "topic_id": 6105
     }
   ]
 }

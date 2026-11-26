@@ -4755,346 +4755,498 @@
       "topic_id": 5991
     },
     {
+      "activated_at": "2026-11-26T14:35:39.681657+00:00",
       "app_reference": "ghostfolio",
+      "category_id": 487,
+      "discussion_topic_id": 5995,
       "groups": [
         "releases-ghostfolio"
       ],
       "include_prereleases": false,
       "name": "Ghostfolio",
-      "repo": "ghostfolio/ghostfolio"
+      "repo": "ghostfolio/ghostfolio",
+      "topic_id": 5994
     },
     {
+      "activated_at": "2026-11-26T14:35:46.814855+00:00",
       "app_reference": "ghstats",
+      "category_id": 488,
+      "discussion_topic_id": 5998,
       "groups": [
         "releases-ghstats"
       ],
       "include_prereleases": false,
       "name": "ghstats",
-      "repo": "vladkens/ghstats"
+      "repo": "vladkens/ghstats",
+      "topic_id": 5997
     },
     {
+      "activated_at": "2026-11-26T14:35:53.971893+00:00",
       "app_reference": "giraffile",
+      "category_id": 489,
+      "discussion_topic_id": 6001,
       "groups": [
         "releases-giraffile"
       ],
       "include_prereleases": false,
       "name": "Giraffile",
-      "repo": "coffeetron832/giraffile"
+      "repo": "coffeetron832/giraffile",
+      "topic_id": 6000
     },
     {
+      "activated_at": "2026-11-26T14:36:35.227728+00:00",
       "app_reference": "gitea",
+      "category_id": 490,
+      "discussion_topic_id": 6004,
       "groups": [
         "releases-gitea"
       ],
       "include_prereleases": false,
       "name": "Gitea",
-      "repo": "go-gitea/gitea"
+      "repo": "go-gitea/gitea",
+      "topic_id": 6003
     },
     {
+      "activated_at": "2026-11-26T14:36:42.578246+00:00",
       "app_reference": "github-release-monitor",
+      "category_id": 491,
+      "discussion_topic_id": 6007,
       "groups": [
         "releases-github-release-monitor"
       ],
       "include_prereleases": false,
       "name": "GitHub Release Monitor",
-      "repo": "iamspido/github-release-monitor"
+      "repo": "iamspido/github-release-monitor",
+      "topic_id": 6006
     },
     {
+      "activated_at": "2026-11-26T14:36:49.616147+00:00",
       "app_reference": "gitsave",
+      "category_id": 492,
+      "discussion_topic_id": 6010,
       "groups": [
         "releases-gitsave"
       ],
       "include_prereleases": false,
       "name": "GitSave",
-      "repo": "timwitzdam/gitsave"
+      "repo": "timwitzdam/gitsave",
+      "topic_id": 6009
     },
     {
+      "activated_at": "2026-11-26T14:36:56.473050+00:00",
       "app_reference": "gladys-assistant",
+      "category_id": 493,
+      "discussion_topic_id": 6013,
       "groups": [
         "releases-gladys-assistant"
       ],
       "include_prereleases": false,
       "name": "Gladys Assistant",
-      "repo": "gladysassistant/gladys"
+      "repo": "gladysassistant/gladys",
+      "topic_id": 6012
     },
     {
+      "activated_at": "2026-11-26T14:37:38.157591+00:00",
       "app_reference": "glance",
+      "category_id": 494,
+      "discussion_topic_id": 6016,
       "groups": [
         "releases-glance"
       ],
       "include_prereleases": false,
       "name": "Glance",
-      "repo": "glanceapp/glance"
+      "repo": "glanceapp/glance",
+      "topic_id": 6015
     },
     {
+      "activated_at": "2026-11-26T14:37:45.238885+00:00",
       "app_reference": "glances",
+      "category_id": 495,
+      "discussion_topic_id": 6019,
       "groups": [
         "releases-glances"
       ],
       "include_prereleases": false,
       "name": "Glances",
-      "repo": "nicolargo/glances"
+      "repo": "nicolargo/glances",
+      "topic_id": 6018
     },
     {
+      "activated_at": "2026-11-26T14:37:52.621324+00:00",
       "app_reference": "glauth",
+      "category_id": 496,
+      "discussion_topic_id": 6022,
       "groups": [
         "releases-glauth"
       ],
       "include_prereleases": false,
       "name": "GLAuth",
-      "repo": "glauth/glauth"
+      "repo": "glauth/glauth",
+      "topic_id": 6021
     },
     {
+      "activated_at": "2026-11-26T14:37:59.600889+00:00",
       "app_reference": "global-threat-map",
+      "category_id": 497,
+      "discussion_topic_id": 6025,
       "groups": [
         "releases-global-threat-map"
       ],
       "include_prereleases": false,
       "name": "Global Threat Map",
-      "repo": "unicodeveloper/globalthreatmap"
+      "repo": "unicodeveloper/globalthreatmap",
+      "topic_id": 6024
     },
     {
+      "activated_at": "2026-11-26T14:38:40.217377+00:00",
       "app_reference": "glpi",
+      "category_id": 498,
+      "discussion_topic_id": 6028,
       "groups": [
         "releases-glpi"
       ],
       "include_prereleases": false,
       "name": "GLPI",
-      "repo": "glpi-project/glpi"
+      "repo": "glpi-project/glpi",
+      "topic_id": 6027
     },
     {
+      "activated_at": "2026-11-26T14:38:47.172004+00:00",
       "app_reference": "gmail-cleaner",
+      "category_id": 499,
+      "discussion_topic_id": 6031,
       "groups": [
         "releases-gmail-cleaner"
       ],
       "include_prereleases": false,
       "name": "Gmail Cleaner",
-      "repo": "gururagavendra/gmail-cleaner"
+      "repo": "gururagavendra/gmail-cleaner",
+      "topic_id": 6030
     },
     {
+      "activated_at": "2026-11-26T14:38:55.435616+00:00",
       "app_reference": "goatcounter",
+      "category_id": 500,
+      "discussion_topic_id": 6034,
       "groups": [
         "releases-goatcounter"
       ],
       "include_prereleases": false,
       "name": "GoatCounter",
-      "repo": "arp242/goatcounter"
+      "repo": "arp242/goatcounter",
+      "topic_id": 6033
     },
     {
+      "activated_at": "2026-11-26T14:39:34.380172+00:00",
       "app_reference": "goaway",
+      "category_id": 501,
+      "discussion_topic_id": 6037,
       "groups": [
         "releases-goaway"
       ],
       "include_prereleases": false,
       "name": "GoAway",
-      "repo": "pommee/goaway"
+      "repo": "pommee/goaway",
+      "topic_id": 6036
     },
     {
+      "activated_at": "2026-11-26T14:39:43.005611+00:00",
       "app_reference": "gocron",
+      "category_id": 502,
+      "discussion_topic_id": 6040,
       "groups": [
         "releases-gocron"
       ],
       "include_prereleases": false,
       "name": "GoCron",
-      "repo": "flohoss/gocron"
+      "repo": "flohoss/gocron",
+      "topic_id": 6039
     },
     {
+      "activated_at": "2026-11-26T14:39:50.556191+00:00",
       "app_reference": "gogs",
+      "category_id": 503,
+      "discussion_topic_id": 6043,
       "groups": [
         "releases-gogs"
       ],
       "include_prereleases": false,
       "name": "Gogs",
-      "repo": "gogs/gogs"
+      "repo": "gogs/gogs",
+      "topic_id": 6042
     },
     {
+      "activated_at": "2026-11-26T14:39:57.504013+00:00",
       "app_reference": "gokapi",
+      "category_id": 504,
+      "discussion_topic_id": 6046,
       "groups": [
         "releases-gokapi"
       ],
       "include_prereleases": false,
       "name": "Gokapi",
-      "repo": "forceu/gokapi"
+      "repo": "forceu/gokapi",
+      "topic_id": 6045
     },
     {
+      "activated_at": "2026-11-26T14:40:38.105049+00:00",
       "app_reference": "gotenberg",
+      "category_id": 505,
+      "discussion_topic_id": 6049,
       "groups": [
         "releases-gotenberg"
       ],
       "include_prereleases": false,
       "name": "Gotenberg",
-      "repo": "gotenberg/gotenberg"
+      "repo": "gotenberg/gotenberg",
+      "topic_id": 6048
     },
     {
+      "activated_at": "2026-11-26T14:40:45.508962+00:00",
       "app_reference": "gotify",
+      "category_id": 506,
+      "discussion_topic_id": 6052,
       "groups": [
         "releases-gotify"
       ],
       "include_prereleases": false,
       "name": "Gotify",
-      "repo": "gotify/server"
+      "repo": "gotify/server",
+      "topic_id": 6051
     },
     {
+      "activated_at": "2026-11-26T14:40:52.608524+00:00",
       "app_reference": "grafana",
+      "category_id": 507,
+      "discussion_topic_id": 6055,
       "groups": [
         "releases-grafana"
       ],
       "include_prereleases": false,
       "name": "Grafana",
-      "repo": "grafana/grafana"
+      "repo": "grafana/grafana",
+      "topic_id": 6054
     },
     {
+      "activated_at": "2026-11-26T14:41:00.744950+00:00",
       "app_reference": "gramps",
+      "category_id": 508,
+      "discussion_topic_id": 6058,
       "groups": [
         "releases-gramps"
       ],
       "include_prereleases": false,
       "name": "Gramps",
-      "repo": "gramps-project/gramps"
+      "repo": "gramps-project/gramps",
+      "topic_id": 6057
     },
     {
+      "activated_at": "2026-11-26T14:41:41.129500+00:00",
       "app_reference": "gravity",
+      "category_id": 509,
+      "discussion_topic_id": 6061,
       "groups": [
         "releases-gravity"
       ],
       "include_prereleases": false,
       "name": "Gravity",
-      "repo": "beryju/gravity"
+      "repo": "beryju/gravity",
+      "topic_id": 6060
     },
     {
+      "activated_at": "2026-11-26T14:41:48.410483+00:00",
       "app_reference": "graylog",
+      "category_id": 510,
+      "discussion_topic_id": 6064,
       "groups": [
         "releases-graylog"
       ],
       "include_prereleases": false,
       "name": "Graylog",
-      "repo": "graylog2/graylog2-server"
+      "repo": "graylog2/graylog2-server",
+      "topic_id": 6063
     },
     {
+      "activated_at": "2026-11-26T14:41:55.399401+00:00",
       "app_reference": "grimmory",
+      "category_id": 511,
+      "discussion_topic_id": 6067,
       "groups": [
         "releases-grimmory"
       ],
       "include_prereleases": false,
       "name": "Grimmory",
-      "repo": "grimmory-tools/grimmory"
+      "repo": "grimmory-tools/grimmory",
+      "topic_id": 6066
     },
     {
+      "activated_at": "2026-11-26T14:42:03.001728+00:00",
       "app_reference": "grimoire",
+      "category_id": 512,
+      "discussion_topic_id": 6070,
       "groups": [
         "releases-grimoire"
       ],
       "include_prereleases": false,
       "name": "Grimoire",
-      "repo": "goniszewski/grimoire"
+      "repo": "goniszewski/grimoire",
+      "topic_id": 6069
     },
     {
+      "activated_at": "2026-11-26T14:42:45.080279+00:00",
       "app_reference": "grist",
+      "category_id": 513,
+      "discussion_topic_id": 6073,
       "groups": [
         "releases-grist"
       ],
       "include_prereleases": false,
       "name": "Grist",
-      "repo": "gristlabs/grist-core"
+      "repo": "gristlabs/grist-core",
+      "topic_id": 6072
     },
     {
+      "activated_at": "2026-11-26T14:42:52.300138+00:00",
       "app_reference": "grocy",
+      "category_id": 514,
+      "discussion_topic_id": 6076,
       "groups": [
         "releases-grocy"
       ],
       "include_prereleases": false,
       "name": "Grocy",
-      "repo": "grocy/grocy"
+      "repo": "grocy/grocy",
+      "topic_id": 6075
     },
     {
+      "activated_at": "2026-11-26T14:42:59.305842+00:00",
       "app_reference": "guacamole",
+      "category_id": 515,
+      "discussion_topic_id": 6079,
       "groups": [
         "releases-guacamole"
       ],
       "include_prereleases": false,
       "name": "Guacamole",
-      "repo": "apache/guacamole-server"
+      "repo": "apache/guacamole-server",
+      "topic_id": 6078
     },
     {
+      "activated_at": "2026-11-26T14:43:39.498145+00:00",
       "app_reference": "guardian-plex",
+      "category_id": 516,
+      "discussion_topic_id": 6082,
       "groups": [
         "releases-guardian-plex"
       ],
       "include_prereleases": false,
       "name": "Guardian",
-      "repo": "hydroshieldmkii/guardian"
+      "repo": "hydroshieldmkii/guardian",
+      "topic_id": 6081
     },
     {
+      "activated_at": "2026-11-26T14:43:48.000130+00:00",
       "app_reference": "habitat-social",
+      "category_id": 517,
+      "discussion_topic_id": 6085,
       "groups": [
         "releases-habitat-social"
       ],
       "include_prereleases": false,
       "name": "Habitat",
-      "repo": "carlnewton/habitat"
+      "repo": "carlnewton/habitat",
+      "topic_id": 6084
     },
     {
+      "activated_at": "2026-11-26T14:43:54.832484+00:00",
       "app_reference": "habitica",
+      "category_id": 518,
+      "discussion_topic_id": 6088,
       "groups": [
         "releases-habitica"
       ],
       "include_prereleases": false,
       "name": "Habitica",
-      "repo": "habitrpg/habitica"
+      "repo": "habitrpg/habitica",
+      "topic_id": 6087
     },
     {
+      "activated_at": "2026-11-26T14:44:01.840974+00:00",
       "app_reference": "habitsync",
+      "category_id": 519,
+      "discussion_topic_id": 6091,
       "groups": [
         "releases-habitsync"
       ],
       "include_prereleases": false,
       "name": "HabitSync",
-      "repo": "jofoerster/habitsync"
+      "repo": "jofoerster/habitsync",
+      "topic_id": 6090
     },
     {
+      "activated_at": "2026-11-26T14:44:42.306425+00:00",
       "app_reference": "habittrove",
+      "category_id": 520,
+      "discussion_topic_id": 6094,
       "groups": [
         "releases-habittrove"
       ],
       "include_prereleases": false,
       "name": "HabitTrove",
-      "repo": "dohsimpson/habittrove"
+      "repo": "dohsimpson/habittrove",
+      "topic_id": 6093
     },
     {
+      "activated_at": "2026-11-26T14:44:50.797529+00:00",
       "app_reference": "hammer-editor",
+      "category_id": 521,
+      "discussion_topic_id": 6097,
       "groups": [
         "releases-hammer-editor"
       ],
       "include_prereleases": false,
       "name": "Hammer",
-      "repo": "darkrock-studios/hammer-editor"
+      "repo": "darkrock-studios/hammer-editor",
+      "topic_id": 6096
     },
     {
+      "activated_at": "2026-11-26T14:44:57.911516+00:00",
       "app_reference": "handbrake-web",
+      "category_id": 522,
+      "discussion_topic_id": 6100,
       "groups": [
         "releases-handbrake-web"
       ],
       "include_prereleases": false,
       "name": "HandBrake Web",
-      "repo": "thenickoftime/handbrake-web"
+      "repo": "thenickoftime/handbrake-web",
+      "topic_id": 6099
     },
     {
+      "activated_at": "2026-11-26T14:45:05.157591+00:00",
       "app_reference": "haproxy",
+      "category_id": 523,
+      "discussion_topic_id": 6103,
       "groups": [
         "releases-haproxy"
       ],
       "include_prereleases": false,
       "name": "HAProxy",
-      "repo": "haproxy/haproxy"
+      "repo": "haproxy/haproxy",
+      "topic_id": 6102
     },
     {
+      "activated_at": "2026-11-26T14:45:45.692916+00:00",
       "app_reference": "haptic",
+      "category_id": 524,
+      "discussion_topic_id": 6106,
       "groups": [
         "releases-haptic"
       ],
       "include_prereleases": false,
       "name": "Haptic",
-      "repo": "chroxify/haptic"
+      "repo": "chroxify/haptic",
+      "topic_id": 6105
     },
     {
       "app_reference": "haven",
