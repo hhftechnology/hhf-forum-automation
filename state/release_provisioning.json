@@ -6237,346 +6237,498 @@
       "topic_id": 6333
     },
     {
+      "activated_at": "2026-11-26T15:20:04.568223+00:00",
       "app_reference": "keycloak",
+      "category_id": 601,
+      "discussion_topic_id": 6337,
       "groups": [
         "releases-keycloak"
       ],
       "include_prereleases": false,
       "name": "Keycloak",
-      "repo": "keycloak/keycloak"
+      "repo": "keycloak/keycloak",
+      "topic_id": 6336
     },
     {
+      "activated_at": "2026-11-26T15:20:11.358578+00:00",
       "app_reference": "kimai",
+      "category_id": 602,
+      "discussion_topic_id": 6340,
       "groups": [
         "releases-kimai"
       ],
       "include_prereleases": false,
       "name": "Kimai",
-      "repo": "kimai/kimai"
+      "repo": "kimai/kimai",
+      "topic_id": 6339
     },
     {
+      "activated_at": "2026-11-26T15:20:17.615039+00:00",
       "app_reference": "kinto",
+      "category_id": 603,
+      "discussion_topic_id": 6343,
       "groups": [
         "releases-kinto"
       ],
       "include_prereleases": false,
       "name": "Kinto",
-      "repo": "kinto/kinto"
+      "repo": "kinto/kinto",
+      "topic_id": 6342
     },
     {
+      "activated_at": "2026-11-26T15:20:59.956356+00:00",
       "app_reference": "kitchenowl",
+      "category_id": 604,
+      "discussion_topic_id": 6346,
       "groups": [
         "releases-kitchenowl"
       ],
       "include_prereleases": false,
       "name": "KitchenOwl",
-      "repo": "tombursch/kitchenowl"
+      "repo": "tombursch/kitchenowl",
+      "topic_id": 6345
     },
     {
+      "activated_at": "2026-11-26T15:21:06.701579+00:00",
       "app_reference": "kite-kubernetes",
+      "category_id": 605,
+      "discussion_topic_id": 6349,
       "groups": [
         "releases-kite-kubernetes"
       ],
       "include_prereleases": false,
       "name": "Kite",
-      "repo": "kite-org/kite"
+      "repo": "kite-org/kite",
+      "topic_id": 6348
     },
     {
+      "activated_at": "2026-11-26T15:21:13.301104+00:00",
       "app_reference": "kitsu",
+      "category_id": 606,
+      "discussion_topic_id": 6352,
       "groups": [
         "releases-kitsu"
       ],
       "include_prereleases": false,
       "name": "Kitsu",
-      "repo": "cgwire/kitsu"
+      "repo": "cgwire/kitsu",
+      "topic_id": 6351
     },
     {
+      "activated_at": "2026-11-26T15:21:19.840511+00:00",
       "app_reference": "koel",
+      "category_id": 607,
+      "discussion_topic_id": 6355,
       "groups": [
         "releases-koel"
       ],
       "include_prereleases": false,
       "name": "Koel",
-      "repo": "koel/koel"
+      "repo": "koel/koel",
+      "topic_id": 6354
     },
     {
+      "activated_at": "2026-11-26T15:22:02.714516+00:00",
       "app_reference": "koffan",
+      "category_id": 608,
+      "discussion_topic_id": 6358,
       "groups": [
         "releases-koffan"
       ],
       "include_prereleases": false,
       "name": "Koffan",
-      "repo": "pansalut/koffan"
+      "repo": "pansalut/koffan",
+      "topic_id": 6357
     },
     {
+      "activated_at": "2026-11-26T15:22:09.801108+00:00",
       "app_reference": "koillection",
+      "category_id": 609,
+      "discussion_topic_id": 6361,
       "groups": [
         "releases-koillection"
       ],
       "include_prereleases": false,
       "name": "Koillection",
-      "repo": "benjaminjonard/koillection"
+      "repo": "benjaminjonard/koillection",
+      "topic_id": 6360
     },
     {
+      "activated_at": "2026-11-26T15:22:16.713354+00:00",
       "app_reference": "koito",
+      "category_id": 610,
+      "discussion_topic_id": 6364,
       "groups": [
         "releases-koito"
       ],
       "include_prereleases": false,
       "name": "Koito",
-      "repo": "gabehf/koito"
+      "repo": "gabehf/koito",
+      "topic_id": 6363
     },
     {
+      "activated_at": "2026-11-26T15:22:23.704638+00:00",
       "app_reference": "kometa",
+      "category_id": 611,
+      "discussion_topic_id": 6367,
       "groups": [
         "releases-kometa"
       ],
       "include_prereleases": false,
       "name": "Kometa",
-      "repo": "kometa-team/kometa"
+      "repo": "kometa-team/kometa",
+      "topic_id": 6366
     },
     {
+      "activated_at": "2026-11-26T15:23:04.647598+00:00",
       "app_reference": "komga",
+      "category_id": 612,
+      "discussion_topic_id": 6370,
       "groups": [
         "releases-komga"
       ],
       "include_prereleases": false,
       "name": "Komga",
-      "repo": "gotson/komga"
+      "repo": "gotson/komga",
+      "topic_id": 6369
     },
     {
+      "activated_at": "2026-11-26T15:23:13.340956+00:00",
       "app_reference": "komodo",
+      "category_id": 613,
+      "discussion_topic_id": 6373,
       "groups": [
         "releases-komodo"
       ],
       "include_prereleases": false,
       "name": "Komodo",
-      "repo": "moghtech/komodo"
+      "repo": "moghtech/komodo",
+      "topic_id": 6372
     },
     {
+      "activated_at": "2026-11-26T15:23:20.229792+00:00",
       "app_reference": "kontoj",
+      "category_id": 614,
+      "discussion_topic_id": 6376,
       "groups": [
         "releases-kontoj"
       ],
       "include_prereleases": false,
       "name": "Kontoj",
-      "repo": "galaksiotech/kontoj"
+      "repo": "galaksiotech/kontoj",
+      "topic_id": 6375
     },
     {
+      "activated_at": "2026-11-26T15:23:59.890960+00:00",
       "app_reference": "kopia",
+      "category_id": 615,
+      "discussion_topic_id": 6379,
       "groups": [
         "releases-kopia"
       ],
       "include_prereleases": false,
       "name": "Kopia",
-      "repo": "kopia/kopia"
+      "repo": "kopia/kopia",
+      "topic_id": 6378
     },
     {
+      "activated_at": "2026-11-26T15:24:07.615495+00:00",
       "app_reference": "krakend",
+      "category_id": 616,
+      "discussion_topic_id": 6382,
       "groups": [
         "releases-krakend"
       ],
       "include_prereleases": false,
       "name": "KrakenD",
-      "repo": "krakend/krakend-ce"
+      "repo": "krakend/krakend-ce",
+      "topic_id": 6381
     },
     {
+      "activated_at": "2026-11-26T15:24:15.205645+00:00",
       "app_reference": "ktistec",
+      "category_id": 617,
+      "discussion_topic_id": 6385,
       "groups": [
         "releases-ktistec"
       ],
       "include_prereleases": false,
       "name": "Ktistec",
-      "repo": "toddsundsted/ktistec"
+      "repo": "toddsundsted/ktistec",
+      "topic_id": 6384
     },
     {
+      "activated_at": "2026-11-26T15:24:22.738219+00:00",
       "app_reference": "kubero",
+      "category_id": 618,
+      "discussion_topic_id": 6388,
       "groups": [
         "releases-kubero"
       ],
       "include_prereleases": false,
       "name": "Kubero",
-      "repo": "kubero-dev/kubero"
+      "repo": "kubero-dev/kubero",
+      "topic_id": 6387
     },
     {
+      "activated_at": "2026-11-26T15:25:02.420970+00:00",
       "app_reference": "kubetail",
+      "category_id": 619,
+      "discussion_topic_id": 6391,
       "groups": [
         "releases-kubetail"
       ],
       "include_prereleases": false,
       "name": "Kubetail",
-      "repo": "kubetail-org/kubetail"
+      "repo": "kubetail-org/kubetail",
+      "topic_id": 6390
     },
     {
+      "activated_at": "2026-11-26T15:25:10.649612+00:00",
       "app_reference": "kutt",
+      "category_id": 620,
+      "discussion_topic_id": 6394,
       "groups": [
         "releases-kutt"
       ],
       "include_prereleases": false,
       "name": "Kutt",
-      "repo": "thedevs-network/kutt"
+      "repo": "thedevs-network/kutt",
+      "topic_id": 6393
     },
     {
+      "activated_at": "2026-11-26T15:25:17.213439+00:00",
       "app_reference": "kuvasz",
+      "category_id": 621,
+      "discussion_topic_id": 6397,
       "groups": [
         "releases-kuvasz"
       ],
       "include_prereleases": false,
       "name": "Kuvasz",
-      "repo": "kuvasz-uptime/kuvasz"
+      "repo": "kuvasz-uptime/kuvasz",
+      "topic_id": 6396
     },
     {
+      "activated_at": "2026-11-26T15:25:25.032291+00:00",
       "app_reference": "kyoo",
+      "category_id": 622,
+      "discussion_topic_id": 6400,
       "groups": [
         "releases-kyoo"
       ],
       "include_prereleases": false,
       "name": "Kyoo",
-      "repo": "zoriya/kyoo"
+      "repo": "zoriya/kyoo",
+      "topic_id": 6399
     },
     {
+      "activated_at": "2026-11-26T15:26:04.675867+00:00",
       "app_reference": "lab-dash",
+      "category_id": 623,
+      "discussion_topic_id": 6403,
       "groups": [
         "releases-lab-dash"
       ],
       "include_prereleases": false,
       "name": "Lab Dash",
-      "repo": "anthonygress/lab-dash"
+      "repo": "anthonygress/lab-dash",
+      "topic_id": 6402
     },
     {
+      "activated_at": "2026-11-26T15:26:12.251341+00:00",
       "app_reference": "lan-orangutan",
+      "category_id": 624,
+      "discussion_topic_id": 6406,
       "groups": [
         "releases-lan-orangutan"
       ],
       "include_prereleases": false,
       "name": "LAN Orangutan",
-      "repo": "291-group/lan-orangutan"
+      "repo": "291-group/lan-orangutan",
+      "topic_id": 6405
     },
     {
+      "activated_at": "2026-11-26T15:26:21.166541+00:00",
       "app_reference": "lancommander",
+      "category_id": 625,
+      "discussion_topic_id": 6409,
       "groups": [
         "releases-lancommander"
       ],
       "include_prereleases": false,
       "name": "LANCommander",
-      "repo": "lancommander/lancommander"
+      "repo": "lancommander/lancommander",
+      "topic_id": 6408
     },
     {
+      "activated_at": "2026-11-26T15:26:27.346640+00:00",
       "app_reference": "laudspeaker",
+      "category_id": 626,
+      "discussion_topic_id": 6412,
       "groups": [
         "releases-laudspeaker"
       ],
       "include_prereleases": false,
       "name": "Laudspeaker",
-      "repo": "laudspeaker/laudspeaker"
+      "repo": "laudspeaker/laudspeaker",
+      "topic_id": 6411
     },
     {
+      "activated_at": "2026-11-26T15:27:06.943545+00:00",
       "app_reference": "leafwiki",
+      "category_id": 627,
+      "discussion_topic_id": 6415,
       "groups": [
         "releases-leafwiki"
       ],
       "include_prereleases": false,
       "name": "LeafWiki",
-      "repo": "perber/leafwiki"
+      "repo": "perber/leafwiki",
+      "topic_id": 6414
     },
     {
+      "activated_at": "2026-11-26T15:27:16.177939+00:00",
       "app_reference": "leantime",
+      "category_id": 628,
+      "discussion_topic_id": 6418,
       "groups": [
         "releases-leantime"
       ],
       "include_prereleases": false,
       "name": "Leantime",
-      "repo": "leantime/leantime"
+      "repo": "leantime/leantime",
+      "topic_id": 6417
     },
     {
+      "activated_at": "2026-11-26T15:27:22.853443+00:00",
       "app_reference": "lemmy",
+      "category_id": 629,
+      "discussion_topic_id": 6421,
       "groups": [
         "releases-lemmy"
       ],
       "include_prereleases": false,
       "name": "Lemmy",
-      "repo": "lemmynet/lemmy"
+      "repo": "lemmynet/lemmy",
+      "topic_id": 6420
     },
     {
+      "activated_at": "2026-11-26T15:28:02.276621+00:00",
       "app_reference": "letterfeed",
+      "category_id": 630,
+      "discussion_topic_id": 6424,
       "groups": [
         "releases-letterfeed"
       ],
       "include_prereleases": false,
       "name": "LetterFeed",
-      "repo": "leonmuscoden/letterfeed"
+      "repo": "leonmuscoden/letterfeed",
+      "topic_id": 6423
     },
     {
+      "activated_at": "2026-11-26T15:28:09.031045+00:00",
       "app_reference": "libre-closet",
+      "category_id": 631,
+      "discussion_topic_id": 6427,
       "groups": [
         "releases-libre-closet"
       ],
       "include_prereleases": false,
       "name": "Libre Closet",
-      "repo": "lazztech/libre-closet"
+      "repo": "lazztech/libre-closet",
+      "topic_id": 6426
     },
     {
+      "activated_at": "2026-11-26T15:28:17.622286+00:00",
       "app_reference": "librechat",
+      "category_id": 632,
+      "discussion_topic_id": 6430,
       "groups": [
         "releases-librechat"
       ],
       "include_prereleases": false,
       "name": "LibreChat",
-      "repo": "librechat-ai/librechat"
+      "repo": "librechat-ai/librechat",
+      "topic_id": 6429
     },
     {
+      "activated_at": "2026-11-26T15:28:25.336649+00:00",
       "app_reference": "libredb-studio",
+      "category_id": 633,
+      "discussion_topic_id": 6433,
       "groups": [
         "releases-libredb-studio"
       ],
       "include_prereleases": false,
       "name": "LibreDB Studio",
-      "repo": "libredb/libredb-studio"
+      "repo": "libredb/libredb-studio",
+      "topic_id": 6432
     },
     {
+      "activated_at": "2026-11-26T15:29:04.564758+00:00",
       "app_reference": "librephotos",
+      "category_id": 634,
+      "discussion_topic_id": 6436,
       "groups": [
         "releases-librephotos"
       ],
       "include_prereleases": false,
       "name": "LibrePhotos",
-      "repo": "librephotos/librephotos"
+      "repo": "librephotos/librephotos",
+      "topic_id": 6435
     },
     {
+      "activated_at": "2026-11-26T15:29:12.729066+00:00",
       "app_reference": "librespeed",
+      "category_id": 635,
+      "discussion_topic_id": 6439,
       "groups": [
         "releases-librespeed"
       ],
       "include_prereleases": false,
       "name": "LibreSpeed",
-      "repo": "librespeed/speedtest"
+      "repo": "librespeed/speedtest",
+      "topic_id": 6438
     },
     {
+      "activated_at": "2026-11-26T15:29:20.778893+00:00",
       "app_reference": "libretranslate",
+      "category_id": 636,
+      "discussion_topic_id": 6442,
       "groups": [
         "releases-libretranslate"
       ],
       "include_prereleases": false,
       "name": "LibreTranslate",
-      "repo": "libretranslate/libretranslate"
+      "repo": "libretranslate/libretranslate",
+      "topic_id": 6441
     },
     {
+      "activated_at": "2026-11-26T15:29:27.281707+00:00",
       "app_reference": "librum",
+      "category_id": 637,
+      "discussion_topic_id": 6445,
       "groups": [
         "releases-librum"
       ],
       "include_prereleases": false,
       "name": "Librum",
-      "repo": "librum-reader/librum"
+      "repo": "librum-reader/librum",
+      "topic_id": 6444
     },
     {
+      "activated_at": "2026-11-26T15:30:07.054640+00:00",
       "app_reference": "lidarr",
+      "category_id": 638,
+      "discussion_topic_id": 6448,
       "groups": [
         "releases-lidarr"
       ],
       "include_prereleases": false,
       "name": "Lidarr",
-      "repo": "lidarr/lidarr"
+      "repo": "lidarr/lidarr",
+      "topic_id": 6447
     },
     {
       "app_reference": "lidify",

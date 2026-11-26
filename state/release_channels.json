@@ -4817,6 +4817,386 @@
       "name": "Kestra",
       "repo": "kestra-io/kestra",
       "topic_id": 6333
+    },
+    {
+      "category_id": 601,
+      "discussion_topic_id": 6337,
+      "groups": [
+        "releases-keycloak"
+      ],
+      "name": "Keycloak",
+      "repo": "keycloak/keycloak",
+      "topic_id": 6336
+    },
+    {
+      "category_id": 602,
+      "discussion_topic_id": 6340,
+      "groups": [
+        "releases-kimai"
+      ],
+      "name": "Kimai",
+      "repo": "kimai/kimai",
+      "topic_id": 6339
+    },
+    {
+      "category_id": 603,
+      "discussion_topic_id": 6343,
+      "groups": [
+        "releases-kinto"
+      ],
+      "name": "Kinto",
+      "repo": "kinto/kinto",
+      "topic_id": 6342
+    },
+    {
+      "category_id": 604,
+      "discussion_topic_id": 6346,
+      "groups": [
+        "releases-kitchenowl"
+      ],
+      "name": "KitchenOwl",
+      "repo": "tombursch/kitchenowl",
+      "topic_id": 6345
+    },
+    {
+      "category_id": 605,
+      "discussion_topic_id": 6349,
+      "groups": [
+        "releases-kite-kubernetes"
+      ],
+      "name": "Kite",
+      "repo": "kite-org/kite",
+      "topic_id": 6348
+    },
+    {
+      "category_id": 606,
+      "discussion_topic_id": 6352,
+      "groups": [
+        "releases-kitsu"
+      ],
+      "name": "Kitsu",
+      "repo": "cgwire/kitsu",
+      "topic_id": 6351
+    },
+    {
+      "category_id": 607,
+      "discussion_topic_id": 6355,
+      "groups": [
+        "releases-koel"
+      ],
+      "name": "Koel",
+      "repo": "koel/koel",
+      "topic_id": 6354
+    },
+    {
+      "category_id": 608,
+      "discussion_topic_id": 6358,
+      "groups": [
+        "releases-koffan"
+      ],
+      "name": "Koffan",
+      "repo": "pansalut/koffan",
+      "topic_id": 6357
+    },
+    {
+      "category_id": 609,
+      "discussion_topic_id": 6361,
+      "groups": [
+        "releases-koillection"
+      ],
+      "name": "Koillection",
+      "repo": "benjaminjonard/koillection",
+      "topic_id": 6360
+    },
+    {
+      "category_id": 610,
+      "discussion_topic_id": 6364,
+      "groups": [
+        "releases-koito"
+      ],
+      "name": "Koito",
+      "repo": "gabehf/koito",
+      "topic_id": 6363
+    },
+    {
+      "category_id": 611,
+      "discussion_topic_id": 6367,
+      "groups": [
+        "releases-kometa"
+      ],
+      "name": "Kometa",
+      "repo": "kometa-team/kometa",
+      "topic_id": 6366
+    },
+    {
+      "category_id": 612,
+      "discussion_topic_id": 6370,
+      "groups": [
+        "releases-komga"
+      ],
+      "name": "Komga",
+      "repo": "gotson/komga",
+      "topic_id": 6369
+    },
+    {
+      "category_id": 613,
+      "discussion_topic_id": 6373,
+      "groups": [
+        "releases-komodo"
+      ],
+      "name": "Komodo",
+      "repo": "moghtech/komodo",
+      "topic_id": 6372
+    },
+    {
+      "category_id": 614,
+      "discussion_topic_id": 6376,
+      "groups": [
+        "releases-kontoj"
+      ],
+      "name": "Kontoj",
+      "repo": "galaksiotech/kontoj",
+      "topic_id": 6375
+    },
+    {
+      "category_id": 615,
+      "discussion_topic_id": 6379,
+      "groups": [
+        "releases-kopia"
+      ],
+      "name": "Kopia",
+      "repo": "kopia/kopia",
+      "topic_id": 6378
+    },
+    {
+      "category_id": 616,
+      "discussion_topic_id": 6382,
+      "groups": [
+        "releases-krakend"
+      ],
+      "name": "KrakenD",
+      "repo": "krakend/krakend-ce",
+      "topic_id": 6381
+    },
+    {
+      "category_id": 617,
+      "discussion_topic_id": 6385,
+      "groups": [
+        "releases-ktistec"
+      ],
+      "name": "Ktistec",
+      "repo": "toddsundsted/ktistec",
+      "topic_id": 6384
+    },
+    {
+      "category_id": 618,
+      "discussion_topic_id": 6388,
+      "groups": [
+        "releases-kubero"
+      ],
+      "name": "Kubero",
+      "repo": "kubero-dev/kubero",
+      "topic_id": 6387
+    },
+    {
+      "category_id": 619,
+      "discussion_topic_id": 6391,
+      "groups": [
+        "releases-kubetail"
+      ],
+      "name": "Kubetail",
+      "repo": "kubetail-org/kubetail",
+      "topic_id": 6390
+    },
+    {
+      "category_id": 620,
+      "discussion_topic_id": 6394,
+      "groups": [
+        "releases-kutt"
+      ],
+      "name": "Kutt",
+      "repo": "thedevs-network/kutt",
+      "topic_id": 6393
+    },
+    {
+      "category_id": 621,
+      "discussion_topic_id": 6397,
+      "groups": [
+        "releases-kuvasz"
+      ],
+      "name": "Kuvasz",
+      "repo": "kuvasz-uptime/kuvasz",
+      "topic_id": 6396
+    },
+    {
+      "category_id": 622,
+      "discussion_topic_id": 6400,
+      "groups": [
+        "releases-kyoo"
+      ],
+      "name": "Kyoo",
+      "repo": "zoriya/kyoo",
+      "topic_id": 6399
+    },
+    {
+      "category_id": 623,
+      "discussion_topic_id": 6403,
+      "groups": [
+        "releases-lab-dash"
+      ],
+      "name": "Lab Dash",
+      "repo": "anthonygress/lab-dash",
+      "topic_id": 6402
+    },
+    {
+      "category_id": 624,
+      "discussion_topic_id": 6406,
+      "groups": [
+        "releases-lan-orangutan"
+      ],
+      "name": "LAN Orangutan",
+      "repo": "291-group/lan-orangutan",
+      "topic_id": 6405
+    },
+    {
+      "category_id": 625,
+      "discussion_topic_id": 6409,
+      "groups": [
+        "releases-lancommander"
+      ],
+      "name": "LANCommander",
+      "repo": "lancommander/lancommander",
+      "topic_id": 6408
+    },
+    {
+      "category_id": 626,
+      "discussion_topic_id": 6412,
+      "groups": [
+        "releases-laudspeaker"
+      ],
+      "name": "Laudspeaker",
+      "repo": "laudspeaker/laudspeaker",
+      "topic_id": 6411
+    },
+    {
+      "category_id": 627,
+      "discussion_topic_id": 6415,
+      "groups": [
+        "releases-leafwiki"
+      ],
+      "name": "LeafWiki",
+      "repo": "perber/leafwiki",
+      "topic_id": 6414
+    },
+    {
+      "category_id": 628,
+      "discussion_topic_id": 6418,
+      "groups": [
+        "releases-leantime"
+      ],
+      "name": "Leantime",
+      "repo": "leantime/leantime",
+      "topic_id": 6417
+    },
+    {
+      "category_id": 629,
+      "discussion_topic_id": 6421,
+      "groups": [
+        "releases-lemmy"
+      ],
+      "name": "Lemmy",
+      "repo": "lemmynet/lemmy",
+      "topic_id": 6420
+    },
+    {
+      "category_id": 630,
+      "discussion_topic_id": 6424,
+      "groups": [
+        "releases-letterfeed"
+      ],
+      "name": "LetterFeed",
+      "repo": "leonmuscoden/letterfeed",
+      "topic_id": 6423
+    },
+    {
+      "category_id": 631,
+      "discussion_topic_id": 6427,
+      "groups": [
+        "releases-libre-closet"
+      ],
+      "name": "Libre Closet",
+      "repo": "lazztech/libre-closet",
+      "topic_id": 6426
+    },
+    {
+      "category_id": 632,
+      "discussion_topic_id": 6430,
+      "groups": [
+        "releases-librechat"
+      ],
+      "name": "LibreChat",
+      "repo": "librechat-ai/librechat",
+      "topic_id": 6429
+    },
+    {
+      "category_id": 633,
+      "discussion_topic_id": 6433,
+      "groups": [
+        "releases-libredb-studio"
+      ],
+      "name": "LibreDB Studio",
+      "repo": "libredb/libredb-studio",
+      "topic_id": 6432
+    },
+    {
+      "category_id": 634,
+      "discussion_topic_id": 6436,
+      "groups": [
+        "releases-librephotos"
+      ],
+      "name": "LibrePhotos",
+      "repo": "librephotos/librephotos",
+      "topic_id": 6435
+    },
+    {
+      "category_id": 635,
+      "discussion_topic_id": 6439,
+      "groups": [
+        "releases-librespeed"
+      ],
+      "name": "LibreSpeed",
+      "repo": "librespeed/speedtest",
+      "topic_id": 6438
+    },
+    {
+      "category_id": 636,
+      "discussion_topic_id": 6442,
+      "groups": [
+        "releases-libretranslate"
+      ],
+      "name": "LibreTranslate",
+      "repo": "libretranslate/libretranslate",
+      "topic_id": 6441
+    },
+    {
+      "category_id": 637,
+      "discussion_topic_id": 6445,
+      "groups": [
+        "releases-librum"
+      ],
+      "name": "Librum",
+      "repo": "librum-reader/librum",
+      "topic_id": 6444
+    },
+    {
+      "category_id": 638,
+      "discussion_topic_id": 6448,
+      "groups": [
+        "releases-lidarr"
+      ],
+      "name": "Lidarr",
+      "repo": "lidarr/lidarr",
+      "topic_id": 6447
     }
   ]
 }
