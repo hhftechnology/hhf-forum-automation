@@ -491,16 +491,17 @@
       "topic_id": 5006
     },
     {
+      "activated_at": "2026-11-26T09:11:21.973058+00:00",
       "app_reference": "agregarr",
       "category_id": 159,
+      "discussion_topic_id": 5428,
       "groups": [
         "releases-agregarr"
       ],
       "include_prereleases": false,
       "name": "Agregarr",
-      "provisioning": true,
-      "provisioning_error": "DiscourseError",
-      "repo": "agregarr/agregarr"
+      "repo": "agregarr/agregarr",
+      "topic_id": 5427
     },
     {
       "activated_at": "2026-11-26T03:25:22.964331+00:00",
@@ -2310,337 +2311,485 @@
       "topic_id": 5425
     },
     {
+      "activated_at": "2026-11-26T09:11:28.492884+00:00",
       "app_reference": "configarr",
+      "category_id": 299,
+      "discussion_topic_id": 5431,
       "groups": [
         "releases-configarr"
       ],
       "include_prereleases": false,
       "name": "Configarr",
-      "repo": "raydak-labs/configarr"
+      "repo": "raydak-labs/configarr",
+      "topic_id": 5430
     },
     {
+      "activated_at": "2026-11-26T09:11:34.840026+00:00",
       "app_reference": "container-hub",
+      "category_id": 300,
+      "discussion_topic_id": 5434,
       "groups": [
         "releases-container-hub"
       ],
       "include_prereleases": false,
       "name": "Container Hub",
-      "repo": "eznix86/docker-registry-ui"
+      "repo": "eznix86/docker-registry-ui",
+      "topic_id": 5433
     },
     {
+      "activated_at": "2026-11-26T09:12:17.779700+00:00",
       "app_reference": "contao",
+      "category_id": 301,
+      "discussion_topic_id": 5437,
       "groups": [
         "releases-contao"
       ],
       "include_prereleases": false,
       "name": "Contao",
-      "repo": "contao/contao"
+      "repo": "contao/contao",
+      "topic_id": 5436
     },
     {
+      "activated_at": "2026-11-26T09:12:24.194068+00:00",
       "app_reference": "continuwuity",
+      "category_id": 302,
+      "discussion_topic_id": 5440,
       "groups": [
         "releases-continuwuity"
       ],
       "include_prereleases": false,
       "name": "Continuwuity",
-      "repo": "continuwuity/continuwuity"
+      "repo": "continuwuity/continuwuity",
+      "topic_id": 5439
     },
     {
+      "activated_at": "2026-11-26T09:12:30.167465+00:00",
       "app_reference": "converse",
+      "category_id": 303,
+      "discussion_topic_id": 5443,
       "groups": [
         "releases-converse"
       ],
       "include_prereleases": false,
       "name": "Converse",
-      "repo": "conversejs/converse.js"
+      "repo": "conversejs/converse.js",
+      "topic_id": 5442
     },
     {
+      "activated_at": "2026-11-26T09:12:37.500636+00:00",
       "app_reference": "convertx",
+      "category_id": 304,
+      "discussion_topic_id": 5446,
       "groups": [
         "releases-convertx"
       ],
       "include_prereleases": false,
       "name": "ConvertX",
-      "repo": "c4illin/convertx"
+      "repo": "c4illin/convertx",
+      "topic_id": 5445
     },
     {
+      "activated_at": "2026-11-26T09:13:20.174733+00:00",
       "app_reference": "convos",
+      "category_id": 305,
+      "discussion_topic_id": 5449,
       "groups": [
         "releases-convos"
       ],
       "include_prereleases": false,
       "name": "Convos",
-      "repo": "convos-chat/convos"
+      "repo": "convos-chat/convos",
+      "topic_id": 5448
     },
     {
+      "activated_at": "2026-11-26T09:13:26.307755+00:00",
       "app_reference": "convoy",
+      "category_id": 306,
+      "discussion_topic_id": 5452,
       "groups": [
         "releases-convoy"
       ],
       "include_prereleases": false,
       "name": "Convoy",
-      "repo": "frain-dev/convoy"
+      "repo": "frain-dev/convoy",
+      "topic_id": 5451
     },
     {
+      "activated_at": "2026-11-26T09:13:33.672228+00:00",
       "app_reference": "cookcli",
+      "category_id": 307,
+      "discussion_topic_id": 5455,
       "groups": [
         "releases-cookcli"
       ],
       "include_prereleases": false,
       "name": "CookCLI",
-      "repo": "cooklang/cookcli"
+      "repo": "cooklang/cookcli",
+      "topic_id": 5454
     },
     {
+      "activated_at": "2026-11-26T09:13:39.877145+00:00",
       "app_reference": "copyparty",
+      "category_id": 308,
+      "discussion_topic_id": 5458,
       "groups": [
         "releases-copyparty"
       ],
       "include_prereleases": false,
       "name": "copyparty",
-      "repo": "9001/copyparty"
+      "repo": "9001/copyparty",
+      "topic_id": 5457
     },
     {
+      "activated_at": "2026-11-26T09:14:22.758093+00:00",
       "app_reference": "countly",
+      "category_id": 309,
+      "discussion_topic_id": 5461,
       "groups": [
         "releases-countly"
       ],
       "include_prereleases": false,
       "name": "Countly",
-      "repo": "countly/countly-server"
+      "repo": "countly/countly-server",
+      "topic_id": 5460
     },
     {
+      "activated_at": "2026-11-26T09:14:29.271602+00:00",
       "app_reference": "cr-nmaster",
+      "category_id": 310,
+      "discussion_topic_id": 5464,
       "groups": [
         "releases-cr-nmaster"
       ],
       "include_prereleases": false,
       "name": "Cr*nMaster",
-      "repo": "fccview/cronmaster"
+      "repo": "fccview/cronmaster",
+      "topic_id": 5463
     },
     {
+      "activated_at": "2026-11-26T09:14:35.502573+00:00",
       "app_reference": "cronicle",
+      "category_id": 311,
+      "discussion_topic_id": 5467,
       "groups": [
         "releases-cronicle"
       ],
       "include_prereleases": false,
       "name": "Cronicle",
-      "repo": "jhuckaby/cronicle"
+      "repo": "jhuckaby/cronicle",
+      "topic_id": 5466
     },
     {
+      "activated_at": "2026-11-26T09:14:41.695732+00:00",
       "app_reference": "crontab-guru",
+      "category_id": 312,
+      "discussion_topic_id": 5470,
       "groups": [
         "releases-crontab-guru"
       ],
       "include_prereleases": false,
       "name": "Crontab Guru",
-      "repo": "cronitorio/cronitor-cli"
+      "repo": "cronitorio/cronitor-cli",
+      "topic_id": 5469
     },
     {
+      "activated_at": "2026-11-26T09:15:25.003375+00:00",
       "app_reference": "crosswatch",
+      "category_id": 313,
+      "discussion_topic_id": 5473,
       "groups": [
         "releases-crosswatch"
       ],
       "include_prereleases": false,
       "name": "CrossWatch",
-      "repo": "cenodude/crosswatch"
+      "repo": "cenodude/crosswatch",
+      "topic_id": 5472
     },
     {
+      "activated_at": "2026-11-26T09:15:31.423199+00:00",
       "app_reference": "crowdsec-manager",
+      "category_id": 314,
+      "discussion_topic_id": 5476,
       "groups": [
         "releases-crowdsec-manager"
       ],
       "include_prereleases": false,
       "name": "CrowdSec Manager",
-      "repo": "hhftechnology/crowdsec_manager"
+      "repo": "hhftechnology/crowdsec_manager",
+      "topic_id": 5475
     },
     {
+      "activated_at": "2026-11-26T09:15:37.722688+00:00",
       "app_reference": "crowdsec-web-ui",
+      "category_id": 315,
+      "discussion_topic_id": 5479,
       "groups": [
         "releases-crowdsec-web-ui"
       ],
       "include_prereleases": false,
       "name": "CrowdSec Web UI",
-      "repo": "theduffman85/crowdsec-web-ui"
+      "repo": "theduffman85/crowdsec-web-ui",
+      "topic_id": 5478
     },
     {
+      "activated_at": "2026-11-26T09:16:21.652147+00:00",
       "app_reference": "crumbs-notes",
+      "category_id": 316,
+      "discussion_topic_id": 5482,
       "groups": [
         "releases-crumbs-notes"
       ],
       "include_prereleases": false,
       "name": "Crumbs",
-      "repo": "bretzel-app/crumbs"
+      "repo": "bretzel-app/crumbs",
+      "topic_id": 5481
     },
     {
+      "activated_at": "2026-11-26T09:16:27.992251+00:00",
       "app_reference": "cryptgeon",
+      "category_id": 317,
+      "discussion_topic_id": 5485,
       "groups": [
         "releases-cryptgeon"
       ],
       "include_prereleases": false,
       "name": "Cryptgeon",
-      "repo": "cupcakearmy/cryptgeon"
+      "repo": "cupcakearmy/cryptgeon",
+      "topic_id": 5484
     },
     {
+      "activated_at": "2026-11-26T09:16:33.983544+00:00",
       "app_reference": "cryptpad",
+      "category_id": 318,
+      "discussion_topic_id": 5488,
       "groups": [
         "releases-cryptpad"
       ],
       "include_prereleases": false,
       "name": "CryptPad",
-      "repo": "cryptpad/cryptpad"
+      "repo": "cryptpad/cryptpad",
+      "topic_id": 5487
     },
     {
+      "activated_at": "2026-11-26T09:16:40.018894+00:00",
       "app_reference": "cup-updates",
+      "category_id": 319,
+      "discussion_topic_id": 5491,
       "groups": [
         "releases-cup-updates"
       ],
       "include_prereleases": false,
       "name": "Cup",
-      "repo": "sergi0g/cup"
+      "repo": "sergi0g/cup",
+      "topic_id": 5490
     },
     {
+      "activated_at": "2026-11-26T09:17:23.608455+00:00",
       "app_reference": "cupdate",
+      "category_id": 320,
+      "discussion_topic_id": 5494,
       "groups": [
         "releases-cupdate"
       ],
       "include_prereleases": false,
       "name": "Cupdate",
-      "repo": "alexgustafsson/cupdate"
+      "repo": "alexgustafsson/cupdate",
+      "topic_id": 5493
     },
     {
+      "activated_at": "2026-11-26T09:17:29.795573+00:00",
       "app_reference": "cyberchef",
+      "category_id": 321,
+      "discussion_topic_id": 5497,
       "groups": [
         "releases-cyberchef"
       ],
       "include_prereleases": false,
       "name": "CyberChef",
-      "repo": "gchq/cyberchef"
+      "repo": "gchq/cyberchef",
+      "topic_id": 5496
     },
     {
+      "activated_at": "2026-11-26T09:17:35.832725+00:00",
       "app_reference": "cypht",
+      "category_id": 322,
+      "discussion_topic_id": 5500,
       "groups": [
         "releases-cypht"
       ],
       "include_prereleases": false,
       "name": "Cypht",
-      "repo": "cypht-org/cypht"
+      "repo": "cypht-org/cypht",
+      "topic_id": 5499
     },
     {
+      "activated_at": "2026-11-26T09:17:41.740287+00:00",
       "app_reference": "dagu",
+      "category_id": 323,
+      "discussion_topic_id": 5503,
       "groups": [
         "releases-dagu"
       ],
       "include_prereleases": false,
       "name": "Dagu",
-      "repo": "dagucloud/dagu"
+      "repo": "dagucloud/dagu",
+      "topic_id": 5502
     },
     {
+      "activated_at": "2026-11-26T09:18:26.143322+00:00",
       "app_reference": "dailytxt",
+      "category_id": 324,
+      "discussion_topic_id": 5506,
       "groups": [
         "releases-dailytxt"
       ],
       "include_prereleases": false,
       "name": "DailyTXT",
-      "repo": "phitux/dailytxt"
+      "repo": "phitux/dailytxt",
+      "topic_id": 5505
     },
     {
+      "activated_at": "2026-11-26T09:18:32.276562+00:00",
       "app_reference": "dashbrr",
+      "category_id": 325,
+      "discussion_topic_id": 5509,
       "groups": [
         "releases-dashbrr"
       ],
       "include_prereleases": false,
       "name": "Dashbrr",
-      "repo": "autobrr/dashbrr"
+      "repo": "autobrr/dashbrr",
+      "topic_id": 5508
     },
     {
+      "activated_at": "2026-11-26T09:18:38.804263+00:00",
       "app_reference": "dashdot",
+      "category_id": 326,
+      "discussion_topic_id": 5512,
       "groups": [
         "releases-dashdot"
       ],
       "include_prereleases": false,
       "name": "dash.",
-      "repo": "mauricenino/dashdot"
+      "repo": "mauricenino/dashdot",
+      "topic_id": 5511
     },
     {
+      "activated_at": "2026-11-26T09:18:45.297615+00:00",
       "app_reference": "dashlit",
+      "category_id": 327,
+      "discussion_topic_id": 5515,
       "groups": [
         "releases-dashlit"
       ],
       "include_prereleases": false,
       "name": "DashLit",
-      "repo": "codewec/dashlit"
+      "repo": "codewec/dashlit",
+      "topic_id": 5514
     },
     {
+      "activated_at": "2026-11-26T09:19:29.043386+00:00",
       "app_reference": "dashwise",
+      "category_id": 328,
+      "discussion_topic_id": 5518,
       "groups": [
         "releases-dashwise"
       ],
       "include_prereleases": false,
       "name": "Dashwise",
-      "repo": "andreasmolnardev/dashwise"
+      "repo": "andreasmolnardev/dashwise",
+      "topic_id": 5517
     },
     {
+      "activated_at": "2026-11-26T09:19:35.586117+00:00",
       "app_reference": "dashy",
+      "category_id": 329,
+      "discussion_topic_id": 5521,
       "groups": [
         "releases-dashy"
       ],
       "include_prereleases": false,
       "name": "Dashy",
-      "repo": "lissy93/dashy"
+      "repo": "lissy93/dashy",
+      "topic_id": 5520
     },
     {
+      "activated_at": "2026-11-26T09:19:41.925711+00:00",
       "app_reference": "databag",
+      "category_id": 330,
+      "discussion_topic_id": 5524,
       "groups": [
         "releases-databag"
       ],
       "include_prereleases": false,
       "name": "Databag",
-      "repo": "balzack/databag"
+      "repo": "balzack/databag",
+      "topic_id": 5523
     },
     {
+      "activated_at": "2026-11-26T09:20:24.440111+00:00",
       "app_reference": "databasus",
+      "category_id": 331,
+      "discussion_topic_id": 5527,
       "groups": [
         "releases-databasus"
       ],
       "include_prereleases": false,
       "name": "Databasus",
-      "repo": "databasus/databasus"
+      "repo": "databasus/databasus",
+      "topic_id": 5526
     },
     {
+      "activated_at": "2026-11-26T09:20:31.200933+00:00",
       "app_reference": "datasette",
+      "category_id": 332,
+      "discussion_topic_id": 5530,
       "groups": [
         "releases-datasette"
       ],
       "include_prereleases": false,
       "name": "Datasette",
-      "repo": "simonw/datasette"
+      "repo": "simonw/datasette",
+      "topic_id": 5529
     },
     {
+      "activated_at": "2026-11-26T09:20:37.717631+00:00",
       "app_reference": "davis",
+      "category_id": 333,
+      "discussion_topic_id": 5533,
       "groups": [
         "releases-davis"
       ],
       "include_prereleases": false,
       "name": "Davis",
-      "repo": "tchapi/davis"
+      "repo": "tchapi/davis",
+      "topic_id": 5532
     },
     {
+      "activated_at": "2026-11-26T09:20:44.036077+00:00",
       "app_reference": "dawarich",
+      "category_id": 334,
+      "discussion_topic_id": 5536,
       "groups": [
         "releases-dawarich"
       ],
       "include_prereleases": false,
       "name": "Dawarich",
-      "repo": "freika/dawarich"
+      "repo": "freika/dawarich",
+      "topic_id": 5535
     },
     {
+      "activated_at": "2026-11-26T09:21:27.284138+00:00",
       "app_reference": "dbackup",
+      "category_id": 335,
+      "discussion_topic_id": 5539,
       "groups": [
         "releases-dbackup"
       ],
       "include_prereleases": false,
       "name": "DBackup",
-      "repo": "skyfay/dbackup"
+      "repo": "skyfay/dbackup",
+      "topic_id": 5538
     },
     {
       "app_reference": "dbgate",
