@@ -8797,6 +8797,386 @@
       "name": "Scholarsome",
       "repo": "hwgilbert16/scholarsome",
       "topic_id": 7532
+    },
+    {
+      "category_id": 999,
+      "discussion_topic_id": 7536,
+      "groups": [
+        "releases-scraparr"
+      ],
+      "name": "Scraparr",
+      "repo": "thecfu/scraparr",
+      "topic_id": 7535
+    },
+    {
+      "category_id": 1000,
+      "discussion_topic_id": 7539,
+      "groups": [
+        "releases-scratch-map"
+      ],
+      "name": "Scratch Map",
+      "repo": "ad3m3r5/scratch-map",
+      "topic_id": 7538
+    },
+    {
+      "category_id": 1001,
+      "discussion_topic_id": 7542,
+      "groups": [
+        "releases-screenlite"
+      ],
+      "name": "Screenlite",
+      "repo": "screenlite/screenlite",
+      "topic_id": 7541
+    },
+    {
+      "category_id": 1002,
+      "discussion_topic_id": 7545,
+      "groups": [
+        "releases-scrob"
+      ],
+      "name": "Scrob",
+      "repo": "ellite/scrob",
+      "topic_id": 7544
+    },
+    {
+      "category_id": 1003,
+      "discussion_topic_id": 7548,
+      "groups": [
+        "releases-scrutiny"
+      ],
+      "name": "Scrutiny",
+      "repo": "analogj/scrutiny",
+      "topic_id": 7547
+    },
+    {
+      "category_id": 1004,
+      "discussion_topic_id": 7551,
+      "groups": [
+        "releases-scrypted"
+      ],
+      "name": "Scrypted",
+      "repo": "koush/scrypted",
+      "topic_id": 7550
+    },
+    {
+      "category_id": 1005,
+      "discussion_topic_id": 7554,
+      "groups": [
+        "releases-seafile"
+      ],
+      "name": "Seafile",
+      "repo": "haiwen/seafile",
+      "topic_id": 7553
+    },
+    {
+      "category_id": 1006,
+      "discussion_topic_id": 7557,
+      "groups": [
+        "releases-seanime"
+      ],
+      "name": "Seanime",
+      "repo": "5rahim/seanime",
+      "topic_id": 7556
+    },
+    {
+      "category_id": 1007,
+      "discussion_topic_id": 7560,
+      "groups": [
+        "releases-searxng"
+      ],
+      "name": "SearXNG",
+      "repo": "searxng/searxng",
+      "topic_id": 7559
+    },
+    {
+      "category_id": 1008,
+      "discussion_topic_id": 7563,
+      "groups": [
+        "releases-seaweedfs"
+      ],
+      "name": "SeaweedFS",
+      "repo": "seaweedfs/seaweedfs",
+      "topic_id": 7562
+    },
+    {
+      "category_id": 1009,
+      "discussion_topic_id": 7566,
+      "groups": [
+        "releases-secrover"
+      ],
+      "name": "Secrover",
+      "repo": "secrover/secrover",
+      "topic_id": 7565
+    },
+    {
+      "category_id": 1010,
+      "discussion_topic_id": 7569,
+      "groups": [
+        "releases-securo"
+      ],
+      "name": "Securo",
+      "repo": "securo-finance/securo",
+      "topic_id": 7568
+    },
+    {
+      "category_id": 1011,
+      "discussion_topic_id": 7572,
+      "groups": [
+        "releases-seelf"
+      ],
+      "name": "seelf",
+      "repo": "yuukanoo/seelf",
+      "topic_id": 7571
+    },
+    {
+      "category_id": 1012,
+      "discussion_topic_id": 7575,
+      "groups": [
+        "releases-seerr"
+      ],
+      "name": "Seerr",
+      "repo": "seerr-team/seerr",
+      "topic_id": 7574
+    },
+    {
+      "category_id": 1013,
+      "discussion_topic_id": 7578,
+      "groups": [
+        "releases-self-hosted-metrics"
+      ],
+      "name": "Self-Hosted Metrics",
+      "repo": "kolapsis/shm",
+      "topic_id": 7577
+    },
+    {
+      "category_id": 1014,
+      "discussion_topic_id": 7581,
+      "groups": [
+        "releases-selfhst-1760"
+      ],
+      "name": "Soulbeet",
+      "repo": "terry90/soulbeet",
+      "topic_id": 7580
+    },
+    {
+      "category_id": 1015,
+      "discussion_topic_id": 7584,
+      "groups": [
+        "releases-semaphore"
+      ],
+      "name": "Semaphore",
+      "repo": "semaphoreio/semaphore",
+      "topic_id": 7583
+    },
+    {
+      "category_id": 1016,
+      "discussion_topic_id": 7587,
+      "groups": [
+        "releases-semaphore-ui"
+      ],
+      "name": "Semaphore UI",
+      "repo": "semaphoreui/semaphore",
+      "topic_id": 7586
+    },
+    {
+      "category_id": 1017,
+      "discussion_topic_id": 7590,
+      "groups": [
+        "releases-sentry"
+      ],
+      "name": "Sentry",
+      "repo": "getsentry/sentry",
+      "topic_id": 7589
+    },
+    {
+      "category_id": 1018,
+      "discussion_topic_id": 7593,
+      "groups": [
+        "releases-serpbear"
+      ],
+      "name": "SerpBear",
+      "repo": "towfiqi/serpbear",
+      "topic_id": 7592
+    },
+    {
+      "category_id": 1019,
+      "discussion_topic_id": 7596,
+      "groups": [
+        "releases-sftpgo"
+      ],
+      "name": "SFTPGo",
+      "repo": "drakkan/sftpgo",
+      "topic_id": 7595
+    },
+    {
+      "category_id": 1020,
+      "discussion_topic_id": 7599,
+      "groups": [
+        "releases-shaarli"
+      ],
+      "name": "Shaarli",
+      "repo": "shaarli/shaarli",
+      "topic_id": 7598
+    },
+    {
+      "category_id": 1021,
+      "discussion_topic_id": 7602,
+      "groups": [
+        "releases-shared-moments"
+      ],
+      "name": "Shared Moments",
+      "repo": "tech-kev/sharedmoments",
+      "topic_id": 7601
+    },
+    {
+      "category_id": 1022,
+      "discussion_topic_id": 7605,
+      "groups": [
+        "releases-sharkord"
+      ],
+      "name": "Sharkord",
+      "repo": "sharkord/sharkord",
+      "topic_id": 7604
+    },
+    {
+      "category_id": 1023,
+      "discussion_topic_id": 7608,
+      "groups": [
+        "releases-sharry"
+      ],
+      "name": "Sharry",
+      "repo": "eikek/sharry",
+      "topic_id": 7607
+    },
+    {
+      "category_id": 1024,
+      "discussion_topic_id": 7611,
+      "groups": [
+        "releases-shelfmark"
+      ],
+      "name": "Shelfmark",
+      "repo": "calibrain/shelfmark",
+      "topic_id": 7610
+    },
+    {
+      "category_id": 1025,
+      "discussion_topic_id": 7614,
+      "groups": [
+        "releases-shellhub"
+      ],
+      "name": "ShellHub",
+      "repo": "shellhub-io/shellhub",
+      "topic_id": 7613
+    },
+    {
+      "category_id": 1026,
+      "discussion_topic_id": 7617,
+      "groups": [
+        "releases-shiori"
+      ],
+      "name": "Shiori",
+      "repo": "go-shiori/shiori",
+      "topic_id": 7616
+    },
+    {
+      "category_id": 1027,
+      "discussion_topic_id": 7620,
+      "groups": [
+        "releases-shlink"
+      ],
+      "name": "Shlink",
+      "repo": "shlinkio/shlink",
+      "topic_id": 7619
+    },
+    {
+      "category_id": 1028,
+      "discussion_topic_id": 7623,
+      "groups": [
+        "releases-signature-pdf"
+      ],
+      "name": "Signature PDF",
+      "repo": "24eme/signaturepdf",
+      "topic_id": 7622
+    },
+    {
+      "category_id": 1029,
+      "discussion_topic_id": 7626,
+      "groups": [
+        "releases-signoz"
+      ],
+      "name": "SigNoz",
+      "repo": "signoz/signoz",
+      "topic_id": 7625
+    },
+    {
+      "category_id": 1030,
+      "discussion_topic_id": 7629,
+      "groups": [
+        "releases-silex"
+      ],
+      "name": "Silex",
+      "repo": "silexlabs/silex",
+      "topic_id": 7628
+    },
+    {
+      "category_id": 1031,
+      "discussion_topic_id": 7632,
+      "groups": [
+        "releases-silicon-notes"
+      ],
+      "name": "Silicon Notes",
+      "repo": "cu/silicon",
+      "topic_id": 7631
+    },
+    {
+      "category_id": 1032,
+      "discussion_topic_id": 7635,
+      "groups": [
+        "releases-silverbullet"
+      ],
+      "name": "SilverBullet",
+      "repo": "silverbulletmd/silverbullet",
+      "topic_id": 7634
+    },
+    {
+      "category_id": 1033,
+      "discussion_topic_id": 7638,
+      "groups": [
+        "releases-simplelogin"
+      ],
+      "name": "SimpleLogin",
+      "repo": "simple-login/app",
+      "topic_id": 7637
+    },
+    {
+      "category_id": 1034,
+      "discussion_topic_id": 7641,
+      "groups": [
+        "releases-simplex-chat"
+      ],
+      "name": "SimpleX Chat",
+      "repo": "simplex-chat/simplex-chat",
+      "topic_id": 7640
+    },
+    {
+      "category_id": 1035,
+      "discussion_topic_id": 7644,
+      "groups": [
+        "releases-sink"
+      ],
+      "name": "Sink",
+      "repo": "miantiao-me/sink",
+      "topic_id": 7643
+    },
+    {
+      "category_id": 1036,
+      "discussion_topic_id": 7647,
+      "groups": [
+        "releases-siyuan"
+      ],
+      "name": "SiYuan",
+      "repo": "siyuan-note/siyuan",
+      "topic_id": 7646
     }
   ]
 }

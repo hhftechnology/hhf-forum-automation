@@ -11422,346 +11422,498 @@
       "topic_id": 7532
     },
     {
+      "activated_at": "2026-11-26T19:59:37.972426+00:00",
       "app_reference": "scraparr",
+      "category_id": 999,
+      "discussion_topic_id": 7536,
       "groups": [
         "releases-scraparr"
       ],
       "include_prereleases": false,
       "name": "Scraparr",
-      "repo": "thecfu/scraparr"
+      "repo": "thecfu/scraparr",
+      "topic_id": 7535
     },
     {
+      "activated_at": "2026-11-26T19:59:44.662295+00:00",
       "app_reference": "scratch-map",
+      "category_id": 1000,
+      "discussion_topic_id": 7539,
       "groups": [
         "releases-scratch-map"
       ],
       "include_prereleases": false,
       "name": "Scratch Map",
-      "repo": "ad3m3r5/scratch-map"
+      "repo": "ad3m3r5/scratch-map",
+      "topic_id": 7538
     },
     {
+      "activated_at": "2026-11-26T20:00:00.003142+00:00",
       "app_reference": "screenlite",
+      "category_id": 1001,
+      "discussion_topic_id": 7542,
       "groups": [
         "releases-screenlite"
       ],
       "include_prereleases": false,
       "name": "Screenlite",
-      "repo": "screenlite/screenlite"
+      "repo": "screenlite/screenlite",
+      "topic_id": 7541
     },
     {
+      "activated_at": "2026-11-26T20:00:33.176643+00:00",
       "app_reference": "scrob",
+      "category_id": 1002,
+      "discussion_topic_id": 7545,
       "groups": [
         "releases-scrob"
       ],
       "include_prereleases": false,
       "name": "Scrob",
-      "repo": "ellite/scrob"
+      "repo": "ellite/scrob",
+      "topic_id": 7544
     },
     {
+      "activated_at": "2026-11-26T20:00:39.980009+00:00",
       "app_reference": "scrutiny",
+      "category_id": 1003,
+      "discussion_topic_id": 7548,
       "groups": [
         "releases-scrutiny"
       ],
       "include_prereleases": false,
       "name": "Scrutiny",
-      "repo": "analogj/scrutiny"
+      "repo": "analogj/scrutiny",
+      "topic_id": 7547
     },
     {
+      "activated_at": "2026-11-26T20:00:46.700586+00:00",
       "app_reference": "scrypted",
+      "category_id": 1004,
+      "discussion_topic_id": 7551,
       "groups": [
         "releases-scrypted"
       ],
       "include_prereleases": false,
       "name": "Scrypted",
-      "repo": "koush/scrypted"
+      "repo": "koush/scrypted",
+      "topic_id": 7550
     },
     {
+      "activated_at": "2026-11-26T20:01:03.260487+00:00",
       "app_reference": "seafile",
+      "category_id": 1005,
+      "discussion_topic_id": 7554,
       "groups": [
         "releases-seafile"
       ],
       "include_prereleases": false,
       "name": "Seafile",
-      "repo": "haiwen/seafile"
+      "repo": "haiwen/seafile",
+      "topic_id": 7553
     },
     {
+      "activated_at": "2026-11-26T20:01:35.688427+00:00",
       "app_reference": "seanime",
+      "category_id": 1006,
+      "discussion_topic_id": 7557,
       "groups": [
         "releases-seanime"
       ],
       "include_prereleases": false,
       "name": "Seanime",
-      "repo": "5rahim/seanime"
+      "repo": "5rahim/seanime",
+      "topic_id": 7556
     },
     {
+      "activated_at": "2026-11-26T20:01:42.483417+00:00",
       "app_reference": "searxng",
+      "category_id": 1007,
+      "discussion_topic_id": 7560,
       "groups": [
         "releases-searxng"
       ],
       "include_prereleases": false,
       "name": "SearXNG",
-      "repo": "searxng/searxng"
+      "repo": "searxng/searxng",
+      "topic_id": 7559
     },
     {
+      "activated_at": "2026-11-26T20:01:49.164861+00:00",
       "app_reference": "seaweedfs",
+      "category_id": 1008,
+      "discussion_topic_id": 7563,
       "groups": [
         "releases-seaweedfs"
       ],
       "include_prereleases": false,
       "name": "SeaweedFS",
-      "repo": "seaweedfs/seaweedfs"
+      "repo": "seaweedfs/seaweedfs",
+      "topic_id": 7562
     },
     {
+      "activated_at": "2026-11-26T20:02:31.268077+00:00",
       "app_reference": "secrover",
+      "category_id": 1009,
+      "discussion_topic_id": 7566,
       "groups": [
         "releases-secrover"
       ],
       "include_prereleases": false,
       "name": "Secrover",
-      "repo": "secrover/secrover"
+      "repo": "secrover/secrover",
+      "topic_id": 7565
     },
     {
+      "activated_at": "2026-11-26T20:02:38.058979+00:00",
       "app_reference": "securo",
+      "category_id": 1010,
+      "discussion_topic_id": 7569,
       "groups": [
         "releases-securo"
       ],
       "include_prereleases": false,
       "name": "Securo",
-      "repo": "securo-finance/securo"
+      "repo": "securo-finance/securo",
+      "topic_id": 7568
     },
     {
+      "activated_at": "2026-11-26T20:02:44.599354+00:00",
       "app_reference": "seelf",
+      "category_id": 1011,
+      "discussion_topic_id": 7572,
       "groups": [
         "releases-seelf"
       ],
       "include_prereleases": false,
       "name": "seelf",
-      "repo": "yuukanoo/seelf"
+      "repo": "yuukanoo/seelf",
+      "topic_id": 7571
     },
     {
+      "activated_at": "2026-11-26T20:02:59.051285+00:00",
       "app_reference": "seerr",
+      "category_id": 1012,
+      "discussion_topic_id": 7575,
       "groups": [
         "releases-seerr"
       ],
       "include_prereleases": false,
       "name": "Seerr",
-      "repo": "seerr-team/seerr"
+      "repo": "seerr-team/seerr",
+      "topic_id": 7574
     },
     {
+      "activated_at": "2026-11-26T20:03:34.351406+00:00",
       "app_reference": "self-hosted-metrics",
+      "category_id": 1013,
+      "discussion_topic_id": 7578,
       "groups": [
         "releases-self-hosted-metrics"
       ],
       "include_prereleases": false,
       "name": "Self-Hosted Metrics",
-      "repo": "kolapsis/shm"
+      "repo": "kolapsis/shm",
+      "topic_id": 7577
     },
     {
+      "activated_at": "2026-11-26T20:03:41.069509+00:00",
       "app_reference": "selfhst-1760",
+      "category_id": 1014,
+      "discussion_topic_id": 7581,
       "groups": [
         "releases-selfhst-1760"
       ],
       "include_prereleases": false,
       "name": "Soulbeet",
-      "repo": "terry90/soulbeet"
+      "repo": "terry90/soulbeet",
+      "topic_id": 7580
     },
     {
+      "activated_at": "2026-11-26T20:03:47.564511+00:00",
       "app_reference": "semaphore",
+      "category_id": 1015,
+      "discussion_topic_id": 7584,
       "groups": [
         "releases-semaphore"
       ],
       "include_prereleases": false,
       "name": "Semaphore",
-      "repo": "semaphoreio/semaphore"
+      "repo": "semaphoreio/semaphore",
+      "topic_id": 7583
     },
     {
+      "activated_at": "2026-11-26T20:04:03.381531+00:00",
       "app_reference": "semaphore-ui",
+      "category_id": 1016,
+      "discussion_topic_id": 7587,
       "groups": [
         "releases-semaphore-ui"
       ],
       "include_prereleases": false,
       "name": "Semaphore UI",
-      "repo": "semaphoreui/semaphore"
+      "repo": "semaphoreui/semaphore",
+      "topic_id": 7586
     },
     {
+      "activated_at": "2026-11-26T20:04:37.120028+00:00",
       "app_reference": "sentry",
+      "category_id": 1017,
+      "discussion_topic_id": 7590,
       "groups": [
         "releases-sentry"
       ],
       "include_prereleases": false,
       "name": "Sentry",
-      "repo": "getsentry/sentry"
+      "repo": "getsentry/sentry",
+      "topic_id": 7589
     },
     {
+      "activated_at": "2026-11-26T20:04:43.615125+00:00",
       "app_reference": "serpbear",
+      "category_id": 1018,
+      "discussion_topic_id": 7593,
       "groups": [
         "releases-serpbear"
       ],
       "include_prereleases": false,
       "name": "SerpBear",
-      "repo": "towfiqi/serpbear"
+      "repo": "towfiqi/serpbear",
+      "topic_id": 7592
     },
     {
+      "activated_at": "2026-11-26T20:04:50.053457+00:00",
       "app_reference": "sftpgo",
+      "category_id": 1019,
+      "discussion_topic_id": 7596,
       "groups": [
         "releases-sftpgo"
       ],
       "include_prereleases": false,
       "name": "SFTPGo",
-      "repo": "drakkan/sftpgo"
+      "repo": "drakkan/sftpgo",
+      "topic_id": 7595
     },
     {
+      "activated_at": "2026-11-26T20:05:06.240266+00:00",
       "app_reference": "shaarli",
+      "category_id": 1020,
+      "discussion_topic_id": 7599,
       "groups": [
         "releases-shaarli"
       ],
       "include_prereleases": false,
       "name": "Shaarli",
-      "repo": "shaarli/shaarli"
+      "repo": "shaarli/shaarli",
+      "topic_id": 7598
     },
     {
+      "activated_at": "2026-11-26T20:05:39.375037+00:00",
       "app_reference": "shared-moments",
+      "category_id": 1021,
+      "discussion_topic_id": 7602,
       "groups": [
         "releases-shared-moments"
       ],
       "include_prereleases": false,
       "name": "Shared Moments",
-      "repo": "tech-kev/sharedmoments"
+      "repo": "tech-kev/sharedmoments",
+      "topic_id": 7601
     },
     {
+      "activated_at": "2026-11-26T20:05:46.227933+00:00",
       "app_reference": "sharkord",
+      "category_id": 1022,
+      "discussion_topic_id": 7605,
       "groups": [
         "releases-sharkord"
       ],
       "include_prereleases": false,
       "name": "Sharkord",
-      "repo": "sharkord/sharkord"
+      "repo": "sharkord/sharkord",
+      "topic_id": 7604
     },
     {
+      "activated_at": "2026-11-26T20:05:52.710429+00:00",
       "app_reference": "sharry",
+      "category_id": 1023,
+      "discussion_topic_id": 7608,
       "groups": [
         "releases-sharry"
       ],
       "include_prereleases": false,
       "name": "Sharry",
-      "repo": "eikek/sharry"
+      "repo": "eikek/sharry",
+      "topic_id": 7607
     },
     {
+      "activated_at": "2026-11-26T20:06:33.765515+00:00",
       "app_reference": "shelfmark",
+      "category_id": 1024,
+      "discussion_topic_id": 7611,
       "groups": [
         "releases-shelfmark"
       ],
       "include_prereleases": false,
       "name": "Shelfmark",
-      "repo": "calibrain/shelfmark"
+      "repo": "calibrain/shelfmark",
+      "topic_id": 7610
     },
     {
+      "activated_at": "2026-11-26T20:06:42.493016+00:00",
       "app_reference": "shellhub",
+      "category_id": 1025,
+      "discussion_topic_id": 7614,
       "groups": [
         "releases-shellhub"
       ],
       "include_prereleases": false,
       "name": "ShellHub",
-      "repo": "shellhub-io/shellhub"
+      "repo": "shellhub-io/shellhub",
+      "topic_id": 7613
     },
     {
+      "activated_at": "2026-11-26T20:06:49.523242+00:00",
       "app_reference": "shiori",
+      "category_id": 1026,
+      "discussion_topic_id": 7617,
       "groups": [
         "releases-shiori"
       ],
       "include_prereleases": false,
       "name": "Shiori",
-      "repo": "go-shiori/shiori"
+      "repo": "go-shiori/shiori",
+      "topic_id": 7616
     },
     {
+      "activated_at": "2026-11-26T20:07:03.132993+00:00",
       "app_reference": "shlink",
+      "category_id": 1027,
+      "discussion_topic_id": 7620,
       "groups": [
         "releases-shlink"
       ],
       "include_prereleases": false,
       "name": "Shlink",
-      "repo": "shlinkio/shlink"
+      "repo": "shlinkio/shlink",
+      "topic_id": 7619
     },
     {
+      "activated_at": "2026-11-26T20:07:37.043356+00:00",
       "app_reference": "signature-pdf",
+      "category_id": 1028,
+      "discussion_topic_id": 7623,
       "groups": [
         "releases-signature-pdf"
       ],
       "include_prereleases": false,
       "name": "Signature PDF",
-      "repo": "24eme/signaturepdf"
+      "repo": "24eme/signaturepdf",
+      "topic_id": 7622
     },
     {
+      "activated_at": "2026-11-26T20:07:45.439502+00:00",
       "app_reference": "signoz",
+      "category_id": 1029,
+      "discussion_topic_id": 7626,
       "groups": [
         "releases-signoz"
       ],
       "include_prereleases": false,
       "name": "SigNoz",
-      "repo": "signoz/signoz"
+      "repo": "signoz/signoz",
+      "topic_id": 7625
     },
     {
+      "activated_at": "2026-11-26T20:07:52.388675+00:00",
       "app_reference": "silex",
+      "category_id": 1030,
+      "discussion_topic_id": 7629,
       "groups": [
         "releases-silex"
       ],
       "include_prereleases": false,
       "name": "Silex",
-      "repo": "silexlabs/silex"
+      "repo": "silexlabs/silex",
+      "topic_id": 7628
     },
     {
+      "activated_at": "2026-11-26T20:08:05.171391+00:00",
       "app_reference": "silicon-notes",
+      "category_id": 1031,
+      "discussion_topic_id": 7632,
       "groups": [
         "releases-silicon-notes"
       ],
       "include_prereleases": false,
       "name": "Silicon Notes",
-      "repo": "cu/silicon"
+      "repo": "cu/silicon",
+      "topic_id": 7631
     },
     {
+      "activated_at": "2026-11-26T20:08:40.471326+00:00",
       "app_reference": "silverbullet",
+      "category_id": 1032,
+      "discussion_topic_id": 7635,
       "groups": [
         "releases-silverbullet"
       ],
       "include_prereleases": false,
       "name": "SilverBullet",
-      "repo": "silverbulletmd/silverbullet"
+      "repo": "silverbulletmd/silverbullet",
+      "topic_id": 7634
     },
     {
+      "activated_at": "2026-11-26T20:08:48.416707+00:00",
       "app_reference": "simplelogin",
+      "category_id": 1033,
+      "discussion_topic_id": 7638,
       "groups": [
         "releases-simplelogin"
       ],
       "include_prereleases": false,
       "name": "SimpleLogin",
-      "repo": "simple-login/app"
+      "repo": "simple-login/app",
+      "topic_id": 7637
     },
     {
+      "activated_at": "2026-11-26T20:08:54.793939+00:00",
       "app_reference": "simplex-chat",
+      "category_id": 1034,
+      "discussion_topic_id": 7641,
       "groups": [
         "releases-simplex-chat"
       ],
       "include_prereleases": false,
       "name": "SimpleX Chat",
-      "repo": "simplex-chat/simplex-chat"
+      "repo": "simplex-chat/simplex-chat",
+      "topic_id": 7640
     },
     {
+      "activated_at": "2026-11-26T20:09:10.349236+00:00",
       "app_reference": "sink",
+      "category_id": 1035,
+      "discussion_topic_id": 7644,
       "groups": [
         "releases-sink"
       ],
       "include_prereleases": false,
       "name": "Sink",
-      "repo": "miantiao-me/sink"
+      "repo": "miantiao-me/sink",
+      "topic_id": 7643
     },
     {
+      "activated_at": "2026-11-26T20:09:43.682209+00:00",
       "app_reference": "siyuan",
+      "category_id": 1036,
+      "discussion_topic_id": 7647,
       "groups": [
         "releases-siyuan"
       ],
       "include_prereleases": false,
       "name": "SiYuan",
-      "repo": "siyuan-note/siyuan"
+      "repo": "siyuan-note/siyuan",
+      "topic_id": 7646
     },
     {
       "app_reference": "sketchforge",
