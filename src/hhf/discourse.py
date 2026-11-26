@@ -202,7 +202,13 @@ class DiscourseClient:
     def find_topic_by_title(self, category_id: int, title: str) -> int | None:
         # /c/{id}.json redirects to the slug URL, which the client does not follow
         topics = self.request("GET", "/latest.json", params={"category": category_id, "no_subcategories": "true"})["topic_list"]["topics"]
-        return next((t["id"] for t in topics if t["title"] == title), None)
+        exact = next((t["id"] for t in topics if t["title"] == title), None)
+        if exact:
+            return exact
+        # Discourse capitalises the first letter ("Mumble-voip/mumble releases"); accept that when
+        # exactly one topic in the category matches ignoring case.
+        loose = [t["id"] for t in topics if t["title"].casefold() == title.casefold()]
+        return loose[0] if len(loose) == 1 else None
 
     def list_categories(self) -> list[dict]:
         """All categories, subcategories included (flat, with parent_category_id).
@@ -221,6 +227,25 @@ class DiscourseClient:
             seen.update((c["id"], c) for c in new)
             page += 1
         return list(seen.values())
+
+    def find_category(self, name: str, parent_category_id: int) -> dict | None:
+        """The subcategory of ``parent_category_id`` named exactly ``name``, or None.
+
+        list_categories() does not see every subcategory once a parent has hundreds of them, so a
+        category a timed-out run created can be missing from it; this asks the server directly."""
+        # Discourse routes category search as POST (a GET returns the category index); results are
+        # prefix matches in pages of up to 25, so an exact match can sit past the first page.
+        for page in range(1, 21):
+            found = self.request("POST", "/categories/search.json",
+                                 data={"term": name, "parent_category_id": parent_category_id,
+                                       "include_subcategories": "true", "page": page})
+            rows = (found.get("categories") if isinstance(found, dict) else None) or []
+            for c in rows:
+                if c.get("name") == name and c.get("parent_category_id") == parent_category_id:
+                    return c
+            if not rows:
+                break
+        return None
 
     def create_category(
         self, name: str, parent_category_id: int | None = None, *, create_post_groups: list[str] | None = None

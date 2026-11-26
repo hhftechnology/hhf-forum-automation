@@ -4,7 +4,7 @@ import httpx
 import pytest
 
 from hhf import release_feed as rf
-from hhf.discourse import DiscourseClient
+from hhf.discourse import DiscourseClient, DiscourseError
 from hhf.sources import releases
 from test_release_feed import ENTRY, FakeClient, fetcher, rel
 
@@ -97,6 +97,7 @@ def test_2000_channels_resume_in_50_channel_batches(monkeypatch):
         def __init__(self):
             self.categories, self.groups, self.topics, self.watching = [], {}, {}, set()
         def list_categories(self): return list(self.categories)
+        def find_category(self, name, parent_category_id): return None
         def get_group(self, name): return self.groups.get(name)
         def upload_file(self, *args, **kwargs): return {"id": 1}
         def ensure_group(self, name, title, **kwargs):
@@ -259,3 +260,63 @@ def test_deadline_during_category_discovery_is_not_a_failed_run(tmp_path, monkey
             raise DeadlineReached(429, "GET", "/categories.json", "")
     monkeypatch.setattr(rf, "DiscourseClient", Client)
     assert rf.main(["--bootstrap", "--config", str(config), "--state", str(state), "--channels", str(channels)]) == 0
+
+
+def test_category_left_by_a_timed_out_run_is_found_and_reused(monkeypatch):
+    # /categories.json stops listing subcategories once a parent has hundreds, so a category a
+    # timed-out run created (but never recorded) is missing from list_categories. Creating it
+    # again fails with "Category Name has already been taken".
+    class Client:
+        def __init__(self):
+            self.categories = [{"id": 1, "name": rf.PARENT_NAME, "parent_category_id": None},
+                               {"id": 2, "name": "app", "parent_category_id": 1}]
+            self.topics, self.created = {}, []
+        def list_categories(self): return [c for c in self.categories if not c["parent_category_id"]]
+        def find_category(self, name, parent_category_id):
+            return next((c for c in self.categories if c["name"] == name and c["parent_category_id"] == parent_category_id), None)
+        def get_group(self, name): return {"id": 5}
+        def create_category(self, name, **kwargs):
+            raise DiscourseError(422, "POST", "/categories.json", '{"errors": ["Category Name has already been taken"]}')
+        def mute_categories_by_default(self, ids): pass
+        def find_topic_by_title(self, category_id, title): return self.topics.get((category_id, title))
+        def create_topic(self, *, category, title, raw):
+            self.topics[(category, title)] = len(self.topics) + 10
+            return {"topic_id": self.topics[(category, title)]}
+        def set_topic_status(self, *args): pass
+        def watch_category_for_group(self, group, category): pass
+    entry = {"repo": "example/app", "app_reference": "app", "provisioning": True}
+    rf.bootstrap([entry], Client(), dry_run=False)
+    assert entry["category_id"] == 2 and entry["topic_id"] and entry["discussion_topic_id"]
+    other = {"repo": "example/gone", "app_reference": "gone"}  # a real 422 with nothing to reuse still fails
+    with pytest.raises(RuntimeError, match="example/gone"):
+        rf.bootstrap([other], Client(), dry_run=False)
+    assert entry["category_id"] == 2 and entry.get("topic_id") and "provisioning" not in entry
+
+
+def test_find_category_matches_exact_name_under_the_parent():
+    from urllib.parse import parse_qs
+    seen = []
+    pages = {"1": [{"id": 3, "name": "Mumble Server", "parent_category_id": 129},
+                   {"id": 4, "name": "Mumble", "parent_category_id": 7}],
+             "2": [{"id": 5, "name": "Mumble", "parent_category_id": 129}]}
+    def handler(req):
+        form = {k: v[0] for k, v in parse_qs(req.content.decode()).items()}
+        seen.append((req.method, req.url.path, form))
+        return httpx.Response(200, json={"categories": pages.get(form["page"], [])})
+    client = DiscourseClient("https://forum.example", "k", transport=httpx.MockTransport(handler))
+    assert client.find_category("Mumble", 129)["id"] == 5  # exact match on the second page
+    method, path, form = seen[0]
+    assert (method, path) == ("POST", "/categories/search.json")
+    assert form["term"] == "Mumble" and form["parent_category_id"] == "129"
+    seen.clear()
+    assert client.find_category("Other", 129) is None and len(seen) == 3  # stops at an empty page
+
+
+def test_find_topic_by_title_accepts_discourse_capitalisation():
+    topics = [{"id": 6776, "title": "Mumble-voip/mumble releases"}, {"id": 6777, "title": "Mumble-voip/mumble discussion"}]
+    client = DiscourseClient("https://forum.example", "k", transport=httpx.MockTransport(
+        lambda req: httpx.Response(200, json={"topic_list": {"topics": topics}})))
+    assert client.find_topic_by_title(747, "mumble-voip/mumble releases") == 6776
+    assert client.find_topic_by_title(747, "mumble-voip/mumble discussion") == 6777
+    topics.append({"id": 9, "title": "MUMBLE-VOIP/MUMBLE RELEASES"})  # ambiguous: no guess
+    assert client.find_topic_by_title(747, "mumble-voip/mumble releases") is None

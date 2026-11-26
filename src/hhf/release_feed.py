@@ -20,7 +20,7 @@ from urllib.parse import urlparse
 import httpx
 import yaml
 
-from .discourse import DeadlineReached, DiscourseClient
+from .discourse import DeadlineReached, DiscourseClient, DiscourseError
 from .sources import releases
 from .webhook import DeliveryError, configured, post_webhook
 
@@ -521,7 +521,14 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, pr
                 if not parent:
                     parent = parents[pn] = client.create_category(pn)
                     cats.append(parent)
-                category = client.create_category(name, parent_category_id=parent["id"], create_post_groups=groups)
+                try:
+                    category = client.create_category(name, parent_category_id=parent["id"], create_post_groups=groups)
+                except DiscourseError as exc:
+                    # A run that timed out may have created it without recording it, and
+                    # list_categories misses subcategories once a parent has hundreds of them.
+                    category = exc.status == 422 and client.find_category(name, parent["id"])
+                    if not category:
+                        raise
                 cat_id = category["id"]
                 cats.append(category)
             e["category_id"] = cat_id
