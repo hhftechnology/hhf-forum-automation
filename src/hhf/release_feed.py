@@ -20,7 +20,7 @@ from urllib.parse import urlparse
 import httpx
 import yaml
 
-from .discourse import DiscourseClient
+from .discourse import DeadlineReached, DiscourseClient
 from .sources import releases
 from .webhook import DeliveryError, configured, post_webhook
 
@@ -345,6 +345,10 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
             deferred = True
             print(f"GitHub rate limit at {repo}; continuing next scheduled run")
             break
+        except DeadlineReached:
+            deferred = True  # the cursor stays on this repository
+            print(f"polling deferred inside {repo} (forum rate limit at the deadline); continuing next scheduled run")
+            break
         except (releases.ReleaseFetchError, ValueError, RuntimeError) as exc:
             print(f"error: {repo}: {exc}", file=sys.stderr)
             failed.append(repo)
@@ -363,6 +367,10 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
             if not dry_run:
                 try:
                     result = None if rel["url"] in existing else client.create_post(e["topic_id"], render(rel))
+                except DeadlineReached:
+                    deferred = True  # this release is not checkpointed, so the next run posts it
+                    print(f"polling deferred inside {repo} (forum rate limit at the deadline); continuing next scheduled run")
+                    break
                 except Exception as exc:  # stop this repo (keeps release order), go on with the others
                     print(f"error: posting {repo} {rel['tag']} failed: {type(exc).__name__}: {exc}", file=sys.stderr)
                     failed.append(repo)
@@ -545,6 +553,12 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, pr
             if progress:
                 progress()
             print(f"{key(e)}: category_id: {cat_id}  topic_id: {topic_id}")
+        except DeadlineReached:
+            e["provisioning"] = True  # resumed next run; not a failure of this channel
+            if progress:
+                progress()
+            print(f"provisioning deferred at {key(e)}; continuing next run")
+            break
         except Exception as exc:
             e["provisioning"] = True
             e["provisioning_error"] = type(exc).__name__
