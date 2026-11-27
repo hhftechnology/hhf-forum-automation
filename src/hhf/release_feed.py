@@ -20,7 +20,13 @@ from urllib.parse import urlparse
 import httpx
 import yaml
 
-from .discourse import DeadlineReached, DiscourseClient, DiscourseError
+from .discourse import (
+    GROUP_MESSAGEABLE_BY_ADMINS,
+    DeadlineReached,
+    DiscourseClient,
+    DiscourseError,
+    ForumUnavailable,
+)
 from .sources import releases
 from .webhook import DeliveryError, configured, post_webhook
 
@@ -292,6 +298,10 @@ def notify(repo: str, tag: str, groups: list[str], result: dict) -> None:
         print(f"warning: notify failed for {repo} {tag}: {detail}", file=sys.stderr)
 
 
+# Repositories in a row whose forum calls time out before polling stops for this run.
+FORUM_DOWN_AFTER = 3
+
+
 def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, checkpoint=None, budget: float = 600) -> int:
     """Post new releases, updating ``state`` in place. Returns the number of posts (planned if dry)."""
     fetch = fetch or releases.latest
@@ -304,6 +314,7 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
     start = next((i for i, entry in enumerate(entries) if key(entry) == cursor), 0)
     deadline = time.monotonic() + budget
     deferred = False
+    silent = 0  # repositories in a row whose forum calls got no answer
     # The budget is checked between repositories and before each post; the client's own deadline
     # stops 429 retries from sleeping past it.
     for e in entries[start:]:
@@ -349,10 +360,22 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
             deferred = True  # the cursor stays on this repository
             print(f"polling deferred inside {repo} (forum rate limit at the deadline); continuing next scheduled run")
             break
+        except ForumUnavailable as exc:
+            # Retried already; skip this repository (its releases stay unseen, so a later run posts
+            # them). Several in a row means the forum is down: stop and resume here next run.
+            print(f"error: {repo}: {exc}", file=sys.stderr)
+            failed.append(repo)
+            silent += 1
+            if silent >= FORUM_DOWN_AFTER:
+                deferred = True
+                print(f"polling deferred at {repo}: the forum did not answer for {silent} repositories in a row")
+                break
+            continue
         except (releases.ReleaseFetchError, ValueError, RuntimeError) as exc:
             print(f"error: {repo}: {exc}", file=sys.stderr)
             failed.append(repo)
             continue
+        answered = True  # False once a post in this repository gets no answer from the forum
         groups = e.get("groups") or []
         for rel in pending:
             if not dry_run and time.monotonic() >= deadline:
@@ -374,6 +397,7 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
                 except Exception as exc:  # stop this repo (keeps release order), go on with the others
                     print(f"error: posting {repo} {rel['tag']} failed: {type(exc).__name__}: {exc}", file=sys.stderr)
                     failed.append(repo)
+                    answered = not isinstance(exc, ForumUnavailable)
                     break
                 state["last"][repo] = rel["tag"]  # per post, so a mid-run failure never re-posts
                 tracking["seen"].append(identity(rel))
@@ -381,6 +405,11 @@ def run(entries: list[dict], state: dict, client, *, dry_run: bool, fetch=None, 
                     checkpoint()
                 if result and groups and can_notify:
                     notify(e["repo"], rel["tag"], groups, result)
+        if pending and not dry_run and not deferred:
+            silent = 0 if answered else silent + 1
+            if silent >= FORUM_DOWN_AFTER:
+                deferred = True  # the cursor stays here, and the unposted release is not checkpointed
+                print(f"polling deferred at {repo}: the forum did not answer for {silent} repositories in a row")
         if deferred:
             break
     if not deferred:
@@ -578,7 +607,8 @@ def bootstrap(entries: list[dict], client, *, dry_run: bool, limit: int = 50, pr
 
 
 def repair_groups(entries: list[dict], client, *, dry_run: bool, deadline: float | None = None) -> list[str]:
-    """Give every provisioned release group its app name and, when it has none, its app icon.
+    """Give every provisioned release group its app name, admin messaging (for the release DM) and,
+    when it has none, its app icon.
 
     Groups made before the naming fix were titled "<owner/repo> releases" and the oldest ones have no
     flair. This lists the groups once (a few paged requests) and only writes the ones that differ, so it
@@ -599,6 +629,8 @@ def repair_groups(entries: list[dict], client, *, dry_run: bool, deadline: float
             changes: dict = {}
             if group.get("full_name") != group_title(e):
                 changes["full_name"] = group_title(e)
+            if group.get("messageable_level") == 0:
+                changes["messageable_level"] = GROUP_MESSAGEABLE_BY_ADMINS  # "nobody" blocks the release DM
             needs_icon = not group.get("flair_url") and (e.get("icon_url") or e.get("app_reference") or e.get("icon_app"))
             if not changes and not needs_icon:
                 continue
@@ -607,16 +639,21 @@ def repair_groups(entries: list[dict], client, *, dry_run: bool, deadline: float
                 continue
             try:
                 if needs_icon:
-                    if key(e) not in icons:
-                        icons[key(e)] = _icon_bytes(e, client)
-                    icon = icons[key(e)]
-                    if icon:
-                        changes["flair_upload_id"] = client.upload_file(icon[0], icon[1], upload_type="group_flair")["id"]
+                    try:
+                        if key(e) not in icons:
+                            icons[key(e)] = _icon_bytes(e, client)
+                        icon = icons[key(e)]
+                        if icon:
+                            changes["flair_upload_id"] = client.upload_file(icon[0], icon[1], upload_type="group_flair")["id"]
+                    except Exception as exc:  # the name and messaging fixes still go through
+                        failed.append(g)
+                        print(f"error: icon for group {g}: {_describe(exc)}", file=sys.stderr)
                 if changes:
                     client.update_group(group["id"], **changes)
                     print(f"repaired group {g}: {', '.join(changes)}")
-            except Exception as exc:  # one bad icon must not stop the other repairs
-                failed.append(g)
+            except Exception as exc:  # one bad group must not stop the other repairs
+                if g not in failed:
+                    failed.append(g)
                 print(f"error: repairing group {g}: {_describe(exc)}", file=sys.stderr)
     return failed
 

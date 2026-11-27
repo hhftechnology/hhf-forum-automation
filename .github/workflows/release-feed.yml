@@ -70,6 +70,7 @@ jobs:
       DISCOURSE_URL: ${{ secrets.DISCOURSE_URL }}
       DISCOURSE_API_KEY: ${{ secrets.DISCOURSE_API_KEY }}
       DISCOURSE_API_USERNAME: ${{ vars.DISCOURSE_API_USERNAME || 'system' }}
+      PYTHONUNBUFFERED: "1" # print lines as they happen, so the log shows which request stalled and when
       WORKFLOW_WEBHOOK_URL_RELEASE: ${{ secrets.WORKFLOW_WEBHOOK_URL_RELEASE }}
       WORKFLOW_WEBHOOK_TOKEN: ${{ secrets.WORKFLOW_WEBHOOK_TOKEN }}
     steps:

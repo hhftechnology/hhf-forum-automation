@@ -240,7 +240,8 @@ def fetch(client: DiscourseClient, wid: int) -> dict:
 def save_draft(client: DiscourseClient, wid: int, wf: dict) -> dict:
     """PUT nodes+connections: creates a new (unpublished) version. Never sends ``published``."""
     body = {"workflow": {"nodes": wf["nodes"], "connections": wf["connections"]}}
-    return client.request("PUT", WF_PATH.format(wid), json=body)["workflow"]
+    # each PUT adds a version, so a timed-out save is not resent
+    return client.request("PUT", WF_PATH.format(wid), json=body, retry=False)["workflow"]
 
 
 def main(argv: list[str] | None = None, client: DiscourseClient | None = None) -> int:
