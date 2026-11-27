@@ -112,7 +112,8 @@ class DiscourseClient:
         self._http.close()
 
     # -- low level ---------------------------------------------------------
-    def request(self, method: str, path: str, *, allow_404: bool = False, **kw: Any) -> Any:
+    def request(self, method: str, path: str, *, allow_404: bool = False, retry: bool | None = None, **kw: Any) -> Any:
+        """``retry`` overrides whether a call that timed out may be sent again (default: by method)."""
         transport_failures = 0
         attempt = 0
         while True:
@@ -122,12 +123,14 @@ class DiscourseClient:
                 # The origin sometimes stalls past the timeout (Cloudflare logs 504s for it). Retry
                 # reads; retry a write only when it never reached the forum, because a POST that
                 # timed out may still have created its post.
-                retryable = method in _IDEMPOTENT or isinstance(exc, (httpx.ConnectError, httpx.ConnectTimeout))
+                resend = method in _IDEMPOTENT if retry is None else retry
+                retryable = resend or isinstance(exc, (httpx.ConnectError, httpx.ConnectTimeout))
                 transport_failures += 1
                 if not retryable or transport_failures > self.transport_retries:
                     raise ForumUnavailable(0, method, path, f"no answer from the forum ({type(exc).__name__})") from None
                 wait = _TRANSPORT_BACKOFF * transport_failures
-                if self.deadline is not None and time.monotonic() + wait + self._timeout >= self.deadline:
+                # httpx times the connect and the read separately, so one attempt can take two timeouts
+                if self.deadline is not None and time.monotonic() + wait + 2 * self._timeout >= self.deadline:
                     raise DeadlineReached(0, method, path, f"no answer from the forum ({type(exc).__name__}) at the run deadline") from None
                 log.warning("%s on %s %s, retrying in %.0fs", type(exc).__name__, method, path, wait)
                 self._sleep(wait)
@@ -266,7 +269,7 @@ class DiscourseClient:
         # Discourse routes category search as POST (a GET returns the category index); results are
         # prefix matches in pages of up to 25, so an exact match can sit past the first page.
         for page in range(1, 21):
-            found = self.request("POST", "/categories/search.json",
+            found = self.request("POST", "/categories/search.json", retry=True,  # a search, writes nothing
                                  data={"term": name, "parent_category_id": parent_category_id,
                                        "include_subcategories": "true", "page": page})
             rows = (found.get("categories") if isinstance(found, dict) else None) or []
@@ -381,8 +384,8 @@ class DiscourseClient:
         return self.request("PUT", f"/categories/{category_id}.json", data=fields)
 
 
-# Methods that are safe to resend after a timeout. Every PUT/DELETE this client makes sets a value
-# rather than adding one, so sending it twice leaves the same result.
+# Methods that are safe to resend after a timeout: the PUT/DELETE calls here set a value rather than
+# adding one. A caller whose PUT adds something (form_sync.save_draft) passes retry=False.
 _IDEMPOTENT = frozenset({"GET", "HEAD", "PUT", "DELETE"})
 # Seconds before the first transport retry; later retries wait proportionally longer.
 _TRANSPORT_BACKOFF = 5.0

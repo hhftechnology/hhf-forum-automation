@@ -765,7 +765,8 @@ def test_repair_groups_keeps_going_after_a_bad_icon(monkeypatch):
         {"repo": "o/b", "name": "B", "groups": ["releases-b"], "topic_id": 2},
     ]
     assert rf.repair_groups(entries, client, dry_run=False) == ["releases-a"]
-    assert client.updates == [(2, {"full_name": "B releases"})]
+    # the icon failure is reported, but the name fix for releases-a still goes through
+    assert client.updates == [(1, {"full_name": "A releases"}), (2, {"full_name": "B releases"})]
 
 
 def test_icon_app_supplies_only_the_icon():

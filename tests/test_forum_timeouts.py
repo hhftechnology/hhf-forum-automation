@@ -74,7 +74,7 @@ def test_transport_retry_that_would_pass_the_deadline_defers(monkeypatch):
 
     c, slept = client_for(handler)
     monkeypatch.setattr("hhf.discourse.time.monotonic", lambda: 100.0)
-    c.deadline = 120.0  # 5s backoff + 30s timeout would pass it
+    c.deadline = 150.0  # 5s backoff + a 30s connect and a 30s read would pass it
     with pytest.raises(DeadlineReached):
         c.request("GET", "/t/1.json")
     assert slept == []
@@ -135,3 +135,49 @@ def test_new_groups_are_created_messageable_by_admins():
     c, _ = client_for(handler)
     c.ensure_group("releases-x", "X releases")
     assert sent["group[messageable_level]"] == "1"
+
+
+def test_category_search_post_is_retried_and_draft_save_is_not():
+    calls = []
+
+    def handler(req):
+        calls.append(req.url.path)
+        if len(calls) == 1:
+            raise httpx.ReadTimeout("The read operation timed out", request=req)
+        return httpx.Response(200, json={"categories": []})
+
+    c, _ = client_for(handler)
+    assert c.find_category("X releases", 9) is None and calls[:2] == ["/categories/search.json"] * 2
+    calls.clear()
+    with pytest.raises(ForumUnavailable):
+        c.request("PUT", "/admin/plugins/discourse-workflows/workflows/1.json", json={}, retry=False)
+    assert len(calls) == 1
+
+
+def test_post_timeouts_also_stop_polling_when_the_forum_is_down():
+    entries = [{**ENTRY, "repo": f"o/{n}", "topic_id": 40 + i} for i, n in enumerate("abcde")]
+    client, state = FakeClient(), {"last": {e["repo"]: "v1" for e in entries}}
+    tried = []
+
+    def stalled(topic_id, raw):
+        tried.append(topic_id)
+        raise ForumUnavailable(0, "POST", "/posts.json", "no answer from the forum (ReadTimeout)")
+
+    client.create_post = stalled
+    with pytest.raises(RuntimeError):
+        rf.run(entries, state, client, dry_run=False, fetch=fetcher([rel("v2"), rel("v1")]))
+    assert tried == [40, 41, 42] and state["polling"] == {"next": "o/c", "pending": True}
+    assert all(state["last"][e["repo"]] == "v1" for e in entries)
+
+
+def test_missing_icon_does_not_block_the_messaging_fix(monkeypatch):
+    def broken(entry, client):
+        raise ValueError("no approved icon")
+
+    monkeypatch.setattr(rf, "_icon_bytes", broken)
+    client = GroupRepairClient([
+        {"id": 1, "name": "releases-a", "full_name": "A releases", "flair_url": None, "messageable_level": 0},
+    ])
+    entries = [{"repo": "o/a", "name": "A", "groups": ["releases-a"], "topic_id": 5, "app_reference": "a"}]
+    assert rf.repair_groups(entries, client, dry_run=False) == ["releases-a"]
+    assert client.updates == [(1, {"messageable_level": 1})]
