@@ -9981,15 +9981,17 @@
       "topic_id": 7202
     },
     {
+      "activated_at": "2026-11-27T11:19:54.755382+00:00",
       "app_reference": "phpmyadmin",
+      "category_id": 1267,
+      "discussion_topic_id": 8340,
       "groups": [
         "releases-phpmyadmin"
       ],
       "include_prereleases": false,
       "name": "phpMyAdmin",
-      "provisioning": true,
-      "provisioning_error": "HTTPStatusError",
-      "repo": "phpmyadmin/phpmyadmin"
+      "repo": "phpmyadmin/phpmyadmin",
+      "topic_id": 8339
     },
     {
       "activated_at": "2026-11-26T19:18:10.829537+00:00",

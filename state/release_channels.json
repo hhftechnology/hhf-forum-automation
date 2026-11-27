@@ -7699,6 +7699,16 @@
       "topic_id": 7202
     },
     {
+      "category_id": 1267,
+      "discussion_topic_id": 8340,
+      "groups": [
+        "releases-phpmyadmin"
+      ],
+      "name": "phpMyAdmin",
+      "repo": "phpmyadmin/phpmyadmin",
+      "topic_id": 8339
+    },
+    {
       "category_id": 889,
       "discussion_topic_id": 7206,
       "groups": [
