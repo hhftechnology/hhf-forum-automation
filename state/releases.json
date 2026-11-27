@@ -136,7 +136,7 @@
     "caprover/caprover": "v1.16.1",
     "carlnewton/habitat": "1.8.0",
     "caronc/apprise": "v2.3.0",
-    "casdoor/casdoor": "v4.31.0",
+    "casdoor/casdoor": "v4.32.0",
     "casvt/kapowarr": "V1.3.2",
     "causefx/organizr": "1.90",
     "cbenning/fussel": "3.3.1",
@@ -146,7 +146,7 @@
     "cgwire/kitsu": "v1.0.82",
     "chaitin/safeline": "v9.4.7",
     "chaphasilor/jellyfin-rewind": "2025.1.1",
-    "chartbrew/chartbrew": "v6.0.1",
+    "chartbrew/chartbrew": "v6.0.2",
     "chartdb/chartdb": "v1.21.0",
     "chattocorp/chatto": "v0.6.0",
     "chatwoot/chatwoot": "v4.20.1",
@@ -166,7 +166,7 @@
     "civilblur/youlag": "v4.6.0",
     "cleanuparr/cleanuparr": "v2.11.2",
     "clemcer/loggifly": "v2.2.0",
-    "clickhouse/clickhouse": "v26.9.40.9-stable",
+    "clickhouse/clickhouse": "v26.8.49.6-lts",
     "clidey/whodb": "0.139.0",
     "cloud-in-a-bottle/cloud-in-a-bottle": "v0.3.3",
     "cloudflare/cloudflared": "2026.11.2",
@@ -347,7 +347,7 @@
     "gchq/cyberchef": "v11.6.0",
     "genebo98/tradetally": "v2.16.0",
     "gerbera/gerbera": "v3.3.0",
-    "getarcaneapp/arcane": "v3.1.1",
+    "getarcaneapp/arcane": "v3.2.0",
     "getfider/fider": "v0.41.0",
     "gethomepage/homepage": "v2.8.0",
     "getmaxun/maxun": "v0.1.1",
@@ -589,8 +589,8 @@
     "manualdousuario/marreta": "3.0.5",
     "manyfold3d/manyfold": "v0.154.4",
     "marcantondahmen/automad": "2.0.0-beta.73",
-    "marcpope/borgbackupserver": "v2.102.0",
-    "markbeep/audiobookrequest": "v2.0.2",
+    "marcpope/borgbackupserver": "v2.102.1",
+    "markbeep/audiobookrequest": "v2.0.3",
     "markusthiel/lumio": "v0.98.1",
     "marmelab/atomic-crm": "v2.0.0",
     "marvinvr/docktail": "1.9.0",
@@ -649,7 +649,7 @@
     "music-assistant/server": "2.10.13",
     "mxpv/podsync": "v2.8.0",
     "mylarcomics/mylar3": "v0.11.0",
-    "n8n-io/n8n#n8n@": "n8n@1.123.102",
+    "n8n-io/n8n#n8n@": "n8n@2.49.8",
     "nandyalu/trailarr": "v0.14.2",
     "nanocoai/nanoclaw": "v2026.11.0",
     "navidrome/navidrome": "v0.64.2",
@@ -814,7 +814,7 @@
     "redimp/otterwiki": "v2.27.0",
     "redlib-org/redlib": "v0.40.0",
     "relaticle/relaticle": "v3.14.0",
-    "release-argus/argus": "0.40.1",
+    "release-argus/argus": "0.40.2",
     "requarks/wiki": "3.6.1",
     "requestly/requestly": "changelog-2026.03.23",
     "restic/restic": "v0.20.0",
@@ -883,7 +883,7 @@
     "simplehomelab/deployrr": "v6.0.42",
     "simplex-chat/simplex-chat": "v7.1.4",
     "sinamics/ztnet": "v0.8.8",
-    "sintan1729/chhoto-url": "7.11.9",
+    "sintan1729/chhoto-url": "7.11.10",
     "sirrobot01/decypharr": "v2.7.2",
     "sissbruecker/linkding": "v1.47.0",
     "siyuan-note/siyuan": "v3.8.12",
@@ -967,7 +967,7 @@
     "thewicklowwolf/sonashow": "v0.2.13",
     "thijstakken/musicservice": "2026.7",
     "thomiceli/opengist": "v1.16.0",
-    "tiagozip/cap": "widget@0.1.64",
+    "tiagozip/cap": "capd@4.0.19",
     "tiddlywiki/tiddlywiki5": "v5.4.1",
     "tiehfood/thrifty": "v1.12.1",
     "timothepoznanski/poznote": "6.160.0",
@@ -1066,7 +1066,8 @@
     "zwave-js/zwave-js-ui": "v11.27.0"
   },
   "polling": {
-    "pending": false
+    "next": "defguard/defguard",
+    "pending": true
   },
   "tracking": {
     "0pandadev/ziit": {
@@ -10587,7 +10588,8 @@
         "56335906",
         "56325266",
         "56298953",
-        "459633316"
+        "459633316",
+        "460758245"
       ]
     },
     "binwiederhier/ntfy": {
@@ -16628,7 +16630,8 @@
         "48118334",
         "47908298",
         "47850191",
-        "47847362"
+        "47847362",
+        "460690632"
       ]
     },
     "casvt/kapowarr": {
@@ -17735,7 +17738,8 @@
         "21175171",
         "21162609",
         "20188131",
-        "19702117"
+        "19702117",
+        "460114037"
       ]
     },
     "chartdb/chartdb": {
@@ -19889,7 +19893,11 @@
         "459500812",
         "459585979",
         "459657078",
-        "459734691"
+        "459734691",
+        "460603408",
+        "460667640",
+        "460729645",
+        "460801070"
       ]
     },
     "clidey/whodb": {
@@ -42074,7 +42082,8 @@
         "216396656",
         "215047087",
         "214086442",
-        "213815107"
+        "213815107",
+        "460105754"
       ]
     },
     "getfider/fider": {
@@ -68513,7 +68522,8 @@
         "281950980",
         "281867334",
         "281857208",
-        "281841919"
+        "281841919",
+        "460093498"
       ]
     },
     "markbeep/audiobookrequest": {
@@ -68559,7 +68569,8 @@
         "204683096",
         "204242256",
         "203459148",
-        "203050105"
+        "203050105",
+        "460525972"
       ]
     },
     "markusthiel/lumio": {
@@ -76768,7 +76779,8 @@
         "455608909",
         "457829573",
         "459077598",
-        "459083785"
+        "459083785",
+        "460322893"
       ]
     },
     "nandyalu/trailarr": {
@@ -99476,7 +99488,8 @@
         "65287478",
         "65154561",
         "65133398",
-        "65001465"
+        "65001465",
+        "460216448"
       ]
     },
     "remvze/moodist": {
@@ -105724,7 +105737,8 @@
         "99602196",
         "98991100",
         "98820173",
-        "98670885"
+        "98670885",
+        "460388233"
       ]
     },
     "sirrobot01/decypharr": {
@@ -113299,7 +113313,10 @@
         "214282385",
         "213923355",
         "213869486",
-        "214013929"
+        "214013929",
+        "460709951",
+        "460709963",
+        "460709977"
       ]
     },
     "tiddlywiki/tiddlywiki5": {
