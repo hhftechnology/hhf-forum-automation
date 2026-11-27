@@ -220,7 +220,7 @@
     "ddclient/ddclient": "v4.0.0",
     "dedicatedcode/reitti": "v5.12.2",
     "deeztek/hermes-secure-email-gateway": "v261123",
-    "defguard/defguard": "v2.1.2",
+    "defguard/defguard": "v2.2.1",
     "degoog-org/degoog": "1.2.0",
     "denho/faved": "v2.10.1",
     "dgtlmoon/changedetection.io": "0.70.4",
@@ -278,7 +278,7 @@
     "ellite/wallos": "v5.11.3",
     "emoncms/emoncms": "12.2.1",
     "enchant97/note-mark": "v1.1.2",
-    "endurain-project/endurain": "v0.21.0",
+    "endurain-project/endurain": "v0.21.2",
     "ente/ente": "ente-cli-v0.4.6",
     "ergochat/ergo": "v2.19.1",
     "ericerkz/kept": "v1.9.8",
@@ -301,16 +301,16 @@
     "figranium/figranium": "v0.23.0",
     "filegator/filegator": "v7.16.9",
     "finsys/dockhand": "v1.0.59",
-    "firefly-iii/firefly-iii": "v6.7.9",
+    "firefly-iii/firefly-iii": "v6.7.12",
     "fireshare-app/fireshare": "v1.9.6",
     "fisharebest/webtrees": "1.7.2",
     "flaresolverr/flaresolverr": "v3.5.2",
     "flarum/flarum": "v2.0.0",
     "flohoss/gocron": "v0.14.3",
-    "fluxerapp/fluxer": "fluxer-api@2026.1126.202147",
+    "fluxerapp/fluxer": "fluxer-release@2026.1127.183357",
     "foldergram/foldergram": "v1.4.1",
     "forceu/gokapi": "v2.2.4",
-    "formbricks/formbricks": "6.2.3",
+    "formbricks/formbricks": "6.1.8",
     "formsmith746/sketchforge-3d": "v1.0.3",
     "fosrl/android": "0.10.0",
     "fosrl/apple#ios-": "ios-0.13.0",
@@ -375,7 +375,7 @@
     "gogs/gogs": "v0.14.4",
     "goniszewski/grimoire": "v1.4.0",
     "google/cadvisor": "v0.61.1",
-    "gotenberg/gotenberg": "v9.10.2",
+    "gotenberg/gotenberg": "v9.10.3",
     "gotify/server": "v3.1.1",
     "gotson/komga": "1.30.2",
     "grafana/grafana": "v13.3.2",
@@ -1066,7 +1066,7 @@
     "zwave-js/zwave-js-ui": "v11.27.0"
   },
   "polling": {
-    "next": "defguard/defguard",
+    "next": "habitrpg/habitica",
     "pending": true
   },
   "tracking": {
@@ -25986,7 +25986,8 @@
         "102450905",
         "99743888",
         "99707350",
-        "87766945"
+        "87766945",
+        "459520246"
       ]
     },
     "degoog-org/degoog": {
@@ -30850,7 +30851,9 @@
         "136209542",
         "136157566",
         "135065746",
-        "134953550"
+        "134953550",
+        "460515144",
+        "460839010"
       ]
     },
     "ente/ente": {
@@ -33474,7 +33477,10 @@
         "848388",
         "807570",
         "765314",
-        "624287"
+        "624287",
+        "460186712",
+        "460207873",
+        "460224786"
       ]
     },
     "fireshare-app/fireshare": {
@@ -36910,7 +36916,22 @@
         "347116944",
         "346583696",
         "459871792",
-        "459873714"
+        "459873714",
+        "460796971",
+        "460797384",
+        "460799475",
+        "460799803",
+        "460800027",
+        "460800848",
+        "460801421",
+        "460801683",
+        "460801910",
+        "460801975",
+        "460804855",
+        "460808802",
+        "460812456",
+        "460877917",
+        "460981225"
       ]
     },
     "foldergram/foldergram": {
@@ -37176,7 +37197,8 @@
         "99884222",
         "99123760",
         "97504298",
-        "70549843"
+        "70549843",
+        "460474778"
       ]
     },
     "formsmd/formsmd": {
@@ -45463,7 +45485,8 @@
         "14494378",
         "14487975",
         "14447574",
-        "14444127"
+        "14444127",
+        "460755627"
       ]
     },
     "gotify/server": {
