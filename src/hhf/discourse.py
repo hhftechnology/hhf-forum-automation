@@ -20,6 +20,10 @@ import httpx
 
 log = logging.getLogger(__name__)
 
+# Group.messageable_level "only admins" (Group::ALIAS_LEVELS). The release-notify workflow DMs each
+# group from an admin account, and Discourse refuses that for the default level, "nobody".
+GROUP_MESSAGEABLE_BY_ADMINS = 1
+
 # Discourse: Topic::EXTERNAL_ID_MAX_LENGTH = 50, format /\A[\w-]+\z/, unique case-insensitive.
 EXTERNAL_ID_MAX_LENGTH = 50
 
@@ -58,6 +62,11 @@ class _ReleaseHeadingLinks(HTMLParser):
             self.in_heading = False
 
 
+class ForumUnavailable(DiscourseError):
+    """The forum gave no answer (timeout, dropped connection) even after retries. Callers skip the
+    item and move on; status is 0 because no HTTP response arrived."""
+
+
 class DeadlineReached(DiscourseError):
     """The run's deadline cut a request short (a 429 whose wait would pass it, or a paged read that
     ran out of time). Callers treat it as "continue next run", not as a failure of this item."""
@@ -74,6 +83,7 @@ class DiscourseClient:
         max_retries: int = 5,
         sleep=time.sleep,
         timeout: float = 30.0,
+        transport_retries: int = 2,
     ):
         self.base_url = (url or os.environ.get("DISCOURSE_URL", "")).rstrip("/")
         key = api_key or os.environ.get("DISCOURSE_API_KEY", "")
@@ -82,6 +92,8 @@ class DiscourseClient:
             raise ValueError("DISCOURSE_URL and DISCOURSE_API_KEY are required")
         self.username = user
         self.max_retries = max_retries
+        self.transport_retries = transport_retries
+        self._timeout = timeout
         self._sleep = sleep
         # time.monotonic() after which a 429 is raised instead of slept on, so retries cannot carry a
         # run past its job timeout (a timed-out job commits no state).
@@ -101,9 +113,27 @@ class DiscourseClient:
 
     # -- low level ---------------------------------------------------------
     def request(self, method: str, path: str, *, allow_404: bool = False, **kw: Any) -> Any:
-        for attempt in range(self.max_retries + 1):
-            resp = self._http.request(method, path, **kw)
+        transport_failures = 0
+        attempt = 0
+        while True:
+            try:
+                resp = self._http.request(method, path, **kw)
+            except httpx.TransportError as exc:
+                # The origin sometimes stalls past the timeout (Cloudflare logs 504s for it). Retry
+                # reads; retry a write only when it never reached the forum, because a POST that
+                # timed out may still have created its post.
+                retryable = method in _IDEMPOTENT or isinstance(exc, (httpx.ConnectError, httpx.ConnectTimeout))
+                transport_failures += 1
+                if not retryable or transport_failures > self.transport_retries:
+                    raise ForumUnavailable(0, method, path, f"no answer from the forum ({type(exc).__name__})") from None
+                wait = _TRANSPORT_BACKOFF * transport_failures
+                if self.deadline is not None and time.monotonic() + wait + self._timeout >= self.deadline:
+                    raise DeadlineReached(0, method, path, f"no answer from the forum ({type(exc).__name__}) at the run deadline") from None
+                log.warning("%s on %s %s, retrying in %.0fs", type(exc).__name__, method, path, wait)
+                self._sleep(wait)
+                continue
             if resp.status_code == 429 and attempt < self.max_retries:
+                attempt += 1
                 wait = _retry_after(resp)
                 if self.deadline is not None and time.monotonic() + wait >= self.deadline:
                     raise DeadlineReached(resp.status_code, method, path, resp.text)
@@ -269,13 +299,15 @@ class DiscourseClient:
         return app.get("icon_url") if app else None
 
     def ensure_group(self, name: str, full_name: str, *, flair_upload_id: int | None = None) -> dict:
-        """Get the group, or create it public and self-join; members watch categories by default."""
+        """Get the group, or create it public and self-join; members watch categories by default and
+        admins may message it (the release DM)."""
         found = self.get_group(name)
         if found:
             return found
         data = {"group[name]": name, "group[full_name]": full_name, "group[visibility_level]": 0,
                 "group[public_admission]": "true", "group[public_exit]": "true",
-                "group[default_notification_level]": 3}
+                "group[default_notification_level]": 3,
+                "group[messageable_level]": GROUP_MESSAGEABLE_BY_ADMINS}
         if flair_upload_id:
             data["group[flair_upload_id]"] = flair_upload_id
         return self.request("POST", "/admin/groups.json", data=data)["basic_group"]
@@ -296,8 +328,11 @@ class DiscourseClient:
             found.update((g["name"], g) for g in new)
         return [g for g in found.values() if g["name"].startswith(prefix)]
 
-    def update_group(self, group_id: int, *, full_name: str | None = None, flair_upload_id: int | None = None) -> None:
+    def update_group(self, group_id: int, *, full_name: str | None = None, flair_upload_id: int | None = None,
+                     messageable_level: int | None = None) -> None:
         data = {}
+        if messageable_level is not None:
+            data["group[messageable_level]"] = messageable_level
         if full_name is not None:
             data["group[full_name]"] = full_name
         if flair_upload_id is not None:
@@ -344,6 +379,13 @@ class DiscourseClient:
         if "name" not in fields:
             fields["name"] = self.get_category(category_id)["name"]
         return self.request("PUT", f"/categories/{category_id}.json", data=fields)
+
+
+# Methods that are safe to resend after a timeout. Every PUT/DELETE this client makes sets a value
+# rather than adding one, so sending it twice leaves the same result.
+_IDEMPOTENT = frozenset({"GET", "HEAD", "PUT", "DELETE"})
+# Seconds before the first transport retry; later retries wait proportionally longer.
+_TRANSPORT_BACKOFF = 5.0
 
 
 def _retry_after(resp: httpx.Response) -> float:
