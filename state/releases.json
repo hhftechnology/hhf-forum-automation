@@ -56,7 +56,7 @@
     "anoniemerd/prunemate": "V2.0.0",
     "ansible/ansible": "v2.22.0",
     "anthonygress/lab-dash": "v1.3.8",
-    "anycable/anycable": "v1.6.21",
+    "anycable/anycable": "v1.6.22",
     "apache/answer": "v2.0.3",
     "apache/superset": "superset-helm-chart-0.22.8",
     "appflowy-io/appflowy": "0.15.1",
@@ -149,7 +149,7 @@
     "chartbrew/chartbrew": "v6.0.2",
     "chartdb/chartdb": "v1.21.0",
     "chattocorp/chatto": "v0.6.0",
-    "chatwoot/chatwoot": "v4.20.1",
+    "chatwoot/chatwoot": "v4.20.2",
     "chevereto/chevereto": "4.5.9",
     "chibisafe/chibisafe": "v6.7.0",
     "chnapy/pkvault": "v2.5.3",
@@ -166,7 +166,7 @@
     "civilblur/youlag": "v4.6.0",
     "cleanuparr/cleanuparr": "v2.11.2",
     "clemcer/loggifly": "v2.2.0",
-    "clickhouse/clickhouse": "v26.8.49.6-lts",
+    "clickhouse/clickhouse": "v26.3.74.3-lts",
     "clidey/whodb": "0.139.0",
     "cloud-in-a-bottle/cloud-in-a-bottle": "v0.3.3",
     "cloudflare/cloudflared": "2026.11.2",
@@ -204,14 +204,14 @@
     "cyfershepard/jellystat": "1.1.12",
     "cypht-org/cypht": "v2.15.0",
     "dacid99/eonvelope": "0.8.1",
-    "dagucloud/dagu": "helm-dagu-2.0.9",
+    "dagucloud/dagu": "helm-dagu-2.0.10",
     "damian-krychowski/plikshare": "v1.2.3",
     "damongolding/immich-kiosk": "v0.48.0",
     "dani-garcia/vaultwarden": "1.37.5",
     "dani3l0/honey": "v2.5.1",
     "danielbrendel/hortusfox-web": "v6.4",
     "dannybouwers/trala": "v0.19.1",
-    "darkrock-studios/hammer-editor": "v3.12.2",
+    "darkrock-studios/hammer-editor": "v3.12.3+google-play",
     "databasus/databasus": "v3.73.1",
     "datarhei/restreamer": "v2.12.0",
     "davideshay/groceries": "v1.1.9",
@@ -283,11 +283,11 @@
     "ergochat/ergo": "v2.19.1",
     "ericerkz/kept": "v1.9.8",
     "error311/filerise": "v3.48.0",
-    "erugooss/erugo": "v0.2.15",
+    "erugooss/erugo": "v0.2.16",
     "esphome/esphome": "2026.11.1",
     "espocrm/espocrm": "10.1.4",
     "ether/etherpad": "v3.3.22",
-    "evcc-io/evcc": "0.319.1",
+    "evcc-io/evcc": "0.320.0",
     "evershopcommerce/evershop": "v2.4.0",
     "evroon/bracket": "v2.2.5",
     "excalidraw/excalidraw": "v0.18.1",
@@ -298,16 +298,16 @@
     "fccview/jotty": "1.30.0",
     "fedify-dev/hollo": "0.9.26",
     "ferronweb/ferron": "2.8.1",
-    "figranium/figranium": "v0.23.0",
+    "figranium/figranium": "v0.24.0",
     "filegator/filegator": "v7.16.9",
-    "finsys/dockhand": "v1.0.59",
+    "finsys/dockhand": "v1.0.60",
     "firefly-iii/firefly-iii": "v6.7.12",
     "fireshare-app/fireshare": "v1.9.6",
     "fisharebest/webtrees": "1.7.2",
     "flaresolverr/flaresolverr": "v3.5.2",
     "flarum/flarum": "v2.0.0",
     "flohoss/gocron": "v0.14.3",
-    "fluxerapp/fluxer": "fluxer-release@2026.1127.183357",
+    "fluxerapp/fluxer": "fluxer-app-proxy@2026.1128.132536",
     "foldergram/foldergram": "v1.4.1",
     "forceu/gokapi": "v2.2.4",
     "formbricks/formbricks": "6.1.8",
@@ -330,8 +330,8 @@
     "frappe/erpnext": "v16.61.0",
     "frederikemmer/medialyze": "v0.21.0",
     "fredrikburmester/streamystats": "v2.22.3",
-    "freescout-help-desk/freescout": "1.8.252",
-    "freika/dawarich": "1.23.0",
+    "freescout-help-desk/freescout": "1.8.253",
+    "freika/dawarich": "1.24.0",
     "freshrss/freshrss": "1.31.0",
     "friendica/friendica": "2026.05-1",
     "fscorrupt/posterizarr": "4.0.3",
@@ -340,7 +340,7 @@
     "galaksiotech/kontoj": "v2.0",
     "games-on-whales/wolf": "v2026.11",
     "gameservermanagers/linuxgsm": "v26.6.0",
-    "gameyfin/gameyfin": "v2.7.1",
+    "gameyfin/gameyfin": "v2.8.0",
     "gamosoft/notediscovery": "v0.36.1",
     "garethgeorge/backrest": "v1.14.1",
     "gaseous-project/gaseous-server": "v1.7.14",
@@ -355,7 +355,7 @@
     "getumbrel/umbrel": "2.0.1",
     "getwud/wud": "9.9.0",
     "ghjj123/brainrotguard": "v1.33.0",
-    "ghostfolio/ghostfolio": "3.100.0",
+    "ghostfolio/ghostfolio": "3.101.0",
     "ghostwriters/dockstarter": "v1.20260831.1",
     "gilbertchen/duplicacy": "v3.3.1",
     "gimanh/taskview-community": "v1.58.2",
@@ -419,7 +419,7 @@
     "humhub/humhub": "v1.19.5",
     "hwgilbert16/scholarsome": "v1.2.0",
     "hydroshieldmkii/guardian": "v2.2.2",
-    "hyvor/relay": "0.0.48",
+    "hyvor/relay": "0.0.49",
     "hywax/mafl": "v0.15.4",
     "iamspido/github-release-monitor": "v2.6.1",
     "ignisda/ryot": "v10.6.0",
@@ -428,7 +428,7 @@
     "immich-app/immich": "v3.4.2",
     "immich-power-tools/immich-power-tools": "v0.26.0",
     "immichframe/immichframe": "v1.0.40.0",
-    "infisical/infisical": "v0.167.16",
+    "infisical/infisical": "v0.167.17",
     "influxdata/influxdb": "v3.12.3",
     "inovector/mixpost": "2.6.0",
     "interaapps/pastefy": "7.2.7",
@@ -445,7 +445,7 @@
     "itskovacs/wingfit": "5.3.1",
     "iv-org/invidious": "v2.20261114.0",
     "ivan-malinovski/calino": "v0.43.0",
-    "jackett/jackett": "v0.25.48",
+    "jackett/jackett": "v0.25.56",
     "jakubito/spotify-release-list": "v3.10.0",
     "jamcalli/pulsarr": "v1.1.2",
     "jamesread/faridoon": "2.5.1",
@@ -459,7 +459,7 @@
     "jesec/flood": "v4.16.4",
     "jez500/pricebuddy": "v1.0.57",
     "jgraph/drawio": "v32.7.7",
-    "jhuckaby/cronicle": "v0.9.147",
+    "jhuckaby/cronicle": "v0.9.148",
     "jitsi/jitsi-meet": "stable/jitsi-meet_11509",
     "jmberesford/retrom": "v0.8.4",
     "jms1717/8mb.local": "v143",
@@ -494,7 +494,7 @@
     "keycloak/keycloak": "26.8.2",
     "kieraneglin/pinchflat": "v2025.9.26",
     "kikootwo/readmeabook": "v1.3.0",
-    "kimai/kimai": "2.73.0",
+    "kimai/kimai": "2.74.0",
     "kimdre/doco-cd": "v0.138.0",
     "kinto/kinto": "26.6.0",
     "kite-org/kite": "v0.18.0",
@@ -520,7 +520,7 @@
     "kubero-dev/kubero": "v3.1.1",
     "kubetail-org/kubetail": "cli/v0.18.1",
     "kuvasz-uptime/kuvasz": "4.8.1",
-    "kyonew/dvinyl": "v4.0.0",
+    "kyonew/dvinyl": "v4.0.1",
     "l4rm4nd/vouchervault": "v1.32.0",
     "lamarios/spendspentspent": "2.15.1",
     "lancommander/lancommander": "v2.2.1",
@@ -608,7 +608,7 @@
     "maxdorninger/mediamanager": "v1.12.3",
     "mayswind/ezbookkeeping": "v2.2.0",
     "mbinorg/mbin": "v1.11.1",
-    "mbombeck/healthlog": "v1.49.0",
+    "mbombeck/healthlog": "v1.49.1",
     "mealie-recipes/mealie": "v3.31.0",
     "meceware/wapy.dev": "v2.2.0",
     "medama-io/medama": "v0.6.2",
@@ -911,7 +911,7 @@
     "steam-headless/docker-steam-headless": "0.2.0",
     "stefanpejcic/openpanel": "2.0.32",
     "stephondoestech/unraid-config-guardian": "v1.6.4",
-    "stffnb/edentext": "v0.15.0",
+    "stffnb/edentext": "v0.16.0",
     "stirling-tools/stirling-pdf": "v3.5.0",
     "stoatchat/stoatchat": "v0.16.5",
     "storybookjs/storybook": "v10.6.9",
@@ -968,7 +968,7 @@
     "thewicklowwolf/sonashow": "v0.2.13",
     "thijstakken/musicservice": "2026.7",
     "thomiceli/opengist": "v1.16.0",
-    "tiagozip/cap": "capd@4.0.19",
+    "tiagozip/cap": "capd@4.0.22",
     "tiddlywiki/tiddlywiki5": "v5.4.1",
     "tiehfood/thrifty": "v1.12.1",
     "timothepoznanski/poznote": "6.161.0",
@@ -1003,7 +1003,7 @@
     "undernightcore/dockerizalo": "v1.7.0",
     "unpackerr/unpackerr": "v1.0.1",
     "unslothai/unsloth": "v0.1.925-beta",
-    "usekaneo/kaneo": "v2.50.0",
+    "usekaneo/kaneo": "cli-v0.2.0",
     "usememos/memos": "26.11.2",
     "usertour/usertour": "v0.9.9",
     "valkey-io/valkey": "9.2.1",
@@ -1067,7 +1067,8 @@
     "zwave-js/zwave-js-ui": "v11.27.0"
   },
   "polling": {
-    "pending": false
+    "next": "listenarrs/listenarr",
+    "pending": true
   },
   "tracking": {
     "0pandadev/ziit": {
@@ -5862,7 +5863,8 @@
         "43899760",
         "28087204",
         "13963949",
-        "8206311"
+        "8206311",
+        "460962863"
       ]
     },
     "apache/answer": {
@@ -18043,7 +18045,8 @@
         "23134783",
         "22703380",
         "22700606",
-        "22570404"
+        "22570404",
+        "461230714"
       ]
     },
     "chevereto/chevereto": {
@@ -19901,7 +19904,11 @@
         "460603408",
         "460667640",
         "460729645",
-        "460801070"
+        "460801070",
+        "460879987",
+        "461555365",
+        "461589288",
+        "461619384"
       ]
     },
     "clidey/whodb": {
@@ -24700,7 +24707,8 @@
         "65418184",
         "65314208",
         "65163981",
-        "65137226"
+        "65137226",
+        "461307348"
       ]
     },
     "damian-krychowski/plikshare": {
@@ -25174,7 +25182,8 @@
         "101351845",
         "101196982",
         "101047924",
-        "100604243"
+        "100604243",
+        "461112413"
       ]
     },
     "dartsteven/nutify": {
@@ -31372,7 +31381,8 @@
         "199976835",
         "199732480",
         "199268712",
-        "197603100"
+        "197603100",
+        "461110092"
       ]
     },
     "esphome/esphome": {
@@ -32499,7 +32509,8 @@
         "25578960",
         "25482647",
         "25172804",
-        "25127905"
+        "25127905",
+        "461510911"
       ]
     },
     "evershopcommerce/evershop": {
@@ -33021,7 +33032,8 @@
         "273673870",
         "273470294",
         "273120001",
-        "273117522"
+        "273117522",
+        "461537715"
       ]
     },
     "filegator/filegator": {
@@ -33148,7 +33160,8 @@
         "284541504",
         "284330100",
         "284132904",
-        "284010796"
+        "284010796",
+        "461376791"
       ]
     },
     "firefly-iii/firefly-iii": {
@@ -36944,7 +36957,26 @@
         "460808802",
         "460812456",
         "460877917",
-        "460981225"
+        "460981225",
+        "461028835",
+        "461114621",
+        "461191708",
+        "461260785",
+        "461261694",
+        "461271907",
+        "461579703",
+        "461580315",
+        "461580511",
+        "461581711",
+        "461581740",
+        "461582024",
+        "461582696",
+        "461582721",
+        "461582773",
+        "461583063",
+        "461583167",
+        "461583294",
+        "461589289"
       ]
     },
     "foldergram/foldergram": {
@@ -40239,7 +40271,8 @@
         "13952903",
         "13933936",
         "13880545",
-        "13776266"
+        "13776266",
+        "461308756"
       ]
     },
     "freika/dawarich": {
@@ -40482,7 +40515,8 @@
         "152095949",
         "151686892",
         "150122438",
-        "150062945"
+        "150062945",
+        "461625684"
       ]
     },
     "freshrss/freshrss": {
@@ -41229,7 +41263,8 @@
         "74466532",
         "74439681",
         "74145647",
-        "73809565"
+        "73809565",
+        "461589392"
       ]
     },
     "gamosoft/notediscovery": {
@@ -43561,7 +43596,8 @@
         "41736401",
         "41671563",
         "41611052",
-        "41563477"
+        "41563477",
+        "461502511"
       ]
     },
     "ghostwriters/dockstarter": {
@@ -51522,7 +51558,8 @@
         "234705240",
         "234704651",
         "230994121",
-        "230993888"
+        "230993888",
+        "461152003"
       ]
     },
     "hywax/mafl": {
@@ -52820,7 +52857,8 @@
         "83495283",
         "83494723",
         "83494161",
-        "83493762"
+        "83493762",
+        "461139017"
       ]
     },
     "influxdata/influxdb": {
@@ -55343,7 +55381,8 @@
         "34963322",
         "25411697",
         "24474276",
-        "460218862"
+        "460218862",
+        "461179333"
       ]
     },
     "jakubito/spotify-release-list": {
@@ -57206,7 +57245,8 @@
         "2401648",
         "2392233",
         "2392213",
-        "2392167"
+        "2392167",
+        "460899084"
       ]
     },
     "jitsi/jitsi-meet": {
@@ -60196,7 +60236,8 @@
         "19533226",
         "18840085",
         "18437569",
-        "18345977"
+        "18345977",
+        "460799516"
       ]
     },
     "kimdre/doco-cd": {
@@ -62193,7 +62234,8 @@
         "281681719",
         "281234106",
         "281201863",
-        "281197411"
+        "281197411",
+        "461576430"
       ]
     },
     "l4rm4nd/vouchervault": {
@@ -71371,7 +71413,8 @@
         "313824777",
         "313823859",
         "305674096",
-        "295330118"
+        "295330118",
+        "461474884"
       ]
     },
     "mealie-recipes/mealie": {
@@ -108531,7 +108574,8 @@
         "399561711",
         "393321712",
         "392221708",
-        "387406323"
+        "387406323",
+        "461562417"
       ]
     },
     "stirling-tools/stirling-pdf": {
@@ -113797,7 +113841,11 @@
         "214013929",
         "460709951",
         "460709963",
-        "460709977"
+        "460709977",
+        "461043306",
+        "461092565",
+        "461458679",
+        "461458685"
       ]
     },
     "tiddlywiki/tiddlywiki5": {
@@ -119124,7 +119172,8 @@
         "217796455",
         "208465394",
         "207966493",
-        "201862246"
+        "201862246",
+        "461492827"
       ]
     },
     "usememos/memos": {
