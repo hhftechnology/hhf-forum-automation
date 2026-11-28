@@ -1,0 +1,972 @@
+{
+  "name": "HHF · W22b Flag posts from reviewable users",
+  "nodes": [
+    {
+      "id": "d8203234-0a5b-475e-98b3-779b7c1a7500",
+      "type": "action:code",
+      "typeVersion": "1.0",
+      "name": "Reviewable user classifier",
+      "parameters": {
+        "code": "// SPDX-License-Identifier: CC0-1.0\n\n// Threshold weighting scores for various account characteristics.\nconst characteristicScores = {\n  // Other accounts use the same IP address.\n  associatedAccounts: 4,\n  // Account has bio.\n  bio: 1,\n  /*\n    IP address has changed since registration. This may indicate the account is being used by a different entity than\n    the registrant, or the use of a VPN/proxy to bypass IP/locational restrictions.\n  */\n  ipChanged: 1,\n  // Location has changed countries (possibly indicating use of VPN/proxy to circumvent IP/locational restrictions).\n  migrated: 10,\n  // Location specified in profile doesn't match IP address geolocation.\n  profileLocationMismatch: 10,\n  // IP address used by other suspended account.\n  suspendedAssociation: 15,\n  // Suspicious content in profile bio.\n  suspiciousBio: 5,\n  // Suspicious content in email.\n  suspiciousEmail: 4,\n  // Suspicious content in post.\n  suspiciousPost: 3,\n  // Suspicious content in profile website link.\n  suspiciousWebsite: 6,\n  // Profile has website link.\n  website: 2,\n};\n\nconst thresholdData = {\n  /*\n    User will be classified as \"reviewable\" if account stats do not surpass at least one of these thresholds.\n    Thresholds are defined as a range. The effective threshold is weighted according to the account's scoring, as\n    defined above.\n  */\n\n  /*\n    Spammer accounts are often created some days before being used. However, it is likely that they will be used\n    before too much time has passed.\n    Unit: seconds.\n  */\n  accountAge: {\n    description: \"account age\",\n    range: {\n      low: 8 * 24 * 60 * 60,\n      high: 40 * 24 * 60 * 60,\n    },\n  },\n  daysVisited: {\n    description: \"days visited\",\n    range: {\n      low: 2,\n      high: 6,\n    },\n  },\n  // Includes topic original posts and replies.\n  postCount: {\n    description: \"post count\",\n    range: {\n      low: 1,\n      high: 5,\n    },\n  },\n  postsRead: {\n    description: \"posts read\",\n    range: {\n      low: 4,\n      high: 60,\n    },\n  },\n  // Unit: seconds.\n  timeReading: {\n    description: \"time spent reading\",\n    range: {\n      low: 3 * 60,\n      high: 15 * 60,\n    },\n  },\n  topicsEntered: {\n    description: \"topics entered\",\n    range: {\n      low: 2,\n      high: 10,\n    },\n  },\n  /*\n    Note: A maximum trust level for general workflow run is configured in the configuration of the \"Post edited\"\n    trigger, and in the \"Low trust level?\" filter node.\n  */\n  trustLevel: {\n    description: \"trust level\",\n    range: {\n      low: 0,\n      high: 1,\n    },\n  },\n};\n\nconst associatedAccountData = $(\"Associated accounts\").first().json;\nconst emailAddress = $(\"User email address\").first().json.normalized_email;\nconst postData = $(\"Get post data\").first().json;\nconst profileLocation = $(\"Profile location\").item.json.profile_location;\nconst userData = $(\"User data\").first().json;\n\nconst userLocations = {};\nif ($(\"Profile location\").item.json.profile_location != null) {\n  userLocations.profile = $(\"Profile location\").item.json.profile_location;\n}\n\nconst userCharacteristics = {\n  associatedAccounts: associatedAccountData.matching_account_count > 0,\n  bio: !!userData.user.bio_raw,\n  ipChanged: userData.user.ip_address !== userData.user.registration_ip_address,\n  migrated:\n    !!userData.user.last_location?.country &&\n    !!userData.user.registration_location?.country &&\n    userData.user.last_location.country !==\n      userData.user.registration_location.country,\n  // HHF: the original compared profile location with IP geolocation using\n  // Discourse AI's classify node. Discourse AI is not enabled here.\n  profileLocationMismatch: false,\n  suspendedAssociation:\n    associatedAccountData.matching_suspended_account_count > 0,\n  suspiciousBio:\n    !!userData.user.bio_raw && suspiciousContent(userData.user.bio_raw),\n  suspiciousEmail: !!emailAddress && spamKeywords(emailAddress),\n  suspiciousPost: !!postData.post?.raw && suspiciousContent(postData.post.raw),\n  suspiciousWebsite:\n    !!userData.user.website && spamKeywords(userData.user.website.toLowerCase()),\n  website: !!userData.user.website,\n};\n\nconst thresholdStats = {\n  accountAge: (Date.now() - Date.parse(userData.user.created_at)) / 1000, // Seconds.\n  daysVisited: userData.user.stats.days_visited,\n  // `user.post_count` is actually only the reply count, so `user.topic_count` must be added in order to get the total\n  //  post count.\n  postCount: userData.user.stats.topic_count + userData.user.stats.post_count,\n  postsRead: userData.user.stats.posts_read_count,\n  timeReading: userData.user.stats.time_read, // Seconds.\n  topicsEntered: userData.user.stats.topics_entered,\n  trustLevel: userData.user.trust_level,\n};\n\nconst userStats = {\n  associatedAccountCount: associatedAccountData.matching_account_count,\n  locations: userLocations,\n  monitorGroup: monitorGroup(userData),\n  staff: userData.user.staff,\n};\n\nif (reviewable()) {\n  return [\n    {\n      flag: true,\n      flag_type: userStats.monitorGroup ? \"review_hide\" : \"review\",\n      reason: reason(),\n    },\n  ];\n}\n\nconsole.log(reason());\n\n// Do not flag.\nreturn [\n  {\n    flag: false,\n    flag_type: \"review\",\n    reason: \"\",\n  },\n];\n\n// evaluateProfileLocationMatch evaluates the profile location vs. IP geolocation comparison data.\nfunction evaluateProfileLocationMatch(\n  lastLocationComparison,\n  registrationLocationComparison,\n) {\n  const confidenceThreshold = 0.7;\n\n  if (Object.keys(lastLocationComparison).includes(\"classification\")) {\n    if (\n      lastLocationComparison.classification.match.choice === \"false\" &&\n      lastLocationComparison.classification.match.confidence >=\n        confidenceThreshold\n    ) {\n      return false;\n    }\n  }\n\n  if (Object.keys(registrationLocationComparison).includes(\"classification\")) {\n    if (\n      registrationLocationComparison.classification.match.choice === \"false\" &&\n      registrationLocationComparison.classification.match.confidence >=\n        confidenceThreshold\n    ) {\n      return false;\n    }\n  }\n\n  return true;\n}\n\n// formatDuration formats a duration value into a human friendly format.\nfunction formatDuration(totalSeconds) {\n  const hours = Math.floor(totalSeconds / 3600)\n    .toString()\n    .padStart(2, \"0\");\n  const minutes = Math.floor((totalSeconds % 3600) / 60)\n    .toString()\n    .padStart(2, \"0\");\n  const seconds = Math.round(totalSeconds % 60)\n    .toString()\n    .padStart(2, \"0\");\n\n  return `${hours}:${minutes}:${seconds} (H:M:S)`;\n}\n\n// monitorGroup returns whether the account is in the `monitor` user group.\nfunction monitorGroup(data) {\n  for (const group of data.user.groups || []) {\n    // The `monitor_group_id` Workflow Variable is the ID of the `monitor` user group.\n    if (group.id == $vars.monitor_group_id) {\n      return true;\n    }\n  }\n\n  return false;\n}\n\n// reason returns the text of the message that will be displayed in the flag.\nfunction reason() {\n  let reason = `<br />\n**Account Stats**\n\n- **Account age:** ${formatDuration(thresholdStats.accountAge)}\n- **Associated account count:** ${userStats.associatedAccountCount}\n- **Days visited:** ${thresholdStats.daysVisited}\n- **Time spent reading posts:** ${formatDuration(thresholdStats.timeReading)}\n- **Post count:** ${thresholdStats.postCount}\n- **Posts read:** ${thresholdStats.postsRead}\n- **Topics entered:** ${thresholdStats.topicsEntered}\n- **Trust level:** ${thresholdStats.trustLevel}\n`;\n\n  if (userStats.monitorGroup) {\n    reason = reason.concat(\n      `\n\n❗ User is a member of the \"monitor\" user group.\n`,\n    );\n  }\n\n  if (userCharacteristics.migrated) {\n    reason = reason.concat(\n      `\n\n❗ User's location has changed countries.\nThis might indicate use of a proxy/VPN to circumvent location-based restrictions.\n`,\n    );\n  } else if (userCharacteristics.ipChanged) {\n    reason = reason.concat(\n      `\n\n❗ User's IP address has changed.\nThis might indicate use of a proxy/VPN to circumvent IP-based restrictions.\n`,\n    );\n  }\n\n  if (userCharacteristics.profileLocationMismatch) {\n    reason = reason.concat(\n      `\n\n❗ User's IP address does not match the location \"${userStats.locations.profile}\" they specified in their account profile.\n`,\n    );\n  }\n\n  if (userCharacteristics.suspendedAssociation) {\n    reason = reason.concat(\n      `\n\n❗ User IP address has been used by other suspended accounts.\nThis might indicate bulk account use for spam deployment.\n`,\n    );\n  }\n\n  if (userCharacteristics.suspiciousEmail) {\n    reason = reason.concat(\n      `\n\n❗ User email address contains keywords commonly seen in those of spammer accounts.\n`,\n    );\n  }\n\n  return reason;\n}\n\n// reviewable returns whether the user is classified as \"reviewable\".\nfunction reviewable() {\n  if (userStats.staff) {\n    /*\n      In order to manage the `monitor` user group, moderators must be members of the group. For this reason, it is\n      necessary to explicitly exempt them from being classified as \"reviewable\".\n    */\n    console.log(\"Not reviewable: user is staff.\");\n    return false;\n  }\n\n  if (userStats.monitorGroup) {\n    // User is in the `monitor` user group, and thus is always reviewable regardless of other stats.\n    console.log(\"Reviewable: user is in monitor group.\");\n    return true;\n  }\n\n  // Check if data indicate the user should be assigned a \"reviewable\" classification.\n  const weight = thresholdWeight();\n\n  for (const [stat, value] of Object.entries(thresholdStats)) {\n    const threshold = Math.round(\n      (thresholdData[stat].range.high - thresholdData[stat].range.low) *\n        weight +\n        thresholdData[stat].range.low,\n    );\n\n    if (value > threshold) {\n      console.log(\n        `Not reviewable: ${thresholdData[stat].description} ${value} exceeds threshold ${threshold}.`,\n      );\n      return false;\n    }\n  }\n\n  console.log(\"Reviewable: account does not pass any threshold\");\n  return true;\n}\n\n// spamKeywords returns whether the given string contains keywords associated with spammers.\nfunction spamKeywords(content) {\n  const keywords = [\n    \"777\",\n    \"agency\",\n    \"apk\",\n    \"app\",\n    \"astrolog\",\n    \"backlink\",\n    \"brand\",\n    \"casino\",\n    \"chems\",\n    \"club\",\n    \"coin\",\n    \"consultan\",\n    \"crm\",\n    \"crypto\",\n    \"design\",\n    \"digital\",\n    \"escort\",\n    \"estate\",\n    \"fashion\",\n    \"fitness\",\n    \"game\",\n    \"gelatin\",\n    \"gift\",\n    \"girls\",\n    \"gluco\",\n    \"gummies\",\n    \"gummy\",\n    \"homes\",\n    \"logistic\",\n    \"manage\",\n    \"manufactur\",\n    \"market\",\n    \"meds\",\n    \"menu\",\n    \"official\",\n    \"pcb\",\n    \"pharma\",\n    \"properties\",\n    \"repair\",\n    \"resort\",\n    \"review\",\n    \"sale\",\n    \"seo\",\n    \"sephora\",\n    \"service\",\n    \"slot\",\n    \"soda\",\n    \"solution\",\n    \"spell\",\n    \"spotif\",\n    \"team\",\n    \"travel\",\n    \"website\",\n  ];\n\n  for (const keyword of keywords) {\n    if (content.includes(keyword)) {\n      return true;\n    }\n  }\n\n  return false;\n}\n\n// suspiciousContent returns whether the given string contains content common to spammer posts.\nfunction suspiciousContent(content) {\n  const suspiciousTexts = [\"pcbcool\", \"digital market\", \"online marketing\"];\n  const suspiciousPatterns = [\n    /*\n      Multiple em dashes are sometimes utilized as a graphical element by legitimate users. It is only the solitary\n      em dash used as punctuation that is the indicator of AI-generated content.\n    */\n    /.+[^—]—[^—].+/,\n    /\\bSEO\\b/,\n  ];\n\n  for (const suspiciousText of suspiciousTexts) {\n    if (content.toLowerCase().includes(suspiciousText)) {\n      return true;\n    }\n  }\n  for (const suspiciousPattern of suspiciousPatterns) {\n    if (content.match(suspiciousPattern) != null) {\n      return true;\n    }\n  }\n\n  return false;\n}\n\n// thresholdWeight returns the threshold weight based on the given score.\nfunction thresholdWeight() {\n  let score = 0;\n\n  // Add characteristic-based scores.\n  for (const [characteristic, present] of Object.entries(userCharacteristics)) {\n    if (present) {\n      score += characteristicScores[characteristic];\n    }\n  }\n\n  // Calculate maximum score.\n  let maxCharacteristicScore = 0;\n  for (const characteristicScore of Object.values(characteristicScores)) {\n    maxCharacteristicScore += characteristicScore;\n  }\n\n  // Calculate weight.\n  return score / maxCharacteristicScore;\n}\n",
+        "mode": "runOnceForAllItems"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10648.95041216853,
+        "y": -3752.840538120247
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "6ed9efce-15d7-4880-bef3-6d6d3c3d3627",
+      "type": "action:flag_post",
+      "typeVersion": "1.0",
+      "name": "Flag post",
+      "parameters": {
+        "reason": "={{ $(\"Reviewable user classifier\").first().json.reason }}",
+        "post_id": "={{ $(\"Trigger data\").first().json.post.id }}",
+        "flag_type": "={{ $(\"Reviewable user classifier\").first().json.flag_type }}",
+        "actor_username": "system"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10158.51678739752,
+        "y": -3755.624947207283
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "60d734b5-85b4-40ea-93ac-a36d01f75237",
+      "type": "condition:filter",
+      "typeVersion": "1.0",
+      "name": "User is reviewable?",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "a00763ba-91a6-41c8-963e-8635ca21f851",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $(\"Reviewable user classifier\").first().json.flag }}",
+            "rightValue": "true"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10565.94455697175,
+        "y": -3752.678137349027
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "4c4bd5af-1d96-45c0-8bb2-8b0aefd14221",
+      "type": "trigger:post_created",
+      "typeVersion": "1.0",
+      "name": "Post created",
+      "parameters": {},
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10693.46644864234,
+        "y": -5744.625268369615
+      }
+    },
+    {
+      "id": "0e549b8d-7063-477d-8064-d61478e74cba",
+      "type": "trigger:manual",
+      "typeVersion": "1.0",
+      "name": "DEBUG: Manual trigger",
+      "parameters": {},
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10695.69343917196,
+        "y": -5879.742830558483
+      },
+      "notes": "This trigger is used for debugging the workflow. Arbitrary input data can be specified via the \"pinned data\".\n\nWorkflow runs from this trigger will reply debug information to a dedicated DM topic, and not raise flags. The delay that occurs during normal runs will be skipped.",
+      "notesInFlow": true,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "af88a482-4293-44ae-baab-c1a321203ae3",
+      "type": "condition:if",
+      "typeVersion": "1.0",
+      "name": "Flag?",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "d2d08f4b-116f-4ba0-9ff9-696d726c335e",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $(\"Trigger data\").first().json.debug }}",
+            "rightValue": "false"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10390.04386290367,
+        "y": -3756.961313450845
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "ada06003-4257-40d5-a491-3c6786e16260",
+      "type": "trigger:post_edited",
+      "typeVersion": "2.0",
+      "name": "Post edited",
+      "parameters": {
+        "topic_ids": [],
+        "post_scope": "all_posts",
+        "category_ids": [],
+        "trust_levels": [
+          "0",
+          "1"
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10698.61506606674,
+        "y": -5611.680409100962
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "bd534289-4f87-48f8-8cc9-e81f4ddbc3f5",
+      "type": "action:code",
+      "typeVersion": "1.0",
+      "name": "Trigger data",
+      "parameters": {
+        "code": "var triggerData = {};\n\n// Populate from step that triggered this run.\nif (Object.keys($(\"DEBUG: Manual trigger\").first().json).length !== 0) {\n  triggerData = $(\"DEBUG: Manual trigger\").first().json;\n} else if (Object.keys($(\"Post created\").first().json).length !== 0) {\n  triggerData = $(\"Post created\").first().json;\n} else if (Object.keys($(\"Post edited\").first().json).length !== 0) {\n  triggerData = $(\"Post edited\").first().json;\n} else {\n  throw new Error(\"Unknown trigger.\");\n}\n\n// Standardize context data across all triggers.\nif (!(\"debug\" in triggerData)) {\n  triggerData.debug = false;\n}\n\nif (!(\"wait\" in triggerData)) {\n  // HHF: no AI spam scan runs here, so there is nothing to wait for.\n  triggerData.wait = false;\n}\n\nreturn [triggerData];\n",
+        "mode": "runOnceForAllItems"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10425.50390989058,
+        "y": -5743.793109266802
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "5101570e-2126-4e95-a513-ae72c5da0e78",
+      "type": "action:user",
+      "typeVersion": "1.0",
+      "name": "User data",
+      "parameters": {
+        "username": "={{ $(\"Trigger data\").first().json.user.username }}",
+        "operation": "get",
+        "actor_username": "system",
+        "custom_field_names": [],
+        "include_extensions": [
+          "stats",
+          "ips"
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10680.37165289241,
+        "y": -4492.428308445702
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "7254d862-1796-4938-a3f2-a23b5df4df9d",
+      "type": "action:sql",
+      "typeVersion": "1.0",
+      "name": "Associated accounts",
+      "parameters": {
+        "query": "WITH\r\n  target_user AS (\r\n    SELECT\r\n      users.id,\r\n      users.ip_address,\r\n      users.registration_ip_address\r\n    FROM\r\n      users\r\n    WHERE\r\n      users.id = :user_id\r\n  ),\r\n  user_ips AS (\r\n    SELECT\r\n      target_user.ip_address AS ip\r\n    FROM\r\n      target_user\r\n    WHERE\r\n      target_user.ip_address IS NOT NULL\r\n    UNION\r\n    SELECT\r\n      target_user.registration_ip_address AS ip\r\n    FROM\r\n      target_user\r\n    WHERE\r\n      target_user.registration_ip_address IS NOT NULL\r\n  )\r\nSELECT\r\n  (\r\n    SELECT\r\n      COUNT(*)\r\n    FROM\r\n      users\r\n    WHERE\r\n      users.id != target_user.id\r\n      AND (\r\n        users.ip_address IN (\r\n          SELECT\r\n            user_ips.ip\r\n          FROM\r\n            user_ips\r\n        )\r\n        OR users.registration_ip_address IN (\r\n          SELECT\r\n            user_ips.ip\r\n          FROM\r\n            user_ips\r\n        )\r\n      )\r\n  ) AS matching_account_count,\r\n  (\r\n    SELECT\r\n      COUNT(*)\r\n    FROM\r\n      users\r\n    WHERE\r\n      users.id != target_user.id\r\n      AND (\r\n        users.ip_address IN (\r\n          SELECT\r\n            user_ips.ip\r\n          FROM\r\n            user_ips\r\n        )\r\n        OR users.registration_ip_address IN (\r\n          SELECT\r\n            user_ips.ip\r\n          FROM\r\n            user_ips\r\n        )\r\n      )\r\n      AND users.suspended_at IS NOT NULL\r\n  ) AS matching_suspended_account_count\r\nFROM\r\n  target_user",
+        "params": {
+          "values": [
+            {
+              "name": "user_id",
+              "value": "={{ $(\"Trigger data\").first().json.user.id }}"
+            }
+          ]
+        },
+        "operation": "raw"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10327.66339103481,
+        "y": -4482.259861958617
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "92150f06-2270-41d3-8396-159ab61958a3",
+      "type": "action:send_personal_message",
+      "typeVersion": "1.0",
+      "name": "ERROR: Notify of no associated account results",
+      "parameters": {
+        "raw": "=**See:**\n\nhttps://forum.hhf.technology/admin/plugins/discourse-workflows/workflows/{{ $execution.workflow_id }}/executions/{{ $execution.id }}",
+        "title": "={{ $execution.workflow_name }} Data Explorer query returned no results",
+        "sender_username": "system",
+        "recipient_usernames": "={{ $vars.maintainer }}",
+        "recipient_group_names": []
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10063.35343027175,
+        "y": -4352.778848474755
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "0324f3b0-2ff6-42ef-bb4d-58452cd3a950",
+      "type": "action:sql",
+      "typeVersion": "1.0",
+      "name": "User email address",
+      "parameters": {
+        "query": "SELECT\r\n  user_emails.normalized_email\r\nFROM\r\n  user_emails\r\nWHERE\r\n  user_id = :user_id",
+        "params": {
+          "values": [
+            {
+              "name": "user_id",
+              "value": "={{ $(\"Trigger data\").first().json.user.id }}"
+            }
+          ]
+        },
+        "operation": "raw"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10561.63418871729,
+        "y": -4488.231190633465
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "cd6f66f2-d7d5-421c-b0bf-e9e9e0faeaed",
+      "type": "action:send_personal_message",
+      "typeVersion": "1.0",
+      "name": "ERROR: Notify of no email query results",
+      "parameters": {
+        "raw": "=**See:**\n\nhttps://forum.hhf.technology/admin/plugins/discourse-workflows/workflows/{{ $execution.workflow_id }}/executions/{{ $execution.id }}",
+        "title": "={{ $execution.workflow_name }} Data Explorer query returned no results",
+        "sender_username": "system",
+        "recipient_usernames": "={{ $vars.maintainer }}",
+        "recipient_group_names": []
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10282.96730753879,
+        "y": -4351.633201704915
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "bf3df0f2-08c1-4c14-b43d-85e63bdba328",
+      "type": "condition:filter",
+      "typeVersion": "1.0",
+      "name": "Self edit?",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "67956c23-4e34-4673-ac17-a24060f4f492",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $(\"Post edited\").first().json.actor.id }}",
+            "rightValue": "={{ $(\"Post edited\").first().json.user.id }}"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10621.08083247136,
+        "y": -5609.617487503093
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "77cf3168-293a-4f10-9774-fe837d20c3dc",
+      "type": "action:sql",
+      "typeVersion": "1.0",
+      "name": "Profile location",
+      "parameters": {
+        "query": "SELECT user_profiles.location as profile_location\nFROM user_profiles\nWHERE user_profiles.user_id = :user_id",
+        "params": {
+          "values": [
+            {
+              "name": "user_id",
+              "value": "={{ $(\"Trigger data\").first().json.user.id }}"
+            }
+          ]
+        },
+        "operation": "raw"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10106.24066659651,
+        "y": -4481.581281706171
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "d4789577-02c4-4b09-9fda-fdda966a3127",
+      "type": "action:send_personal_message",
+      "typeVersion": "1.0",
+      "name": "ERROR: Notify of no profile location result",
+      "parameters": {
+        "raw": "=**See:**\n\nhttps://forum.hhf.technology/admin/plugins/discourse-workflows/workflows/{{ $execution.workflow_id }}/executions/{{ $execution.id }}",
+        "title": "={{ $execution.workflow_name }} Data Explorer query returned no results",
+        "sender_username": "system",
+        "recipient_usernames": "={{ $vars.maintainer }}",
+        "recipient_group_names": []
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -9898.700528438372,
+        "y": -4350.768961977421
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "de0385b9-023c-460f-ae80-1d3add7b2c89",
+      "type": "flow:wait",
+      "typeVersion": "1.0",
+      "name": "Wait for spam check to run",
+      "parameters": {
+        "resume": "time_interval",
+        "wait_unit": "minutes",
+        "wait_amount": 10
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10175.10676214072,
+        "y": -5298.958307788102
+      },
+      "notes": "This delay avoids raising a redundant flag in the case where the post will already be flagged by the spam detector system.",
+      "notesInFlow": true,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "13e763f4-b8fd-479b-a6b1-dc039defe21e",
+      "type": "condition:filter",
+      "typeVersion": "1.0",
+      "name": "Low trust level?",
+      "parameters": {
+        "combinator": "or",
+        "conditions": [
+          {
+            "id": "ece37173-f4e7-42c6-a9d6-a4c571f9eea8",
+            "operator": {
+              "type": "string",
+              "operation": "lte",
+              "singleValue": false
+            },
+            "leftValue": "={{ $(\"Trigger data\").first().json.user.trust_level }}",
+            "rightValue": "1"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10541.55480703916,
+        "y": -5172.236134583604
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "47bf97c2-03d0-4aaa-89e5-2a0c87fd11ea",
+      "type": "action:sql",
+      "typeVersion": "1.0",
+      "name": "Post data query",
+      "parameters": {
+        "query": "SELECT posts.deleted_at, posts.hidden\nFROM posts\nWHERE posts.id = :post_id",
+        "params": {
+          "values": [
+            {
+              "name": "post_id",
+              "value": "={{ $(\"Trigger data\").first().json.post.id }}"
+            }
+          ]
+        },
+        "operation": "raw"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10079.91458063469,
+        "y": -5169.506086702507
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "876d9199-76cb-491a-905a-cf12a7c29672",
+      "type": "action:send_personal_message",
+      "typeVersion": "1.0",
+      "name": "ERROR: Notify of no results",
+      "parameters": {
+        "raw": "=**See:**\n\nhttps://forum.hhf.technology/admin/plugins/discourse-workflows/workflows/{{ $execution.workflow_id }}/executions/{{ $execution.id }}",
+        "title": "={{ $execution.workflow_name }} Data Explorer query returned no results",
+        "sender_username": "system",
+        "recipient_usernames": "={{ $vars.maintainer }}",
+        "recipient_group_names": []
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -9844.186754293049,
+        "y": -5039.376308530851
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "56072784-229c-4c58-9a6c-3ed89809be86",
+      "type": "condition:if",
+      "typeVersion": "1.0",
+      "name": "Wait?",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "69f685bf-5808-4fc2-b143-41ad5d11de95",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $(\"Trigger data\").first().json.wait }}",
+            "rightValue": "true"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10380.88473328008,
+        "y": -5171.779387968928
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "22124838-04f8-4b24-97f7-0a9c2bbf66da",
+      "type": "condition:filter",
+      "typeVersion": "1.0",
+      "name": "Deleted?",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "80b7710e-23f4-42ac-9857-648ca6ac43d4",
+            "operator": {
+              "type": "string",
+              "operation": "empty",
+              "singleValue": true
+            },
+            "leftValue": "={{ $(\"Post data query\").first().json.deleted_at }}",
+            "rightValue": "null"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -9884.492072387704,
+        "y": -5169.265869497483
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "6ebf6924-a1d8-4822-9e80-02dd8ce4392d",
+      "type": "condition:filter",
+      "typeVersion": "1.0",
+      "name": "Hidden?",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "2172f76a-9e11-42d8-944d-d3ec7b0099ac",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $(\"Post data query\").first().json.hidden }}",
+            "rightValue": "false"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -9581.525933930494,
+        "y": -5170.481912719372
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "88b108f6-95d6-4437-a31c-4dfcdededd08",
+      "type": "action:post",
+      "typeVersion": "1.0",
+      "name": "Get post data",
+      "parameters": {
+        "order": "latest",
+        "status": "any",
+        "post_id": "={{ $(\"Trigger data\").first().json.post.id }}",
+        "operation": "get",
+        "post_type": "regular",
+        "include_raw": true,
+        "actor_username": "system",
+        "include_cooked": false,
+        "body_character_limit": 0,
+        "exact_category_match": false
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -9188.271372854273,
+        "y": -4480.380602836242
+      },
+      "notes": "Under certain conditions the trigger output does not contain the post content. This occurs when the content is large: `\"raw\": \"Value truncated (29532 bytes before truncation)\"`. In this case, the Discourse Workflows system removes the `post.raw` key from the trigger output.",
+      "notesInFlow": true,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "e48202dc-dcfa-4bb7-b987-e7796ff457d9",
+      "type": "condition:filter",
+      "typeVersion": "1.0",
+      "name": "Public topic?",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "02d03ea4-fc08-4acf-b303-c31117a7151e",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $json.topic.archetype }}",
+            "rightValue": "regular"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10748.65602744714,
+        "y": -5172.14772332349
+      },
+      "notes": "DMs can be excluded in the configuration of the \"Post created\" trigger, but the \"Post edited\" trigger doesn't have such a configuration.",
+      "notesInFlow": true,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "b297fc9b-0165-4739-b781-933bc6797ba2",
+      "type": "flow:sticky_note",
+      "typeVersion": "1.0",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "This workflow flags posts from user accounts with characteristics that indicate review is warranted. Members of the \"monitor\" group are always flagged, with the post hidden until reviewed.\n\nAdapted for HHF from per1234's workflow on meta.discourse.org (topic 414624, post 65): AI location comparison removed, suspicious-content bug fixed, null guards added, no 10-minute wait.\n\n---\n\nSPDX-License-Identifier: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)",
+        "width": 277.5612927261172,
+        "height": 80,
+        "color": "blue"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10665.31444106059,
+        "y": -6014.859580538566
+      }
+    },
+    {
+      "id": "48d8dff2-8a21-4b02-a8ae-0bfe33180ae4",
+      "type": "flow:sticky_note",
+      "typeVersion": "1.0",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "Trigger",
+        "width": 140,
+        "height": 80,
+        "color": "yellow"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10978.32598693174,
+        "y": -5796.752614563741
+      }
+    },
+    {
+      "id": "12a229e7-fda7-46a7-af51-905971535179",
+      "type": "flow:sticky_note",
+      "typeVersion": "1.0",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "Flaggability determination",
+        "width": 140,
+        "height": 80,
+        "color": "yellow"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10969.00174855464,
+        "y": -5195.711170035712
+      }
+    },
+    {
+      "id": "fda4723d-5d70-4302-b726-649d13ad61f8",
+      "type": "flow:sticky_note",
+      "typeVersion": "1.0",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "Data collection",
+        "width": 140,
+        "height": 80,
+        "color": "yellow"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10956.8968902968,
+        "y": -4524.279163471828
+      }
+    },
+    {
+      "id": "8791c02f-9adf-4c57-86fa-dde7bff69262",
+      "type": "flow:sticky_note",
+      "typeVersion": "1.0",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "Flag determination",
+        "width": 140,
+        "height": 80,
+        "color": "yellow"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": -10960.53098555059,
+        "y": -3796.104357210796
+      }
+    }
+  ],
+  "connections": {
+    "Flag?": {
+      "main": [
+        [
+          {
+            "node": "Flag post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait?": {
+      "main": [
+        [
+          {
+            "node": "Wait for spam check to run",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Post data query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hidden?": {
+      "main": [
+        [
+          {
+            "node": "User data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deleted?": {
+      "main": [
+        [
+          {
+            "node": "Hidden?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User data": {
+      "main": [
+        [
+          {
+            "node": "User email address",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Self edit?": {
+      "main": [
+        [
+          {
+            "node": "Trigger data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post edited": {
+      "main": [
+        [
+          {
+            "node": "Self edit?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post created": {
+      "main": [
+        [
+          {
+            "node": "Trigger data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger data": {
+      "main": [
+        [
+          {
+            "node": "Public topic?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get post data": {
+      "main": [
+        [
+          {
+            "node": "Reviewable user classifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Public topic?": {
+      "main": [
+        [
+          {
+            "node": "Low trust level?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post data query": {
+      "main": [
+        [
+          {
+            "node": "Deleted?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ERROR: Notify of no results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Low trust level?": {
+      "main": [
+        [
+          {
+            "node": "Wait?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Profile location": {
+      "main": [
+        [
+          {
+            "node": "Get post data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ERROR: Notify of no profile location result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User email address": {
+      "main": [
+        [
+          {
+            "node": "Associated accounts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ERROR: Notify of no email query results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Associated accounts": {
+      "main": [
+        [
+          {
+            "node": "Profile location",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ERROR: Notify of no associated account results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User is reviewable?": {
+      "main": [
+        [
+          {
+            "node": "Flag?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DEBUG: Manual trigger": {
+      "main": [
+        [
+          {
+            "node": "Trigger data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reviewable user classifier": {
+      "main": [
+        [
+          {
+            "node": "User is reviewable?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for spam check to run": {
+      "main": [
+        [
+          {
+            "node": "Post data query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

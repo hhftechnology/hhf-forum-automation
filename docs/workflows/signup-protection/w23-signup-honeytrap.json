@@ -1,0 +1,320 @@
+{
+  "name": "HHF · W23 Signup honeytrap",
+  "nodes": [
+    {
+      "id": "320fe65b-ed15-4c07-bd12-0db840fff4e8",
+      "type": "trigger:user_created",
+      "typeVersion": "1.0",
+      "name": "User created",
+      "parameters": {},
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "8629a090-e326-453f-bb36-fa5facb3778f",
+      "type": "flow:wait",
+      "typeVersion": "1.0",
+      "name": "Let signup finish",
+      "parameters": {
+        "resume": "time_interval",
+        "wait_unit": "minutes",
+        "wait_amount": 2
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 240,
+        "y": 0
+      }
+    },
+    {
+      "id": "e8e08ff6-0be1-4564-91ea-429529caf0a6",
+      "type": "action:user",
+      "typeVersion": "1.0",
+      "name": "Get user",
+      "parameters": {
+        "operation": "get",
+        "username": "={{ $(\"User created\").first().json.user.username }}",
+        "actor_username": "system",
+        "custom_field_names": [
+          "user_field_8"
+        ],
+        "include_extensions": []
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 480,
+        "y": 0
+      }
+    },
+    {
+      "id": "3450d048-a6af-4334-99b7-3d47f0dbae44",
+      "type": "action:code",
+      "typeVersion": "1.0",
+      "name": "Read signup check",
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "code": "// Reads the hidden \"Signup check\" user field written by the\n// \"HHF signup honeytrap\" theme component and decides what to do.\nconst user = $(\"Get user\").first().json.user || {};\nconst created = $(\"User created\").first().json.user || {};\nconst FIELD = \"user_field_8\";\nconst raw = String(\n  (user.custom_fields && user.custom_fields[FIELD]) ??\n    (user.user_fields && user.user_fields[\"8\"]) ??\n    \"\",\n).trim();\n\nif (user.staff || user.admin || user.moderator || user.staged || created.staged) {\n  return [{ verdict: \"skip\", reasons: [], raw, username: user.username || created.username }];\n}\n\nconst signals = {};\nif (raw.startsWith(\"v1|\")) {\n  for (const part of raw.slice(3).split(\"|\")) {\n    const [k, v] = part.split(\"=\");\n    signals[k] = Number(v);\n  }\n}\n\nconst trap = [];\nconst weak = [];\nif (signals.a) trap.push(\"filled the hidden decoy field (invisible to people)\");\nif (signals.b) trap.push(\"filled the field that asks AI agents to identify themselves\");\nif (signals.wd) trap.push(\"browser reported automation (navigator.webdriver)\");\nif (signals.tamper) trap.push(\"the hidden Signup check field was written by something other than the page\");\nif (raw && !raw.startsWith(\"v1|\")) trap.push(\"Signup check field holds unexpected text\");\n\nif (!raw) weak.push(\"no Signup check value (signup did not run the page script: API, scripted or invite signup)\");\nif (raw.startsWith(\"v1|\")) {\n  if (signals.ms < 5000) weak.push(`form completed in ${Math.round(signals.ms / 100) / 10}s`);\n  if (!signals.keys && !signals.ptr) weak.push(\"no real keyboard or pointer events while filling the form\");\n}\n\nconst verdict = trap.length ? \"trap\" : weak.length ? \"weak\" : \"clean\";\nconst lines = trap.map((r) => `- ❗ ${r}`).concat(weak.map((r) => `- ⚠️ ${r}`));\nconst reason =\n  (verdict === \"trap\"\n    ? \"**Signup honeytrap tripped.** The account was added to the \\\"monitor\\\" group and locked at trust level 0, so its posts are hidden until a moderator reviews them. To clear it, use the post menu button \\\"add/revoke monitor group membership\\\" or remove the user from the monitor group.\\n\\n\"\n    : \"**Signup looked automated (weak signals only).** No restrictions were applied.\\n\\n\") +\n  lines.join(\"\\n\") +\n  `\\n\\nRaw signal: \\`${raw || \"(empty)\"}\\``;\n\nreturn [{ verdict, reasons: trap.concat(weak), reason, raw, username: user.username || created.username }];\n"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 720,
+        "y": 0
+      }
+    },
+    {
+      "id": "c7f2109d-e395-4ba3-b49f-6f4a87580fc4",
+      "type": "condition:if",
+      "typeVersion": "1.0",
+      "name": "Trap?",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "d10326fb-d09d-433c-b959-30bf9515ac0c",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $(\"Read signup check\").first().json.verdict }}",
+            "rightValue": "trap"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 960,
+        "y": 0
+      }
+    },
+    {
+      "id": "40b06fe1-ac3c-40b3-aa36-c2620510db0f",
+      "type": "action:group",
+      "typeVersion": "1.0",
+      "name": "Add to monitor group",
+      "parameters": {
+        "operation": "add",
+        "group_id": "={{ $vars.monitor_group_id }}",
+        "username": "={{ $(\"Read signup check\").first().json.username }}",
+        "actor_username": "system",
+        "set_primary_group": false
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 1200,
+        "y": -120
+      }
+    },
+    {
+      "id": "e1799e51-0b89-40e8-bc81-53d5f4c372cc",
+      "type": "action:user",
+      "typeVersion": "1.0",
+      "name": "Lock TL0",
+      "parameters": {
+        "operation": "edit",
+        "username": "={{ $(\"Read signup check\").first().json.username }}",
+        "updates": {
+          "trust_level": "0",
+          "trust_level_locked": true
+        },
+        "actor_username": "system",
+        "custom_field_names": [],
+        "include_extensions": []
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 1440,
+        "y": -120
+      }
+    },
+    {
+      "id": "04278e52-4303-4c79-a502-71bf3780a4cc",
+      "type": "action:flag_user",
+      "typeVersion": "1.0",
+      "name": "Flag user (trap)",
+      "parameters": {
+        "username": "={{ $(\"Read signup check\").first().json.username }}",
+        "reason": "={{ $(\"Read signup check\").first().json.reason }}",
+        "reopen_resolved": false,
+        "actor_username": "system"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 1680,
+        "y": -120
+      }
+    },
+    {
+      "id": "dfcd9d9b-0426-476d-8753-22dbe6ba3ce7",
+      "type": "condition:if",
+      "typeVersion": "1.0",
+      "name": "Weak?",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "28b4e9e7-3ce2-4e41-8b57-2f1356a2c3aa",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $(\"Read signup check\").first().json.verdict }}",
+            "rightValue": "weak"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 1200,
+        "y": 120
+      }
+    },
+    {
+      "id": "d5ed1d70-8877-4ea8-b7ec-6efe3fb7b428",
+      "type": "action:flag_user",
+      "typeVersion": "1.0",
+      "name": "Flag user (weak)",
+      "parameters": {
+        "username": "={{ $(\"Read signup check\").first().json.username }}",
+        "reason": "={{ $(\"Read signup check\").first().json.reason }}",
+        "reopen_resolved": false,
+        "actor_username": "system"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 1440,
+        "y": 120
+      }
+    },
+    {
+      "id": "ce5763e7-c891-46cd-895b-ae0415a61c3b",
+      "type": "flow:sticky_note",
+      "typeVersion": "1.0",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "Signup honeytrap. The theme component \"HHF signup honeytrap\" adds decoy inputs to the signup form and writes its signals into the hidden user field \"Signup check\" (user_field_8).\n\n**Trap** (decoy filled, webdriver, tampering): add to \"monitor\", lock TL0, flag the user for review. W22b then hides each of their posts until a moderator approves it.\n\n**Weak** (no script value, very fast, no real input events): flag the user for review only.\n\nSource: hhf-forum-automation themes/signup-honeytrap and docs/workflows/signup-protection.",
+        "width": 420,
+        "height": 200,
+        "color": "blue"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 0,
+        "y": -300
+      }
+    }
+  ],
+  "connections": {
+    "User created": {
+      "main": [
+        [
+          {
+            "node": "Let signup finish",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Let signup finish": {
+      "main": [
+        [
+          {
+            "node": "Get user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get user": {
+      "main": [
+        [
+          {
+            "node": "Read signup check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read signup check": {
+      "main": [
+        [
+          {
+            "node": "Trap?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trap?": {
+      "main": [
+        [
+          {
+            "node": "Add to monitor group",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Weak?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add to monitor group": {
+      "main": [
+        [
+          {
+            "node": "Lock TL0",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lock TL0": {
+      "main": [
+        [
+          {
+            "node": "Flag user (trap)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Weak?": {
+      "main": [
+        [
+          {
+            "node": "Flag user (weak)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  }
+}

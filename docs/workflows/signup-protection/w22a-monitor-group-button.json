@@ -1,0 +1,469 @@
+{
+  "name": "HHF · W22a Monitor group button",
+  "nodes": [
+    {
+      "id": "d07411e6-4f55-4b24-b2f3-91b1db7b3ab3",
+      "type": "trigger:post_button",
+      "typeVersion": "1.0",
+      "name": "Post button",
+      "parameters": {
+        "icon": "crosshairs",
+        "label": "add/revoke \"monitor\" group membership",
+        "position": "more_menu",
+        "group_ids": [
+          3
+        ],
+        "confirmation": false
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 397.5076199163633,
+        "y": 438.9750073663191
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "c4849fc2-7208-4dd2-b421-c43e15451bb7",
+      "type": "action:group",
+      "typeVersion": "1.0",
+      "name": "Add",
+      "parameters": {
+        "group_id": "={{ $vars.monitor_group_id }}",
+        "username": "={{ $(\"Post button\").first().json.post.username }}",
+        "operation": "add",
+        "actor_username": "system",
+        "set_primary_group": false
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 1212.342212390654,
+        "y": 340.1313248542151
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "3734884c-3531-4c6c-a08a-37537da037b3",
+      "type": "action:user",
+      "typeVersion": "1.0",
+      "name": "Get user data",
+      "parameters": {
+        "username": "={{ $(\"Post button\").first().json.post.username }}",
+        "operation": "get",
+        "actor_username": "system",
+        "custom_field_names": [],
+        "include_extensions": []
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 526.1840110620827,
+        "y": 441.3395891237696
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "908b1880-4acf-47bc-b823-72c763ea013a",
+      "type": "condition:if",
+      "typeVersion": "1.0",
+      "name": "Add?",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "abfd8a8d-4ac5-4564-bcd8-b14e1293164b",
+            "operator": {
+              "type": "string",
+              "operation": "equals",
+              "singleValue": false
+            },
+            "leftValue": "={{ $(\"Determine action\").first().json.action }}",
+            "rightValue": "add"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 735.9854530889306,
+        "y": 440.91639626182
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "be8ee554-fa0e-406f-ba6b-272d5434d0de",
+      "type": "action:code",
+      "typeVersion": "1.0",
+      "name": "Determine action",
+      "parameters": {
+        "code": "const userData = $(\"Get user data\").first().json;\n\nfor (group of userData.user.groups) {\n  // 103 is the ID of the `monitor` user group.\n  if (group.id ==  $vars.monitor_group_id) {\n    return [\n      {\n        action: \"remove\",\n        confirmation: 'Remove post author from \"monitor\" user group?',\n      },\n    ];\n  }\n}\n\nreturn [\n  {\n    action: \"add\",\n    confirmation: 'Add post author to \"monitor\" user group?',\n  },\n];\n",
+        "mode": "runOnceForAllItems"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 650.5030881650608,
+        "y": 440.9673467044929
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "9edd9d3a-3d5f-4e42-bb1e-604c2b5ab945",
+      "type": "action:modal",
+      "typeVersion": "1.0",
+      "name": "Addition confirmation dialog",
+      "parameters": {
+        "body": "=Add post author to \"monitor\" user group?",
+        "title": "Confirmation",
+        "buttons": {
+          "values": [
+            {
+              "label": "Yes",
+              "style": "default",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "style": "default",
+              "value": "no"
+            }
+          ]
+        },
+        "body_format": "plain_text",
+        "target_user": "={{ $current_user.username }}"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 919.0108936736161,
+        "y": 345.6270022978735
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "d2425f7f-ca05-4e37-af48-fc4a62e6111b",
+      "type": "action:group",
+      "typeVersion": "1.0",
+      "name": "Remove",
+      "parameters": {
+        "group_id": "={{ $vars.monitor_group_id }}",
+        "username": "={{ $(\"Post button\").first().json.post.username }}",
+        "operation": "remove",
+        "actor_username": "system"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 1206.359764663381,
+        "y": 549.65799228616
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "b29b9588-af01-4f1a-8388-0235a318d923",
+      "type": "condition:filter",
+      "typeVersion": "1.0",
+      "name": "Confirmed?",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "64dc3ed7-696d-4aad-a32a-639124f1ebea",
+            "operator": {
+              "type": "string",
+              "operation": "contains",
+              "singleValue": false
+            },
+            "leftValue": "={{ $(\"Addition confirmation dialog\").first().json.button }}",
+            "rightValue": "yes"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 989.5305216492668,
+        "y": 345.3975256569062
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "a200657f-b4bb-4827-a483-d442aea63202",
+      "type": "action:modal",
+      "typeVersion": "1.0",
+      "name": "Removal confirmation dialog",
+      "parameters": {
+        "body": "=Remove post author from \"monitor\" user group?",
+        "title": "Confirmation",
+        "buttons": {
+          "values": [
+            {
+              "label": "Yes",
+              "style": "default",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "style": "default",
+              "value": "no"
+            }
+          ]
+        },
+        "target_user": "={{ $current_user.username }}"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 907.8299347169988,
+        "y": 554.6857821141602
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "23299f13-e7b9-4515-8b83-5cbb13c57e52",
+      "type": "condition:filter",
+      "typeVersion": "1.0",
+      "name": "Confirmed? 1",
+      "parameters": {
+        "combinator": "and",
+        "conditions": [
+          {
+            "id": "64dc3ed7-696d-4aad-a32a-639124f1ebea",
+            "operator": {
+              "type": "string",
+              "operation": "contains",
+              "singleValue": false
+            },
+            "leftValue": "={{ $(\"Removal confirmation dialog\").first().json.button }}",
+            "rightValue": "yes"
+          }
+        ]
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 978.3495626926494,
+        "y": 554.456305473193
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "4030b30c-9131-4831-917a-7055bbc020d2",
+      "type": "action:user",
+      "typeVersion": "1.0",
+      "name": "Lock TL0",
+      "parameters": {
+        "updates": {
+          "trust_level": "0",
+          "trust_level_locked": true
+        },
+        "username": "={{ $(\"Post button\").first().json.post.username }}",
+        "operation": "edit",
+        "actor_username": "system",
+        "custom_field_names": [],
+        "include_extensions": []
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 1331.197855665144,
+        "y": 340.3845632514432
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "b66ef321-7985-4faa-92c6-367875cd78ba",
+      "type": "action:user",
+      "typeVersion": "1.0",
+      "name": "Unlock trust level",
+      "parameters": {
+        "updates": {
+          "trust_level_locked": false
+        },
+        "username": "={{ $(\"Post button\").first().json.post.username }}",
+        "operation": "edit",
+        "actor_username": "system",
+        "include_extensions": []
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 1331.550186030204,
+        "y": 550.0510187668173
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "7f774695-d864-412b-bf82-88f7e4a04457",
+      "type": "flow:sticky_note",
+      "typeVersion": "1.0",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "This workflow adds an 'add/revoke \"monitor\" group membership' icon to the post menu for staff.\n\nThe \"monitor\" user group is used for monitoring accounts where there is suspicion of malicious intent, but not sufficient evidence to take action.\n\nThe added icon is used to add the user to the \"monitor\" group if not already a member, or to remove the user from the group. The action to be performed is communicated by the confirmation dialog.\n\nThe workflow locks the user to trust level 0 when added to the group, and unlocks the trust level when removed from the group.\n\nMonitor members' new and edited posts are hidden for review by W22b.\n\nAdapted for HHF from meta.discourse.org topic 414624 post 65.\n\n## Configuration\n\nCreate a User Group named `monitor`.\n\nCreate a Workflows Variable (the globally scoped Variable, not workflow-specific) named `monitor_group_id`. Set the value to the ID of the \"monitor` user group.\n\n---\n\nSPDX-License-Identifier: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)",
+        "width": 477.8506688807072,
+        "height": 299.9998092184438,
+        "color": "blue"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 419.4692350923133,
+        "y": 90.53453376207895
+      }
+    }
+  ],
+  "connections": {
+    "Add": {
+      "main": [
+        [
+          {
+            "node": "Lock TL0",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add?": {
+      "main": [
+        [
+          {
+            "node": "Addition confirmation dialog",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Removal confirmation dialog",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove": {
+      "main": [
+        [
+          {
+            "node": "Unlock trust level",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lock TL0": {
+      "main": [
+        []
+      ]
+    },
+    "Confirmed?": {
+      "main": [
+        [
+          {
+            "node": "Add",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post button": {
+      "main": [
+        [
+          {
+            "node": "Get user data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirmed? 1": {
+      "main": [
+        [
+          {
+            "node": "Remove",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get user data": {
+      "main": [
+        [
+          {
+            "node": "Determine action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Determine action": {
+      "main": [
+        [
+          {
+            "node": "Add?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Unlock trust level": {
+      "main": [
+        []
+      ]
+    },
+    "Removal confirmation dialog": {
+      "main": [
+        [
+          {
+            "node": "Confirmed? 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Addition confirmation dialog": {
+      "main": [
+        [
+          {
+            "node": "Confirmed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+// The real carrier field. Filled by the initializer, never by a person.
+.user-field-signup-check {
+  display: none !important;
+}
+
+// Decoy inputs. Off screen for sighted users; .hhf-ht-a also hidden from
+// assistive technology, .hhf-ht-b is announced with "people leave blank".
+.hhf-ht {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}

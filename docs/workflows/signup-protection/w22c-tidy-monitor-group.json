@@ -1,0 +1,146 @@
+{
+  "name": "HHF · W22c Tidy monitor group",
+  "nodes": [
+    {
+      "id": "f6af374d-7b33-4990-9471-e306f4668759",
+      "type": "trigger:schedule",
+      "typeVersion": "1.0",
+      "name": "Schedule",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "daysInterval": 1,
+              "hoursInterval": 1,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 540.3333333333334,
+        "y": 473.8333333333334
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "0d9b10ee-8bfa-4cd4-8ed7-110c2c64fcc7",
+      "type": "trigger:manual",
+      "typeVersion": "1.0",
+      "name": "Manual trigger",
+      "parameters": {},
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 542.6666666666667,
+        "y": 371.5
+      }
+    },
+    {
+      "id": "12e6af80-b6e8-4dae-a624-18d1c5632d99",
+      "type": "action:group",
+      "typeVersion": "1.0",
+      "name": "Remove suspended users",
+      "parameters": {
+        "group_id": "={{ $vars.monitor_group_id }}",
+        "username": "={{ $json.username }}",
+        "operation": "remove",
+        "actor_username": "system"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 873.8333333333333,
+        "y": 475.3333333333333
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "92f4759a-aee7-4d77-9234-601b8110afb7",
+      "type": "action:sql",
+      "typeVersion": "1.0",
+      "name": "Get suspended members",
+      "parameters": {
+        "query": "SELECT\n  users.username\nFROM\n  group_users\n  INNER JOIN users ON group_users.user_id = users.id\nWHERE\n  group_users.group_id = :monitor_group_id\n  AND users.suspended_at IS NOT null\n  -- Exclude temporarily suspended users.\n  AND users.suspended_till > CURRENT_TIMESTAMP + 'P500Y'\n",
+        "params": {
+          "values": [
+            {
+              "name": "monitor_group_id",
+              "value": "={{ $vars.monitor_group_id }}"
+            }
+          ]
+        },
+        "operation": "raw"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 637.0833333333334,
+        "y": 475.3333333333334
+      },
+      "notes": "",
+      "notesInFlow": false,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "cbffa00b-bb2c-43f3-a033-c9e7f8eb1d0a",
+      "type": "flow:sticky_note",
+      "typeVersion": "1.0",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "This workflow removes permanently suspended accounts from the \"monitor\" user group.\n\nThis is done in order to limit the group members to those who need to be actively monitored.\n\n---\n\nSPDX-License-Identifier: [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)",
+        "width": 423.1189367520124,
+        "height": 118.6330449777216,
+        "color": "blue"
+      },
+      "credentials": {},
+      "webhookId": null,
+      "position": {
+        "x": 569.6767255656307,
+        "y": 222.2503228764628
+      }
+    }
+  ],
+  "connections": {
+    "Schedule": {
+      "main": [
+        [
+          {
+            "node": "Get suspended members",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual trigger": {
+      "main": [
+        [
+          {
+            "node": "Get suspended members",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get suspended members": {
+      "main": [
+        [
+          {
+            "node": "Remove suspended users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
