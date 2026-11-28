@@ -101,7 +101,7 @@
     "bigbluebutton/bigbluebutton": "v4.0.4",
     "bigcapitalhq/bigcapital": "v0.25.49",
     "binwiederhier/ntfy": "v2.38.3",
-    "biolend83/tubehaus": "v2.0.2",
+    "biolend83/tubehaus": "app-v2.1.0",
     "birdnet-team/birdnet-analyzer": "v2.4.0",
     "bitmagnet-io/bitmagnet": "v0.10.0",
     "bitwarden/server": "v2026.11.1",
@@ -218,7 +218,7 @@
     "daya0576/beaverhabits": "v0.10.1",
     "dbgate/dbgate": "v7.3.6",
     "ddclient/ddclient": "v4.0.0",
-    "dedicatedcode/reitti": "v5.12.2",
+    "dedicatedcode/reitti": "v5.13.0",
     "deeztek/hermes-secure-email-gateway": "v261123",
     "defguard/defguard": "v2.2.1",
     "degoog-org/degoog": "1.2.0",
@@ -233,7 +233,7 @@
     "diskoverdata/diskover-community": "v2.3.5",
     "dispatcharr/dispatcharr": "v0.34.1",
     "dittofeed/dittofeed": "v0.23.0",
-    "diygod/rsshub": "v2026.11.26-8765.g256d4ff",
+    "diygod/rsshub": "v2026.11.28-8771.g6973206",
     "diyhue/diyhue": "2022.8",
     "dkorecko/ticky": "v1.15.3",
     "dockpeek/dockpeek": "v1.7.3",
@@ -351,7 +351,7 @@
     "getfider/fider": "v0.41.0",
     "gethomepage/homepage": "v2.8.0",
     "getmaxun/maxun": "v0.1.1",
-    "getsentry/sentry": "api@3.2.0",
+    "getsentry/sentry": "api@3.5.0",
     "getumbrel/umbrel": "2.0.1",
     "getwud/wud": "9.9.0",
     "ghjj123/brainrotguard": "v1.33.0",
@@ -533,7 +533,7 @@
     "leomoon-studios/wiki-go": "v1.9.7",
     "leonmuscoden/letterfeed": "0.5.3",
     "lessify/localess": "v4.1.0",
-    "letsrevel/revel-backend": "v3.1.1",
+    "letsrevel/revel-backend": "v3.2.1",
     "libredb/libredb-studio": "1.3.0",
     "librephotos/librephotos": "1.6.0",
     "librespeed/speedtest": "v6.3.1",
@@ -640,7 +640,7 @@
     "mozzo1000/booklogr": "v1.12.0",
     "mr-karan/logchef": "v2.8.3",
     "mrjackwills/oxker": "v0.13.4",
-    "msgbyte/tianji": "v1.34.6",
+    "msgbyte/tianji": "v1.34.8",
     "mudler/localai": "v5.0.1",
     "muety/anchr": "3.5.2",
     "muety/wakapi": "2.18.2",
@@ -670,7 +670,7 @@
     "nextcloud/tables": "v2.5.0",
     "nextcloud/tasks": "v0.18.1",
     "nezhahq/nezha": "v2.8.0",
-    "nezreka/soulsync": "3.6.9",
+    "nezreka/soulsync": "3.7.0",
     "nicolargo/glances": "v4.5.9",
     "nicotsx/zerobyte": "v0.44.2",
     "nilsteampassnet/teampass": "3.2.4.6",
@@ -811,7 +811,7 @@
     "reactive-resume/reactive-resume": "android-354",
     "reaparr/reaparr": "v0.40.0",
     "receipt-wrangler/receipt-wrangler": "v7.3.0",
-    "recyclarr/recyclarr": "v8.8.1",
+    "recyclarr/recyclarr": "v9.0.0",
     "redimp/otterwiki": "v2.27.0",
     "redlib-org/redlib": "v0.40.0",
     "relaticle/relaticle": "v3.14.0",
@@ -833,7 +833,7 @@
     "roundcube/roundcubemail": "1.7.7",
     "rss-bridge/rss-bridge": "2025-08-05",
     "rundeck/rundeck": "v6.3.0",
-    "runs-on/runs-on": "v3.6.2",
+    "runs-on/runs-on": "v3.7.0",
     "runtipi/runtipi": "v4.12.0",
     "rustfs/rustfs": "1.0.7",
     "rustmailer/bichon": "2.4.4",
@@ -861,7 +861,7 @@
     "seaweedfs/seaweedfs": "4.55",
     "sebadob/rauthy": "v0.37.2",
     "secrover/secrover": "0.13.0",
-    "securo-finance/securo": "v0.22.0",
+    "securo-finance/securo": "v0.23.0",
     "seerr-team/seerr": "v3.5.2",
     "semaphoreio/semaphore": "v1.6.0",
     "semaphoreui/semaphore": "v2.20.23",
@@ -870,7 +870,7 @@
     "seriousm4x/upsnap": "5.7.3",
     "sethcottle/littlelink": "v3.11.0",
     "shaarli/shaarli": "v0.16.11",
-    "sharkord/sharkord": "v0.0.32",
+    "sharkord/sharkord": "v0.0.33",
     "shellhub-io/shellhub": "v0.32.0",
     "shlinkio/shlink": "v5.1.9",
     "signoz/signoz": "v0.152.0",
@@ -906,7 +906,7 @@
     "stalwartlabs/stalwart": "v1.2.1",
     "standardnotes/app": "@standardnotes/desktop@3.203.0",
     "stashapp/stash": "v0.32.0",
-    "statamic/cms": "v6.44.0",
+    "statamic/cms": "v6.44.1",
     "statping-ng/statping-ng": "v0.93.0",
     "steam-headless/docker-steam-headless": "0.2.0",
     "stefanpejcic/openpanel": "2.0.32",
@@ -936,10 +936,10 @@
     "tale/headplane": "v0.8.2",
     "tandoorrecipes/recipes": "2.7.8",
     "tarampampam/webhook-tester": "v2.3.0",
-    "tasmoadmin/tasmoadmin": "v5.1.0",
+    "tasmoadmin/tasmoadmin": "v5.1.1",
     "tautulli/tautulli": "v2.19.1",
     "tchapi/davis": "v5.6.3",
-    "teableio/teable": "release.2026-11-24T05-06-24Z.4043",
+    "teableio/teable": "release.2026-11-26T23-38-15Z.4093",
     "tech-kev/sharedmoments": "v2.0.3",
     "technitiumsoftware/dnsserver": "v15.6.2",
     "technomancer702/nodecast-tv": "v2.2.8",
@@ -948,7 +948,7 @@
     "teelur/budget-board": "v3.9.2",
     "terdia/mqttui": "v2.0.2",
     "termix-ssh/termix": "v26.11.3",
-    "terry90/soulbeet": "v1.0.0-alpha-0",
+    "terry90/soulbeet": "v1.0.0-alpha-2",
     "teslamate-org/teslamate": "v4.5.0",
     "tess1o/geopulse": "v2.4.0",
     "th0th/poeticmetric": "v2.0.0-beta.8",
@@ -992,9 +992,9 @@
     "tryghost/ghost": "v6.79.0",
     "ttlequals0/minuspod": "v2.102.23",
     "tubearchivist/tubearchivist": "v0.6.0",
-    "twentyhq/twenty": "twenty/v2.63.0",
+    "twentyhq/twenty": "twenty/v2.65.0",
     "twin/gatus": "v5.38.0",
-    "tymeslot/tymeslot": "v1.50.0",
+    "tymeslot/tymeslot": "v1.51.0",
     "typemill/typemill": "v2.28.3",
     "typetype-video/typetype": "v1.20.0",
     "tzahi12345/youtubedl-material": "v4.3.2",
@@ -1025,13 +1025,13 @@
     "we-promise/sure": "v0.7.6-hotfix.2",
     "webdecoy/fcaptcha": "v1.53.0",
     "weblateorg/weblate": "weblate-2026.11.2",
-    "webmin/webmin": "2.670",
-    "wekan/wekan": "v13.35",
+    "webmin/webmin": "2.680",
+    "wekan/wekan": "v13.36",
     "wg-easy/wg-easy": "v15.5.0",
     "wgdashboard/wgdashboard": "v4.3.4",
     "wger-project/wger": "2.7",
     "will-be-done/will-be-done": "v0.15.0",
-    "windmill-labs/windmill": "v1.886.0",
+    "windmill-labs/windmill": "v1.887.0",
     "windshiftapp/core": "v0.9.6",
     "wiredoor/wiredoor": "v1.8.1",
     "wizarrrr/wizarr": "v2026.10.1",
@@ -1041,7 +1041,7 @@
     "wow-signal-dev/metadata-remote": "v1.2.0",
     "writefreely/writefreely": "v0.17.3",
     "xdpirate/calorific": "353eb41",
-    "xibosignage/xibo": "v2026.11.0",
+    "xibosignage/xibo": "v2026.11.1",
     "xpipe-io/xpipe": "24.13",
     "xwiki/xwiki-platform": "xwiki-platform-18.10.0-rc-1",
     "yamlresume/yamlresume": "v0.18.1",
@@ -1055,7 +1055,7 @@
     "zane-ops/zane-ops": "v1.15.2",
     "zavy86/wikidocs": "2.0.6",
     "zennotes/zennotes": "v2.93.0",
-    "zensical/zensical": "v0.1.3",
+    "zensical/zensical": "v0.1.4",
     "zhfahim/anchor": "v0.18.1",
     "zibbp/ganymede": "v5.0.3",
     "zimengxiong/excalidash": "v0.7.0",
@@ -1067,8 +1067,7 @@
     "zwave-js/zwave-js-ui": "v11.27.0"
   },
   "polling": {
-    "next": "rackulalives/rackula",
-    "pending": true
+    "pending": false
   },
   "tracking": {
     "0pandadev/ziit": {
@@ -10820,7 +10819,9 @@
         "420747333",
         "420695297",
         "420379907",
-        "420363559"
+        "420363559",
+        "460434967",
+        "460451755"
       ]
     },
     "birdnet-team/birdnet-analyzer": {
@@ -25899,7 +25900,8 @@
         "223639055",
         "223480794",
         "223347296",
-        "223267115"
+        "223267115",
+        "460757857"
       ]
     },
     "deeztek/hermes-secure-email-gateway": {
@@ -27504,7 +27506,13 @@
         "408207336",
         "408181591",
         "407581447",
-        "408265734"
+        "408265734",
+        "460124655",
+        "460185001",
+        "460237419",
+        "460482906",
+        "460528322",
+        "461219402"
       ]
     },
     "diyhue/diyhue": {
@@ -42572,7 +42580,11 @@
         "2421786",
         "2397429",
         "1598371",
-        "459862115"
+        "459862115",
+        "460543340",
+        "460933276",
+        "461035227",
+        "461153008"
       ]
     },
     "getumbrel/umbrel": {
@@ -63580,7 +63592,10 @@
         "241219863",
         "241198479",
         "240860786",
-        "238996448"
+        "238996448",
+        "460365210",
+        "460641721",
+        "460710980"
       ]
     },
     "librechat-ai/librechat": {
@@ -75599,7 +75614,9 @@
         "128458122",
         "127978373",
         "127398761",
-        "127333761"
+        "127333761",
+        "460754862",
+        "461114494"
       ]
     },
     "mudler/localai": {
@@ -80154,7 +80171,8 @@
         "273519509",
         "263731697",
         "246650187",
-        "241669624"
+        "241669624",
+        "460238153"
       ]
     },
     "nicolargo/glances": {
@@ -99636,7 +99654,8 @@
         "41685072",
         "41615404",
         "41520572",
-        "41248039"
+        "41248039",
+        "461150602"
       ]
     },
     "redimp/otterwiki": {
@@ -102139,7 +102158,8 @@
         "138648220",
         "138648123",
         "137714229",
-        "134332983"
+        "134332983",
+        "460316508"
       ]
     },
     "runtipi/runtipi": {
@@ -103952,7 +103972,8 @@
         "296279124",
         "295429941",
         "295427879",
-        "295420261"
+        "295420261",
+        "460664750"
       ]
     },
     "seerr-team/seerr": {
@@ -104571,7 +104592,8 @@
         "286611106",
         "286219871",
         "285400834",
-        "284525115"
+        "284525115",
+        "460932950"
       ]
     },
     "shellhub-io/shellhub": {
@@ -108419,7 +108441,8 @@
         "30611991",
         "30262165",
         "30156349",
-        "29882751"
+        "29882751",
+        "461047998"
       ]
     },
     "statping-ng/statping-ng": {
@@ -111435,7 +111458,8 @@
         "11256866",
         "11196833",
         "11196661",
-        "459935922"
+        "459935922",
+        "461100795"
       ]
     },
     "tautulli/tautulli": {
@@ -111865,7 +111889,8 @@
         "166829720",
         "163113382",
         "150382737",
-        "147403187"
+        "147403187",
+        "460252936"
       ]
     },
     "teampiped/piped": {
@@ -112219,7 +112244,9 @@
         "357633089",
         "339171451",
         "302104618",
-        "301579038"
+        "301579038",
+        "460484123",
+        "461095272"
       ]
     },
     "teslamate-org/teslamate": {
@@ -117285,7 +117312,11 @@
         "120086254",
         "115383306",
         "112277189",
-        "109622947"
+        "109622947",
+        "460681646",
+        "460678646",
+        "460786551",
+        "460790285"
       ]
     },
     "twin/gatus": {
@@ -117571,7 +117602,8 @@
         "295573835",
         "295573831",
         "319362948",
-        "295573826"
+        "295573826",
+        "461025690"
       ]
     },
     "typemill/typemill": {
@@ -121659,7 +121691,8 @@
         "817856",
         "726470",
         "591458",
-        "485200"
+        "485200",
+        "461194458"
       ]
     },
     "wekan/wekan": {
@@ -122658,7 +122691,8 @@
         "2355936",
         "2324476",
         "1795377",
-        "460070529"
+        "460070529",
+        "460955633"
       ]
     },
     "wg-easy/wg-easy": {
@@ -124383,7 +124417,8 @@
         "67109015",
         "66877115",
         "66509069",
-        "66470090"
+        "66470090",
+        "460789819"
       ]
     },
     "windshiftapp/core": {
@@ -125151,7 +125186,8 @@
     },
     "xibosignage/xibo": {
       "seen": [
-        "458252593"
+        "458252593",
+        "460591551"
       ]
     },
     "xpipe-io/xpipe": {
@@ -126387,7 +126423,8 @@
         "261509515",
         "260735155",
         "260257967",
-        "259817618"
+        "259817618",
+        "460963302"
       ]
     },
     "zhfahim/anchor": {
